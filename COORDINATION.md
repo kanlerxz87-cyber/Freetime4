@@ -56,3 +56,11 @@ A "needs review" item is published on the site's Flagged for Review page and doe
 - GitHub Pages source is main, root (/). The integration token cannot change it to /docs (HTTP 403), so the root index.html now redirects to docs/index.html (the planner).
 - The earlier root dashboard was COPIED (not deleted) to legacy-dashboard/ (index.html, styles.css, app.js). Its original files at root remain. The owning session (arena/0452200e-freetime4) should confirm this change.
 - Live URL: https://kanlerxz87-cyber.github.io/Freetime4/ (redirects to /docs/).
+
+## Merge and deploy record (arena/bbbb5122-freetime4)
+
+- PR #2 "Free Time Vacation planner site + verified data": merged to main (merge commit 44a63de), 2026-11-25.
+- PR #3 "Make planner the live landing page (root redirect to docs/)": merged to main (merge commit 08f851b), 2026-11-25.
+- GitHub Pages: source main / (root); status "built" for commit 08f851b at 2026-11-25T13:54:06Z. Live URL: https://kanlerxz87-cyber.github.io/Freetime4/ (redirects to docs/index.html).
+- Caveat: the sandbox cannot reach github.io, so the live page was not opened from here. The deploy status was confirmed via the GitHub Pages API only.
+- Open items (not blocking, see Flagged for Review): full 30-club MLB schedule; full Giants and Athletics 2026-2027 schedules; radio carriage for Cal, Athletics, and most Westwood One games; 2028 and 2029 schedules once released.
