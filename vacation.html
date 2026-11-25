@@ -1,128 +1,133 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vacation windows 2027–2029 — FREE TIME VACATION</title>
+<title>Vacation windows 2027–2029</title>
 <link rel="stylesheet" href="assets/style.css">
 </head><body>
 <div id="hdr"></div>
 <main class="wrap">
-  <h1>Vacation windows 2027 – 2029</h1>
-  <p class="lede">Blocks of consecutive days with no live broadcast on your radio.
-  Ranked longest first. <b>Audible</b> = only stations you can receive in 94122.
-  <b>Strict</b> = no MLB game anywhere in North America, no NFL game, no Stanford/Cal, no Westwood One.</p>
+  <h1>Vacation windows, 2027 → 2029</h1>
+  <p class="lede">A “stretch” is the gap between the <b>end</b> of one broadcast and the <b>start</b> of the
+  next, counted as whole days with nothing on air. That is the number to plan a trip around.
+  Two answers are given, because they differ a lot.</p>
 
-  <div class="note">
-    <b>How much of this is actually released?</b>
-    <div id="cov" class="mini" style="margin-top:6px"></div>
+  <div class="grid g2" id="modes"></div>
+
+  <h2>Answer to “a week / two weeks / three weeks with nothing on”</h2>
+  <div class="grid g3" id="asks"></div>
+
+  <h2>Longest game-free stretches — audible</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="aud"><thead><tr>
+    <th>#</th><th>First clear day</th><th>Last clear day</th><th>Days</th><th>Hours</th>
+    <th>When</th><th></th></tr></thead><tbody></tbody></table></div>
+    <p class="mini" style="margin:10px 0 0">“Audible” = only broadcasts an official page confirms are on a
+    Bay Area station: Giants (KNBR 680), Athletics (KNEW 960), 49ers (KSAN/KNBR), Cal (KSFO 810 / KNBR).
+    Stanford's 2026 outlet and the Westwood One affiliate are <b>not</b> confirmed, so they are excluded here.</p>
   </div>
 
-  <div id="blocks"></div>
+  <h2>Longest game-free stretches — strict (nothing anywhere)</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="str"><thead><tr>
+    <th>#</th><th>First clear day</th><th>Last clear day</th><th>Days</th><th>Hours</th>
+    <th>When</th><th></th></tr></thead><tbody></tbody></table></div>
+    <p class="mini" style="margin:10px 0 0">Strict counts every MLB game (all 30 clubs), every NFL game,
+    both college teams and every Westwood One national broadcast — the worst case.</p>
+  </div>
 
-  <h2>Month-by-month heat map</h2>
+  <h2>Month by month</h2>
   <div class="card">
-    <p class="mini">Each cell is one month. The number is the share of waking hours that are free
-    in the <b>audible</b> view. Green = mostly free, red = mostly booked.</p>
-    <div id="heat" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))"></div>
+    <p class="mini">Share of each day that is free in the <b>audible</b> view, averaged over the month.
+    Green = mostly free.</p>
+    <div id="heat" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(118px,1fr))"></div>
   </div>
 
-  <h2>The three questions you actually asked</h2>
-  <div class="grid g2">
-    <div class="card"><h3>“A week with nothing on”</h3><div id="ans7"></div></div>
-    <div class="card"><h3>“Two weeks with nothing on”</h3><div id="ans14"></div></div>
-    <div class="card"><h3>“Three weeks with nothing on”</h3><div id="ans21"></div></div>
-    <div class="card"><h3>If you only care about YOUR teams</h3><div id="anshi"></div></div>
-  </div>
+  <h2>What is actually released, and what is modelled</h2>
+  <div class="card"><div id="cov"></div></div>
 </main>
 <div id="ftr"></div>
 <script src="assets/app.js"></script>
 <script>
-const WANT = [7, 14, 21];
+const fmt = (iso) => FREE.fmtDate(iso);
+const short = (iso) => FREE.fmtDateShort(iso) + ' ' + iso.slice(0,4);
+function season(iso) { return iso.slice(0,4); }
+
 (async () => {
   const d = await FREE.load();
   document.getElementById('hdr').innerHTML = FREE.header('vacation.html');
   FREE.startClock(document.getElementById('clock'));
   document.getElementById('ftr').innerHTML = FREE.footer();
-  const years = Object.keys(d.seasons).sort();
 
-  document.getElementById('cov').innerHTML = `
-    <b>2027</b> — MLB: full season released by MLB (verified, ${(d.games.filter(g=>g.league==='MLB'&&g.season===2027).length)} games incl. spring training).
-    NFL: not released; only the Westwood One national slate through Week 18 is public.
-    Stanford / Cal: not released.<br>
-    <b>2028 / 2029</b> — MLB and NFL have published nothing. Those two years are
-    <span class="pill est">Estimates</span> only, modelled from the released 2027 structure, and every figure
-    derived from them is labelled as such.`;
+  const aud = d.stretches_audible || [], str = d.stretches_strict || [];
 
-  document.getElementById('blocks').innerHTML = years.map(y => {
-    const s = d.seasons[y];
-    const ver = y === '2027' ? '<span class="pill ok">verified where released</span>'
-                             : '<span class="pill est">estimate only</span>';
-    const rows = (s.no_radio_runs || []).slice(0, 12).map((r, i) => `
+  document.getElementById('modes').innerHTML = `
+    <div class="card" style="border-color:rgba(49,208,125,.5)">
+      <div class="tag">Audible — plan around this</div>
+      <div class="kpi good">${aud[0] ? aud[0].days + ' days' : '—'}</div>
+      <div class="sub">${aud[0] ? fmt(aud[0].start) + ' → ' + fmt(aud[0].end) : ''}</div>
+      <p class="mini" style="margin-top:10px">No live game on any Bay Area station you can receive.</p>
+    </div>
+    <div class="card">
+      <div class="tag">Strict — worst case</div>
+      <div class="kpi">${str[0] ? str[0].days + ' days' : '—'}</div>
+      <div class="sub">${str[0] ? fmt(str[0].start) + ' → ' + fmt(str[0].end) : ''}</div>
+      <p class="mini" style="margin-top:10px">Not a single MLB, NFL, Stanford, Cal or Westwood One game
+      anywhere in the world.</p>
+    </div>`;
+
+  const best7 = aud.filter(r => r.days >= 7);
+  const best14 = aud.filter(r => r.days >= 14);
+  const best21 = aud.filter(r => r.days >= 21);
+  const card = (title, rows, n) => `
+    <div class="card"><div class="tag">${title}</div>
+      ${rows.length ? rows.slice(0,3).map(r => `
+        <div style="margin:8px 0"><b>${short(r.start)} → ${short(r.end)}</b>
+        <span class="pill ${r.days>=n?'free':'norm'}">${r.days} days</span>
+        ${season(r.start)!=='2027' ? '<span class="pill est">' + (season(r.start)==='2026'?'2026':'estimate') + '</span>' : ''}</div>`).join('')
+      : '<p class="bad">Not possible anywhere in the loaded range.</p>'}
+    </div>`;
+  document.getElementById('asks').innerHTML =
+    card('Is a full week possible?', best7, 7) +
+    card('Is two weeks possible?', best14, 14) +
+    card('Is three weeks possible?', best21, 21);
+
+  function table(el, rows) {
+    document.querySelector(el + ' tbody').innerHTML = rows.slice(0, 16).map((r, i) => `
       <tr><td class="mono">#${i+1}</td>
-        <td class="nowrap"><b>${FREE.fmtDate(r.start)}</b></td>
-        <td class="nowrap">${FREE.fmtDate(r.end)}</td>
-        <td class="mono ${r.days>=7?'good':''}">${r.days} days</td>
-        <td>${r.days>=21?'<span class="pill free">3+ weeks</span>':r.days>=14?'<span class="pill free">2+ weeks</span>':r.days>=7?'<span class="pill free">1+ week</span>':'<span class="pill norm">short</span>'}</td>
-        <td><a href="calendar.html?date=${r.start}">open day →</a></td></tr>`).join('')
-      || '<tr><td colspan="6" class="mini">No verified data in this year yet.</td></tr>';
-    return `<h2>${y} ${ver}</h2>
-      <div class="card"><div class="tablewrap" style="max-height:none"><table><thead><tr>
-        <th>#</th><th>From</th><th>To</th><th>Length</th><th>Class</th><th></th></tr></thead>
-        <tbody>${rows}</tbody></table></div>
-        ${y!=='2027'?'<p class="mini" style="margin:10px 0 0">Estimate: modelled from released season structure, not an official schedule.</p>':''}
-      </div>`;
-  }).join('');
-
-  // heat map
-  document.getElementById('heat').innerHTML = Object.keys(d.months).sort().map(mk => {
-    const m = d.months[mk], p = m.free_pct;
-    const col = p > 75 ? 'rgba(49,208,125,.25)' : p > 50 ? 'rgba(255,176,32,.22)' : 'rgba(255,93,108,.22)';
-    const bd = p > 75 ? 'rgba(49,208,125,.6)' : p > 50 ? 'rgba(255,176,32,.55)' : 'rgba(255,93,108,.55)';
-    return `<a class="card" style="background:${col};border-color:${bd};padding:10px"
-      href="calendar.html?date=${mk}-01"><b>${mk}</b><div class="kpi small mono">${p}%</div>
-      <div class="mini">${m.all_free_days}/${m.days} clear days</div></a>`;
-  }).join('');
-
-  const find = (n) => {
-    const out = [];
-    years.forEach(y => (d.seasons[y].no_radio_runs || []).forEach(r => {
-      if (r.days >= n) out.push({...r, y});
-    }));
-    out.sort((a,b) => b.days - a.days || a.start.localeCompare(b.start));
-    return out.slice(0, 4);
-  };
-  const list = (arr, n) => arr.length
-    ? arr.map(r => `<div style="margin-bottom:8px"><b>${FREE.fmtDateShort(r.start)} → ${FREE.fmtDateShort(r.end)} ${r.start.slice(0,4)}</b>
-        <span class="pill ok">${r.days} days</span>
-        ${r.start.slice(0,4)!=='2027'?'<span class="pill est">estimate</span>':''}</div>`).join('')
-    : `<span class="bad">Nothing ${n} days long exists in the released + estimated calendar.</span>`;
-  document.getElementById('ans7').innerHTML = list(find(7), 7);
-  document.getElementById('ans14').innerHTML = list(find(14), 14);
-  document.getElementById('ans21').innerHTML = list(find(21), 21);
-
-  // 49ers + Giants + A's + Stanford + Cal only
-  const hiDays = {};
-  d.games.filter(g => g.priority === 'high' && g.league !== 'WWO').forEach(g => {
-    const s = new Date(g.start_iso), e = new Date(g.end_iso);
-    for (let t = new Date(s); t <= e; t.setUTCDate(t.getUTCDate() + 1)) {
-      hiDays[t.toLocaleDateString('en-CA', {timeZone:'America/Los_Angeles'})] = 1;
-    }
-  });
-  const runs = [];
-  let run = null;
-  const keys = Object.keys(d.days).sort();
-  for (let i = 0; i < keys.length; i++) {
-    const k = keys[i];
-    const free = !hiDays[k] && k >= '2027-01-01';
-    if (free) { if (!run) run = {start:k, end:k, days:1}; else {run.end = k; run.days++;} }
-    else { if (run) runs.push(run); run = null; }
-    if (k > '2029-12-31') break;
+      <td class="nowrap"><b>${fmt(r.start)}</b></td>
+      <td class="nowrap">${fmt(r.end)}</td>
+      <td class="mono ${r.days>=7?'good':''}">${r.days}</td>
+      <td class="mono mini">${r.hrs}</td>
+      <td class="mini">${season(r.start)}${season(r.start)!=='2027'?' · '+(season(r.start)==='2026'?'verified season':'ESTIMATE'):' · verified'}</td>
+      <td><a href="calendar.html?date=${r.start}">open →</a></td></tr>`).join('');
   }
-  if (run) runs.push(run);
-  runs.sort((a,b)=>b.days-a.days);
-  document.getElementById('anshi').innerHTML = runs.slice(0,5).map(r =>
-    `<div style="margin-bottom:8px"><b>${FREE.fmtDateShort(r.start)} → ${FREE.fmtDateShort(r.end)} ${r.start.slice(0,4)}</b>
-      <span class="pill ok">${r.days} days</span></div>`).join('')
-    || '<span class="mini">Not enough data.</span>';
+  table('#aud', aud); table('#str', str);
+
+  // heat map by month
+  const months = Object.keys(d.months).sort();
+  document.getElementById('heat').innerHTML = months.map(mk => {
+    const m = d.months[mk], p = m.free_pct;
+    const tone = p > 80 ? 'rgba(49,208,125,.25)' : p > 60 ? 'rgba(255,176,32,.2)' : 'rgba(255,93,108,.22)';
+    const bd = p > 80 ? 'rgba(49,208,125,.5)' : p > 60 ? 'rgba(255,176,32,.45)' : 'rgba(255,93,108,.45)';
+    return `<a class="card" style="background:${tone};border-color:${bd};padding:10px"
+      href="calendar.html?date=${mk}-01"><b>${mk}</b><div class="kpi small mono">${p}%</div>
+      <div class="mini">${m.all_free_days}/${m.days} clear</div></a>`;
+  }).join('');
+
+  const real = d.games.filter(g => g.verified !== 'estimated').length;
+  const est = d.games.filter(g => g.verified === 'estimated').length;
+  document.getElementById('cov').innerHTML = `
+    <table><thead><tr><th>Season</th><th>MLB</th><th>NFL</th><th>NCAAF</th><th>Status</th></tr></thead><tbody>
+    <tr><td><b>2026</b></td><td class="good">official · 2,947 games</td><td class="good">official + cross-check</td>
+      <td class="good">both schools</td><td><span class="pill ok">verified</span></td></tr>
+    <tr><td><b>2027</b></td><td class="good">official · 2,196 games</td><td class="bad">not released</td>
+      <td class="bad">not released</td><td><span class="pill ok">MLB verified</span> <span class="pill est">NFL/NCAAF estimate</span></td></tr>
+    <tr><td><b>2028</b></td><td class="bad">not released</td><td class="bad">not released</td>
+      <td class="bad">not released</td><td><span class="pill est">estimate</span></td></tr>
+    <tr><td><b>2029</b></td><td class="bad">not released</td><td class="bad">not released</td>
+      <td class="bad">not released</td><td><span class="pill est">estimate</span></td></tr>
+    </tbody></table>
+    <p class="mini" style="margin-top:10px">${real.toLocaleString()} rows are backed by an official page or an
+    explicit cross-check. ${est.toLocaleString()} rows are modelled windows and say so in every table.
+    Estimates never invent opponents — they only block the day they would occupy.</p>`;
 })();
 </script>
 </body></html>

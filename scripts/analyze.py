@@ -28,19 +28,27 @@ def parse(g):
     s = dt.datetime.fromisoformat(g['start_iso'])
     return s, s + dt.timedelta(minutes=g['dur'])
 
-def is_audible(g, mode):
-    """A game only blocks the AUDIBLE calendar if an official page confirms it is
-    carried by a Bay Area station. Whole-league windows (all MLB, all NFL) are not
-    confirmed, so they block the STRICT calendar only."""
+def is_audible(g):
+    """Is this broadcast confirmed to be on a Bay Area station?
+
+    Evidence used (all from official pages):
+      * MLB Giants              -> KNBR 680            (mlb.com/giants/team/broadcasters)
+      * MLB Athletics           -> KNEW 960 Bay Area   (club's iHeartRadio release)
+      * NFL 49ers               -> KSAN 107.7 / KNBR 104.5 / 680 (49ers.com game cards)
+      * NCAAF Cal                -> KSFO 810 / KNBR     (calbears.com game cards)
+      * NCAAF Stanford          -> NOT CONFIRMED for 2026 -> excluded
+      * Westwood One national   -> affiliate NOT confirmed -> excluded
+      * estimated seasons       -> excluded
+    """
     if g.get('estimated_window'):
-        return False                     # modelled slate: never treated as audible
-    if g['league'] == 'WWO':
-        return False                     # national feed, local affiliate unconfirmed
-    if g['verified'] == 'unreleased':
         return False
-    # local clubs only: Giants (KNBR), Athletics (KNEW 960), 49ers (KSAN/KNBR),
-    # Stanford (KNBR), Cal (KSFO 810 / KNBR) -- all confirmed from official pages
-    return g['league'] in ('MLB', 'NFL', 'NCAAF') and bool(g.get('high_side'))
+    if g['league'] == 'MLB':
+        return g.get('high_side') in ('San Francisco Giants', 'Athletics')
+    if g['league'] == 'NFL':
+        return 'San Francisco 49ers' in (g.get('away') or '', g.get('home') or '')
+    if g['league'] == 'NCAAF':
+        return g.get('high_side') == 'California'
+    return False
 
 def windows_for_day(day_start, day_end, intervals):
     """Return (free_windows, busy_windows) clipped to the day."""
@@ -92,7 +100,7 @@ def main():
         strict = [(s, e) for s, e, g in items]
         free_s, busy_s = windows_for_day(start, end, strict)
         # audible mode: only what you can hear on a Bay Area radio
-        audible = [(s, e) for s, e, g in items if is_audible(g, 'audible')]
+        audible = [(s, e) for s, e, g in items if is_audible(g)]
         free_a, busy_a = windows_for_day(start, end, audible)
         days[ds] = {
             'date': ds,
@@ -207,6 +215,37 @@ def main():
         if s['first'] is None or g['date'] < s['first']: s['first'] = g['date']
         if s['last'] is None or g['date'] > s['last']: s['last'] = g['date']
 
+    # ---------------------------------------------------------------- game-free stretches
+    # Truthful "nothing on" view: the gap between the END of one broadcast and the
+    # START of the next, measured in whole days with no broadcast overlapping them.
+    def stretches(pred, lo, hi):
+        rows = [(dt.datetime.fromisoformat(x['start_iso']), dt.datetime.fromisoformat(x['end_iso']))
+                for x in games if pred(x)]
+        iv = sorted(rows)
+        merged2 = []
+        for s, e in iv:
+            if merged2 and s <= merged2[-1][1]:
+                merged2[-1][1] = max(merged2[-1][1], e)
+            else:
+                merged2.append([s, e])
+        out = []
+        for i in range(len(merged2) - 1):
+            a = merged2[i][1].astimezone(PT)
+            b = merged2[i + 1][0].astimezone(PT)
+            # first whole untouched day and last whole untouched day
+            first = (a.date() + dt.timedelta(days=1)) if a.time() != dt.time(0, 0) else a.date()
+            last = (b.date() - dt.timedelta(days=1)) if b.time() != dt.time(0, 0) else b.date()
+            days = (last - first).days + 1
+            if days >= 4 and last >= lo and first <= hi:
+                out.append({'start': max(first, lo).isoformat(), 'end': min(last, hi).isoformat(),
+                            'days': days, 'hrs': round((b - a).total_seconds() / 3600, 1)})
+        out.sort(key=lambda r: (-r['days'], r['start']))
+        return out
+
+    lo_y, hi_y = dt.date(2026, 1, 1), dt.date(2030, 12, 31)
+    d['stretches_audible'] = stretches(is_audible, lo_y, hi_y)
+    d['stretches_strict'] = stretches(lambda g: not g.get('estimated_window'), lo_y, hi_y)
+
     combined = no_audible_runs_all(lo_all, hi_all)
     d['combined_windows'] = [{**r, 'start': r['start'].isoformat(), 'end': r['end'].isoformat()} for r in combined]
 
@@ -215,7 +254,16 @@ def main():
     d['months'] = months
     d['season_summary'] = season_summary
     d['day_range'] = [first.isoformat(), last.isoformat()]
+
+    # ---------------------------------------------------------------- compact output
+    # The pages only need these fields per game; dropping the rest keeps the
+    # published JSON small enough to load fast on a phone.
+    KEEP = ('id', 'league', 'season', 'group', 'subtype', 'start_iso', 'end_iso', 'date',
+            'away', 'home', 'label', 'venue', 'network', 'source', 'verified', 'note',
+            'priority', 'high_side', 'radio', 'dur', 'estimated_window', 'start_min')
+    d['games'] = [{k: g[k] for k in KEEP if k in g} for g in d['games']]
     json.dump(d, open(os.path.join(ROOT, 'data', 'site.json'), 'w'), separators=(',', ':'))
+    print('bytes', os.path.getsize(os.path.join(ROOT, 'data', 'site.json')))
     print('days', len(days), 'range', d['day_range'])
     for y in cfg['vacation_seasons']:
         print(y, 'all-free runs', len(seasons[y]['all_free_audible']), 'best',
