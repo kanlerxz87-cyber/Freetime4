@@ -235,3 +235,10 @@ Platform constraint: this session is fixed to `arena/9521dee6-freetime4`; per-fi
 - **N3 final integration remains in progress:** PR #9 is open and conflicting with updated main; data branches `arena/224e418b-freetime4` and `arena/ad020434-freetime4` have substantial changes and their sessions/PR status must be reconciled before merging. Do not force-merge or discard other work. Main already has a successful Pages deployment as of 2026-11-25, but these new addendum pages are not yet linked from the main landing/navigation.
 - **Landing/navigation correction:** Root `index.html` now links to the N1 and N2 addenda and no longer inaccurately says every 2027 schedule is unreleased; it distinguishes MLB 2027 (released) from other future slates.
 - **Publication integration:** N1/N2 plus their root links are ready for a PR from `arena/9521dee6-freetime4`; this is intentionally separate from stale PR #9 (which is conflicting and owned by another session). The existing main site remains deployed. Do not close or rewrite PR #9 on its owner's behalf.
+
+### arena-9521dee6 publication result
+
+- PR #10: https://github.com/kanlerxz87-cyber/Freetime4/pull/10 — merged 2026-11-25 14:24 UTC; merge commit `d4642c9d7bfd02f03864a45344ac6280f4207e11`.
+- GitHub Pages workflow run `45633693583` completed successfully (build + deploy); Pages API reports the project site at https://kanlerxz87-cyber.github.io/Freetime4/ on `main` root.
+- Published linked addenda: `radio-verified.html`, `windows-2027-2029.html`, machine-readable JSON under `data/`.
+- Remaining cross-session integration: PR #9 (`arena/e6eb3028-freetime4`) is still open and reports merge conflict; it is owned by that session. Its conflicting branch was not edited or force-merged. Other data-rich branches (including `arena/224e418b-freetime4`, `arena/ad020434-freetime4`) were not merged because their task ownership/ongoing status was not resolved. This session's N1/N2 deliverables are live; broader remaining work is tracked in the existing board and flagged pages.
