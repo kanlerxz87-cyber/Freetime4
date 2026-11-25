@@ -1,0 +1,44 @@
+{
+ "mlb_regular": {
+  "min": 158,
+  "label": "MLB regular season \u2248 2:38",
+  "verified": true,
+  "source": "https://www.lines.com/guides/how-long-is-baseball-game/1523"
+ },
+ "mlb_spring": {
+  "min": 150,
+  "label": "MLB spring training \u2248 2:30",
+  "verified": false,
+  "source": "https://www.lines.com/guides/how-long-is-baseball-game/1523"
+ },
+ "mlb_postseason": {
+  "min": 184,
+  "label": "MLB postseason \u2248 3:04",
+  "verified": false,
+  "source": "https://theblogtimer.com/guides/how-long-is-a-baseball-game"
+ },
+ "nfl": {
+  "min": 192,
+  "label": "NFL \u2248 3:12 (halftime 12 min)",
+  "verified": true,
+  "source": "https://ticketwhiz.com/blog/how-long-is-a-football-game"
+ },
+ "nfl_playoffs": {
+  "min": 198,
+  "label": "NFL playoffs \u2248 3:18",
+  "verified": false,
+  "source": "https://ticketwhiz.com/blog/how-long-is-a-football-game"
+ },
+ "nfl_superbowl": {
+  "min": 240,
+  "label": "Super Bowl \u2248 3.5\u20134 h (extended halftime)",
+  "verified": false,
+  "source": "https://ticketwhiz.com/blog/how-long-is-a-football-game"
+ },
+ "cfb": {
+  "min": 204,
+  "label": "NCAAF \u2248 3:24 (halftime 20 min)",
+  "verified": true,
+  "source": "https://ticketwhiz.com/blog/how-long-is-a-football-game"
+ }
+}

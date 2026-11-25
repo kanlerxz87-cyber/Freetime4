@@ -1,0 +1,100 @@
+{
+ "flags": [
+  {
+   "id": "F01",
+   "title": "MLB CBA expires 2026-12-01 \u2014 lockout risk for the 2027 season",
+   "detail": "MLB's released 2027 schedule is officially published but is contingent on a new CBA. Outlets report a lockout is considered imminent. If games are lost, the free-time map shifts (more free time) and rows must be re-verified after any settlement.",
+   "source": "https://sports.yahoo.com/mlb/breaking-news/article/with-lockout-imminent-rob-manfred-cant-imagine-mlb-owners-ratifying-new-cba-without-salary-cap-floor-223700548.html"
+  },
+  {
+   "id": "F02",
+   "title": "MLB 2027 postseason dates not announced",
+   "detail": "MLB's 2027 release says postseason dates are TBA. Wild Card/DS/LCS/WS rows are ESTIMATES modelled on the 2026 pattern (official API).",
+   "source": "https://www.mlb.com/news/mlb-2027-schedule-released"
+  },
+  {
+   "id": "F03",
+   "title": "MLB 2027 game start times flagged startTimeTBD in the official API",
+   "detail": "Rows with timeEstimated=true carry placeholder/estimated times until MLB confirms. Dates and matchups are official.",
+   "source": "https://www.mlb.com/schedule"
+  },
+  {
+   "id": "F04",
+   "title": "MLB 2028\u20132029 schedules not released",
+   "detail": "Official Stats API returns no games (evidence kept in data/raw/mlb_2028_*.json, mlb_2029_*.json). The site shows ESTIMATED daily slate rows over estimated season spans; no invented matchups.",
+   "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2028-03-01&endDate=2028-03-31"
+  },
+  {
+   "id": "F05",
+   "title": "NFL 2027\u20132029 schedules not released",
+   "detail": "ESPN's future-season scoreboard calls return current-season fallbacks (validated and discarded). Modelled weekly window rows (TNF/SNF/MNF/Sunday windows) are ESTIMATES. Super Bowl dates after LXI are estimates (\u2248 2nd Sunday of February).",
+   "source": "https://www.nfl.com/schedules"
+  },
+  {
+   "id": "F06",
+   "title": "NFL 2026 Weeks 13\u201318 rows cross-checked via ESPN, not read row-by-row on nfl.com",
+   "detail": "Week 12 was verified directly on nfl.com. Other remaining weeks come from the ESPN public scoreboard dump with the official nfl.com by-week page attached to every row for manual re-check. Times may shift with flex scheduling (esp. Week 18).",
+   "source": "https://www.nfl.com/schedules/2026/by-week/week-13"
+  },
+  {
+   "id": "F07",
+   "title": "Westwood One broadcast start vs kickoff time discrepancies (inherited flag)",
+   "detail": "Westwood One lists 2026-12-17 49ers at Chargers at 4:30 PM PT while 49ers.com lists 5:15 PM PST kickoff; same pattern 2027-01-03 SNF. Treated as pregame-broadcast start vs kickoff. Both values shown.",
+   "source": "https://www.westwoodonesports.com/nfl-schedule/"
+  },
+  {
+   "id": "F08",
+   "title": "Westwood One 2026\u201327 postseason national windows",
+   "detail": "Westwood One carries the NFL postseason per its national rights, but per-game listings post during the playoffs (its page currently ends at Week 18). Postseason rows are marked national windows with estimated times.",
+   "source": "https://www.westwoodonesports.com/nfl-schedule/"
+  },
+  {
+   "id": "F09",
+   "title": "Stanford 2026 rows cross-checked via ESPN (gostanford.com not machine-readable here)",
+   "detail": "gostanford.com's schedule page is behind bot protection in this sandbox. Dates/opponents cross-checked against ESPN's public scoreboard; Big Game (2026-11-21) was verified on gostanford.com by a prior session. Cal's official page WAS read this session.",
+   "source": "https://gostanford.com/sports/football/schedule/2026"
+  },
+  {
+   "id": "F10",
+   "title": "Stanford possible bowl game Dec 2026 \u2013 Jan 2027",
+   "detail": "If Stanford becomes bowl-eligible, one game will land between ~2026-12-18 and ~2027-01-13. Shown as a non-blocking 'possible' row (never counted as busy; days are marked with \u26a0).",
+   "source": "https://gostanford.com/sports/football/schedule/2026"
+  },
+  {
+   "id": "F11",
+   "title": "Cal Bears football AM/FM radio flagship unconfirmed",
+   "detail": "Cal's official page exposes live audio via The Varsity Network, but no official AM/FM flagship page was readable this session. Flagged for manual confirmation.",
+   "source": "https://calbears.com/sports/football/schedule/2026"
+  },
+  {
+   "id": "F12",
+   "title": "A's relocation affects radio and venues across the window",
+   "detail": "Athletics home games 2025\u20132027 in West Sacramento (Bay Area radio: iHeart Sports 960 AM / KNEW); Las Vegas planned from 2028 with no radio plan announced. 2028+ A's rows carry no radio claim.",
+   "source": "https://www.sacbee.com/sports/article300334119.html"
+  },
+  {
+   "id": "F13",
+   "title": "Other Bay Area radio sports are NOT in the core free-time definition",
+   "detail": "Warriors (NBA) air on 95.7 The Game and Sharks (NHL) games are heard locally; Westwood One also carries NCAA basketball (March Madness), golf and more. These overlap Feb\u2013Mar vacation windows. The brief's 'what free means' list does not include them, so the core map excludes them; if you want them counted, say so and they will be folded in. See radio.html.",
+   "source": "https://www.nba.com/warriors/news/warriors-announce-2026-27-television-radio-broadcast-schedules-20260824"
+  },
+  {
+   "id": "F14",
+   "title": "Game durations are researched averages, not per-game guarantees",
+   "detail": "MLB 158 min (2025 report), NFL 192 min, NCAAF 204 min. Postseason/Super Bowl use longer estimates. Extra innings/OT can exceed these.",
+   "source": "https://www.lines.com/guides/how-long-is-baseball-game/1523"
+  },
+  {
+   "id": "F15",
+   "title": "Interpretation choices in the vacation-window scenarios",
+   "detail": "The brief says both 'games scheduled to be played' and 'live over the radio in SF'. The site reports three scenarios (core; core minus MLB spring training; SF-radio-only) so both readings are visible. Feb\u2013Mar 2027 windows differ sharply between them.",
+   "source": "https://www.mlb.com/news/mlb-2027-schedule-released"
+  },
+  {
+   "id": "F16",
+   "title": "2027 NCAAF slates (Stanford/Cal) not released",
+   "detail": "ESPN returns empty schedules for 2027+. Saturdays Sep\u2013Nov are conservatively marked 'game likely (est.)'.",
+   "source": "https://gostanford.com/sports/football/schedule"
+  }
+ ]
+}
