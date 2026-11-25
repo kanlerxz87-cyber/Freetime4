@@ -1,0 +1,44 @@
+league,team,date_pt,time_pt,opponent,home_away,result,status,broadcast,venue,source_url,notes
+NFL,San Francisco 49ers,2026-08-13,,Tennessee Titans,Home,L 13-19,Final (preseason week 1),,Levi's Stadium,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-08-20,,Los Angeles Chargers,Away,W 41-17,Final (preseason week 2),,SoFi Stadium,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-08-27,,Las Vegas Raiders,Away,W 18-12,Final (preseason week 3),,Allegiant Stadium,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-09-10,,Los Angeles Rams,Neutral (Melbourne),W 27-7,Final (week 1),,Melbourne Cricket Ground,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-09-20,,Miami Dolphins,Home,W 35-13,Final (week 2),,Levi's Stadium,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-09-27,,Arizona Cardinals,Home,W 36-30,Final (week 3),,Levi's Stadium,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-10-04,,Denver Broncos,Home,W 24-14,Final (week 4),,Levi's Stadium,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-10-11,,Seattle Seahawks,Away,W 32-29,Final (week 5),,Lumen Field,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-10-19,,Washington Commanders,Home,W 23-17,Final (week 6),,Levi's Stadium,https://www.49ers.com/schedule/,Monday; kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-10-25,,Atlanta Falcons,Away,L 20-29,Final (week 7),,Mercedes-Benz Stadium,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,,,,,,Bye (week 8),,,https://www.49ers.com/schedule/,
+NFL,San Francisco 49ers,2026-11-08,,Las Vegas Raiders,Home,W 38-17,Final (week 9),,Levi's Stadium,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-11-15,,Dallas Cowboys,Away,W 46-40,Final (week 10),,AT&T Stadium,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-11-22,,Minnesota Vikings,Neutral (Mexico City),W 35-10,Final (week 11),,Estadio Banorte,https://www.49ers.com/schedule/,Kickoff time not in fetched page text
+NFL,San Francisco 49ers,2026-11-29,13:25,Seattle Seahawks,Home,,Upcoming (week 12),FOX; KSAN 107.7 FM / KNBR 104.5 FM / 680 AM,Levi's Stadium,https://www.49ers.com/schedule/,
+NFL,San Francisco 49ers,2026-12-06,10:00,New York Giants,Away,,Upcoming (week 13),FOX; KSAN 107.7 FM / KNBR 104.5 FM / 680 AM,MetLife Stadium,https://www.49ers.com/schedule/,
+NFL,San Francisco 49ers,2026-12-13,13:25,Los Angeles Rams,Home,,Upcoming (week 14),FOX; KSAN 107.7 FM / KNBR 104.5 FM / 680 AM,Levi's Stadium,https://www.49ers.com/schedule/,
+NFL,San Francisco 49ers,2026-12-17,17:15,Los Angeles Chargers,Away,,Upcoming (week 15),Prime Video; KSAN 107.7 FM / KNBR 104.5 FM / 680 AM,SoFi Stadium,https://www.49ers.com/schedule/,Conflicts with Westwood One listing (7:30 PM ET = 4:30 PM PT); see flagged
+NFL,San Francisco 49ers,2026-12-27,13:25,Kansas City Chiefs,Away,,Upcoming (week 16),CBS; KSAN 107.7 FM / KNBR 104.5 FM / 680 AM,Arrowhead Stadium,https://www.49ers.com/schedule/,
+NFL,San Francisco 49ers,2027-01-03,17:20,Philadelphia Eagles,Home,,Upcoming (week 17),NBC; KSAN 107.7 FM / KNBR 104.5 FM / 680 AM,Levi's Stadium,https://www.49ers.com/schedule/,Conflicts with Westwood One listing (7:30 PM ET = 4:30 PM PT); see flagged
+NFL,San Francisco 49ers,,,Arizona Cardinals,Away,,Upcoming (week 18; date TBD),TBD; KSAN 107.7 FM / KNBR 104.5 FM / 680 AM,State Farm Stadium,https://www.49ers.com/schedule/,Date and kickoff not published on the page
+NCAAF,Stanford,2026-08-29,,Hawai'i,Home,W 37-27,Final,,,https://gostanford.com/boxscore/27043,
+NCAAF,Stanford,2026-09-04,,Miami,Home,L 6-45,Final,,,https://gostanford.com/boxscore/27044,Friday
+NCAAF,Stanford,2026-09-19,,Duke,Away,L 7-35,Final,,,https://gostanford.com/boxscore/27045,
+NCAAF,Stanford,2026-09-26,,Georgia Tech,Home,W 34-27,Final,,,https://gostanford.com/boxscore/27046,
+NCAAF,Stanford,2026-10-03,,Wake Forest,Away,L 3-57,Final,,,https://gostanford.com/boxscore/27047,
+NCAAF,Stanford,2026-10-10,,Notre Dame,Away,L 7-58,Final,,,https://gostanford.com/boxscore/27048,
+NCAAF,Stanford,2026-10-17,,Elon,Home,W 34-7,Final,,,https://gostanford.com/boxscore/27049,
+NCAAF,Stanford,2026-10-23,,North Carolina State,Home,W 31-28,Final,,,https://gostanford.com/boxscore/27050,Friday
+NCAAF,Stanford,2026-10-31,,Louisville,Away,L 24-52,Final,,,https://gostanford.com/boxscore/27051,
+NCAAF,Stanford,2026-11-14,,Virginia Tech,Away,W 40-22,Final,,,https://gostanford.com/boxscore/27052,
+NCAAF,Stanford,2026-11-21,,California,Away,W 44-28,Final,,,https://gostanford.com/boxscore/27053,
+NCAAF,Stanford,2026-11-28,12:30,SMU,Home,,Upcoming,,,https://gostanford.com/sports/football/schedule,Kickoff 12:30 PM PST on gostanford.com; radio not confirmed
+NCAAF,California,2026-09-19,12:30,Wagner,Home,W 49-7,Final,Live audio: The Varsity Network (calbears.com),Berkeley Calif.,https://calbears.com/boxscore.aspx?id=38593,Time from calbears.com ticket listing (12:30 PM)
+NCAAF,California,2026-09-25,,Clemson,Home,L 10-24,Final,,Berkeley Calif.,https://calbears.com/boxscore.aspx?id=38594,Kickoff and TV not on fetched page (left blank)
+NCAAF,California,2026-10-03,,UNLV,Away,L 31-39,Final,,Las Vegas Nev.,https://calbears.com/boxscore.aspx?id=38595,
+NCAAF,California,2026-10-10,,Virginia Tech,Home,W 25-20,Final,,Berkeley Calif.,https://calbears.com/boxscore.aspx?id=38596,
+NCAAF,California,2026-10-17,,Wake Forest,Home,L 7-41,Final,,Berkeley Calif.,https://calbears.com/boxscore.aspx?id=38597,
+NCAAF,California,2026-10-24,,SMU,Away,L 20-59,Final,,Dallas Texas,https://calbears.com/boxscore.aspx?id=38598,
+NCAAF,California,2026-10-31,,NC State,Away,L 10-31,Final,,Raleigh NC,https://calbears.com/boxscore.aspx?id=38599,
+NCAAF,California,2026-11-14,,Virginia,Away,L 7-36,Final,,Charlottesville Va.,https://calbears.com/boxscore.aspx?id=38600,
+NCAAF,California,2026-11-21,,Stanford,Home,L 28-44,Final,,Berkeley Calif.,https://calbears.com/boxscore.aspx?id=38601,
+NCAAF,California,2026-11-28,16:30,Pittsburgh,Home,,Upcoming,Live audio: The Varsity Network (calbears.com),Berkeley Calif.,https://calbears.com/sports/football/schedule/2026,Kickoff 4:30 PM on calbears.com

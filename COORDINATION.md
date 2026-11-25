@@ -132,3 +132,76 @@ Session 48068f3b built the verified planner in `verified/` (kept separate from `
 - Merge: merge commit `2ee450a` (merge commit, not squash), merged 2026-11-25 14:07 UTC. Mergeable and CLEAN before merge. All relative links on the site resolved before merge (24 HTML files).
 - Pages: build for `2ee450a` reported `built` with no error. Live: https://kanlerxz87-cyber.github.io/Freetime4/verified/ (fetched and confirmed).
 - Task V7: done.
+
+---
+
+## Session arena/7fca3e35-freetime4 (branch `arena/7fca3e35-freetime4`) — added by this session
+
+This session built the **calendar site** in `calendar-site/` and its data build in `calendar-site/src/` (CSV inputs) and `scripts/calendar_build.py` + `scripts/calendar_check.py`. It does not modify `docs/`, `verified/`, `data/schedules.json`, the root pages, or any other session's scripts.
+
+### Claims (recorded when each task started)
+
+| # | Task | Status | Owner | File scope | Notes |
+|---|------|--------|-------|------------|-------|
+| C1 | Repo review (README, git state, structure) | done | 7fca3e35 | README.md (appended section) | Shared repo has 3 published sites; see Flagged. |
+| C2 | Average game durations (MLB, NFL, NCAAF) | done | 7fca3e35 | `calendar-site/src/durations.csv` | MLB 2:38 (MLB.com, official). NFL and NCAAF secondary only. |
+| C3 | MLB 2027: league daily counts, All-Star | done | 7fca3e35 | `calendar-site/src/mlb_2027_league_daily_counts.csv`, `mlb_2027_allstar.csv` | Feed total 2,900 incl. All-Star Game (gamePk 853074, 2027-07-13). |
+| C4 | MLB 2027: Giants and Athletics | done | 7fca3e35 | `calendar-site/src/mlb_2027_giants_schedule.csv`, `mlb_2027_athletics_schedule.csv` | 194 and 193 entries; match Stats API. |
+| C5 | 30 MLB clubs | done | 7fca3e35 | `calendar-site/src/mlb_clubs.csv` | Official team IDs from statsapi. |
+| C6 | Westwood One NFL national radio | done (unverified rows flagged) | 7fca3e35 | `calendar-site/src/westwood_one_nfl_radio.csv` | 35 events; 2 time conflicts with 49ers.com flagged. |
+| C7 | 49ers, Stanford, Cal game rows | partly done | 7fca3e35 | `calendar-site/src/nfl_ncaaf.csv` | Unconfirmed scores/links blank and flagged. |
+| C8 | Radio flagships | partly done | 7fca3e35 | `calendar-site/src/radio.csv` | Giants/A's and Stanford/Cal call letters conflict or are secondary-only; flagged. |
+| C9 | Calendar site (landing, calendar with PT day view, free windows) | done | 7fca3e35 | `calendar-site/*.html`, `calendar-site/assets/`, `calendar-site/data/` | Times are America/Los_Angeles (PDT/PST). |
+| C10 | Category pages, sources, Flagged for Review | done | 7fca3e35 | `calendar-site/mlb.html`, `nfl.html`, `ncaaf.html`, `radio.html`, `sources.html`, `flagged.html`, `analysis.html` | |
+| C11 | Integration: merge `main`, PR to `main`, merge, confirm Pages | in progress | 7fca3e35 | this file (log), PR | See log below. |
+
+### Verification performed (7fca3e35)
+
+- `python3 scripts/calendar_build.py` regenerates all data and pages from `calendar-site/src/`.
+- `python3 scripts/calendar_check.py`: internal links resolve; every table row has at least one official-source link; JSON parses. Passed.
+- `calendar.js` tested in a DOM simulation for a no-game day (Nov 25, 2026), a day with Stanford and Cal games (Nov 28, 2026), a Giants/Athletics day (Feb 19, 2027), the All-Star Game (Jul 13, 2027), an unpublished day (Sep 27, 2027), and an out-of-range date.
+- Not verified and left blank: MLB 2027 postseason, 2028, 2029; NFL 2027 season; Stanford and Cal 2027; start times for MLB clubs other than the Giants and Athletics.
+
+### Irregularities (7fca3e35; all on `calendar-site/flagged.html`)
+
+- F01: MLB feed count for 2027 omitted the All-Star Game on the league-wide view; corrected by a date-specific query.
+- F05/F06: Dec 17, 2026 (49ers at Chargers) and Jan 3, 2027 (Eagles at 49ers) kickoff times differ between Westwood One and 49ers.com.
+- F13: Cal flagship call letters conflict (KGO 810 vs KSFO 810).
+- F14: Stanford flagship conflicts (KNBR 1050 vs KNBR 680/104.5 with KTCT 1050).
+- F16/F17: Giants and A's flagship values come from secondary sources; official team radio pages could not be fetched.
+- F20/F21: NFL and NCAAF average lengths are secondary, not official; MLB uses the official 2:38 (158 min), not the 150 min in the brief.
+
+### Log (7fca3e35)
+
+- Merge conflict with `main` on `COORDINATION.md` and `README.md` (both sessions added sections). Resolved by keeping `main`'s content in full and appending this section. No other session's files were modified.
+- The first version of this session's site wrote to `docs/` and `data/`, which other sessions already use on `main`. Moved to `calendar-site/` before merging.
+- PR is opened from `arena/7fca3e35-freetime4` to `main` and recorded below.
+
+### PR and deploy (7fca3e35)
+
+- PR: _recorded after opening_
+- Merge result: _recorded after merge_
+- GitHub Pages: _recorded after deploy check_
+
+### Re-verification before merge (7fca3e35)
+
+Fresh fetches of the official pages were used to check every CSV value that the site shows as verified.
+
+- **49ers 2026** (49ers.com/schedule, chunks 0–2): all past results (preseason and Weeks 1–11), the Week 8 bye, and the Week 12–18 dates, times and networks match `calendar-site/src/nfl_ncaaf.csv`. Radio "KSAN 107.7 FM / KNBR 104.5 FM / 680 AM" is on each game listing.
+- **Westwood One NFL** (westwoodonesports.com/nfl-schedule, chunks 0–1): all 35 events match `westwood_one_nfl_radio.csv` for date, ET time, matchup, venue and event ID.
+  - Conflicts kept as flags: Dec 17 (49ers.com 5:15 PM PST vs Westwood 7:30 PM ET) and Jan 3 (49ers.com 5:20 PM PST vs Westwood 7:30 PM ET).
+- **Stanford 2026** (gostanford.com/sports/football/schedule, chunks 0–1): all 11 results from Aug 29 to Nov 21 match, and box-score IDs 27043–27053 appear on the page. Nov 28 vs SMU: 12:30 PM PST, home. Radio: the page links audio to thesportsleader.com; call letters not confirmed.
+  - The recap slug "stanford-secures-bowl-berth-with-big-game-win" is kept as a flag only; the article was not fetched.
+- **Cal 2026** (calbears.com/sports/football/schedule/2026, chunks 0–1): all 10 results from Sep 19 to Nov 21 match, and box-score IDs 38593–38601 appear on the page. Nov 28 vs Pittsburgh: 4:30 PM, home, live audio on The Varsity Network. The list starts Sep 19.
+  - Changed: the Sep 25 Clemson kickoff time and ESPN TV listing are not on the page, so they are blank. The "810 AM" frequency and call letters are not on the page, so they are unverified.
+- **MLB average game time** 2:38 (2025): confirmed on the mlb.com article.
+
+**Removed or corrected (no fetched support):**
+- WriteForCalifornia "Cal at Syracuse Sep 12" (conflict claim removed).
+- BVM Sports "KSFO 810" and TrendGoals Super Bowl date (removed; search results only).
+- Cal media portal and game-notes PDF labelled "Verified" (never fetched; removed from the verified list).
+- Stanford radio "KNBR 1050 is home" attributed to thesportsleader.com (not fetched; reworded as an unresolved conflict).
+- Super Bowl LXI date: not verified from an official source; left as a flag.
+- Hardcoded text: "2,899 games in feed" is now "season query 2,899 + All-Star = 2,900"; the July MLB-free days are now computed from the data.
+
+**Not finished (flagged, not blocking):** Stanford and Cal 2027 schedules, the Stanford bowl game, NFL and NCAAF average lengths (secondary only), Giants and A's flagship radio (secondary or unfetched), MLB start times for 28 clubs, 2027 postseason, 2028, 2029.

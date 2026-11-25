@@ -1,0 +1,4 @@
+sport,metric,minutes,label,source_url,status,notes
+MLB,2025 average nine-inning game,158,2:38,https://www.mlb.com/news/mlb-increased-attendance-3rd-straight-season,Verified (official MLB article),User brief assumed about 150 minutes; the official 2025 figure is used instead
+NFL,2025 regular-season median game (kickoff to final whistle; includes halftime),182,3:02,https://nflanalytic.com/explainer-how-long-is-an-nfl-game.html,Secondary (play-by-play analysis),Median halftime in the same source is 14 min; the user brief asked for 180 min plus 15-30 min halftime
+NCAAF FBS,2025 average game,206,3:26,https://www.academicjobs.com/en-us/higher-education-news/how-long-is-a-college-football-game-average-326-explained-academicjobs-12610,Secondary (cites NCAA statistics; NCAA source not fetched),Used for Stanford and Cal blocks

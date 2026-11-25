@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calendar · Free Time</title><link rel="stylesheet" href="assets/site.css"></head>
+<body><header><div class="brand">Free Time <small>Bay Area (94122) · when AM/FM sports are off the air</small></div>
+<nav><a href="index.html">Home</a><a href="calendar.html" class=on>Calendar</a><a href="analysis.html">Free windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL</a><a href="ncaaf.html">NCAAF</a><a href="radio.html">Radio</a><a href="flagged.html">Flagged for Review</a><a href="sources.html">Sources</a></nav></header>
+<main>
+<section><h1>Calendar (Pacific time)</h1>
+<p class="note">Hour-by-hour free time for each day. MLB days show the Giants and Athletics times that are loaded; other clubs' times are not loaded, so those hours read <b>Free time not available</b>. NFL and college entries are the national Westwood One list, 49ers, Stanford and Cal only.</p>
+<div class="controls">
+<button id="prev" type="button">&larr; Previous day</button>
+<input id="dayInput" type="date" aria-label="Choose a day">
+<button id="next" type="button">Next day &rarr;</button>
+<button id="today" type="button">Today (PT)</button>
+</div>
+<div id="out"></div>
+<p class="note">Average durations (blocks on the grid): MLB 2:38 (158 min, mlb.com 2025 average). NFL 3:02 (182 min, 2025 median including halftime; secondary source). NCAAF FBS 3:26 (206 min, secondary).</p>
+</section>
+<script src="assets/calendar.js"></script>
+</main>
+<footer>Times are Pacific (PT: PST in winter, PDT in summer). Built 2026-11-25. Blank cells are unverified and listed on <a href="flagged.html">Flagged for Review</a>. Every row links its official source.</footer>
+</body></html>

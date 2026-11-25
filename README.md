@@ -40,3 +40,13 @@ See COORDINATION.md for the shared task board, verification log, and merge/deplo
 ## Verified planner (session 48068f3b)
 
 `verified/` is a separate planner that uses only official schedule sources and flags everything else: scoreboard (PT day view, free-time blocks), MLB (30 clubs, Giants and Athletics high priority), NFL and Westwood One, college (Stanford and Cal), radio, vacation windows (2026-2029), Flagged for Review, and Sources. Open `verified/index.html` on the published site. Blank cells are unverified values; each row links to its official source. Data: `verified/data/`; raw official MLB responses: `verified/data/raw/`. Checks: `scripts/check_ids.js`, `scripts/check_site.js`; rebuild: `scripts/build_scoreboard.js`, `scripts/build_site.js`.
+
+
+## Calendar site (session 7fca3e35)
+
+`calendar-site/` is an additional static site (not linked from the root `index.html`, which belongs to another session). It shows MLB (all 30 clubs; Giants and Athletics high priority), NFL (49ers and Westwood One national radio), and Stanford and Cal football, with a Pacific-time day view that marks free hours. Times use America/Los_Angeles (PDT in summer, PST in winter); the page states this. Open `calendar-site/index.html`.
+
+- CSV inputs (each row carries its official source URL): `calendar-site/src/*.csv`
+- Rebuild data and pages: `python3 scripts/calendar_build.py`
+- Check links, source links on table rows, and JSON: `python3 scripts/calendar_check.py`
+- Unverified values are left blank and listed on `calendar-site/flagged.html`.
