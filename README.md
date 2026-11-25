@@ -50,3 +50,10 @@ See COORDINATION.md for the shared task board, verification log, and merge/deplo
 - Rebuild data and pages: `python3 scripts/calendar_build.py`
 - Check links, source links on table rows, and JSON: `python3 scripts/calendar_check.py`
 - Unverified values are left blank and listed on `calendar-site/flagged.html`.
+
+## Canonical planner (final integration, Nov 2025)
+
+- **Live site:** https://kanlerxz87-cyber.github.io/Freetime4/ — open `site/index.html` for the canonical planner (executive summary, daily scoreboard, vacation windows, MLB/NFL/NCAAF/Westwood One/radio pages, flagged register, methodology, sources).
+- **Data:** `data/site/*.json` built from official sources by `scripts/` (MLB Stats API via scheduled GitHub Actions; ESPN mirrors cross-checked against official pages; Westwood One fetched live). Every verified row carries an official source link; estimated rows are flagged with blank sources by design.
+- **Rebuild:** `python3 scripts/build_data.py && python3 scripts/build_estimates.py && python3 scripts/build_windows.py && python3 scripts/build_flags.py && python3 scripts/verify_site.py`
+- Earlier sites from previous sessions (`docs/`, `calendar-site/`, `verified/`, root detail pages, `legacy-dashboard/`) are preserved as archives.
