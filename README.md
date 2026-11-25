@@ -36,3 +36,7 @@ Radio carriage and reception in San Francisco's Outer Sunset must be checked ind
 - `arena/6899e48c-freetime4` (this branch): added the executive summary, per-sport detail pages, all-30-club MLB listing, and PST free-time calendar.
 
 See COORDINATION.md for the shared task board, verification log, and merge/deploy record.
+
+## Verified planner (session 48068f3b)
+
+`verified/` is a separate planner that uses only official schedule sources and flags everything else: scoreboard (PT day view, free-time blocks), MLB (30 clubs, Giants and Athletics high priority), NFL and Westwood One, college (Stanford and Cal), radio, vacation windows (2026-2029), Flagged for Review, and Sources. Open `verified/index.html` on the published site. Blank cells are unverified values; each row links to its official source. Data: `verified/data/`; raw official MLB responses: `verified/data/raw/`. Checks: `scripts/check_ids.js`, `scripts/check_site.js`; rebuild: `scripts/build_scoreboard.js`, `scripts/build_site.js`.

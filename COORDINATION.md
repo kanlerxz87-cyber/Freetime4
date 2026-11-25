@@ -78,3 +78,55 @@ Shared task board for parallel agent sessions. Repo: `kanlerxz87-cyber/Freetime4
 - Merge conflict resolved 2026-11-25 by combining both sessions' work: the `docs/` published planner and root dashboard are preserved; this branch's detail pages added at root; root `index.html` is a combined landing linking to both.
 - GitHub Pages: source `main`, root `/` (already configured by arena/bbbb5122-freetime4). Live URL: https://kanlerxz87-cyber.github.io/Freetime4/ (redirects to /docs/).
 - Note: the sandbox cannot reach github.io, so the live page was not opened from here; deploy status confirmed via the GitHub Pages API by the owning session.
+
+---
+
+## Session 48068f3b (branch `arena/48068f3b-freetime4`) - added by integration
+
+Session 48068f3b built the verified planner in `verified/` (kept separate from `docs/`, which another session published on `main`). It does not modify any other session's pages or data.
+
+### Claims (this session, recorded when each task started)
+
+| # | Task | Status | Owner (session) | File scope | Notes |
+|---|------|--------|-----------------|------------|-------|
+| V1 | Raw official MLB Stats API responses | done | 48068f3b | `verified/data/raw/*.json` | Totals reconciled: regular 2,430; spring 469; Giants 194; Athletics 193. Athletics re-fetched after first transcription was one short. |
+| V2 | Verified data tables (MLB, NFL, 49ers, Westwood One, Stanford, Cal, radio, averages, Super Bowl) | done | 48068f3b | `verified/data/*.json` (except raw) | Every row cites a source ID in `verified/data/sources.json`. Unverified values left blank and flagged. |
+| V3 | Scoreboard data (PT day view) | done | 48068f3b | `scripts/build_scoreboard.js`, `verified/data/scoreboard.json` | Westwood One ET converted to PT (minus 3 h). |
+| V4 | Verified site (9 pages) | done | 48068f3b | `verified/*.html`, `verified/assets/*`, `scripts/build_site.js` | Served at `/verified/`. |
+| V5 | Verification scripts | done | 48068f3b | `scripts/check_ids.js`, `scripts/check_site.js` | Source IDs resolve; all local links resolve. DOM render test: all 9 pages render, every row has a source link. |
+| V6 | Vacation windows 2026-2029 | done (partial) | 48068f3b | `verified/data/vacation-windows.json` | Verified windows only; 2028-2029 not published; estimates labeled. |
+| V7 | Integration: merge `main`, PR to `main`, merge, confirm Pages | in progress | 48068f3b | this file, `README.md` section, root `index.html` link | Merge conflict logged below. |
+
+### Verification performed (48068f3b)
+
+- MLB daily-count files reconcile exactly to API totals (see V1).
+- 30 active clubs and 2026 and 2027 season calendars re-fetched from `statsapi.mlb.com`.
+- 2028 and 2029 season queries return empty results (not published).
+- Westwood One national NFL listing: 35 events with event IDs.
+- 49ers, Stanford, and Cal 2026 pages checked. Cal list begins Sep 19; 49ers Week 18 is TBD.
+- Durations: MLB 2:38 (MLB.com, 2025, official). NFL 3:03 (secondary; no NFL official average found). College: not verified (blank).
+- Super Bowl LXI: Sun 2027-02-14, SoFi Stadium (SoFi Stadium news release, Feb 9, 2026). Kickoff not published.
+- Radio: Giants KNBR 680 AM / 104.5 FM and KSFN 1510 AM (mlb.com); 49ers KSAN 107.7 FM / KNBR 104.5 FM / 680 AM (49ers.com); Cal KSFO 810 AM (calbears.com snippet).
+
+### Irregularities (48068f3b; all listed on the verified Flagged page, `verified/data/flags.json`)
+
+- F-01: Thanksgiving-week kickoffs differ between Westwood One and NFL.com.
+- F-02, F-03: 49ers Dec 17 (at LAC) and Jan 3 (vs PHI) kickoffs differ from Westwood One.
+- F-04: Raiders at Browns (Westwood event 548502) has no verified date.
+- F-09: Stanford radio station conflict (KNBR/KTCT 1050 vs KNBR 680/104.5).
+- F-10: Stanford vs Cal (Nov 21) home/away conflict.
+- F-17: Super Bowl LXII date conflict (Feb 13 vs pending); left blank.
+- F-18: 2027 API `firstDate2ndHalf` 2027-07-16 vs league games on 2027-07-15.
+- F-19: MLB 2028 and 2029 not published.
+- F-21: Per-game MLB times for all 30 clubs not yet ingested.
+
+### Merge conflict log (48068f3b integration)
+
+- `COORDINATION.md` (add/add) and `README.md` (content) conflicted when `main` (sessions bbbb5122 and 6899e48c) was merged into this branch. Resolution: both sides kept. This section appended to the shared board, and a README section added. No entries from other sessions were removed.
+- `docs/` on `main` is owned by session bbbb5122. This session moved its planner to `verified/` before merging, so there was no file-level conflict in `docs/`.
+- Root `index.html`: one card added linking to `verified/index.html`.
+
+### PR and merge (48068f3b)
+
+- PR: #6, `arena/48068f3b-freetime4` to `main`.
+- Merge: recorded on the PR (comment) after the merge; see PR #6 for the final state and Pages build status.
