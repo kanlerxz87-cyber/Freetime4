@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bay Area radio — Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="radio">
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Free Time Vacation</a>
+<nav><a href="index.html">Summary</a><a href="scoreboard.html">Scoreboard</a><a href="vacation-windows.html">Vacation windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL</a><a href="ncaaf.html">NCAAF</a><a href="westwood-one.html">Westwood One</a><a href="radio.html" class="active">Radio</a><a href="flagged.html">Flagged for Review</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a></nav></div></header>
+<main class="wrap">
+<h1>Live sports on receivable AM/FM radio — outer Sunset, SF 94122</h1>
+<p class="lead">The stations below cover live games a standard AM/FM radio can receive in the outer Sunset. This is what makes a game "on the radio" for your schedule.</p>
+<h2>Stations</h2>
+<div id="stations"></div>
+<h2>Team flagships (2026)</h2>
+<div id="flagships"></div>
+<div class="warn"><b>Important changes verified this pass:</b> 560 AM (the old KSFO) had its license surrendered in August 2026 — the FCC cancelled it. The KSFO brand now lives on 810 kHz (the former KGO). The 49ers' 2026 radio network lists KNBR 680/104.5 as flagship with 107.7 The Bone and 810 KSFO. The A's (playing in West Sacramento) reach the Bay Area on 960 AM KNEW; their 2027 Las Vegas-era network is not yet announced (flagged).</div>
+</main>
+<footer>Each row carries its source link. Call-letter/frequency details can change mid-season; the weekly Actions data refresh re-checks schedules, not station lineups.</footer>
+<script src="assets/app.js"></script><script>
+(async () => {
+  const d = await fetchJSON("../data/site/radio_stations.json");
+  document.querySelector("#stations").innerHTML = `<div class="tablewrap"><table>
+  <thead><tr><th>Station</th><th>Frequency</th><th>City</th><th>Carries</th><th>Status</th><th>Source</th></tr></thead><tbody>
+  ${d.stations.map(s => `<tr><td><b>${esc(s.callsign)}</b></td><td>${esc(s.frequency)}</td><td>${esc(s.city)}</td><td>${esc(s.carries)}</td><td>${esc(s.status)}</td><td><a href="${esc(s.sourceUrl)}" target="_blank" rel="noopener">source</a></td></tr>`).join("")}
+  </tbody></table></div>`;
+  document.querySelector("#flagships").innerHTML = `<div class="tablewrap"><table>
+  <thead><tr><th>Team</th><th>Flagship / Bay Area carriage</th><th>Source</th></tr></thead><tbody>
+  ${d.team_flagships_2026.map(t => `<tr><td>${esc(t.team)}</td><td>${esc(t.flagship || t.bay_area_affiliate)}${t.note ? `<div class="small">${esc(t.note)}</div>` : ""}</td><td><a href="${esc(t.sourceUrl)}" target="_blank" rel="noopener">source</a></td></tr>`).join("")}
+  </tbody></table></div>`;
+})();
+</script>
+</body></html>

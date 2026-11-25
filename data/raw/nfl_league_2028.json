@@ -1,0 +1,1 @@
+{"season":2028,"source":"ESPN public API https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard (mirror of official NFL schedule; official page: https://www.nfl.com/schedules/)","method":"range-query","window":["2028-08-01","2029-02-28"],"fetchedUTC":"2026-11-25T14:03:57Z","count":0,"events":[]}

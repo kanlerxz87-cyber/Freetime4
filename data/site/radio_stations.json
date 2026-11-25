@@ -1,0 +1,67 @@
+{
+  "note": "Bay Area AM/FM radio stations receivable in outer Sunset, SF 94122, with the sports they carry. Verified 2026-11-25. KSFO 560 AM ceased broadcasting August 2026 (license surrendered) — do not tune to 560.",
+  "stations": [
+    {
+      "callsign": "KNBR", "frequency": "680 AM", "city": "San Francisco", "owner": "Cumulus Media",
+      "carries": "San Francisco Giants (flagship, since 1979), San Francisco 49ers (co-flagship 2026), Stanford Cardinal football, Westwood One Sports national NFL broadcasts, Sports USA Radio",
+      "sourceUrl": "https://en.wikipedia.org/wiki/KNBR_(AM)",
+      "status": "verified"
+    },
+    {
+      "callsign": "KNBR-FM", "frequency": "104.5 FM", "city": "San Francisco", "owner": "Cumulus Media",
+      "carries": "Full-time simulcast of KNBR 680 since Sept 6, 2019. Giants flagship; 49ers co-flagship; Westwood One Sports affiliate",
+      "sourceUrl": "https://en.wikipedia.org/wiki/KNBR-FM",
+      "status": "verified"
+    },
+    {
+      "callsign": "KTCT", "frequency": "1050 AM (KNBR 1050)", "city": "San Mateo", "owner": "Cumulus Media",
+      "carries": "Stanford Cardinal, San Francisco Dons, San Jose Earthquakes, CBS Sports Radio (now Westwood One Sports), ESPN Radio. Used as KNBR overflow when 680/104.5 are busy",
+      "sourceUrl": "https://en.wikipedia.org/wiki/KNBR_(AM)",
+      "status": "verified"
+    },
+    {
+      "callsign": "KSFO", "frequency": "810 AM (formerly KGO 810)", "city": "San Francisco", "owner": "Cumulus Media",
+      "carries": "California Golden Bears football (airs only on 810 in the Cumulus SF cluster), 49ers radio network (2026)",
+      "sourceUrl": "https://en.wikipedia.org/wiki/KSFO",
+      "status": "verified"
+    },
+    {
+      "callsign": "KZAC (ex-KSFO)", "frequency": "560 AM", "city": "San Francisco", "owner": "Cumulus Media",
+      "carries": "OFF THE AIR — license surrendered Aug 5, 2026 and cancelled by the FCC Aug 6, 2026. Historic home of 49ers/Giants/A's/Stanford/Cal broadcasts. DO NOT count on 560 AM",
+      "sourceUrl": "https://en.wikipedia.org/wiki/KZAC",
+      "status": "verified-offair"
+    },
+    {
+      "callsign": "KNEW", "frequency": "960 AM (iHeart Sports 960)", "city": "Oakland", "owner": "iHeartMedia",
+      "carries": "Athletics (A's) Bay Area broadcasts (A's flagship since 2025 move is KSTE 650 AM Sacramento; 960 AM carries games in the Bay Area)",
+      "sourceUrl": "https://www.cbsnews.com/sacramento/news/sacramento-athletics-radio-station-talk-650-kste/",
+      "status": "verified"
+    },
+    {
+      "callsign": "KIQI", "frequency": "1010 AM", "city": "San Francisco", "owner": "Univision/other",
+      "carries": "Athletics Spanish-language (night and weekend home games)",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Oakland_Athletics_Radio_Network",
+      "status": "verified"
+    },
+    {
+      "callsign": "KSAN", "frequency": "107.7 FM (The Bone)", "city": "San Francisco", "owner": "Cumulus Media",
+      "carries": "49ers Radio Network (2026 listing)",
+      "sourceUrl": "https://www.fubo.tv/news/nfl/san-francisco-49ers/what-channel-is-the-49ers-game-on/",
+      "status": "verified-secondary"
+    },
+    {
+      "callsign": "KGMZ", "frequency": "95.7 FM (The Game)", "city": "Oakland", "owner": "iHeartMedia",
+      "carries": "Golden State Warriors (NBA), 49ers and A's related talk; Warriors games are NOT part of the free-time math (informational only)",
+      "sourceUrl": "https://en.wikipedia.org/wiki/KGMZ-FM",
+      "status": "verified-secondary"
+    }
+  ],
+  "team_flagships_2026": [
+    {"team": "San Francisco Giants (MLB)", "flagship": "KNBR 680 AM / 104.5 FM; Spanish: KXZM 93.7 FM", "sourceUrl": "https://en.wikipedia.org/wiki/2026_San_Francisco_Giants_season"},
+    {"team": "San Francisco 49ers (NFL)", "flagship": "KNBR 680 AM / 104.5 FM (flagship 2026), 107.7 The Bone, 810 AM KSFO", "sourceUrl": "https://www.fubo.tv/news/nfl/san-francisco-49ers/what-channel-is-the-49ers-game-on/", "note": "Former 560 AM KSFO flagship died Aug 2026; do not use 560. Flagged because flagship changed recently."},
+    {"team": "Athletics (MLB)", "flagship": "KSTE 650 AM Sacramento (flagship); Bay Area: 960 AM KNEW; Spanish: 1010 KIQI SF / 990 KATD", "sourceUrl": "https://en.wikipedia.org/wiki/Oakland_Athletics_Radio_Network", "note": "A's play in West Sacramento (2025+), moving to Las Vegas Ballpark in 2027 per MLB.com 2027 schedule coverage. 2027 radio network unannounced — flagged."},
+    {"team": "Stanford Cardinal (NCAAF)", "flagship": "KNBR 680/104.5 (The Sports Leader) — gostanford.com schedule pages link their 'Listen' to thesportsleader.com/stanfordfootball", "sourceUrl": "https://www.thesportsleader.com/stanfordfootball/"},
+    {"team": "California Golden Bears (NCAAF)", "flagship": "810 AM KSFO (Cal games air only on 810 in Cumulus cluster); streaming via Varsity Network", "sourceUrl": "https://en.wikipedia.org/wiki/KSFO"},
+    {"team": "Westwood One Sports national NFL", "bay_area_affiliate": "KNBR 680 AM / 104.5 FM (and 1050 KTCT for overflow)", "sourceUrl": "https://en.wikipedia.org/wiki/KNBR_(AM)"}
+  ]
+}

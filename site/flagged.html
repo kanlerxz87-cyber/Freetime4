@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flagged for Review — Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="flagged">
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Free Time Vacation</a>
+<nav><a href="index.html">Summary</a><a href="scoreboard.html">Scoreboard</a><a href="vacation-windows.html">Vacation windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL</a><a href="ncaaf.html">NCAAF</a><a href="westwood-one.html">Westwood One</a><a href="radio.html">Radio</a><a href="flagged.html" class="active">Flagged for Review</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a></nav></div></header>
+<main class="wrap">
+<h1>Flagged for Review</h1>
+<p class="lead">Every irregularity and unverified item from all sessions, consolidated. Flagged items do not block the site; they are published here so you can review and request changes. Items marked <span class="chip VERIFIED">resolved</span> were investigated and fixed in the data.</p>
+<div id="view"><div class="card">Loading…</div></div>
+</main>
+<footer>Source links included where available. Unverified values never silently filled.</footer>
+<script src="assets/app.js"></script><script>
+(async () => {
+  const d = await fetchJSON("data/flags.json");
+  const rows = d.flags.map(f => `<tr><td><b>${esc(f.id || "")}</b></td><td>${esc(f.area || f.category || "")}</td>
+    <td>${esc(f.item || "")}<div class="small">${esc(f.detail || f.issue || f.notes || "")}</div></td>
+    <td>${esc(f.status || f.severity || "")}</td>
+    <td>${f.source ? `<a href="${esc(f.source)}" target="_blank" rel="noopener">source</a>` : (f.sourceUrl ? `<a href="${esc(f.sourceUrl)}" target="_blank" rel="noopener">source</a>` : '<span class="small">none</span>')}</td>
+    <td class="small">${esc(f.session || "")}</td></tr>`).join("");
+  document.querySelector("#view").innerHTML = `<p class="count-note">${d.count} flagged items across all sessions.</p>
+  <div class="tablewrap"><table><thead><tr><th>ID</th><th>Area</th><th>Item</th><th>Status</th><th>Link</th><th>Session</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+})();
+</script>
+</body></html>

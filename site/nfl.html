@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NFL — 49ers &amp; national — Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="nfl">
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Free Time Vacation</a>
+<nav><a href="index.html">Summary</a><a href="scoreboard.html">Scoreboard</a><a href="vacation-windows.html">Vacation windows</a><a href="mlb.html">MLB</a><a href="nfl.html" class="active">NFL</a><a href="ncaaf.html">NCAAF</a><a href="westwood-one.html">Westwood One</a><a href="radio.html">Radio</a><a href="flagged.html">Flagged for Review</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a></nav></div></header>
+<main class="wrap">
+<h1>NFL — 49ers (high priority) &amp; national windows</h1>
+<p class="lead">Every San Francisco 49ers game (preseason, regular season, postseason) is <b>high priority</b> and airs on Bay Area radio (KNBR 680/104.5, 107.7 The Bone, 810 KSFO). Other clubs' games are shown but are display-only — they are not receivable on Bay Area AM/FM unless carried by Westwood One (see <a href="westwood-one.html">Westwood One page</a>, which carries the radio-blocking windows).</p>
+<div class="filters">
+<select id="year"></select>
+<select id="status"><option value="">All statuses</option><option>VERIFIED</option><option>VERIFIED-SLOT</option><option>ESTIMATE</option></select>
+<select id="team"><option value="">All teams</option><option value="SF">San Francisco 49ers</option></select>
+<select id="type"><option value="">All types</option><option>Preseason</option><option>Regular season</option><option>Postseason</option></select>
+</div>
+<div id="note" class="count-note"></div>
+<div id="table"></div>
+<div class="warn"><b>Why the display-only rows matter:</b> your definition blocks only 49ers games + Westwood One national broadcasts + MLB + Stanford/Cal. Non-49ers NFL games not on Westwood One are shown so you can see the full league schedule, but they do not affect your free time.</div>
+<p class="small">2027–2029 seasons are not released (confirmed empty via official feeds on 2026-11-25) — estimated rows are pattern-based (Week 1 = Thursday after Labor Day; Super Bowl = Week 1 + 157 days, a rule that held for the 2023–2027 seasons and matches the verified SB LXI date of Feb 14, 2027).</p>
+</main>
+<footer>Verified rows: NFL.com schedule pages (official), values cross-checked against ESPN public schedule feed. Playoff slots show verified windows with teams TBD.</footer>
+<script src="assets/app.js"></script><script>renderGamesPage({years:[2026,2027,2028,2029], filter:r=>r.sport==="NFL"&&r.category!=="WW1"});</script>
+</body></html>

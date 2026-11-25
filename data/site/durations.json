@@ -1,0 +1,23 @@
+{
+  "source": "Research pass 2026-11-25. Each value has a sourceUrl. Values are league-wide averages used to ESTIMATE free time around games, as requested.",
+  "assumptions": {
+    "mlb_on_air_window_minutes": 195,
+    "mlb_on_air_note": "KNBR radio coverage runs ~15-30 min pregame and ~15-30 min postgame around the game itself; block = first pitch - 20 min to estimated final out + 10 min. Average game 2:42-2:44 in 2026 => 165 min game + 30 min coverage.",
+    "mlb_postseason_game_minutes": 180,
+    "nfl_on_air_window_minutes": 225,
+    "nfl_on_air_note": "Radio coverage on KNBR/WW1 includes pregame (~30 min) and postgame (~15 min). Average NFL game 3:02-3:12 => 192 min + 33 min coverage = 225 min on-air.",
+    "nfl_halftime_minutes": 14,
+    "nfl_halftime_note": "Measured median halftime 14m15s in 2025 (within user's stated 15-30 band; Super Bowl halftime is longer, ~30 min).",
+    "ncaaf_on_air_window_minutes": 240,
+    "ncaaf_on_air_note": "Average FBS game 3:26 (2025) = 206 min + ~30 min pregame/postgame radio coverage = ~240 min.",
+    "ww1_pregame_minutes": 30,
+    "ww1_pregame_note": "Westwood One NFL coverage includes a pregame show before kick-off; conservative 30 min added before each WW1 broadcast."
+  },
+  "averages": [
+    {"key": "mlb_avg_2026", "sport": "MLB", "season": 2026, "value": "2h42m08s (average regular-season game)", "sourceUrl": "https://vertizesports.com/blog/mlb-game-length-pitch-clock", "note": "Second source reports 2h44m for 2026: https://sports.betmgm.com/en/blog/mlb/average-game-time-in-mlb-bm23/"},
+    {"key": "mlb_postseason_avg", "sport": "MLB", "season": 2026, "value": "3h00m (postseason average)", "sourceUrl": "https://vertizesports.com/blog/mlb-game-length-pitch-clock"},
+    {"key": "nfl_avg_2025", "sport": "NFL", "season": 2025, "value": "3h02m median / 3h03m mean, kickoff to final snap (272 games); middle 80% 2h49m-3h18m", "sourceUrl": "https://nflanalytic.com/explainer-how-long-is-an-nfl-game.html", "note": "Second source: 3h03m average 2025 regular season, halftime 13 min by rule: https://www.upintherafters.com/nfl/how-long-is-a-football-game"},
+    {"key": "nfl_halftime_2025", "sport": "NFL", "season": 2025, "value": "14m15s median measured halftime (13 min by rule; Super Bowl ~30 min)", "sourceUrl": "https://nflanalytic.com/explainer-how-long-is-an-nfl-game.html"},
+    {"key": "ncaaf_avg_2025", "sport": "NCAAF", "season": 2025, "value": "3h26m (FBS average)", "sourceUrl": "https://www.academicjobs.com/en-us/higher-education-news/how-long-is-a-college-football-game-average-326-explained-or-academicjobs-12610", "note": "Second source: 3h20m typical: https://sportssurge.alibaba.com/football/how-long-are-college-football-games — conservative 3h26m used."}
+  ]
+}
