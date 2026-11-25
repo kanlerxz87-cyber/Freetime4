@@ -1,0 +1,29 @@
+[
+  {
+    "sport": "MLB",
+    "metric": "2025 average nine-inning game",
+    "minutes": 158,
+    "label": "2:38",
+    "source": "https://www.mlb.com/news/mlb-increased-attendance-3rd-straight-season",
+    "status": "Verified (official MLB article)",
+    "notes": "User brief assumed about 150 minutes; the official 2025 figure is used instead"
+  },
+  {
+    "sport": "NFL",
+    "metric": "2025 regular-season median game (kickoff to final whistle; includes halftime)",
+    "minutes": 182,
+    "label": "3:02",
+    "source": "https://nflanalytic.com/explainer-how-long-is-an-nfl-game.html",
+    "status": "Secondary (play-by-play analysis)",
+    "notes": "Median halftime in the same source is 14 min; the user brief asked for 180 min plus 15-30 min halftime"
+  },
+  {
+    "sport": "NCAAF FBS",
+    "metric": "2025 average game",
+    "minutes": 206,
+    "label": "3:26",
+    "source": "https://www.academicjobs.com/en-us/higher-education-news/how-long-is-a-college-football-game-average-326-explained-academicjobs-12610",
+    "status": "Secondary (cites NCAA statistics; NCAA source not fetched)",
+    "notes": "Used for Stanford and Cal blocks"
+  }
+]

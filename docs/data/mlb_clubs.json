@@ -1,0 +1,302 @@
+[
+  {
+    "teamId": 108,
+    "name": "Los Angeles Angels",
+    "abbreviation": "LAA",
+    "league": "American League",
+    "division": "American League West",
+    "location": "Anaheim",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 109,
+    "name": "Arizona Diamondbacks",
+    "abbreviation": "AZ",
+    "league": "National League",
+    "division": "National League West",
+    "location": "Phoenix",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 110,
+    "name": "Baltimore Orioles",
+    "abbreviation": "BAL",
+    "league": "American League",
+    "division": "American League East",
+    "location": "Baltimore",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 111,
+    "name": "Boston Red Sox",
+    "abbreviation": "BOS",
+    "league": "American League",
+    "division": "American League East",
+    "location": "Boston",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 112,
+    "name": "Chicago Cubs",
+    "abbreviation": "CHC",
+    "league": "National League",
+    "division": "National League Central",
+    "location": "Chicago",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 113,
+    "name": "Cincinnati Reds",
+    "abbreviation": "CIN",
+    "league": "National League",
+    "division": "National League Central",
+    "location": "Cincinnati",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 114,
+    "name": "Cleveland Guardians",
+    "abbreviation": "CLE",
+    "league": "American League",
+    "division": "American League Central",
+    "location": "Cleveland",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 115,
+    "name": "Colorado Rockies",
+    "abbreviation": "COL",
+    "league": "National League",
+    "division": "National League West",
+    "location": "Denver",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 116,
+    "name": "Detroit Tigers",
+    "abbreviation": "DET",
+    "league": "American League",
+    "division": "American League Central",
+    "location": "Detroit",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 117,
+    "name": "Houston Astros",
+    "abbreviation": "HOU",
+    "league": "American League",
+    "division": "American League West",
+    "location": "Houston",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 118,
+    "name": "Kansas City Royals",
+    "abbreviation": "KC",
+    "league": "American League",
+    "division": "American League Central",
+    "location": "Kansas City",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 119,
+    "name": "Los Angeles Dodgers",
+    "abbreviation": "LAD",
+    "league": "National League",
+    "division": "National League West",
+    "location": "Los Angeles",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 120,
+    "name": "Washington Nationals",
+    "abbreviation": "WSH",
+    "league": "National League",
+    "division": "National League East",
+    "location": "Washington",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 121,
+    "name": "New York Mets",
+    "abbreviation": "NYM",
+    "league": "National League",
+    "division": "National League East",
+    "location": "Flushing",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 133,
+    "name": "Athletics",
+    "abbreviation": "ATH",
+    "league": "American League",
+    "division": "American League West",
+    "location": "Sacramento",
+    "priority": "High",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 134,
+    "name": "Pittsburgh Pirates",
+    "abbreviation": "PIT",
+    "league": "National League",
+    "division": "National League Central",
+    "location": "Pittsburgh",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 135,
+    "name": "San Diego Padres",
+    "abbreviation": "SD",
+    "league": "National League",
+    "division": "National League West",
+    "location": "San Diego",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 136,
+    "name": "Seattle Mariners",
+    "abbreviation": "SEA",
+    "league": "American League",
+    "division": "American League West",
+    "location": "Seattle",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 137,
+    "name": "San Francisco Giants",
+    "abbreviation": "SF",
+    "league": "National League",
+    "division": "National League West",
+    "location": "San Francisco",
+    "priority": "High",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 138,
+    "name": "St. Louis Cardinals",
+    "abbreviation": "STL",
+    "league": "National League",
+    "division": "National League Central",
+    "location": "St. Louis",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 139,
+    "name": "Tampa Bay Rays",
+    "abbreviation": "TB",
+    "league": "American League",
+    "division": "American League East",
+    "location": "St. Petersburg",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 140,
+    "name": "Texas Rangers",
+    "abbreviation": "TEX",
+    "league": "American League",
+    "division": "American League West",
+    "location": "Arlington",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 141,
+    "name": "Toronto Blue Jays",
+    "abbreviation": "TOR",
+    "league": "American League",
+    "division": "American League East",
+    "location": "Toronto",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 142,
+    "name": "Minnesota Twins",
+    "abbreviation": "MIN",
+    "league": "American League",
+    "division": "American League Central",
+    "location": "Minneapolis",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 143,
+    "name": "Philadelphia Phillies",
+    "abbreviation": "PHI",
+    "league": "National League",
+    "division": "National League East",
+    "location": "Philadelphia",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 144,
+    "name": "Atlanta Braves",
+    "abbreviation": "ATL",
+    "league": "National League",
+    "division": "National League East",
+    "location": "Atlanta",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 145,
+    "name": "Chicago White Sox",
+    "abbreviation": "CWS",
+    "league": "American League",
+    "division": "American League Central",
+    "location": "Chicago",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 146,
+    "name": "Miami Marlins",
+    "abbreviation": "MIA",
+    "league": "National League",
+    "division": "National League East",
+    "location": "Miami",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 147,
+    "name": "New York Yankees",
+    "abbreviation": "NYY",
+    "league": "American League",
+    "division": "American League East",
+    "location": "Bronx",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "teamId": 158,
+    "name": "Milwaukee Brewers",
+    "abbreviation": "MIL",
+    "league": "National League",
+    "division": "National League Central",
+    "location": "Milwaukee",
+    "priority": "Standard",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  }
+]
