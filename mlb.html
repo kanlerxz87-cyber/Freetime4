@@ -71,7 +71,7 @@
     if (team) rows = rows.filter(g => g.home === team || g.away === team);
     if (type) rows = rows.filter(g => g.subtype === type);
     if (q) rows = rows.filter(g => (g.label + ' ' + (g.venue||'')).toLowerCase().includes(q));
-    rows.sort((a,b) => a.start_iso.localeCompare(b.start_iso));
+    rows.sort((a,b) => (a.start_iso||'z').localeCompare(b.start_iso||'z'));
     document.getElementById('cnt').textContent = rows.length.toLocaleString() + ' games';
     document.querySelector('#t tbody').innerHTML = rows.slice(0, 4000).map(g => `
       <tr><td class="nowrap mono">${FREE.fmtDateShort(g.date)}</td>

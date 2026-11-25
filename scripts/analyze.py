@@ -80,6 +80,7 @@ def main():
 
     by_day = collections.defaultdict(list)
     for g in games:
+        if not g.get('start_iso'): continue      # TBD / unpublished: cannot occupy a minute
         s, e = parse(g)
         by_day[s.date().isoformat()].append((s, e, g))
 
@@ -220,7 +221,7 @@ def main():
     # START of the next, measured in whole days with no broadcast overlapping them.
     def stretches(pred, lo, hi):
         rows = [(dt.datetime.fromisoformat(x['start_iso']), dt.datetime.fromisoformat(x['end_iso']))
-                for x in games if pred(x)]
+                for x in games if pred(x) and x.get('start_iso')]
         iv = sorted(rows)
         merged2 = []
         for s, e in iv:

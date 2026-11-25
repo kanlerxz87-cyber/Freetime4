@@ -92,12 +92,16 @@ def nfl_games(text, source_url, page_type, week_hint=None):
             'game_type': page_type,
             'type_group': page_type,
             'gameId': g['gameId'],
-            'utc': g['date'],
+            # `startTime` is the real UTC kickoff; `date` is only the calendar day
+            # (it is what made every game look like 16:00 PT before this fix).
+            'utc': g.get('startTime') or g.get('time') or (g['date'] + 'T00:00:00Z'),
             'away': g.get('awayTeamFullName'),
             'home': g['homeTeamFullName'],
             'venue': g.get('venueName') or g.get('location'),
             'network': g.get('hostNetwork') or ','.join(g.get('networks') or []),
             'week': g.get('week') if week_hint is None else week_hint,
+            'duration_min': g.get('duration'),
+            'season_type': g.get('nflSeasonType'),
             'title': g.get('title'),
             'source': source_url,
         })
@@ -266,8 +270,8 @@ def sf49ers_schedule(text, source_url, year=2026):
     """Parse 49ers.com schedule cards.
 
     Card shape: WEEK n | &middot; Sun 11/29 | &middot; 1:25 PM PST | VS/AT | Nick |
-    Full name | NETWORK | RADIO | Venue.  Past games have FINAL + score instead
-    of a time.  All times on the page are Pacific.
+    Full name | NETWORK | RADIO | Venue.  Past games omit the time; week 18 is TBD.
+    All times on the page are Pacific.
     """
     import html as _h
     raw_lines = [x.strip() for x in re.sub(r'<[^>]+>', '\n', text).split('\n')]
@@ -282,7 +286,7 @@ def sf49ers_schedule(text, source_url, year=2026):
         m = re.match(r'^WEEK (\d+|WC|DIV|CONF|SB)$', x)
         if not (m and section): continue
         wk_raw = m.group(1)
-        window = lines[i+1:i+12]
+        window = lines[i+1:i+14]
         month = day = time_ = atvs = nick = venue = net = radio = None
         for k, y in enumerate(window):
             md = re.search(r'(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+(\d{1,2})/(\d{1,2})', y)
@@ -301,10 +305,30 @@ def sf49ers_schedule(text, source_url, year=2026):
                 radio = y; continue
             if re.search(r'(Stadium|Field|Park|Centre|Center|Ground|Dome|Coliseum)$', y) and nick and not venue:
                 venue = y; continue
-        if month and day:
-            out.append({'league': 'NFL', 'team': 'San Francisco 49ers', 'subtype': section,
-                        'week': int(wk_raw) if wk_raw.isdigit() else wk_raw,
-                        'date': f"{year}-{month:02d}-{day:02d}", 'clock': time_,
-                        'at_vs': atvs, 'opponent': nick, 'venue': venue,
-                        'network': net, 'radio': radio, 'source': source_url})
+        if not month or not nick:
+            continue
+        out.append({'league': 'NFL', 'team': 'San Francisco 49ers', 'subtype': section,
+                    'week': int(wk_raw) if wk_raw.isdigit() else wk_raw,
+                    'date': f"{year}-{month:02d}-{day:02d}" if day else None,
+                    'clock': time_, 'at_vs': atvs, 'opponent': nick, 'venue': venue,
+                    'network': net, 'radio': radio, 'source': source_url,
+                    'tbd': not bool(day)})
+    return out
+
+def sf49ers_schema_dates(text):
+    """schema.org SportsEvent startDates embedded in the 49ers schedule page.
+
+    Keys are the page anchors (e.g. 'eagles-at-49ers-2026-reg-17'), values are
+    local Pacific datetime strings such as '2027-01-04T01:20:00' (which the page
+    publishes in UTC but our converter normalises).
+    """
+    import json as J
+    out = {}
+    for m in re.finditer(r'"url":"https://www\.49ers\.com/schedule/#([a-z0-9\-]+)",'
+                         r'"sport":"Football","startDate":"([^"]+)"', text):
+        anchor, sd = m.group(1), m.group(2)
+        out[anchor] = sd
+        mm = re.search(r'-(\d{4})-reg-(\d{1,2})$', anchor)
+        if mm:
+            out[('reg', int(mm.group(1)), int(mm.group(2)))] = sd
     return out

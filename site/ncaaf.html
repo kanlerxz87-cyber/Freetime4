@@ -42,7 +42,7 @@
   document.getElementById('hdr').innerHTML = FREE.header('ncaaf.html');
   FREE.startClock(document.getElementById('clock'));
   document.getElementById('ftr').innerHTML = FREE.footer();
-  const cf = d.games.filter(g => g.league === 'NCAAF').sort((a,b)=>a.start_iso.localeCompare(b.start_iso));
+  const cf = d.games.filter(g => g.league === 'NCAAF').sort((a,b)=>(a.start_iso||'z').localeCompare(b.start_iso||'z'));
   const st = cf.filter(g => g.high_side === 'Stanford').length;
   const ca = cf.filter(g => g.high_side === 'California').length;
   const k = (v,l,s='') => `<div class="card"><div class="tag">${l}</div><div class="kpi">${v}</div><div class="sub">${s}</div></div>`;

@@ -38,13 +38,14 @@ def main():
     d = json.load(open(os.path.join(ROOT, 'data', 'site.json')))
     cfg = d['config']
     DUR = {k: v['value'] for k, v in cfg['duration_minutes'].items()}
-    real = [g for g in d['games'] if g['verified'] != 'estimated']
+    real = [g for g in d['games'] if g['verified'] not in ('estimated', 'unpublished')]
 
     def pattern(league, season):
         times = collections.defaultdict(collections.Counter)
         ds = []
         for g in real:
             if g['league'] != league or g['season'] != season: continue
+            if not g.get('start_iso'): continue      # TBD row: no time to model from
             t = dt.datetime.fromisoformat(g['start_iso']).astimezone(PT)
             times[t.weekday()][f'{t.hour:02d}:{t.minute:02d}'] += 1
             ds.append(t.date())
@@ -98,7 +99,7 @@ def main():
         new += rows
 
     games = real + new
-    games.sort(key=lambda g: g['start_iso'])
+    games.sort(key=lambda g: g['start_iso'] or '9999')
     for i, g in enumerate(games): g['id'] = i
     d['games'] = games
     d['counts'] = dict(collections.Counter(g['league'] for g in games))

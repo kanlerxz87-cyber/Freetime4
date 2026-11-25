@@ -103,10 +103,10 @@ function render() {
 
   // games table
   document.querySelector('#daygames tbody').innerHTML = games.length
-    ? games.sort((a,b) => a.start_iso.localeCompare(b.start_iso)).map(g => `
+    ? games.sort((a,b) => (a.start_iso||'z').localeCompare(b.start_iso||'z')).map(g => `
       <tr>
-        <td class="mono nowrap">${FREE.clock(g.start_iso)}</td>
-        <td class="mono nowrap">${FREE.clock(g.end_iso)}</td>
+        <td class="mono nowrap">${g.start_iso ? FREE.clock(g.start_iso) : '<span class="bad">TBD</span>'}</td>
+        <td class="mono nowrap">${g.end_iso ? FREE.clock(g.end_iso) : '—'}</td>
         <td><span class="pill" style="color:${FREE.sportColor(g)};border-color:${FREE.sportColor(g)}">${FREE.esc(g.league)}</span></td>
         <td><b>${FREE.esc(g.label)}</b>${g.radio ? `<div class="mini">📻 ${FREE.esc(g.radio)}</div>` : ''}</td>
         <td class="mini">${FREE.esc(FREE.dtype(g))}</td>

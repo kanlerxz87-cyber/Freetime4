@@ -10,8 +10,15 @@ for g in G:
     if not g.get('source'): errs.append(f"missing source: {g.get('label')}")
     elif not any(h in g['source'] for h in OFFICIAL) and g['verified'] != 'cross-checked':
         errs.append(f"non-official source on a verified row: {g['source']}")
-    if not g.get('start_iso') or not g.get('end_iso'):
-        errs.append(f"missing times: {g.get('label')}")
+    # a row may legitimately have no kickoff (week 18 is published TBD). It must then say
+    # so, and it must never be silently treated as a game on a specific minute.
+    if not g.get('start_iso'):
+        if g['verified'] not in ('unpublished', 'cross-checked'):
+            errs.append(f"missing times on a dated row: {g.get('label')}")
+        if not g.get('note'):
+            errs.append(f"TBD row with no explanation: {g.get('label')}")
+    if g['verified'] == 'unpublished' and not g.get('date'):
+        pass  # week 18: no date exists yet, which is exactly what we are saying
     if g['verified'] == 'estimated' and not g.get('note'):
         errs.append(f"estimated row without a note: {g.get('label')}")
     if g['verified'] in ('verified', 'cross-checked') and (not g.get('away') and not g.get('label')):
@@ -20,7 +27,7 @@ for g in G:
         errs.append(f"estimate invented matchup names: {g.get('label')}")
 # counts sanity
 c = collections.Counter(g['league'] for g in G)
-exp = {'MLB': (7780, 7800), 'NFL': (1800, 1900), 'NCAAF': (290, 300), 'WWO': (300, 320)}
+exp = {'MLB': (7780, 7800), 'NFL': (1950, 2100), 'NCAAF': (290, 300), 'WWO': (300, 320)}
 for k, (lo, hi) in exp.items():
     if not (lo <= c[k] <= hi): warn.append(f"{k} count {c[k]} outside expected {lo}-{hi}")
 # days

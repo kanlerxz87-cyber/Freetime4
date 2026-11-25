@@ -12,7 +12,7 @@ Sources of truth, in priority order:
 import json, os, re, sys, glob, datetime as dt, collections
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from parsers import mlb_games, nfl_games, ncaaf_games, cal_games, sf49ers_schedule
+from parsers import mlb_games, nfl_games, ncaaf_games, cal_games, sf49ers_schedule, sf49ers_schema_dates
 
 PT = ZoneInfo("America/Los_Angeles")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -60,66 +60,109 @@ for year in (2026, 2027):
             radio=(None if not hi else ('KNBR 680 (Giants radios) — see radio page' if 'San Francisco Giants' in (g['away'], g['home']) else 'Athletics radio network — see radio page')),
             raw_id=str(g['gamePk']))
 
-# ================================================================== NFL 2026 (nfl.com)
-seen = {}
+# ================================================================== NFL 2026
+# Three official-ish sources, merged into ONE roster keyed by (home, away, week):
+#   * nfl.com weekly pages      -> real UTC kickoff, network, venue
+#   * 49ers.com schedule page   -> schema.org UTC instant + printed PST clock + radio
+#   * ESPN site API             -> cross-check only, fills weeks nfl.com leaves empty
+NFL_ROW = {}
+
+def nfl_put(away, home, start, week, group, source, verified, note='', **kw):
+    key = (home, away, week)
+    # a mirrored row (same two clubs, same week, sides swapped) is the same game
+    if key not in NFL_ROW and (away, home, week) in NFL_ROW:
+        key = (away, home, week)
+    row = NFL_ROW.get(key)
+    if row is None:
+        NFL_ROW[key] = {
+            'league': 'NFL', 'season': 2026, 'group': group, 'subtype': group,
+            'start': start, 'dur': DUR['NFL'], 'away': away, 'home': home,
+            'label': f'{away} at {home}', 'venue': kw.get('venue'),
+            'network': kw.get('network'), 'source': source, 'verified': verified,
+            'note': note, 'priority': 'high' if 'San Francisco 49ers' in (away, home) else 'normal',
+            'high_side': 'San Francisco 49ers' if 'San Francisco 49ers' in (away, home) else '',
+            'radio': kw.get('radio'), 'raw_id': kw.get('raw_id'), 'week': week,
+            'date_hint': kw.get('date_hint'), 'confirm': [],
+        }
+        return
+    # second source for the same game: record agreement, keep the better time
+    if start and not row['start']:
+        row['start'] = start
+    if start and row['start'] and abs((start - row['start']).total_seconds()) <= 900:
+        row['confirm'].append(source)
+        if row['verified'] == 'cross-checked' and verified == 'verified':
+            row['verified'] = 'verified'
+            row['source'] = source
+    if kw.get('radio') and not row['radio']:
+        row['radio'] = kw['radio']
+    if kw.get('venue') and not row['venue']:
+        row['venue'] = kw['venue']
+    if kw.get('network') and not row['network']:
+        row['network'] = kw['network']
+
+# ---- pass 1: nfl.com weekly pages
 for f in sorted(glob.glob(os.path.join(RAW, 'nfl2026', 'nfl_*_week*.html'))):
     m = re.match(r'nfl_(PRE|REG|POST)_week(\d+)\.html', os.path.basename(f))
     if not m: continue
     wk = int(m.group(2))
-    for g in nfl_games(open(f, encoding='utf-8', errors='ignore').read(), NFL_BW.format(w=wk), 'Regular Season', wk):
-        if g['gameId'] in seen: continue
-        seen[g['gameId']] = g
-for gid, g in seen.items():
-    start = pt(g['utc'])
-    hi = 'San Francisco 49ers' in (g['away'], g['home'])
-    sd = pt(g['utc'])
-    grp = ('Preseason' if sd.month == 8 else 'Regular Season')
-    g['type_group'] = grp
-    add(league='NFL', season=2026, group=grp, subtype=grp,
-        start=start, dur=DUR['NFL'], away=g['away'], home=g['home'],
-        label=f"{g['away']} at {g['home']}", venue=g['venue'], network=g.get('network'),
-        source=g['source'], priority='high' if hi else 'normal',
-        high_side=('San Francisco 49ers' if hi else ''), radio=None, raw_id=gid)
-nfl_nflcom = len(seen)
+    for g in nfl_games(open(f, encoding='utf-8', errors='ignore').read(),
+                       NFL_BW.format(w=wk), 'Regular Season', wk):
+        s = pt(g['utc'])
+        grp = 'Preseason' if s.month == 8 else 'Regular Season'
+        nfl_put(g['away'], g['home'], s, wk, grp, g['source'], 'verified',
+                venue=g['venue'], network=g.get('network'), raw_id=g['gameId'])
+print('nfl.com pass:', len(NFL_ROW))
 
-# ================================================================== NFL 2026 (49ers.com)
-sf = sf49ers_schedule(open(os.path.join(RAW, 'nfl2026', '49ers_official_2026.html'),
-                           encoding='utf-8', errors='ignore').read(), SF_URL)
-got = {(frozenset([g['away'], g['home']]), g['start'].date().isoformat()) for g in GAMES if g['league'] == 'NFL'}
-for g in sf:
-    if not g['date']: continue
-    d = dt.date.fromisoformat(g['date'])
-    if g['week'] == 17 and d.month == 1: d = d.replace(year=d.year + 1)   # 01/03 == 2027-01-03
-    clock = g['clock']
-    if clock:
-        m = re.match(r'(\d{1,2}):(\d{2})\s*(AM|PM)', clock)
-        h = int(m.group(1)) % 12 + (12 if m.group(3) == 'PM' else 0)
-        start = dt.datetime(d.year, d.month, d.day, h, int(m.group(2)), tzinfo=PT)
-        ver, note = 'verified', ''
+# ---- pass 2: 49ers.com (schema.org instant preferred, then the printed PST clock)
+sf_html = open(os.path.join(RAW, 'nfl2026', '49ers_official_2026.html'),
+               encoding='utf-8', errors='ignore').read()
+schema = sf49ers_schema_dates(sf_html)
+NICK = {'Rams': 'Los Angeles Rams', 'Dolphins': 'Miami Dolphins', 'Cardinals': 'Arizona Cardinals',
+        'Broncos': 'Denver Broncos', 'Seahawks': 'Seattle Seahawks', 'Commanders': 'Washington Commanders',
+        'Falcons': 'Atlanta Falcons', 'Raiders': 'Las Vegas Raiders', 'Cowboys': 'Dallas Cowboys',
+        'Vikings': 'Minnesota Vikings', 'Giants': 'New York Giants', 'Chargers': 'Los Angeles Chargers',
+        'Chiefs': 'Kansas City Chiefs', 'Eagles': 'Philadelphia Eagles', 'Titans': 'Tennessee Titans'}
+PRE_WEEK = {'Titans': 1, 'Chargers': 2, 'Raiders': 3}
+PRE_HINTS = {}
+for g in sf49ers_schedule(sf_html, SF_URL, 2026):
+    opp = NICK.get(g['opponent'], g['opponent'])
+    away, home = (opp, 'San Francisco 49ers') if g['at_vs'] == 'VS' else ('San Francisco 49ers', opp)
+    if g['subtype'] == 'Preseason':
+        wk = -PRE_WEEK.get(g['opponent'], 0)
     else:
-        start = dt.datetime(d.year, d.month, d.day, 13, 0, tzinfo=PT)
-        ver, note = 'estimated', 'Kickoff time not published for this past game — 1:00 PM PT placeholder.'
-    full = g['opponent']
-    nick = {'Rams': 'Los Angeles Rams', 'Dolphins': 'Miami Dolphins', 'Cardinals': 'Arizona Cardinals',
-            'Broncos': 'Denver Broncos', 'Seahawks': 'Seattle Seahawks', 'Commanders': 'Washington Commanders',
-            'Falcons': 'Atlanta Falcons', 'Raiders': 'Las Vegas Raiders', 'Cowboys': 'Dallas Cowboys',
-            'Vikings': 'Minnesota Vikings', 'Giants': 'New York Giants', 'Chargers': 'Los Angeles Chargers',
-            'Chiefs': 'Kansas City Chiefs', 'Eagles': 'Philadelphia Eagles', 'Titans': 'Tennessee Titans'}
-    opp = nick.get(full, full)
-    if g['at_vs'] == 'VS':
-        away, home = opp, 'San Francisco 49ers'
-    else:
-        away, home = 'San Francisco 49ers', opp
-    label = f"{away} at {home}"
-    key = (frozenset([away, home]), start.date().isoformat())
-    if key in got: continue
-    got.add(key)
-    add(league='NFL', season=2026, group=g['subtype'], subtype=g['subtype'],
-        start=start, dur=DUR['NFL'], away=away, home=home, label=label,
-        venue=g['venue'], network=g['network'], source=SF_URL, verified=ver, note=note,
-        priority='high', high_side='San Francisco 49ers', radio=g['radio'],
-        raw_id=f"sf-{g['subtype'][:3]}-{start.date()}")
-nfl_sf_added = sum(1 for g in GAMES if g['league'] == 'NFL' and g['source'] == SF_URL)
+        wk = g['week']
+    ref = schema.get(('reg', 2026, g['week'])) if g['subtype'] == 'Regular Season' else None
+    start = None
+    if ref:
+        start = dt.datetime.fromisoformat(ref).replace(tzinfo=dt.timezone.utc).astimezone(PT)
+    elif g['clock']:
+        m2 = re.match(r'(\d{1,2}):(\d{2})\s*(AM|PM)', g['clock'])
+        h = int(m2.group(1)) % 12 + (12 if m2.group(3) == 'PM' else 0)
+        d0 = dt.date.fromisoformat(g['date'])
+        if d0.month == 1: d0 = d0.replace(year=d0.year + 1)
+        start = dt.datetime(d0.year, d0.month, d0.day, h, int(m2.group(2)), tzinfo=PT)
+    if start is None and g['subtype'] == 'Preseason':
+        # 49ers.com prints only "FINAL / L 13-19" for past preseason games - no kickoff.
+        # The date is official; the time comes from the ESPN cross-check.
+        d0 = dt.date.fromisoformat(g['date'])
+        nfl_put(away, home, None, wk, 'Preseason', SF_URL, 'cross-checked',
+                note='Date from 49ers.com; kickoff not printed there (game already played), '
+                     'so the time comes from the ESPN cross-check.',
+                venue=g['venue'], raw_id=f"sf-pre-{wk}", date_hint=d0.isoformat())
+        continue
+    if start is None:
+        # week 18 is published as "TBD / AT Cardinals": no date and no kickoff exist yet
+        NFL_TBD = globals().get('NFL_TBD', [])
+        NFL_TBD.append({'away': away, 'home': home, 'venue': g['venue'],
+                        'radio': g['radio'], 'week': wk})
+        globals()['NFL_TBD'] = NFL_TBD
+        continue
+    nfl_put(away, home, start, wk, g['subtype'], SF_URL, 'verified',
+            venue=g['venue'], network=g['network'], radio=g['radio'],
+            raw_id=f"sf-{g['subtype'][:3]}-{wk}")
+print('after 49ers pass:', len(NFL_ROW), 'unpublished/TBD:', len(globals().get('NFL_TBD', [])))
+for row in NFL_ROW.values(): GAMES.append(row)
+nfl_nflcom = len(NFL_ROW)
 
 # ================================================================== NCAAF
 for school, fname, url in (('Stanford', 'stanford_2026.html', STAN), ('California', 'cal_2026.html', CAL)):
@@ -194,13 +237,19 @@ for f in glob.glob(os.path.join(RAW, 'wwo_events', '*.json')):
         verified='verified', note=desc, raw_id=d['href'])
 
 # ================================================================== order + emit
-GAMES.sort(key=lambda g: g['start'])
+GAMES.sort(key=lambda g: g['start'] or dt.datetime.max.replace(tzinfo=dt.timezone.utc))
 for i, g in enumerate(GAMES):
     g['id'] = i
-    g['start_iso'] = g['start'].isoformat()
-    g['date'] = g['start'].date().isoformat()
-    g['end_iso'] = (g['start'] + dt.timedelta(minutes=g['dur'])).isoformat()
-    g['start_min'] = g['start'].hour * 60 + g['start'].minute
+    if g['start'] is None:
+        g['start_iso'] = None
+        g['date'] = g.get('date_hint')
+        g['end_iso'] = None
+        g['start_min'] = None
+    else:
+        g['start_iso'] = g['start'].isoformat() if g['start'] else None
+        g['date'] = g['start'].date().isoformat()
+        g['end_iso'] = (g['start'] + dt.timedelta(minutes=g['dur'])).isoformat()
+        g['start_min'] = g['start'].hour * 60 + g['start'].minute
     del g['start']
 
 # unverified / not-released markers
@@ -237,4 +286,6 @@ out = {
 json.dump(out, open(os.path.join(ROOT, 'data', 'site.json'), 'w'), separators=(',', ':'))
 print('games', len(GAMES), out['counts'])
 print('range', out['date_range'])
-print('NFL nfl.com', nfl_nflcom, '| 49ers.com added', nfl_sf_added)
+nfl_sf_added = sum(1 for g in GAMES if g['league']=='NFL' and g.get('source')==SF_URL)
+print('NFL nfl.com', nfl_nflcom, '| 49ers.com-only rows', nfl_sf_added,
+      '| confirmed by 2+ sources', sum(1 for g in GAMES if g['league']=='NFL' and len(g.get('confirm') or [])>0))

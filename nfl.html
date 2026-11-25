@@ -47,7 +47,7 @@
   document.getElementById('hdr').innerHTML = FREE.header('nfl.html');
   FREE.startClock(document.getElementById('clock'));
   document.getElementById('ftr').innerHTML = FREE.footer();
-  const nfl = d.games.filter(g => g.league === 'NFL').sort((a,b)=>a.start_iso.localeCompare(b.start_iso));
+  const nfl = d.games.filter(g => g.league === 'NFL').sort((a,b)=>(a.start_iso||'z').localeCompare(b.start_iso||'z'));
   const sf = nfl.filter(g => (g.away==='San Francisco 49ers'||g.home==='San Francisco 49ers'));
   const k = (v,l,s='') => `<div class="card"><div class="tag">${l}</div><div class="kpi">${v}</div><div class="sub">${s}</div></div>`;
   document.getElementById('kpis').innerHTML =

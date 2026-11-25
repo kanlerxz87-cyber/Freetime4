@@ -33,8 +33,10 @@ def merge(site_json_path):
     added = []
     for eid, e in espn.items():
         ds = e['start'].date().isoformat()
+        # The 2026 NFL season runs Aug 2026 -> Feb 2027. Anything earlier is the
+        # 2025 season and must not leak in.
         if not ('2026-08-01' <= ds <= '2027-02-28'):
-            continue   # only the 2026 NFL season window
+            continue
         key = frozenset([e['away'], e['home']])
         if ds in existing.get(key, ()): continue
         # allow ±1 day (UTC/late-night conversion)
@@ -61,7 +63,7 @@ def merge(site_json_path):
     for a in added:
         existing[frozenset([a['away'], a['home']])].add(a['date'])
     games.extend(added)
-    games.sort(key=lambda g: g['start_iso'])
+    games.sort(key=lambda g: g['start_iso'] or '9999')
     for i, g in enumerate(games): g['id'] = i
     d['games'] = games
     d['counts'] = dict(collections.Counter(g['league'] for g in games))

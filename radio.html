@@ -65,7 +65,7 @@
     <td class="mini">${FREE.esc(s.carries)}</td>
     <td class="mini">${ev[s.callsign] ? `<a href="${ev[s.callsign]}" target="_blank" rel="noopener">official / release</a>` : '<span class="bad">unverified</span>'}</td></tr>`).join('');
 
-  const withRadio = d.games.filter(g => g.radio && g.league !== 'WWO').sort((a,b)=>a.start_iso.localeCompare(b.start_iso));
+  const withRadio = d.games.filter(g => g.radio && g.league !== 'WWO').sort((a,b)=>(a.start_iso||'z').localeCompare(b.start_iso||'z'));
   document.querySelector('#ev tbody').innerHTML = withRadio.map(g => `
     <tr><td class="nowrap mono">${FREE.fmtDateShort(g.date)}</td><td>${FREE.esc(g.label)}</td>
     <td class="mini">📻 ${FREE.esc(g.radio)}</td><td>${FREE.srcLink(g)}</td></tr>`).join('')
