@@ -1,0 +1,49 @@
+{
+  "checked": "2026-11-25",
+  "note": "Durations for the free-time scoreboard. A game block runs from its start time to start + duration. Blank = not verified; the scoreboard shows a warning rather than a made-up value.",
+  "items": [
+    {
+      "id": "AVG-MLB",
+      "sport": "MLB",
+      "item": "Average game time, 2025 season (nine innings)",
+      "minutes": 158,
+      "value_as_printed": "2:38",
+      "status": "VERIFIED (official)",
+      "source": "S-MLB-AVG-2025"
+    },
+    {
+      "id": "AVG-NFL",
+      "sport": "NFL",
+      "item": "Average regular-season game length, 2025 (kickoff to final whistle)",
+      "minutes": 183,
+      "value_as_printed": "3:03 (182.6 min)",
+      "status": "SECONDARY (no NFL official average found)",
+      "source": "S-NFL-DURATION-UITR",
+      "corroboration": [
+        "S-NFL-DURATION-NFLA",
+        "S-NFL-DURATION-VERTIZE"
+      ],
+      "note": "Used as the NFL block length. This is the user's ~180-minute guideline, corrected to the secondary average."
+    },
+    {
+      "id": "HALF-NFL",
+      "sport": "NFL",
+      "item": "Halftime length",
+      "minutes": 13,
+      "value_as_printed": "13 minutes (rule)",
+      "status": "SECONDARY (cited as Rule 4 by secondary sources; rulebook not retrieved)",
+      "source": "S-NFL-DURATION-VERTIZE",
+      "note": "Included inside the average game length. The user's 15-30 minute halftime range is not used separately."
+    },
+    {
+      "id": "AVG-CFB",
+      "sport": "College football (Stanford, Cal)",
+      "item": "Average game length",
+      "minutes": null,
+      "value_as_printed": "",
+      "status": "UNVERIFIED (no official figure retrieved)",
+      "source": null,
+      "note": "Left blank. The scoreboard shows a warning for Stanford and Cal blocks until an official figure is added."
+    }
+  ]
+}

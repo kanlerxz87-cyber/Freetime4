@@ -1,0 +1,205 @@
+{
+  "accessed": "2026-11-25",
+  "note": "Only sources actually retrieved in this session are listed. type=official: league, team, school, venue, or MLB API. type=secondary: third-party page used only where no official value exists; any value taken from a secondary source is flagged.",
+  "sources": [
+    {
+      "id": "S-MLB-TEAMS",
+      "type": "official",
+      "title": "MLB Stats API - active teams",
+      "publisher": "MLB Advanced Media",
+      "url": "https://statsapi.mlb.com/api/v1/teams?sportId=1&fields=teams,id,name,abbreviation,teamName,locationName,venue,name,league,name,division,name,active",
+      "raw": "docs/data/raw/mlb-teams.json",
+      "used_for": "30 active MLB clubs, IDs, abbreviations, venues"
+    },
+    {
+      "id": "S-MLB-SEASON-2027",
+      "type": "official",
+      "title": "MLB Stats API - season calendar 2027",
+      "publisher": "MLB Advanced Media",
+      "url": "https://statsapi.mlb.com/api/v1/seasons?sportId=1&season=2027",
+      "raw": "docs/data/raw/mlb-seasons-2027.json",
+      "used_for": "2027 spring, regular season, All-Star, postseason dates"
+    },
+    {
+      "id": "S-MLB-SEASON-2028",
+      "type": "official",
+      "title": "MLB Stats API - season calendar 2028 (query)",
+      "publisher": "MLB Advanced Media",
+      "url": "https://statsapi.mlb.com/api/v1/seasons?sportId=1&season=2028",
+      "used_for": "Returned an empty seasons array on 2026-11-25 (2028 not published)"
+    },
+    {
+      "id": "S-MLB-SEASON-2029",
+      "type": "official",
+      "title": "MLB Stats API - season calendar 2029 (query)",
+      "publisher": "MLB Advanced Media",
+      "url": "https://statsapi.mlb.com/api/v1/seasons?sportId=1&season=2029",
+      "used_for": "Returned an empty seasons array on 2026-11-25 (2029 not published)"
+    },
+    {
+      "id": "S-MLB-R-2027",
+      "type": "official",
+      "title": "MLB Stats API - 2027 regular-season games per date",
+      "publisher": "MLB Advanced Media",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameType=R&fields=dates,date,totalGames",
+      "raw": "docs/data/raw/mlb-2027-regular-season-daily.json",
+      "used_for": "2,430 regular-season games"
+    },
+    {
+      "id": "S-MLB-S-2027",
+      "type": "official",
+      "title": "MLB Stats API - 2027 spring training games per date",
+      "publisher": "MLB Advanced Media",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameType=S&fields=dates,date,totalGames",
+      "raw": "docs/data/raw/mlb-2027-spring-training-daily.json",
+      "used_for": "469 spring games"
+    },
+    {
+      "id": "S-MLB-GIANTS-2027",
+      "type": "official",
+      "title": "MLB Stats API - Giants (teamId 137) 2027 spring + regular",
+      "publisher": "MLB Advanced Media",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&teamId=137&gameType=S,R&fields=dates,date,totalGames",
+      "raw": "docs/data/raw/mlb-2027-giants-daily.json",
+      "used_for": "194 Giants games (totals reconciled)"
+    },
+    {
+      "id": "S-MLB-ATH-2027",
+      "type": "official",
+      "title": "MLB Stats API - Athletics (teamId 133) 2027 spring + regular",
+      "publisher": "MLB Advanced Media",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&teamId=133&gameType=S,R&fields=dates,date,totalGames",
+      "raw": "docs/data/raw/mlb-2027-athletics-daily.json",
+      "used_for": "193 Athletics games (totals reconciled)"
+    },
+    {
+      "id": "S-MLB-AVG-2025",
+      "type": "official",
+      "title": "MLB press release: attendance reaches 71.4 million (2025 average game time 2:38)",
+      "publisher": "MLB.com",
+      "url": "https://www.mlb.com/press-release/press-release-mlb-attendance-reaches-71-4-million-three-straight-years-of-growth-for-first-time-since-2007",
+      "used_for": "MLB average game time 2:38 (2025)"
+    },
+    {
+      "id": "S-GIANTS-RADIO",
+      "type": "official",
+      "title": "San Francisco Giants - Broadcast Partners",
+      "publisher": "San Francisco Giants (MLB.com)",
+      "url": "https://www.mlb.com/giants/schedule/broadcast-partners",
+      "used_for": "KNBR 680 AM / 104.5 FM (English); KSFN 1510 AM (Spanish)"
+    },
+    {
+      "id": "S-WWO-NFL",
+      "type": "official",
+      "title": "Westwood One Sports - NFL Schedule",
+      "publisher": "Westwood One Sports",
+      "url": "https://www.westwoodonesports.com/nfl-schedule/",
+      "used_for": "National NFL radio events 11/25/2026 - 1/10/2027, with event IDs and ET times"
+    },
+    {
+      "id": "S-NFL-2026-REG14",
+      "type": "official",
+      "title": "NFL.com - 2026 schedules (Thanksgiving week page)",
+      "publisher": "National Football League",
+      "url": "https://www.nfl.com/schedules/2026/REG14",
+      "used_for": "Thanksgiving-week kickoff times and networks (time-zone basis not printed on the page as retrieved)"
+    },
+    {
+      "id": "S-49ERS",
+      "type": "official",
+      "title": "San Francisco 49ers - 2026 Schedule",
+      "publisher": "San Francisco 49ers",
+      "url": "https://www.49ers.com/schedule/",
+      "used_for": "49ers 2026 preseason and regular-season games, results, times, TV, and radio"
+    },
+    {
+      "id": "S-STANFORD",
+      "type": "official",
+      "title": "Stanford Athletics - Football schedule",
+      "publisher": "Stanford University Athletics",
+      "url": "https://gostanford.com/sports/football/schedule",
+      "used_for": "Stanford 2026 games, results, Nov 28 kickoff"
+    },
+    {
+      "id": "S-STANFORD-RADIO-NEWS",
+      "type": "official",
+      "title": "Stanford Athletics - 2026 Football Radio Broadcast Team Announced (July 30, 2026)",
+      "publisher": "Stanford University Athletics",
+      "url": "https://gostanford.com/news/2026/07/30/2026-football-radio-broadcast-team-announced",
+      "used_for": "States KNBR/KTCT 1050 AM (conflicts with KNBR 680/104.5 AM per secondary source; flagged)"
+    },
+    {
+      "id": "S-CAL",
+      "type": "official",
+      "title": "California Golden Bears Athletics - Football schedule",
+      "publisher": "University of California Athletics",
+      "url": "https://calbears.com/sports/football/schedule",
+      "used_for": "Cal 2026 games from Sep 19, results, Nov 28 kickoff, radio station KSFO 810 AM (per official page snippet)"
+    },
+    {
+      "id": "S-SOFI-SB-LXI",
+      "type": "official",
+      "title": "SoFi Stadium - Los Angeles region to host Super Bowl LXI (Feb 9, 2026)",
+      "publisher": "SoFi Stadium / Los Angeles Super Bowl Host Committee",
+      "url": "https://www.sofistadium.com/news/detail/los-angeles-region-to-host-super-bowl-lxi-in-2027-welcoming-the-nfls-biggest-stage-for-the-second-time-this-decade-to-sofi-stadium",
+      "used_for": "Super Bowl LXI: Sunday Feb 14, 2027, SoFi Stadium; kickoff time TBA"
+    },
+    {
+      "id": "S-NFL-DURATION-UITR",
+      "type": "secondary",
+      "title": "Up in the Rafters - How Long Is a Football Game? (2025 nflverse data)",
+      "publisher": "Up in the Rafters",
+      "url": "https://www.upintherafters.com/nfl/how-long-is-a-football-game",
+      "used_for": "2025 average NFL regular-season game 3:03 (182.6 min, n=272); not an NFL official statistic"
+    },
+    {
+      "id": "S-NFL-DURATION-NFLA",
+      "type": "secondary",
+      "title": "nflanalytic - How Long Is an NFL Game? (2003-2026)",
+      "publisher": "nflanalytic.com",
+      "url": "https://nflanalytic.com/explainer-how-long-is-an-nfl-game.html",
+      "used_for": "2025 median regular-season game 3:02 (n=270); halftime median 14.3 min; not official"
+    },
+    {
+      "id": "S-NFL-DURATION-VERTIZE",
+      "type": "secondary",
+      "title": "Vertize Sports - How Long Is an NFL Game?",
+      "publisher": "Vertize Sports",
+      "url": "https://vertizesports.com/blog/how-long-is-an-nfl-game",
+      "used_for": "2025 average 3:04 (table) / 3:03:46 (text); halftime 13 min per rulebook (secondary citation); not official"
+    },
+    {
+      "id": "S-SECONDARY-KNBR-WIKI",
+      "type": "secondary",
+      "title": "Wikipedia - KNBR (AM)",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/KNBR_(AM)",
+      "used_for": "Background only; Westwood One affiliation not used"
+    },
+    {
+      "id": "S-SECONDARY-INSIDERADIO",
+      "type": "secondary",
+      "title": "Inside Radio - Stanford Football Taps Two Alumni For 2026 Radio Broadcasts",
+      "publisher": "Inside Radio",
+      "url": "https://www.insideradio.com/free/stanford-football-taps-two-alumni-for-2026-radio-broadcasts/article_1576291f-2466-42af-98a1-1c9676d60d46.html",
+      "used_for": "States KNBR-AM/FM (680/104.5) and KTCT (1050) for Stanford (secondary; conflicts with the Stanford official page wording)"
+    },
+    {
+      "id": "S-MLB-SEASON-2026",
+      "type": "official",
+      "title": "MLB Stats API - season calendar 2026",
+      "publisher": "MLB Advanced Media",
+      "url": "https://statsapi.mlb.com/api/v1/seasons?sportId=1&season=2026",
+      "raw": "docs/data/raw/mlb-seasons-2026.json",
+      "used_for": "2026 calendar: regular season ended 2026-09-27, postseason ended 2026-10-28"
+    },
+    {
+      "id": "S-MLB-ASG-2027",
+      "type": "official",
+      "title": "MLB Stats API - 2027 All-Star / other game types",
+      "publisher": "MLB Advanced Media",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameType=F,D,L,W,A&fields=dates,date,totalGames",
+      "used_for": "2027 All-Star Game on 2027-07-13 (1 game)"
+    }
+  ]
+}
