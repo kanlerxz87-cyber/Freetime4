@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flagged for Review — Freetime4</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand"><a href="index.html">FREETIME4</a> <span class="site-tag">&middot; Flagged for Review</span></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="executive-summary.html">Executive Summary</a></li>
+        <li><a href="free-time.html">Free-Time Calendar</a></li>
+        <li><a href="mlb.html">MLB</a></li>
+        <li><a href="nfl.html">NFL</a></li>
+        <li><a href="ncaaf.html">NCAAF (Stanford / Cal)</a></li>
+        <li><a href="westwood-one.html">Westwood One Radio</a></li>
+        <li><a href="flagged-review.html" class="active">Flagged for Review</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <h1>Flagged for Review</h1>
+  <p>These items could not be fully verified from an official source, or are estimates rather than official schedules. They <strong>do not block</strong> publication; they are published here so you can review them after the site is live and request changes. Per the verification rules, unverified values are left blank and flagged &mdash; nothing was inferred or filled in.</p>
+
+  <table>
+    <thead><tr><th>#</th><th>Item</th><th>Reason flagged</th><th>Status</th><th>Source / link for manual review</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Full 2026 MLB per-game schedule for all 30 clubs</td><td>Not verified game-by-game; official club schedule links provided instead.</td><td><span class="badge badge-unverified">UNVERIFIED</span></td><td><a href="https://www.mlb.com" target="_blank" rel="noopener">MLB.com</a> (club schedule links on MLB page)</td></tr>
+      <tr><td>2</td><td>Oakland Athletics 2026 home-game times (Sutter Health Park / Las Vegas)</td><td>Series dates verified; individual game times not pulled from official A's schedule.</td><td><span class="badge badge-unverified">UNVERIFIED</span></td><td><a href="https://www.mlb.com/athletics/schedule" target="_blank" rel="noopener">Athletics schedule</a></td></tr>
+      <tr><td>3</td><td>California Golden Bears full 2026 football schedule</td><td>Only Big Game (2026-11-21, 12:00 p.m. PST) verified; full schedule not retrieved from official source.</td><td><span class="badge badge-unverified">UNVERIFIED</span></td><td><a href="https://calbears.com" target="_blank" rel="noopener">calbears.com</a></td></tr>
+      <tr><td>4</td><td>Westwood One exact Bay Area AM/FM affiliate station list &amp; frequencies</td><td>Network coverage verified; specific local affiliate frequencies not confirmed.</td><td><span class="badge badge-unverified">UNVERIFIED</span></td><td><a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">Westwood One</a></td></tr>
+      <tr><td>5</td><td>KNBR 680 AM / 104.5 FM live-game carriage</td><td>Not confirmed from an official KNBR schedule.</td><td><span class="badge badge-unverified">UNVERIFIED</span></td><td><a href="https://www.knbr.com" target="_blank" rel="noopener">knbr.com</a></td></tr>
+      <tr><td>6</td><td>MLB postseason 2026 dates</td><td>Postseason window known; specific dates/times not released in the source reviewed.</td><td><span class="badge badge-unverified">UNVERIFIED</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
+      <tr><td>7</td><td>Estimated game durations (MLB ~165 min, NFL ~180 min, NCAAF ~180 min, halftimes)</td><td>Used to compute free-time windows; not from an official schedule source.</td><td><span class="badge badge-estimate">ESTIMATE</span></td><td>data/schedules.json &middot; estimated_durations_minutes</td></tr>
+      <tr><td>8</td><td>All 2027, 2028, 2029 schedules (MLB, NFL, NCAAF)</td><td>Not officially released as of 2026-11-25; all windows are typical-pattern estimates, NOT verified schedules.</td><td><span class="badge badge-estimate">ESTIMATE</span></td><td>None (no official source yet)</td></tr>
+      <tr><td>9</td><td>NFL postseason rounds 2027 (Wild Card, Divisional, Conference Champs)</td><td>Dates estimated; only Super Bowl LXI (2027-02-14) verified.</td><td><span class="badge badge-estimate">ESTIMATE</span></td><td><a href="https://www.49erswebzone.com/articles/200774-san-francisco-49ers-schedule-revealed/" target="_blank" rel="noopener">49ers schedule reveal</a></td></tr>
+      <tr><td>10</td><td>Free-time windows derived from estimated game times</td><td>Computed from estimates; not official.</td><td><span class="badge badge-estimate">ESTIMATE</span></td><td>free-time.html</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <strong>How to resolve:</strong> When an official schedule is released (e.g., MLB/NFL/NCAAF 2027+), replace the estimate with the verified value, add the source link, and move the item off this page. Until then, treat flagged items as planning guidance only.
+  </div>
+
+  <footer>
+    Freetime4 &middot; Flagged for review as of 2026-11-25. Times in Pacific (PST/PDT).
+  </footer>
+</div>
+
+</body>
+</html>
