@@ -179,9 +179,11 @@ This session built the **calendar site** in `calendar-site/` and its data build 
 
 ### PR and deploy (7fca3e35)
 
-- PR: _recorded after opening_
-- Merge result: _recorded after merge_
-- GitHub Pages: _recorded after deploy check_
+- PR: https://github.com/kanlerxz87-cyber/Freetime4/pull/7 (`arena/7fca3e35-freetime4` → `main`)
+- Merge: merge commit `c9a9f9188a65dc5e16d4cccf80d165077bd2d07e`, merged 2026-11-25 14:13 UTC, `--merge`, no review wait. Mergeable state was `clean` before the merge.
+- Before merge: `calendar_build.py` and `calendar_check.py` passed (no broken internal links; every table row has a source link). `main`'s `check_ids.js` and `check_site.js` passed on the combined tree.
+- GitHub Pages: build for `c9a9f9188a65` reached `built` with no error. The live page https://kanlerxz87-cyber.github.io/Freetime4/calendar-site/index.html and the calendar at `/calendar-site/calendar.html` were fetched and render correctly.
+- Recorded on the session branch after the merge (this commit is not in `main`, because pushes to `main` are outside this session's scope).
 
 ### Re-verification before merge (7fca3e35)
 
