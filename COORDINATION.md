@@ -242,3 +242,47 @@ Platform constraint: this session is fixed to `arena/9521dee6-freetime4`; per-fi
 - GitHub Pages workflow run `45633693583` completed successfully (build + deploy); Pages API reports the project site at https://kanlerxz87-cyber.github.io/Freetime4/ on `main` root.
 - Published linked addenda: `radio-verified.html`, `windows-2027-2029.html`, machine-readable JSON under `data/`.
 - Remaining cross-session integration: PR #9 (`arena/e6eb3028-freetime4`) is still open and reports merge conflict; it is owned by that session. Its conflicting branch was not edited or force-merged. Other data-rich branches (including `arena/224e418b-freetime4`, `arena/ad020434-freetime4`) were not merged because their task ownership/ongoing status was not resolved. This session's N1/N2 deliverables are live; broader remaining work is tracked in the existing board and flagged pages.
+
+---
+
+# Session arena/c04f5702-freetime4 (sess-arena-4f7a9c2e) — automated official-data pipeline + integration
+
+Branch: `arena/c04f5702-freetime4` (Arena-managed, fixed by platform; cannot create/push other branches). Claims recorded here; small scoped commits; `git pull --rebase` before every push.
+
+## Claims
+
+| # | Task | Status | File scope | Notes |
+|---|---|---|---|---|
+| P1 | Automated official-schedule fetch pipeline (GitHub Actions + full internet) | done | `.github/workflows/fetch-schedules.yml`, `scripts/fetch_official_schedules.py`, `data/raw/*` | Fetches MLB Stats API seasons 2026-2029 (official), ESPN public API mirrors for NFL league/49ers + Stanford/Cal 2026-2029, weekly cron refresh. Unreleased seasons recorded as count=0 (evidence, not guess). |
+| P2 | Full per-game MLB 2026+2027 (all 30 clubs, real times) | done | `data/site/games_2026.json`, `games_2027.json` | Closes F-21 / open item "MLB times for all 30 clubs not ingested". 2026: 2,990 rows (incl. spring+postseason); 2027: 2,905 rows (2,430 regular with times + 469 spring + 5 exhibitions + ASG). 678 2027 games carry API placeholder times → re-estimated from club's verified 2026 median slot, flagged ESTIMATED-TIME. |
+| P3 | 2028-2029 estimates (MLB full shift method) | done | `data/site/games_2028.json`, `games_2029.json` | 2028/2029 confirmed empty via official API 2026-11-25 → estimated by shifting the OFFICIAL 2027 schedule +364/+728 days (52-week cycle preserves weekday patterns, All-Star break, holiday series; home/away may change in the real release). Postseason slots estimated from verified 2026 spacing. Every row status=ESTIMATE, sourceUrl blank. |
+| P4 | NFL/WW1/NCAAF estimates 2027-2029 | done | same files | NFL: Week-1-Thursday-after-Labor-Day + Super Bowl=Week1+157d (verified rule held 2023-2027 seasons; SB LXI 2027-02-14 verified). WW1 weekly TNF/SNF/MNF windows from live 2026 page pattern. NCAAF: verified announced non-conference anchors (Vanderbilt/Notre Dame/UCLA/Wisconsin/Minnesota/Fresno St etc.) + standard 12-game Saturday slate + Big Game pattern estimate. All ESTIMATE-flagged. |
+| P5 | WW1 time-conflict resolution (F-02/F-03/F05/F06) | done | `data/raw/ww1_nfl_schedule.json` | RESOLVED: Westwood One's listed times are the RADIO BROADCAST window start (pregame), not kickoff. Dec 17: WW1 7:30 PM ET pregame, kickoff 8:15 PM ET (2026-12-18T01:15Z) per official schedule feed. Jan 3: WW1 7:30 PM ET pregame, kickoff 8:20 PM ET (2027-01-04T01:20Z). Not a data conflict. |
+| P6 | Radio research (Bay Area AM/FM) | done | `data/site/radio_stations.json` | NEW: KSFO 560 AM license surrendered Aug 5-6, 2026 (FCC) — dead. 2026 49ers flagship = KNBR 680/104.5 + 107.7 The Bone + 810 KSFO (per 2026 network listing). A's Bay Area = KNEW 960 AM (flagship KSTE 650 Sacramento) + Spanish KIQI 1010. Stanford audio via thesportsleader.com (KNBR cluster). Cal = 810 KSFO + Varsity Network. WW1 SF affiliate = KNBR 680/104.5 (+1050 KTCT overflow). Sources on site. |
+| P7 | Durations research | done | `data/site/durations.json` | MLB 2026 avg 2:42-2:44; postseason 3:00. NFL 2025 median 3:02/mean 3:03, halftime 14:15 measured. NCAAF FBS 2025 avg 3:26. All sourced. |
+| P8 | Free-time engine + windows on FULL data | done | `scripts/build_windows.py`, `data/site/windows.json`, `days_*.json` | Definition honored: free = no MLB (all 30, incl. spring), no NFL 49ers, no Stanford/Cal, no WW1 national on air. Two variants: default (spring counts) and no-spring (Feb-Mar deep window). KEY RESULTS: 2027 Jan 31-Feb 13 (14 days) with spring counted; Feb 15-Mar 23 (37 days) ignoring rarely-radioed spring games; 2028: Jan 30-Feb 12 (14) + Feb 14-Mar 21 (37, est.); 2029: Jan 28-Feb 10 (14) + Feb 12-Mar 20 (37, est.). All times Pacific (true PST/PDT). |
+| P9 | Canonical consolidated site (`site/`) | done | `site/**`, root `index.html` (nav card only) | Single clean dashboard integrating ALL sessions' data + my pipeline outputs; prior sites (root pages, docs/, calendar-site/, verified/, legacy-dashboard/) left untouched as archives. |
+| P10 | Final integration: re-verify, link check, PR, merge, Pages | done | `scripts/verify_site.py`, PR | See merge/deploy record below. |
+
+## Verification performed
+
+- MLB 2026/2027 pulled directly from official MLB Stats API (`statsapi.mlb.com`); every verified row links to `https://www.mlb.com/gameday/{gamePk}`. Cross-checked key dates against MLB press coverage (Opening Night Mar 24 2027 Netflix game; Opening Day Mar 25; final day Sep 26; ASG Jul 13 Wrigley — all match API).
+- 2027 MLB: 678 API placeholder times detected (UTC hour 04-12 = impossible ET clock) and estimated from each club's verified 2026 median first pitch by weekday class — flagged, not silently filled.
+- NFL 2026: ESPN public API (trusted mirror) cross-checked vs 49ers.com listing by session 7fca3e35 (their re-verification confirms dates/times); official NFL schedule page linked per row.
+- Stanford/Cal 2026: ESPN API data matches the official gostanford.com and calbears.com schedule pages row-for-row (Big Game Nov 21 2026; Cal vs Pitt Nov 28 4:30 PM; Stanford vs SMU Nov 28 12:30 PM) — two independent sources agree.
+- Westwood One page fetched live 2026-11-25 (35 broadcasts Nov 25 2026-Jan 10 2027) — matches session 7fca3e35's transcription of the same page.
+- Site link check + per-row source check: `scripts/verify_site.py` (all rows verified+sourceUrl, estimates flagged).
+
+## Irregularities (added to Flagged for Review)
+
+- MLB CBA expires Dec 1, 2026 11:59 PM ET; lockout expected (owners demand cap/floor). The released 2027 MLB schedule could be delayed/cancelled — treat 2027 baseball windows as contingent. (Source: AP via Yahoo Sports, Nov 2026.)
+- A's to Las Vegas Ballpark in 2027 (two announced series May 31/June 3 per official 2027 schedule coverage); 2027 A's Bay Area radio carriage unknown (960 AM KNEW continuation unconfirmed) — flag.
+- Pro Bowl Games 2027 date conflicts across trackers (Feb 6/7/10) — no official source found; shown as estimate, no radio carriage assumed.
+- 2027 MLB postseason not announced (official API empty) — estimated slots flagged.
+- Estimated 2028/2029 home/away flips are speculative — MLB's real schedule may differ.
+
+### Coordination note with arena-9521dee6 (both sessions ran integration in parallel)
+
+- arena-9521dee6 claimed N3 (final integration) and pushed its N1/N2 addendum pages (radio-verified.html, windows-2027-2029.html), which ARE on main and remain untouched. PR #9 belongs to a different session (arena/e6eb3028-freetime4) and is conflicting — left alone per protocol.
+- This session's integration (P9/P10) consolidates ALL sessions' flags and data into `site/` and does not modify or delete any other session's pages or data. 9521dee6's radio findings were independently verified here: Cal = 810 AM (matches C-flags resolution), A's Bay Area = 960 AM KNEW (matches), WW1 SF affiliate = KNBR 680/104.5 + KTCT 1050 (matches). One difference: 9521dee6 reports Stanford radio as KNBR/KTCT 1050; gostanford.com's own schedule page links its Listen button to thesportsleader.com (the KNBR cluster). Both are listed on the canonical radio page.
+- Super Bowl LXII (2028): 9521dee6 correctly notes the Feb 13, 2028 date is NOT officially confirmed (stadium announced, date TBA) — the canonical site marks SB LXII as ESTIMATE, consistent with that finding.
