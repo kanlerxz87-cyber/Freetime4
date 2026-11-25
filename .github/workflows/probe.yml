@@ -1,0 +1,22 @@
+name: probe
+on:
+  workflow_dispatch:
+  push:
+    paths: [".github/workflows/probe.yml"]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: probe network
+        run: |
+          set -x
+          curl -s -o /dev/null -w "mlb:%{http_code}\n" --max-time 20 "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+          curl -s -o /dev/null -w "nfl:%{http_code}\n" --max-time 20 "https://www.nfl.com/schedules/2026/REG/"
+          curl -s -o /dev/null -w "espn:%{http_code}\n" --max-time 20 "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026"
+          curl -s -o /dev/null -w "wwo:%{http_code}\n" --max-time 20 "https://westwoodonesports.com/nfl-schedule/"
+          curl -s -o /dev/null -w "stanford:%{http_code}\n" --max-time 20 "https://gostanford.com/sports/football/schedule"
+          curl -s -o /dev/null -w "cal:%{http_code}\n" --max-time 20 "https://calbears.com/sports/football/schedule"
+          echo "probe-ok"
