@@ -2,6 +2,12 @@ name: Fetch official schedules
 
 on:
   workflow_dispatch: {}
+  push:
+    branches:
+      - "arena/c04f5702-freetime4"
+    paths:
+      - "scripts/fetch_official_schedules.py"
+      - ".github/workflows/fetch-schedules.yml"
   schedule:
     - cron: "0 7 * * 1" # weekly refresh (picks up newly released schedules, e.g. NFL each May, MLB each summer)
 
