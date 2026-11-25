@@ -1,0 +1,72 @@
+{
+ "bay_area_stations": [
+  {
+   "station": "KNBR 680 AM / 104.5 FM",
+   "carries": [
+    "San Francisco Giants (flagship since 1979)",
+    "San Francisco 49ers (Simms/Hartman-era extension Apr 2026)",
+    "Stanford football (Richardson/Fisk)",
+    "Westwood One NFL national broadcasts",
+    "Westwood One NCAA Football national broadcasts"
+   ],
+   "conflict_overflow": "KTCT 1050 AM / KNBR-FM",
+   "source": "https://en.wikipedia.org/wiki/KNBR_(AM)"
+  },
+  {
+   "station": "KTCT 1050 AM",
+   "carries": [
+    "KNBR overflow (Giants/49ers/Stanford conflicts)",
+    "Westwood One NCAA Football",
+    "Westwood One Soccer",
+    "ESPN Radio national (CFP games when carried)"
+   ],
+   "source": "https://www.westwoodonesports.com/station-finder/"
+  },
+  {
+   "station": "KSAN 107.7 FM (The Bone)",
+   "carries": [
+    "San Francisco 49ers (flagship FM; Papa/Ryan)"
+   ],
+   "source": "https://en.wikipedia.org/wiki/List_of_San_Francisco_49ers_broadcasters"
+  },
+  {
+   "station": "KNEW 960 AM",
+   "carries": [
+    "Athletics (Bay Area iHeart affiliate)"
+   ],
+   "source": "https://en.wikipedia.org/wiki/Oakland_Athletics_Radio_Network"
+  },
+  {
+   "station": "KSTE 650 AM (Sacramento)",
+   "carries": [
+    "Athletics (flagship) - reachable in parts of Bay Area; 'A's Cast' stream statewide"
+   ],
+   "source": "https://en.wikipedia.org/wiki/Oakland_Athletics_Radio_Network"
+  },
+  {
+   "station": "KGO 810 AM",
+   "carries": [
+    "California Golden Bears football (Allegri/Pawlawski; SiriusXM 81)"
+   ],
+   "source": "https://calbears.com"
+  },
+  {
+   "station": "KGMZ 95.7 FM (The Game)",
+   "carries": [
+    "Golden State Warriors (flagship since 2016) - OPTIONAL monitoring, not in busy data"
+   ],
+   "source": "https://en.wikipedia.org/wiki/KGMZ-FM"
+  },
+  {
+   "station": "KFOX 98.5 FM (San Jose)",
+   "carries": [
+    "San Jose Sharks (flagship) - OPTIONAL monitoring, not in busy data"
+   ],
+   "source": "wikipedia KUFX / 2016 reports"
+  }
+ ],
+ "note": "Busy-day data covers Giants, A's, 49ers, Stanford, Cal, WW1 NFL/CFB, CFP, and MLB postseason (potential KNBR). Warriors/Sharks/Quakes were researched but NOT included in busy data (optional scope).",
+ "flags": [
+  "Warriors (95.7), Sharks (KFOX 98.5) and MLS Quakes broadcasts exist but are excluded from busy-day data per scope; flag for user decision."
+ ]
+}

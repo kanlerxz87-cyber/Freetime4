@@ -1,0 +1,23 @@
+{
+ "generated": "2026-11-25",
+ "flags": [
+  "MLB",
+  "Giants spring game 2027-03-21 lists home team id 105, which is not one of the 30 active MLB team IDs in the API; shown as 'Team #105 (unresolved ID)'. Flagged for review.",
+  "Many 2027 first-pitch times are not yet announced by MLB; the API returns placeholder slots (e.g. 10:33Z decoding to 03:33 PT). Those games show time TBD with an estimated typical slot and verified=false.",
+  "NFL",
+  "fixturedownload DEN@PIT listed 2026-11-28 20:00Z; NFL.com (REG13 page) and Westwood One both place the Black Friday game on Fri Nov 27 (3:00 PM ET kickoff). Feed date used in data; Nov 27 is also busy via the WW1 broadcast entry.",
+  "Weeks 16/17: fixturedownload shows ATL@TB, IND@CIN, MIN@WAS, PIT@CAR at 2026-12-29 00:00Z and JAX@WAS, LAC@KC, NE@DEN, TB@LAR at 2027-01-05 00:00Z (midnight-UTC = time TBA placeholder); Westwood One instead lists a Sat Dec 26 doubleheader and Sat Jan 2 doubleheader. Both date interpretations are shown; exact days/times flagged for review.",
+  "Week 18: all 16 games listed at 2027-01-10 00:00Z (TBD). NFL Week 18 spans Sat Jan 9 - Sun Jan 10, 2027; Westwood One lists Saturday games 12:30/8:00 ET and SNF 7:30 ET. Both days treated as busy.",
+  "Westwood One broadcast times are on-air start times (pregame), typically 15-30 min before kickoff.",
+  "Postseason matchups/times are TBA until seeding is set (Jan 2027). Radio: Westwood One carries every playoff game.",
+  "RADIO",
+  "Warriors (95.7), Sharks (KFOX 98.5) and MLS Quakes broadcasts exist but are excluded from busy-day data per scope; flag for user decision.",
+  "NCAAF",
+  "Stanford December 2026 bowl date TBA; all Dec Saturdays flagged potentially busy until announced.",
+  "Cal 2027 ACC game dates TBA (announced opponents only); Big Game 2027 date TBA.",
+  "2028/2029 MLB, NFL, NCAAF busy maps are ESTIMATES from season patterns - no official schedules released yet (MLB 2028 confirmed not released via statsapi query 2026-11-25).",
+  "Warriors (95.7), Sharks (KFOX 98.5), MLS Quakes broadcasts researched but excluded from busy data (optional scope - user decision).",
+  "Super Bowl LXIII (2029) site verified Las Vegas; date assumed 2nd Sunday Feb 11, 2029 - estimate.",
+  "Potential KNBR MLB postseason broadcasts Oct 2027/Oct 2028/Oct 2029 depend on Giants/A's qualifying - October days cannot be guaranteed free until standings known."
+ ]
+}
