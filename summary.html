@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive summary — FREE TIME VACATION</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div id="hdr"></div>
+<main class="wrap">
+  <h1>Executive summary</h1>
+  <p class="lede">The short version: <b>take the trip in the January–mid-February dead zone.</b>
+  It is the only stretch of the year where your radio is quiet for weeks, and it happens in
+  <b>all three</b> years you asked about. Everything else in the sports year is a 4–6 day window at best.</p>
+
+  <div class="card" style="border-color:rgba(49,208,125,.5)">
+    <div class="tag">The recommendation</div>
+    <div class="kpi good" id="rec">—</div>
+    <div id="recsub" class="sub"></div>
+    <div class="statline" id="recstats"></div>
+  </div>
+
+  <h2>1. The best windows, year by year</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="t1"><thead><tr>
+    <th>Year</th><th>Audible best window</th><th>Days</th><th>Strict best window</th><th>Days</th>
+    <th>What is on the radio then</th></tr></thead><tbody></tbody></table></div>
+    <p class="mini" style="margin-top:10px"><b>Audible</b> = the stations you can actually receive in 94122.
+    <b>Strict</b> = also counts every MLB/NFL game in the country plus all Westwood One national games.</p>
+  </div>
+
+  <h2>2. Why January–February is the answer</h2>
+  <div class="grid g2">
+    <div class="card">
+      <h3>The calendar leaves a hole every year</h3>
+      <ul class="mini" style="line-height:1.9">
+        <li>MLB spring training does not start until the <b>third week of February</b>.</li>
+        <li>The NFL regular season ends the <b>first week of January</b>; the Super Bowl is the only
+        game left, and it is on a single Sunday.</li>
+        <li>College football ends in <b>early December</b>.</li>
+        <li>So between the Super Bowl / early January and the first spring-training pitch there is
+        <b>four to six weeks with nothing on the dial.</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>The catch</h3>
+      <p class="mini">The window is real but it is <b>not the whole year</b>. Outside it:
+      the MLB season runs late March → late September (plus October playoffs), the NFL runs
+      early August → early January, and college football runs late August → late November.
+      In the MLB season the only reliable breaks are the <b>All-Star break (4–5 days)</b> and
+      <b>Mondays/Thursdays</b> when the Giants and A's are both off.</p>
+      <p class="mini"><b>Practical consequence:</b> a 2–3 week vacation is only possible in
+      Jan–mid-Feb. A 1-week vacation is possible in Jan–mid-Feb or the All-Star break.</p>
+    </div>
+  </div>
+
+  <h2>3. Coverage: what is verified, what is estimated</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="t3"><thead><tr>
+    <th>Season</th><th>MLB</th><th>NFL</th><th>Stanford / Cal</th><th>Westwood One</th><th>Honest status</th>
+  </tr></thead><tbody></tbody></table></div>
+    <p class="mini" style="margin-top:10px">No schedule was invented. Where a league has released nothing,
+    the day is only blocked by a clearly-labelled modelled window, and the <b>opponents are omitted</b>
+    because they are unknowable.</p>
+  </div>
+
+  <h2>4. The radio picture in 94122</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="t4"><thead><tr>
+    <th>What</th><th>Station</th><th>How it was confirmed</th></tr></thead><tbody></tbody></table></div></div>
+
+  <h2>5. Things you should know before you book</h2>
+  <div class="card"><ul class="mini" style="line-height:2">
+    <li><b>2028 and 2029 are not real yet.</b> MLB, the NFL, Stanford and Cal have published nothing
+    for those years. Their windows on this site are modelled from the released seasons and are labelled
+    <span class="pill est">Estimated</span> everywhere. They are stable enough for planning, but
+    <b>re-check once the real schedules drop</b> (MLB usually ~10 months ahead, NFL in May).</li>
+    <li><b>2027 is half real.</b> MLB's full 2027 schedule is official (opening day 24 March 2027,
+    All-Star 13 July 2027, regular season ends 26 September 2027). The NFL and both colleges have
+    not released 2027.</li>
+    <li><b>“Audible” excludes Stanford and the Westwood One national feed</b> because no official page
+    confirms which Bay Area station carries them. If you know your Stanford station, add it and the
+    Friday/Saturday picture changes.</li>
+    <li><b>Game lengths are estimates</b> (MLB 165 min, NFL 192 min, college 206 min) and are editable in
+    <code>config/config.json</code>.</li>
+    <li><b>Time zone.</b> Every start time on this site is Pacific. The Westwood One pages publish
+    Eastern times; they were converted, not copied.</li>
+  </ul></div>
+
+  <h2>6. Read next</h2>
+  <div class="grid g4">
+    <a class="card" href="vacation.html"><b>Vacation windows</b><div class="mini">every stretch, ranked</div></a>
+    <a class="card" href="calendar.html"><b>Calendar</b><div class="mini">day-by-day scoreboard</div></a>
+    <a class="card" href="radio.html"><b>Radio</b><div class="mini">the station evidence</div></a>
+    <a class="card" href="flagged.html"><b>Flagged for review</b><div class="mini">irregularities &amp; unknowns</div></a>
+  </div>
+</main>
+<div id="ftr"></div>
+<script src="assets/app.js"></script>
+<script>
+(async () => {
+  const d = await FREE.load();
+  document.getElementById('hdr').innerHTML = FREE.header('summary.html');
+  FREE.startClock(document.getElementById('clock'));
+  document.getElementById('ftr').innerHTML = FREE.footer();
+  const aud = d.stretches_audible || [], str = d.stretches_strict || [];
+  const bestYear = (y) => {
+    const rows = aud.filter(r => r.start >= y + '-01-01' && r.start <= y + '-12-31');
+    return rows.sort((a,b) => b.days - a.days)[0];
+  };
+  const bestYearStrict = (y) => {
+    const rows = str.filter(r => r.start >= y + '-01-01' && r.start <= y + '-12-31');
+    return rows.sort((a,b) => b.days - a.days)[0];
+  };
+  const years = ['2027','2028','2029'];
+  const b27 = bestYear('2027');
+  document.getElementById('rec').textContent =
+    b27 ? FREE.fmtDate(b27.start) + ' → ' + FREE.fmtDate(b27.end) : '—';
+  document.getElementById('recsub').textContent =
+    b27 ? `${b27.days} consecutive days with no Giants, Athletics, 49ers or Cal broadcast on any Bay Area station.` : '';
+  document.getElementById('recstats').innerHTML = years.map(y => {
+    const r = bestYear(y);
+    return `<div><b>${r ? r.days + ' d' : '—'}</b>${y}${r && y !== '2027' ? ' (estimate)' : ''}</div>`;
+  }).join('') + `<div><b>${(d.stretches_strict||[])[0]?.days || '—'} d</b>strict worst case</div>`;
+
+  const explain = (r) => {
+    if (!r) return '—';
+    const y = r.start.slice(0,4);
+    return `MLB is dark; ${y === '2027' ? 'MLB 2027 is official' : 'MLB is estimated'} for this season. Only the Super Bowl sits inside the early part; the rest is spring training's eve.`;
+  };
+  document.querySelector('#t1 tbody').innerHTML = years.map(y => {
+    const a = bestYear(y), s = bestYearStrict(y);
+    return `<tr><td><b>${y}</b></td>
+      <td class="nowrap">${a ? FREE.fmtDate(a.start)+' → '+FREE.fmtDate(a.end) : '—'}</td>
+      <td class="mono good">${a ? a.days : '—'}</td>
+      <td class="nowrap">${s ? FREE.fmtDate(s.start)+' → '+FREE.fmtDate(s.end) : '—'}</td>
+      <td class="mono">${s ? s.days : '—'}</td>
+      <td class="mini">${explain(a)}${y!=='2027'?' <span class="pill est">estimate</span>':''}</td></tr>`;
+  }).join('');
+
+  const real = (lg, y) => d.games.filter(g => g.league===lg && String(g.season)===y && g.verified!=='estimated').length;
+  const est = (lg, y) => d.games.filter(g => g.league===lg && String(g.season)===y && g.verified==='estimated').length;
+  const cell = (lg, y) => {
+    const r = real(lg, y), e = est(lg, y);
+    if (r) return `<span class="good">official · ${r.toLocaleString()}</span>`;
+    if (e) return `<span class="bad">not released</span> <span class="pill est">${e.toLocaleString()} modelled</span>`;
+    return '<span class="bad">not released</span>';
+  };
+  document.querySelector('#t3 tbody').innerHTML = ['2026','2027','2028','2029'].map(y => `
+    <tr><td><b>${y}</b></td><td>${cell('MLB',y)}</td><td>${cell('NFL',y)}</td>
+    <td>${cell('NCAAF',y)}</td><td>${cell('WWO',y)}</td>
+    <td class="mini">${
+      y==='2026' ? '<span class="pill ok">fully verified</span>'
+      : y==='2027' ? '<span class="pill ok">MLB verified</span> <span class="pill est">rest estimated</span>'
+      : '<span class="pill est">entirely estimated</span>'}</td></tr>`).join('');
+
+  document.querySelector('#t4 tbody').innerHTML = `
+    <tr><td>Giants</td><td class="mono">KNBR 680 AM</td><td class="mini">mlb.com/giants/team/broadcasters names KNBR as the radio booth</td></tr>
+    <tr><td>Athletics</td><td class="mono">KNEW 960 AM</td><td class="mini">club's iHeartRadio flagship announcement (KSTE 650 Sacramento flagship, KNEW 960 Bay Area)</td></tr>
+    <tr><td>49ers</td><td class="mono">KSAN 107.7 FM / KNBR 104.5 FM / 680 AM</td><td class="mini">printed on every upcoming game card at 49ers.com/schedule</td></tr>
+    <tr><td>California (Cal)</td><td class="mono">KSFO 810 AM (+ KNBR for the Big Game)</td><td class="mini">printed on each calbears.com schedule card</td></tr>
+    <tr><td>Stanford</td><td class="mono">—</td><td class="mini bad">not printed on the official 2026 schedule page → left blank</td></tr>
+    <tr><td>Westwood One national NFL</td><td class="mono">—</td><td class="mini bad">affiliate list not retrievable → national games are not counted as audible</td></tr>`;
+})();
+</script>
+</body></html>
