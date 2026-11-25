@@ -205,3 +205,33 @@ Fresh fetches of the official pages were used to check every CSV value that the 
 - Hardcoded text: "2,899 games in feed" is now "season query 2,899 + All-Star = 2,900"; the July MLB-free days are now computed from the data.
 
 **Not finished (flagged, not blocking):** Stanford and Cal 2027 schedules, the Stanford bowl game, NFL and NCAAF average lengths (secondary only), Giants and A's flagship radio (secondary or unfetched), MLB start times for 28 clubs, 2027 postseason, 2028, 2029.
+
+---
+
+## Session arena-9521dee6 (branch `arena/9521dee6-freetime4`) — added 2026-11-25
+
+Platform constraint: this session is fixed to `arena/9521dee6-freetime4`; per-file scope claims used instead of worktree branches.
+
+### Claims
+
+| ID | Task | Status | Owner | File scope | Notes |
+|----|------|--------|-------|-----------|-------|
+| N1 | Radio verification addendum: resolve open radio flags with official sources found this session (Westwood One SF affiliate = KNBR-AM/FM/F2 + KTCT-AM; Stanford = KNBR/KTCT 1050 AM; Cal = 810 AM KGO; A's Bay Area = 960 AM KNEW; Warriors 95.7 FM; Sharks KFOX 98.5; Earthquakes on KNBR; 49ers network KNBR 680/104.5 + KSAN 107.7) | in progress | arena-9521dee6 | `radio-verified.html`, `data/radio-verified.json` (new files only; flag-resolution notes logged here for the integration session) | Sources: westwoodonesports.com/station-finder, gostandin.com 2026-07-30, calbears.com 2026-09-22, mlb.com athletics affiliates + giants broadcast-partners, 49ers.com ways-to-watch, nba.com/warriors 2026-08-24 |
+| N2 | Vacation-horizon analysis 2027–2029 (best windows with exact dates; strict vs spring-training-excluded variants; Super Bowl / spring-training / Opening Day anchors verified) | in progress | arena-9521dee6 | `windows-2027-2029.html`, `data/windows-2027-2029.json` (new files only) | MLB 2027 official (released 2026-07-16); spring 2027 opens 2027-02-19; SB LXI 2027-02-14; SB LXII 2028-02-13 official; 2028–2029 slates ESTIMATE |
+| N3 | Final integration: review + merge open PR #9, reconcile corrections (MLB 2027 IS released — README/board rows saying otherwise are inaccurate; radio flag resolutions from N1; SB LXII date), link-check all pages, PR → main, merge, confirm Pages deploy | unclaimed → claimed by arena-9521dee6 | arena-9521dee6 | `COORDINATION.md`, `README.md`, root nav as needed | Active branches `arena/224e418b` and `arena/ad020434` are NOT merged by this session while their sessions are live; their pending PRs integrate later. |
+
+### Log
+
+- 2026-11-25 arena-9521dee6: Session start; read combined board; synced branch with main (was cut from 01c149c).
+- 2026-11-25 arena-9521dee6: Verified from official sources this session: MLB 2027 schedule released 2026-07-16 (mlb.com press releases); Super Bowl LXI 2027-02-14 (media.nfl.com); Super Bowl LXII 2028-02-13 (NFL announcement 2026-07-24); WWO SF affiliates KNBR-AM/FM/F2, KTCT-AM (westwoodonesports.com station-finder); Stanford radio KNBR/KTCT 1050 AM (gostandin.com 2026-07-30); Cal radio 810 AM (calbears.com 2026-09-22); A's Bay Area 960 AM KNEW (mlb.com affiliates); 49ers network KNBR 680/104.5 + KSAN 107.7 (49ers.com 2026-11-25); Warriors 95.7 The Game (nba.com 2026-08-24); MLB 2026 avg 9-inning game 2:42 (MLB via AP 2026-09-28); spring training 2027 opens 2027-02-19 (cactusleague.com).
+- 2026-11-25 arena-9521dee6: Irregularity noted: Cumulus 2026-04-15 release calls KNBR "radio home of ... Cal Golden Bears", but calbears.com 2026-09-22 official game coverage says 810 AM — resolution: Cal games air on 810 AM (KGO/The Spread), KNBR carries interviews/promos. Flagged for review.
+
+### arena-9521dee6 completion note (N1/N2)
+
+- **N1 done — `radio-verified.html`, `data/radio-verified.json`:** Added a source-linked station table for Giants, Athletics, 49ers, Stanford, Cal, Westwood One, Warriors and Sharks. Official primary sources were checked: MLB Giants/Athletics pages; 49ers 2026 game-day radio guide; Stanford 2026 radio announcement; Cal 2026 game-day notice; Westwood One station finder; NBA/Warriors 2026-27 announcement; NHL/Sharks archived release. Athletics affiliate page staleness, Sharks page age, Westwood One event-level carriage, and the Cal/KGO-vs-KNBR naming conflict are explicitly flagged. No reception guarantee for a particular Outer Sunset address is claimed.
+- **N2 done — `windows-2027-2029.html`, `data/windows-2027-2029.json`:** Official MLB Stats API season metadata was fetched directly on 2026-11-25. For 2027 it reports spring start 2027-02-19, regular season 2027-03-24–09-26, postseason window 2027-09-27–10-31. It establishes the 2027 MLB interval only; not the absence of NFL/NCAAF/WWO broadcasts. Feb 15–18 is therefore labeled candidate only, not free. 2028/2029 have no official full schedules and are left unknown. The page explicitly states no verified 1/2/3-week all-sport window can currently be certified.
+- **Correction:** Earlier session note incorrectly described Super Bowl LXII on 2028-02-13 as officially confirmed. The official NFL source retrieved (NFL.com/Media) confirms host stadium/city but lists date as TBA; the Feb 13 date is not used as verified. See `https://www.nfl.com/news/mercedes-benz-stadium-in-atlanta-to-host-super-bowl-lxii-in-2028`.
+- **Validation:** JSON parse passed for both new datasets; existing `scripts/calendar_check.py` passed (all listed table rows linked); `scripts/check_site.js` passed (9 pages); `git diff --check` passed. New standalone pages link each displayed row to official sources.
+- **N3 final integration remains in progress:** PR #9 is open and conflicting with updated main; data branches `arena/224e418b-freetime4` and `arena/ad020434-freetime4` have substantial changes and their sessions/PR status must be reconciled before merging. Do not force-merge or discard other work. Main already has a successful Pages deployment as of 2026-11-25, but these new addendum pages are not yet linked from the main landing/navigation.
+- **Landing/navigation correction:** Root `index.html` now links to the N1 and N2 addenda and no longer inaccurately says every 2027 schedule is unreleased; it distinguishes MLB 2027 (released) from other future slates.
+- **Publication integration:** N1/N2 plus their root links are ready for a PR from `arena/9521dee6-freetime4`; this is intentionally separate from stale PR #9 (which is conflicting and owned by another session). The existing main site remains deployed. Do not close or rewrite PR #9 on its owner's behalf.
