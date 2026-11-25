@@ -1,0 +1,17 @@
+{
+ "mlb_regular_min": 165,
+ "mlb_postseason_min": 180,
+ "nfl_min": 195,
+ "ncaaf_min": 205,
+ "basis": {
+  "mlb": "2026 MLB average game length ~2:42-2:44 (vertizesports/betmgm reports); postseason ~3:00. User suggested ~150 min; researched value slightly longer - researched values used.",
+  "nfl": "NFL average ~3:03, median 3:01 (upintherafters/sportsgeardaily); user suggested ~180 min incl. halftime.",
+  "ncaaf": "College football 2025 average ~3:26 (gamegistics/bellyupsports)."
+ },
+ "sources": [
+  "https://vertizesports.com (MLB pace)",
+  "https://www.betmgm.com/en/insights (MLB 2026 avg 2:42)",
+  "https://upintherafters.com (NFL 3:03)",
+  "https://www.gamegistics.com (CFB 3:26)"
+ ]
+}
