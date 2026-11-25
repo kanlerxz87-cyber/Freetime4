@@ -1,0 +1,62 @@
+[
+  {
+    "entity": "San Francisco 49ers (NFL)",
+    "network_or_station": "49ers local radio",
+    "call_letters": "KSAN 107.7 FM / KNBR 104.5 FM / 680 AM",
+    "band": "FM and AM",
+    "role": "Local flagship (per game)",
+    "source": "https://www.49ers.com/schedule/",
+    "status": "Verified (official 49ers schedule page lists these stations per game)",
+    "notes": "Station list on the official page; per-game carriage is listed for each game on that page"
+  },
+  {
+    "entity": "NFL national (Westwood One) in San Francisco",
+    "network_or_station": "Westwood One NFL affiliates",
+    "call_letters": "KNBR-AM / KNBR-FM / KNBR-F2 / KTCT-AM",
+    "band": "AM and FM",
+    "role": "National NFL radio carriage (market level)",
+    "source": "https://www.westwoodonesports.com/station-finder/",
+    "status": "Verified (official station finder lists these SF stations for NFL)",
+    "notes": "Market-level list only; the station finder does not publish per-game carriage"
+  },
+  {
+    "entity": "San Francisco Giants (MLB)",
+    "network_or_station": "KNBR Northern California network",
+    "call_letters": "KNBR 680 AM / KNBR-FM 104.5 FM",
+    "band": "AM and FM",
+    "role": "Flagship",
+    "source": "https://visualfoodie.com/complete-sf-giants-2026-broadcast-schedule/",
+    "status": "Unverified (secondary sources only; official club page fetch failed)",
+    "notes": "Official mlb.com radio page could not be fetched; secondary sources agree"
+  },
+  {
+    "entity": "Oakland Athletics (MLB) Bay Area",
+    "network_or_station": "iHeart Sports (per Sacramento Bee 2025)",
+    "call_letters": "KNEW 960 AM",
+    "band": "AM",
+    "role": "Bay Area affiliate",
+    "source": "https://www.sacbee.com/sports/article300334119.html",
+    "status": "Unverified (search snippet only; not fetched)",
+    "notes": "Sacramento Bee (2025) says Bay Area games air on KNEW 960; an older 2022 listing names Bloomberg 960; the A's flagship is KSTE 650 AM in Sacramento"
+  },
+  {
+    "entity": "Stanford football",
+    "network_or_station": "Stanford Cardinal Sports Network",
+    "call_letters": "Not confirmed (see notes)",
+    "band": "AM and FM",
+    "role": "Network (call letters unverified)",
+    "source": "https://gostanford.com/sports/football/schedule",
+    "status": "Unverified (call letters)",
+    "notes": "gostanford.com schedule page links audio to thesportsleader.com (fetched). Station call letters are not confirmed by a fetched page. Search results conflict (KNBR 680 / 104.5 with KTCT 1050 per Inside Radio; KNBR 1050 per an older source)."
+  },
+  {
+    "entity": "California (Cal) football",
+    "network_or_station": "Cal Bears Sports Network (The Varsity Network)",
+    "call_letters": "Not confirmed",
+    "band": "Not confirmed",
+    "role": "Live audio (network unverified as flagship)",
+    "source": "https://calbears.com/sports/football/schedule/2026",
+    "status": "Partly verified (live audio source only)",
+    "notes": "calbears.com schedule page links live audio to The Varsity Network (fetched). Frequency and call letters (810 AM; KGO or KSFO) appear only in search results and are not used."
+  }
+]

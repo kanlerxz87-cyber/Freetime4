@@ -1,0 +1,31 @@
+teamId,name,abbreviation,league,division,locationName
+108,Los Angeles Angels,LAA,American League,American League West,Anaheim
+109,Arizona Diamondbacks,AZ,National League,National League West,Phoenix
+110,Baltimore Orioles,BAL,American League,American League East,Baltimore
+111,Boston Red Sox,BOS,American League,American League East,Boston
+112,Chicago Cubs,CHC,National League,National League Central,Chicago
+113,Cincinnati Reds,CIN,National League,National League Central,Cincinnati
+114,Cleveland Guardians,CLE,American League,American League Central,Cleveland
+115,Colorado Rockies,COL,National League,National League West,Denver
+116,Detroit Tigers,DET,American League,American League Central,Detroit
+117,Houston Astros,HOU,American League,American League West,Houston
+118,Kansas City Royals,KC,American League,American League Central,Kansas City
+119,Los Angeles Dodgers,LAD,National League,National League West,Los Angeles
+120,Washington Nationals,WSH,National League,National League East,Washington
+121,New York Mets,NYM,National League,National League East,Flushing
+133,Athletics,ATH,American League,American League West,Sacramento
+134,Pittsburgh Pirates,PIT,National League,National League Central,Pittsburgh
+135,San Diego Padres,SD,National League,National League West,San Diego
+136,Seattle Mariners,SEA,American League,American League West,Seattle
+137,San Francisco Giants,SF,National League,National League West,San Francisco
+138,St. Louis Cardinals,STL,National League,National League Central,St. Louis
+139,Tampa Bay Rays,TB,American League,American League East,St. Petersburg
+140,Texas Rangers,TEX,American League,American League West,Arlington
+141,Toronto Blue Jays,TOR,American League,American League East,Toronto
+142,Minnesota Twins,MIN,American League,American League Central,Minneapolis
+143,Philadelphia Phillies,PHI,National League,National League East,Philadelphia
+144,Atlanta Braves,ATL,National League,National League East,Atlanta
+145,Chicago White Sox,CWS,American League,American League Central,Chicago
+146,Miami Marlins,MIA,National League,National League East,Miami
+147,New York Yankees,NYY,American League,American League East,Bronx
+158,Milwaukee Brewers,MIL,National League,National League Central,Milwaukee

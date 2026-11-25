@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>All games - Free Time Vacation Planner</title><link rel="stylesheet" href="style.css"></head>
+<body data-page="games">
+<header class="top"><a class="brand" href="index.html">Free Time Vacation Planner</a>
+<nav><a href="index.html" >Dashboard</a><a href="scoreboard.html" >Daily scoreboard</a><a href="vacation.html" >Vacation windows</a><a href="games.html" class="active">All games</a><a href="flagged.html" >Flagged for Review</a><a href="sources.html" >Sources</a></nav></header>
+<main id="app">
+<h1>All games</h1>
+<p class="lead">Every row has a source link. HIGH rows are the priority groups: Giants and Athletics MLB, 49ers, Stanford and Cal, and national Westwood One NFL radio games. Unverified or TBA items are marked.</p>
+<div class="filters"><input id="q" placeholder="Search team, venue, network..."><select id="cat"></select><select id="st"><option value="">All statuses</option><option>Upcoming</option><option>Played</option></select><span class="legend" id="count"></span></div>
+<table><thead><tr><th>Date</th><th>Start (PT)</th><th>Category</th><th>Matchup</th><th>Venue</th><th>Broadcast</th><th>Priority</th><th>Status</th><th>Verification</th><th>Source</th></tr></thead><tbody id="tbody"></tbody></table>
+<h2>MLB coverage note</h2>
+<div class="warn">This table includes only the Giants and Athletics games confirmed in MLB.com releases plus league-wide dates. The full 30-club MLB schedule and full Giants/Athletics schedules have not been loaded. Items for all 30 clubs are pending and listed on the Flagged for Review page.</div>
+</main>
+<footer>Data: data.json (every row links to its source). Times Pacific. Items marked unverified or estimated are not released schedules. Not an official source.</footer>
+<script src="app.js"></script></body></html>

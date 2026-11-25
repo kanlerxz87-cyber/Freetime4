@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free-Time Calendar — Freetime4</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand"><a href="index.html">FREETIME4</a> <span class="site-tag">&middot; Free-Time Calendar</span></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="executive-summary.html">Executive Summary</a></li>
+        <li><a href="free-time.html" class="active">Free-Time Calendar</a></li>
+        <li><a href="mlb.html">MLB</a></li>
+        <li><a href="nfl.html">NFL</a></li>
+        <li><a href="ncaaf.html">NCAAF (Stanford / Cal)</a></li>
+        <li><a href="westwood-one.html">Westwood One Radio</a></li>
+        <li><a href="flagged-review.html">Flagged for Review</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <h1>Free-Time Calendar — PST</h1>
+  <p class="small">Select any day to see when you are <strong>free</strong> (no live MLB, NFL, Stanford/Cal NCAAF, or Westwood One national NFL radio on air) in Pacific time. Use <kbd>yesterday</kbd> / <kbd>today</kbd> / <kbd>tomorrow</kbd> buttons, or pick a date. Covers late 2026 through 2028.</p>
+
+  <div class="callout warn">
+    <strong>Estimates ahead.</strong> 2027 and 2028 schedules are NOT officially released (as of 2026-11-25). Free-time windows for those years are computed from typical-pattern estimates and are <strong>not</strong> verified. Verified 2026 events (49ers, Stanford, Cal, MLB key dates) use exact official times where available.
+  </div>
+
+  <div class="day-nav">
+    <button id="btnPrev">&larr; Yesterday</button>
+    <button id="btnToday">Today</button>
+    <button id="btnNext">Tomorrow &rarr;</button>
+    <label style="margin-left:16px;">Jump to date: <input type="date" id="jumpDate"></label>
+  </div>
+  <div class="today-bar" id="todayBar">Loading&hellip;</div>
+
+  <div class="legend">
+    <span><span class="dot free"></span> Free window</span>
+    <span><span class="dot busy"></span> Busy (game on air)</span>
+    <span><span class="dot high" style="box-shadow:0 0 0 2px #fff;"></span> High-priority game</span>
+    <span><span class="dot est" style="border:1px solid #8a6d1a;"></span> Estimated (not verified)</span>
+  </div>
+
+  <div id="dayView" class="section"></div>
+
+  <div class="section">
+    <h2>How free time is computed</h2>
+    <ul>
+      <li><strong>Free window:</strong> a stretch of the day with no busy game block. Day considered 6:00 a.m. – 11:59 p.m. PT.</li>
+      <li><strong>Busy block:</strong> a game on air. Verified games use exact official times. Estimated games use average durations (MLB ~165 min, NFL ~180 min, NCAAF ~180 min + halftime).</li>
+      <li><strong>High priority:</strong> Giants, A's, 49ers, Stanford, Cal are marked high priority but count as busy just like any other game.</li>
+      <li><strong>Westwood One:</strong> Thursday/Sunday/Monday night national NFL radio (and postseason) counted as busy during NFL season windows.</li>
+    </ul>
+    <p class="small">Nothing was inferred or filled in where an official source could not be confirmed; estimates are flagged ESTIMATE. See <a href="flagged-review.html">Flagged for Review</a>.</p>
+  </div>
+
+  <footer>
+    Freetime4 &middot; Times in Pacific (PST/PDT). Data current as of 2026-11-25.
+  </footer>
+</div>
+
+<script>
+/* ---------- Configuration ---------- */
+const DAY_START = 6 * 60;   // 6:00 a.m. in minutes
+const DAY_END = 24 * 60;    // midnight
+const TZ_OFFSET = -8;       // PST (approx; page treats all times as Pacific)
+
+// Verified exact events (date YYYY-MM-DD, start/end in minutes from midnight PT, label, league, priority, source)
+const VERIFIED = [
+  // 49ers preseason 2026 (time TBD => not added as fixed block; noted below)
+  { d: "2026-08-20", s: 19*60+0, e: 22*60+0, label: "49ers at Chargers (preseason)", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-09-10", s: 17*60+35, e: 20*60+35, label: "49ers at Rams (Melbourne)", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-09-20", s: 13*60+25, e: 16*60+25, label: "49ers vs Dolphins", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-09-27", s: 13*60+5, e: 16*60+5, label: "49ers vs Cardinals", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-10-04", s: 13*60+25, e: 16*60+25, label: "49ers vs Broncos", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-10-11", s: 13*60+25, e: 16*60+25, label: "49ers at Seahawks", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-10-19", s: 17*60+15, e: 20*60+15, label: "49ers vs Commanders (MNF)", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-10-25", s: 10*60+0, e: 13*60+0, label: "49ers at Falcons", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-11-08", s: 13*60+5, e: 16*60+5, label: "49ers vs Raiders", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-11-15", s: 13*60+25, e: 16*60+25, label: "49ers at Cowboys", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-11-22", s: 17*60+20, e: 20*60+20, label: "49ers vs Vikings (Mexico City, SNF)", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-11-29", s: 13*60+25, e: 16*60+25, label: "49ers vs Seahawks", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-12-06", s: 10*60+0, e: 13*60+0, label: "49ers at Giants", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-12-13", s: 13*60+25, e: 16*60+25, label: "49ers vs Rams", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-12-17", s: 17*60+15, e: 20*60+15, label: "49ers at Chargers (TNF)", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2026-12-27", s: 13*60+25, e: 16*60+25, label: "49ers at Chiefs", league: "NFL", pri: 1, src: "49ers.com" },
+  { d: "2027-01-03", s: 17*60+20, e: 20*60+20, label: "49ers vs Eagles (SNF)", league: "NFL", pri: 1, src: "49ers.com" },
+  // Stanford 2026
+  { d: "2026-08-29", s: 16*60+0, e: 19*60+0, label: "Stanford vs Hawai'i (NCAAF)", league: "NCAAF", pri: 1, src: "gostanford.com" },
+  { d: "2026-09-04", s: 18*60+0, e: 21*60+0, label: "Stanford vs Miami (NCAAF)", league: "NCAAF", pri: 1, src: "gostanford.com" },
+  { d: "2026-09-19", s: 13*60+0, e: 16*60+0, label: "Stanford at Duke (NCAAF)", league: "NCAAF", pri: 1, src: "gostanford.com" },
+  { d: "2026-09-26", s: 19*60+30, e: 22*60+30, label: "Stanford vs Georgia Tech (NCAAF)", league: "NCAAF", pri: 1, src: "gostanford.com" },
+  { d: "2026-10-10", s: 12*60+30, e: 15*60+30, label: "Stanford at Notre Dame (NCAAF)", league: "NCAAF", pri: 1, src: "gostanford.com" },
+  { d: "2026-10-17", s: 16*60+30, e: 19*60+30, label: "Stanford vs Elon (NCAAF)", league: "NCAAF", pri: 1, src: "gostanford.com" },
+  { d: "2026-10-23", s: 19*60+30, e: 22*60+30, label: "Stanford vs NC State (NCAAF)", league: "NCAAF", pri: 1, src: "gostanford.com" },
+  { d: "2026-11-21", s: 12*60+0, e: 15*60+0, label: "Stanford at Cal - Big Game (NCAAF)", league: "NCAAF", pri: 1, src: "calfootball.com" },
+  { d: "2026-12-05", s: 12*60+0, e: 15*60+0, label: "Stanford ACC Championship (NCAAF, est. time)", league: "NCAAF", pri: 1, src: "gostanford.com (time est.)" },
+];
+
+// Estimated season windows: {start, end, label}
+const SEASONS = [
+  { start: "2026-03-25", end: "2026-09-27", label: "MLB regular season (verified window)" },
+  { start: "2026-08-13", end: "2027-02-14", label: "NFL 2026 season incl. postseason (verified window)" },
+  { start: "2027-03-25", end: "2027-09-30", label: "MLB regular season 2027 (ESTIMATE)" },
+  { start: "2027-09-05", end: "2028-02-15", label: "NFL 2027 season (ESTIMATE)" },
+  { start: "2028-03-25", end: "2028-09-30", label: "MLB regular season 2028 (ESTIMATE)" },
+  { start: "2028-09-05", end: "2029-02-15", label: "NFL 2028 season (ESTIMATE)" },
+  { start: "2026-08-29", end: "2026-12-05", label: "NCAAF 2026 (verified Stanford window)" },
+  { start: "2027-08-25", end: "2027-12-05", label: "NCAAF 2027 (ESTIMATE)" },
+  { start: "2028-08-25", end: "2028-12-05", label: "NCAAF 2028 (ESTIMATE)" },
+];
+
+/* ---------- Helpers ---------- */
+function pad(n){ return String(n).padStart(2,"0"); }
+function fmtDate(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
+function parseDate(str){ const p=str.split("-"); return new Date(p[0], p[1]-1, p[2]); }
+function inSeason(str){
+  const d = parseDate(str);
+  return SEASONS.filter(s => d >= parseDate(s.start) && d <= parseDate(s.end));
+}
+function dayOfWeek(str){ const d=parseDate(str); return d.getDay(); } // 0=Sun
+function timeStr(m){ const h=Math.floor(m/60), mi=m%60; return pad(h)+":"+pad(mi)+(h>=12?" p.m.":" a.m.").replace(/^0(\d)/,"$1"); }
+
+/* ---------- Build busy blocks for a date ---------- */
+function buildBlocks(str){
+  const blocks = [];
+  const verified = VERIFIED.filter(v => v.d === str);
+  verified.forEach(v => blocks.push({ s:v.s, e:v.e, label: v.label, league: v.league, pri: v.pri, verified: true, src: v.src }));
+
+  const seasons = inSeason(str);
+  const dow = dayOfWeek(str);
+  const est = seasons.some(s => s.label.indexOf("ESTIMATE") >= 0);
+  const mlb = seasons.some(s => s.label.indexOf("MLB") >= 0);
+  const nfl = seasons.some(s => s.label.indexOf("NFL") >= 0);
+  const ncaaf = seasons.some(s => s.label.indexOf("NCAAF") >= 0);
+
+  // Estimated recurring game windows (clearly flagged ESTIMATE)
+  if (mlb) {
+    // typical afternoon & evening games (not every day has a game; flagged estimate)
+    blocks.push({ s: 13*60+5, e: 15*60+45, label: "MLB game (ESTIMATED ~1:05 p.m.)", league: "MLB", pri: 0, verified: false, src: "estimate" });
+    blocks.push({ s: 18*60+40, e: 21*60+35, label: "MLB game (ESTIMATED ~6:40 p.m.)", league: "MLB", pri: 0, verified: false, src: "estimate" });
+  }
+  if (nfl) {
+    if (dow === 4) blocks.push({ s: 17*60+15, e: 20*60+15, label: "Thursday Night Football - Westwood One radio (ESTIMATED)", league: "NFL", pri: 0, verified: false, src: "estimate" });
+    if (dow === 1) blocks.push({ s: 17*60+15, e: 20*60+15, label: "Monday Night Football - Westwood One radio (ESTIMATED)", league: "NFL", pri: 0, verified: false, src: "estimate" });
+    if (dow === 0) {
+      blocks.push({ s: 10*60+5, e: 13*60+35, label: "NFL early game (ESTIMATED)", league: "NFL", pri: 0, verified: false, src: "estimate" });
+      blocks.push({ s: 13*60+25, e: 16*60+25, label: "NFL late afternoon game (ESTIMATED)", league: "NFL", pri: 0, verified: false, src: "estimate" });
+      blocks.push({ s: 17*60+20, e: 20*60+20, label: "Sunday Night Football - Westwood One radio (ESTIMATED)", league: "NFL", pri: 0, verified: false, src: "estimate" });
+    }
+  }
+  if (ncaaf) {
+    if (dow === 6) blocks.push({ s: 15*60+0, e: 18*60+20, label: "NCAAF game (ESTIMATED ~3:00 p.m.)", league: "NCAAF", pri: 0, verified: false, src: "estimate" });
+    if (dow === 5) blocks.push({ s: 18*60+0, e: 21*60+0, label: "NCAAF Friday game (ESTIMATED ~6:00 p.m.)", league: "NCAAF", pri: 0, verified: false, src: "estimate" });
+  }
+
+  return blocks.sort((a,b) => a.s - b.s);
+}
+
+/* ---------- Compute free windows ---------- */
+function freeWindows(blocks){
+  // clamp to day
+  const busy = blocks.map(b => ({ s: Math.max(DAY_START, b.s), e: Math.min(DAY_END, b.e) }).filter(x => x.e > x.s));
+  let cursor = DAY_START;
+  const out = [];
+  busy.sort((a,b)=>a.s-b.s);
+  for (const b of busy){
+    if (b.s > cursor) out.push({ s: cursor, e: b.s });
+    cursor = Math.max(cursor, b.e);
+  }
+  if (cursor < DAY_END) out.push({ s: cursor, e: DAY_END });
+  return out;
+}
+
+/* ---------- Render ---------- */
+let current = new Date(); // local date treated as Pacific for display purposes
+
+function render(){
+  const str = fmtDate(current);
+  const blocks = buildBlocks(str);
+  const frees = freeWindows(blocks);
+
+  const dowName = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][current.getDay()];
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const dayStr = months[current.getMonth()]+" "+current.getDate()+", "+current.getFullYear()+" ("+dowName+")";
+
+  document.getElementById("todayBar").textContent = dayStr;
+  document.getElementById("jumpDate").value = str;
+
+  const container = document.getElementById("dayView");
+  container.innerHTML = "";
+
+  // season chips
+  const seasons = inSeason(str);
+  if (seasons.length){
+    const chipRow = document.createElement("div");
+    chipRow.className = "grid";
+    chipRow.style.marginBottom="12px";
+    seasons.forEach(s => {
+      const c = document.createElement("div");
+      c.className = "card";
+      c.innerHTML = `<strong>${s.label}</strong><span class="badge ${s.label.indexOf("ESTIMATE")>=0?'badge-estimate':'badge-verified'}">${s.label.indexOf("ESTIMATE")>=0?'ESTIMATE':'VERIFIED'}</span>`;
+      chipRow.appendChild(c);
+    });
+    container.appendChild(chipRow);
+  }
+
+  // status summary
+  const hasBusy = blocks.length > 0;
+  const isFreeDay = blocks.length === 0;
+  const statusCard = document.createElement("div");
+  statusCard.className = "day-card " + (isFreeDay ? "free-day" : "busy-day");
+  statusCard.innerHTML = `
+    <div>
+      <div class="day-date">${dayStr}</div>
+      <div class="day-weekday">${dowName} &middot; Pacific time</div>
+    </div>
+    <div class="day-status ${isFreeDay?'tag-free':'tag-busy'}">${isFreeDay ? "FREE DAY - no scheduled sports on air" : "BUSY DAY - game(s) scheduled"}</div>
+  `;
+
+  const right = document.createElement("div");
+  right.className = isFreeDay ? "day-free" : "day-busy";
+
+  if (isFreeDay){
+    right.innerHTML = `<div class="window"><span class="when">All day (6 a.m. - 11:59 p.m.)</span><span class="what">No scheduled MLB, NFL, Stanford/Cal NCAAF, or Westwood One radio broadcasts on air.</span></div>`;
+  } else {
+    blocks.forEach(b => {
+      const cls = b.verified ? "" : "est";
+      const pri = b.pri ? ' <span class="badge badge-high" style="font-size:0.7rem;padding:1px 6px;">HIGH PRIORITY</span>' : '';
+      const vtag = b.verified ? ' <span class="badge badge-verified" style="font-size:0.7rem;padding:1px 6px;">VERIFIED</span>' : ' <span class="badge badge-estimate" style="font-size:0.7rem;padding:1px 6px;">ESTIMATE</span>';
+      right.innerHTML += `<div class="window ${cls}"><span class="when">${timeStr(b.s)} - ${timeStr(b.e)}</span><span class="what">${b.label}${pri}${vtag}</span><span class="src">source: ${b.src}</span></div>`;
+    });
+    right.innerHTML += `<div class="day-note" style="margin-top:8px;"><strong>Free windows today:</strong> ${frees.map(w => timeStr(w.s)+" &ndash; "+timeStr(w.e)).join(", ") || "none"}</div>`;
+  }
+  statusCard.appendChild(right);
+  container.appendChild(statusCard);
+
+  // Free windows detail
+  if (!isFreeDay && frees.length){
+    const fw = document.createElement("div");
+    fw.className = "card";
+    fw.innerHTML = "<h3>Free windows (" + frees.length + ")</h3>" +
+      frees.map(w => `<div class="window free"><span class="when">${timeStr(w.s)} - ${timeStr(w.e)}</span><span class="what">${Math.round((w.e-w.s)/60)} hours free</span></div>`).join("");
+    container.appendChild(fw);
+  }
+
+  // Preseason TBD note
+  if (str >= "2026-08-13" && str <= "2026-08-27"){
+    const note = document.createElement("div");
+    note.className = "callout";
+    note.innerHTML = "<strong>Note:</strong> 49ers preseason games on 2026-08-13 and 2026-08-27 have TBD times (KPIX 5). Treat those evenings as potentially busy.";
+    container.appendChild(note);
+  }
+}
+
+document.getElementById("btnPrev").onclick = () => { current.setDate(current.getDate()-1); render(); };
+document.getElementById("btnNext").onclick = () => { current.setDate(current.getDate()+1); render(); };
+document.getElementById("btnToday").onclick = () => { current = new Date(); render(); };
+document.getElementById("jumpDate").onchange = (e) => { if(e.target.value) current = parseDate(e.target.value); render(); };
+
+render();
+</script>
+
+</body>
+</html>

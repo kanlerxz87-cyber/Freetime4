@@ -1,0 +1,2 @@
+gamePk,officialDate,gameType,awayId,homeId,venue,startTimeTBD,source_url
+853074,2027-07-13,A,159,160,Wrigley Field,true,https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2027-07-13

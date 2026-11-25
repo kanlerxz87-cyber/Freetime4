@@ -1,0 +1,30 @@
+{
+  "source": "S-49ERS",
+  "checked": "2026-11-25",
+  "team": "San Francisco 49ers",
+  "radio_as_printed": "KSAN 107.7 FM / KNBR 104.5 FM / 680 AM (for regular-season games)",
+  "note": "Times are Pacific as printed on 49ers.com. Blank = not printed. Home/Away is taken from 'vs' / 'at' in the source; neutral-site games are marked Neutral.",
+  "games": [
+    {"type":"Preseason","date":"2026-08-13","day":"Thu","opponent":"Tennessee Titans","home_away":"Home","time_pt":"","result":"L 13-19"},
+    {"type":"Preseason","date":"2026-08-20","day":"Thu","opponent":"Los Angeles Chargers","home_away":"Away","time_pt":"","result":"W 41-17"},
+    {"type":"Preseason","date":"2026-08-27","day":"Thu","opponent":"Las Vegas Raiders","home_away":"Away","time_pt":"","result":"W 18-12"},
+    {"type":"Regular","week":1,"date":"2026-09-10","day":"Thu","opponent":"Los Angeles Rams","home_away":"Neutral (Melbourne)","time_pt":"","result":"W 27-7"},
+    {"type":"Regular","week":2,"date":"2026-09-20","day":"Sun","opponent":"Miami Dolphins","home_away":"Home","time_pt":"","result":"W 35-13"},
+    {"type":"Regular","week":3,"date":"2026-09-27","day":"Sun","opponent":"Arizona Cardinals","home_away":"Home","time_pt":"","result":"W 36-30"},
+    {"type":"Regular","week":4,"date":"2026-10-04","day":"Sun","opponent":"Denver Broncos","home_away":"Home","time_pt":"","result":"W 24-14"},
+    {"type":"Regular","week":5,"date":"2026-10-11","day":"Sun","opponent":"Seattle Seahawks","home_away":"Away","time_pt":"","result":"W 32-29"},
+    {"type":"Regular","week":6,"date":"2026-10-19","day":"Mon","opponent":"Washington Commanders","home_away":"Home","time_pt":"","result":"W 23-17"},
+    {"type":"Regular","week":7,"date":"2026-10-25","day":"Sun","opponent":"Atlanta Falcons","home_away":"Away","time_pt":"","result":"L 20-29"},
+    {"type":"Regular","week":8,"date":"","day":"","opponent":"BYE","home_away":"","time_pt":"","result":""},
+    {"type":"Regular","week":9,"date":"2026-11-08","day":"Sun","opponent":"Las Vegas Raiders","home_away":"Home","time_pt":"","result":"W 38-17"},
+    {"type":"Regular","week":10,"date":"2026-11-15","day":"Sun","opponent":"Dallas Cowboys","home_away":"Away","time_pt":"","result":"W 46-40"},
+    {"type":"Regular","week":11,"date":"2026-11-22","day":"Sun","opponent":"Minnesota Vikings","home_away":"Neutral (Mexico City)","time_pt":"","result":"W 35-10"},
+    {"type":"Regular","week":12,"date":"2026-11-29","day":"Sun","opponent":"Seattle Seahawks","home_away":"Home","time_pt":"1:25 PM","result":"","tv":"FOX"},
+    {"type":"Regular","week":13,"date":"2026-12-06","day":"Sun","opponent":"New York Giants","home_away":"Away","time_pt":"10:00 AM","result":"","tv":"FOX"},
+    {"type":"Regular","week":14,"date":"2026-12-13","day":"Sun","opponent":"Los Angeles Rams","home_away":"Home","time_pt":"1:25 PM","result":"","tv":"FOX"},
+    {"type":"Regular","week":15,"date":"2026-12-17","day":"Thu","opponent":"Los Angeles Chargers","home_away":"Away","time_pt":"5:15 PM","result":"","tv":"Prime Video","flag":"Westwood One lists 7:30 PM ET (4:30 PM PT) for this game"},
+    {"type":"Regular","week":16,"date":"2026-12-27","day":"Sun","opponent":"Kansas City Chiefs","home_away":"Away","time_pt":"1:25 PM","result":"","tv":"CBS"},
+    {"type":"Regular","week":17,"date":"2027-01-03","day":"Sun","opponent":"Philadelphia Eagles","home_away":"Home","time_pt":"5:20 PM","result":"","tv":"NBC","flag":"Westwood One lists 7:30 PM ET (4:30 PM PT) for this game"},
+    {"type":"Regular","week":18,"date":"","day":"","opponent":"Arizona Cardinals","home_away":"Away","time_pt":"","result":"","tv":"","flag":"Date and time TBD on 49ers.com"}
+  ]
+}
