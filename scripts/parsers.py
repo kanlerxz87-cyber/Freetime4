@@ -168,3 +168,92 @@ def wwo_event_detail(text):
         return json.loads(m.group(1))
     except Exception:
         return None
+
+# ---------------------------------------------------------------- Cal (oas __NUXT_DATA__)
+def _oas_load(text):
+    import json as J
+    m = re.search(r'id="__NUXT_DATA__"[^>]*>(.*?)</script>', text, flags=re.S)
+    if not m: return None
+    p = J.loads(m.group(1)); memo = {}
+    def resolve(i):
+        if isinstance(i, bool) or i is None or isinstance(i, float) or isinstance(i, str): return i
+        if not isinstance(i, int): return i
+        if i < 0: return None
+        if i >= len(p): return i
+        if i in memo: return memo[i]
+        v = p[i]
+        if isinstance(v, (str, bool, float)) or v is None: return v
+        if isinstance(v, int): return resolve(v)
+        if isinstance(v, list):
+            if v and isinstance(v[0], str) and v[0] in ('Reactive','ShallowReactive','Ref','ShallowRef','Object'):
+                return resolve(v[1])
+            out = []; memo[i] = out
+            for x in v: out.append(resolve(x))
+            return out
+        if isinstance(v, dict):
+            out = {}; memo[i] = out
+            for k, x in v.items(): out[k] = resolve(x)
+            return out
+        return v
+    return resolve(0)
+
+def _walk(obj, pred, out, depth=0, seen=None):
+    if seen is None: seen = set()
+    if depth > 20: return out
+    if isinstance(obj, (dict, list)):
+        if id(obj) in seen: return out
+        seen.add(id(obj))
+    if pred(obj): out.append(obj)
+    if isinstance(obj, dict):
+        for v in obj.values(): _walk(v, pred, out, depth+1, seen)
+    elif isinstance(obj, list):
+        for v in obj: _walk(v, pred, out, depth+1, seen)
+    return out
+
+CAL_MONTHS = {m: i+1 for i, m in enumerate(
+    ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'])}
+
+def cal_games(text, source_url, year=2026):
+    """Parse Cal game cards. Cards are rendered in schedule order; the team name,
+    site, venue and radio outlet follow a 'Game Info' marker."""
+    out = []
+    idxs = [m.start() for m in re.finditer(r's-game-card-standard__header-game-team-score', text)]
+    bounds = idxs + [len(text)]
+    for k in range(len(idxs)):
+        seg = text[bounds[k]:bounds[k+1]]
+        txt = re.sub(r'<[^>]+>', '\n', seg)
+        txt = H.unescape(txt)
+        lines = [x.strip() for x in txt.split('\n') if x.strip()]
+        date = time_ = atvs = opp = venue = city = radio = None
+        score = None
+        for i, x in enumerate(lines):
+            m = re.match(r'^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2})$', x)
+            if m and not date:
+                date = (CAL_MONTHS[m.group(1)], int(m.group(2)))
+                continue
+            m2 = re.match(r'^(\d{1,2}(?::\d{2})?\s*(?:AM|PM))$', x)
+            if m2 and date and not time_:
+                time_ = m2.group(1); continue
+            if x in ('vs', 'at') and date and not atvs:
+                atvs = x
+                opp = lines[i+1] if i+1 < len(lines) else None
+                venue = lines[i+2] if i+2 < len(lines) else None
+                city = lines[i+3] if i+3 < len(lines) else None
+                continue
+            if x.startswith('Radio:') and not radio:
+                rest = x.split('Radio:', 1)[1].strip()
+                radio = rest or (lines[i+1] if i+1 < len(lines) else None)
+                continue
+            mm = re.match(r'^([WL]),$', x)
+            if mm: score = lines[i+1] if i+1 < len(lines) else None
+        if not date: continue
+        out.append({
+            'league': 'NCAAF', 'school': 'California', 'game_type': 'Regular Season',
+            'type_group': 'NCAAF', 'gameId': f'cal-{year}-{date[0]:02d}-{date[1]:02d}',
+            'date': f'{year}-{date[0]:02d}-{date[1]:02d}', 'utc': None, 'clock': time_,
+            'at_vs': atvs + (' ' if atvs in ('vs','at') else ''),
+            'opponent': opp, 'venue': venue, 'city': city, 'radio': radio,
+            'result': score, 'tbd': (time_ or '').upper() == 'TBD',
+            'source': source_url,
+        })
+    return out
