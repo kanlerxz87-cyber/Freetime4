@@ -1,0 +1,6 @@
+# Static Pages build output
+/build/
+
+# Python validation cache
+__pycache__/
+*.py[cod]

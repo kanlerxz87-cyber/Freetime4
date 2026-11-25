@@ -1,0 +1,1558 @@
+{
+  "asOf": "2026-11-25",
+  "timezone": "America/Los_Angeles",
+  "durationAssumptions": {
+    "mlb": {
+      "minutes": 158,
+      "label": "2h 38m planning baseline",
+      "basis": "MLB reported a 2:38 average 2025 game time. This is a historical average, not a game-specific or on-air end time.",
+      "sourceUrl": "https://www.mlb.com/press-release/press-release-mlb-attendance-reaches-71-4-million-three-straight-years-of-growth-for-first-time-since-2007"
+    },
+    "football": {
+      "minutes": 180,
+      "label": "3h planning estimate",
+      "basis": "User-specified planning estimate. No official average end-to-end duration was verified; the NFL's 60-minute regulation clock is not actual broadcast duration.",
+      "sourceUrl": "https://operations.nfl.com/the-rules/nfl-rulebook/"
+    }
+  },
+  "sources": {
+    "mlbApi": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027",
+    "mlb2026Times": "https://www.mlb.com/amp/press-release/press-release-game-times-announced-for-2026-regular-season-spring-training-spring-breakout-games.html",
+    "mlb2027AllStar": "https://www.mlb.com/all-star/future-locations",
+    "mlb2027FieldOfDreams": "https://www.mlb.com/press-release/release-mlb-to-return-to-field-of-dreams-in-2027",
+    "mlb2028AllStar": "https://www.mlb.com/news/release-mlb-awards-the-2028-all-star-game-presented-by-mastercard-to-the-san-francisco-giants",
+    "mlbRadio2026": "https://www.mlb.com/news/how-to-watch-every-mlb-team-in-2026",
+    "giantsRadio": "https://www.mlb.com/giants/schedule/tv",
+    "athleticsStreaming": "https://www.mlb.com/athletics/fans/podcasts/in-market",
+    "athleticsRadioAffiliate": "https://www.mlb.com/athletics/schedule/affiliates",
+    "fortyNinersSchedule": "https://www.49ers.com/schedule/2026/",
+    "fortyNinersRadio": "https://www.49ers.com/fans/tv-radio",
+    "fortyNinersRadioPartner": "https://www.49ers.com/news/san-francisco-49ers-announce-multi-year-partnership-extension-with-cumulus-media-s-knbr",
+    "nflTeamSchedule": "https://www.nfl.com/schedules/2026/by-team/san-francisco-49ers",
+    "nflWeek18": "https://www.nfl.com/schedules/2026/by-week/week-18",
+    "nfl2027Schedule": "https://www.nfl.com/schedules/2027/by-team",
+    "nflDates": "https://www.nfl.com/news/2026-27-national-football-league-important-dates",
+    "cal2026Schedule": "https://calbears.com/sports/football/schedule/2026",
+    "cal2027Opponents": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents",
+    "cal2027Nonconference": "https://calbears.com/news/2026/6/25/football-cal-announces-odu-sac-state.aspx",
+    "calFutureSchedules": "https://calbears.com/news/2024/7/10/football-cal-ucla-schedule-4-games-from-2026-29",
+    "calLegacyAccGrid": "https://calbears.com/news/2023/10/30/acc-announces-conference-football-matchups-for-2024-30.aspx",
+    "calRadioGuide": "https://calbears.com/documents/download/2026/8/7/2026_Cal_Football_Info_Guide.pdf",
+    "stanford2026Schedule": "https://gostanford.com/sports/football/schedule",
+    "stanford2027Opponents": "https://gostanford.com/news/2026/09/16/acc-announces-2027-conference-opponents",
+    "stanfordFutureNonconference": "https://gostanford.com/news/2015/10/19/future-schedule-updates",
+    "stanfordNotreDame": "https://gostanford.com/news/2026/05/20/two-dates-added-to-notre-dame-rivalry",
+    "stanfordBostonCollege": "https://gostanford.com/news/2016/06/13/boston-college-series",
+    "stanfordLegacyAccGrid": "https://gostanford.com/news/2023/10/30/acc-announces-football-schedule-model",
+    "stanfordRadio": "https://gostanford.com/news/2026/07/30/2026-football-radio-broadcast-team-announced",
+    "calPittTime": "https://calbears.com/news/2026/11/24/football-bears-panthers-to-meet-for-regular-season-finale",
+    "wwoSchedule": "https://www.westwoodonesports.com/nfl-schedule/",
+    "wwoStationFinder": "https://www.westwoodonesports.com/station-finder-source-nfl/",
+    "knbrShows": "https://www.thesportsleader.com/shows/",
+    "mlb2027AllStarDate": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&date=2027-07-13",
+    "mlb2027FieldOfDreamsDate": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&date=2027-08-12",
+    "mlbSpringTraining2027": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&date=2027-02-19&gameType=S"
+  },
+  "fortyNiners": [
+    {
+      "seasonYear": 2026,
+      "phase": "Preseason",
+      "week": "Pre 1",
+      "date": "2026-08-13",
+      "timePT": null,
+      "opponent": "Tennessee Titans",
+      "homeAway": "Home",
+      "venue": "Levi's Stadium",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/titans-at-49ers-2026-pre-1",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Preseason",
+      "week": "Pre 2",
+      "date": "2026-08-20",
+      "timePT": null,
+      "opponent": "Los Angeles Chargers",
+      "homeAway": "Away",
+      "venue": "SoFi Stadium",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/49ers-at-chargers-2026-pre-2",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Preseason",
+      "week": "Pre 3",
+      "date": "2026-08-27",
+      "timePT": null,
+      "opponent": "Las Vegas Raiders",
+      "homeAway": "Away",
+      "venue": "Allegiant Stadium",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/49ers-at-raiders-2026-pre-3",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 1",
+      "date": "2026-09-10",
+      "timePT": null,
+      "opponent": "Los Angeles Rams",
+      "homeAway": "Away",
+      "venue": "Melbourne Cricket Ground",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/49ers-at-rams-2026-reg-1",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 2",
+      "date": "2026-09-20",
+      "timePT": null,
+      "opponent": "Miami Dolphins",
+      "homeAway": "Home",
+      "venue": "Levi's Stadium",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/dolphins-at-49ers-2026-reg-2",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 3",
+      "date": "2026-09-27",
+      "timePT": null,
+      "opponent": "Arizona Cardinals",
+      "homeAway": "Home",
+      "venue": "Levi's Stadium",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/cardinals-at-49ers-2026-reg-3",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 4",
+      "date": "2026-10-04",
+      "timePT": null,
+      "opponent": "Denver Broncos",
+      "homeAway": "Home",
+      "venue": "Levi's Stadium",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/broncos-at-49ers-2026-reg-4",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 5",
+      "date": "2026-10-11",
+      "timePT": null,
+      "opponent": "Seattle Seahawks",
+      "homeAway": "Away",
+      "venue": "Lumen Field",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/49ers-at-seahawks-2026-reg-5",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 6",
+      "date": "2026-10-19",
+      "timePT": null,
+      "opponent": "Washington Commanders",
+      "homeAway": "Home",
+      "venue": "Levi's Stadium",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/commanders-at-49ers-2026-reg-6",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 7",
+      "date": "2026-10-25",
+      "timePT": null,
+      "opponent": "Atlanta Falcons",
+      "homeAway": "Away",
+      "venue": "Mercedes-Benz Stadium",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/49ers-at-falcons-2026-reg-7",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 9",
+      "date": "2026-11-08",
+      "timePT": null,
+      "opponent": "Las Vegas Raiders",
+      "homeAway": "Home",
+      "venue": "Levi's Stadium",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/raiders-at-49ers-2026-reg-9",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 10",
+      "date": "2026-11-15",
+      "timePT": null,
+      "opponent": "Dallas Cowboys",
+      "homeAway": "Away",
+      "venue": "AT&T Stadium",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 11",
+      "date": "2026-11-22",
+      "timePT": null,
+      "opponent": "Minnesota Vikings",
+      "homeAway": "Home",
+      "venue": "Estadio Banorte, Mexico City",
+      "status": "completed",
+      "sourceUrl": "https://www.nfl.com/games/vikings-at-49ers-2026-reg-11",
+      "timeNote": "Official schedule page showed the date and result; kickoff time not retained in the reviewed official source."
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 12",
+      "date": "2026-11-29",
+      "timePT": "13:25",
+      "opponent": "Seattle Seahawks",
+      "homeAway": "Home",
+      "venue": "Levi's Stadium",
+      "status": "upcoming",
+      "sourceUrl": "https://www.nfl.com/games/seahawks-at-49ers-2026-reg-12"
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 13",
+      "date": "2026-12-06",
+      "timePT": "10:00",
+      "opponent": "New York Giants",
+      "homeAway": "Away",
+      "venue": "MetLife Stadium",
+      "status": "upcoming",
+      "sourceUrl": "https://www.nfl.com/games/49ers-at-giants-2026-reg-13"
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 14",
+      "date": "2026-12-13",
+      "timePT": "13:25",
+      "opponent": "Los Angeles Rams",
+      "homeAway": "Home",
+      "venue": "Levi's Stadium",
+      "status": "upcoming",
+      "sourceUrl": "https://www.nfl.com/games/rams-at-49ers-2026-reg-14"
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 15",
+      "date": "2026-12-17",
+      "timePT": "17:15",
+      "opponent": "Los Angeles Chargers",
+      "homeAway": "Away",
+      "venue": "SoFi Stadium",
+      "status": "upcoming",
+      "sourceUrl": "https://www.nfl.com/games/49ers-at-chargers-2026-reg-15"
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 16",
+      "date": "2026-12-27",
+      "timePT": "13:25",
+      "opponent": "Kansas City Chiefs",
+      "homeAway": "Away",
+      "venue": "Arrowhead Stadium",
+      "status": "upcoming",
+      "sourceUrl": "https://www.nfl.com/games/49ers-at-chiefs-2026-reg-16"
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 17",
+      "date": "2027-01-03",
+      "timePT": "17:20",
+      "opponent": "Philadelphia Eagles",
+      "homeAway": "Home",
+      "venue": "Levi's Stadium",
+      "status": "upcoming",
+      "sourceUrl": "https://www.nfl.com/games/eagles-at-49ers-2026-reg-17"
+    },
+    {
+      "seasonYear": 2026,
+      "phase": "Regular Season",
+      "week": "Week 18",
+      "date": null,
+      "timePT": null,
+      "opponent": "Arizona Cardinals",
+      "homeAway": "Away",
+      "venue": "State Farm Stadium",
+      "status": "date-and-time-tbd",
+      "sourceUrl": "https://www.nfl.com/games/49ers-at-cardinals-2026-reg-18",
+      "timeNote": "NFL lists the Week 18 matchup, but date and kickoff remain TBD."
+    }
+  ],
+  "collegeFootball": [
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-09-05",
+      "timePT": "19:30",
+      "opponent": "UCLA",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "completed",
+      "sourceUrl": "https://calbears.com/sports/football/schedule/2026"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-09-12",
+      "timePT": "12:30",
+      "opponent": "Syracuse",
+      "homeAway": "Away",
+      "venue": "JMA Wireless Dome",
+      "status": "completed",
+      "sourceUrl": "https://calbears.com/sports/football/schedule/2026"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-09-19",
+      "timePT": "12:30",
+      "opponent": "Wagner",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "completed",
+      "sourceUrl": "https://calbears.com/sports/football/schedule/2026"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-09-25",
+      "timePT": null,
+      "opponent": "Clemson",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "completed",
+      "sourceUrl": "https://calbears.com/sports/football/schedule/2026"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-10-03",
+      "timePT": null,
+      "opponent": "UNLV",
+      "homeAway": "Away",
+      "venue": "Allegiant Stadium",
+      "status": "completed",
+      "sourceUrl": "https://calbears.com/sports/football/schedule/2026"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-10-10",
+      "timePT": null,
+      "opponent": "Virginia Tech",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "completed",
+      "sourceUrl": "https://calbears.com/sports/football/schedule/2026"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-10-17",
+      "timePT": null,
+      "opponent": "Wake Forest",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "completed",
+      "sourceUrl": "https://calbears.com/sports/football/schedule/2026"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-10-24",
+      "timePT": null,
+      "opponent": "SMU",
+      "homeAway": "Away",
+      "venue": "Gerald J. Ford Stadium",
+      "status": "completed",
+      "sourceUrl": "https://calbears.com/sports/football/schedule/2026"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-10-31",
+      "timePT": null,
+      "opponent": "NC State",
+      "homeAway": "Away",
+      "venue": "Carter-Finley Stadium",
+      "status": "completed",
+      "sourceUrl": "https://calbears.com/sports/football/schedule/2026"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-11-14",
+      "timePT": null,
+      "opponent": "Virginia",
+      "homeAway": "Away",
+      "venue": "Scott Stadium",
+      "status": "completed",
+      "sourceUrl": "https://calbears.com/sports/football/schedule/2026"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-11-21",
+      "timePT": null,
+      "opponent": "Stanford",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "completed",
+      "sourceUrl": "https://calbears.com/sports/football/schedule/2026"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Cal",
+      "date": "2026-11-28",
+      "timePT": "16:30",
+      "opponent": "Pittsburgh",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "upcoming",
+      "sourceUrl": "https://calbears.com/news/2026/11/24/football-bears-panthers-to-meet-for-regular-season-finale"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-08-29",
+      "timePT": null,
+      "opponent": "Hawai'i",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "completed",
+      "sourceUrl": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-09-04",
+      "timePT": null,
+      "opponent": "Miami",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "completed",
+      "sourceUrl": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-09-19",
+      "timePT": null,
+      "opponent": "Duke",
+      "homeAway": "Away",
+      "venue": "Wallace Wade Stadium",
+      "status": "completed",
+      "sourceUrl": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-09-26",
+      "timePT": null,
+      "opponent": "Georgia Tech",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "completed",
+      "sourceUrl": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-10-03",
+      "timePT": null,
+      "opponent": "Wake Forest",
+      "homeAway": "Away",
+      "venue": "Allegacy Federal Credit Union Stadium",
+      "status": "completed",
+      "sourceUrl": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-10-10",
+      "timePT": null,
+      "opponent": "Notre Dame",
+      "homeAway": "Away",
+      "venue": "Notre Dame Stadium",
+      "status": "completed",
+      "sourceUrl": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-10-17",
+      "timePT": null,
+      "opponent": "Elon",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "completed",
+      "sourceUrl": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-10-23",
+      "timePT": null,
+      "opponent": "NC State",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "completed",
+      "sourceUrl": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-10-31",
+      "timePT": null,
+      "opponent": "Louisville",
+      "homeAway": "Away",
+      "venue": "L&N Federal Credit Union Stadium",
+      "status": "completed",
+      "sourceUrl": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-11-14",
+      "timePT": null,
+      "opponent": "Virginia Tech",
+      "homeAway": "Away",
+      "venue": "Lane Stadium",
+      "status": "completed",
+      "sourceUrl": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-11-21",
+      "timePT": null,
+      "opponent": "California",
+      "homeAway": "Away",
+      "venue": "California Memorial Stadium",
+      "status": "completed",
+      "sourceUrl": "https://gostanford.com/news/2026/11/21/stanford-secures-bowl-berth-with-big-game-win"
+    },
+    {
+      "seasonYear": 2026,
+      "team": "Stanford",
+      "date": "2026-11-28",
+      "timePT": "12:30",
+      "opponent": "SMU",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "upcoming",
+      "sourceUrl": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": "2027-08-28",
+      "timePT": null,
+      "opponent": "Sacramento State",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "date-confirmed-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2026/6/25/football-cal-announces-odu-sac-state.aspx"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": "2027-09-04",
+      "timePT": null,
+      "opponent": "UCLA",
+      "homeAway": "Away",
+      "venue": "Rose Bowl",
+      "status": "date-confirmed-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2024/7/10/football-cal-ucla-schedule-4-games-from-2026-29"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": "2027-09-11",
+      "timePT": null,
+      "opponent": "Old Dominion",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "date-confirmed-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2026/6/25/football-cal-announces-odu-sac-state.aspx"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": null,
+      "timePT": null,
+      "opponent": "Boston College",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": null,
+      "timePT": null,
+      "opponent": "Florida State",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": null,
+      "timePT": null,
+      "opponent": "Louisville",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": null,
+      "timePT": null,
+      "opponent": "SMU",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": null,
+      "timePT": null,
+      "opponent": "Georgia Tech",
+      "homeAway": "Away",
+      "venue": null,
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": null,
+      "timePT": null,
+      "opponent": "Miami",
+      "homeAway": "Away",
+      "venue": null,
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": null,
+      "timePT": null,
+      "opponent": "Pittsburgh",
+      "homeAway": "Away",
+      "venue": null,
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": null,
+      "timePT": null,
+      "opponent": "Stanford",
+      "homeAway": "Away",
+      "venue": "Stanford Stadium",
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Cal",
+      "date": null,
+      "timePT": null,
+      "opponent": "Wake Forest",
+      "homeAway": "Away",
+      "venue": null,
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "TCU",
+      "homeAway": "Away",
+      "venue": "Amon G. Carter Stadium",
+      "status": "legacy-date-not-revalidated",
+      "sourceUrl": "https://gostanford.com/news/2015/10/19/future-schedule-updates",
+      "timeNote": "Listed in a 2015 future-schedule table; the date has not been revalidated against current ACC scheduling."
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "Vanderbilt",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "legacy-date-not-revalidated",
+      "sourceUrl": "https://gostanford.com/news/2015/10/19/future-schedule-updates",
+      "timeNote": "Listed in a 2015 future-schedule table; the date has not been revalidated against current ACC scheduling."
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": "2027-11-27",
+      "timePT": null,
+      "opponent": "Notre Dame",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "date-confirmed-time-tbd",
+      "sourceUrl": "https://gostanford.com/news/2026/05/20/two-dates-added-to-notre-dame-rivalry"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "California (Big Game)",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://gostanford.com/news/2026/09/16/acc-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "Duke",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://gostanford.com/news/2026/09/16/acc-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "North Carolina",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://gostanford.com/news/2026/09/16/acc-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "Syracuse",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://gostanford.com/news/2026/09/16/acc-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "Virginia",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://gostanford.com/news/2026/09/16/acc-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "SMU",
+      "homeAway": "Away",
+      "venue": null,
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://gostanford.com/news/2026/09/16/acc-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "Clemson",
+      "homeAway": "Away",
+      "venue": null,
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://gostanford.com/news/2026/09/16/acc-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "Boston College",
+      "homeAway": "Away",
+      "venue": null,
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://gostanford.com/news/2026/09/16/acc-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2027,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "Florida State",
+      "homeAway": "Away",
+      "venue": null,
+      "status": "opponent-confirmed-date-time-tbd",
+      "sourceUrl": "https://gostanford.com/news/2026/09/16/acc-announces-2027-conference-opponents"
+    },
+    {
+      "seasonYear": 2028,
+      "team": "Cal",
+      "date": "2028-09-02",
+      "timePT": null,
+      "opponent": "UCLA",
+      "homeAway": "Home",
+      "venue": "California Memorial Stadium",
+      "status": "date-confirmed-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2024/7/10/football-cal-ucla-schedule-4-games-from-2026-29"
+    },
+    {
+      "seasonYear": 2028,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "Boston College (legacy series date announced as Sep 2; revalidation required)",
+      "homeAway": "Away",
+      "venue": null,
+      "status": "legacy-date-not-currently-verified",
+      "sourceUrl": "https://gostanford.com/news/2016/06/13/boston-college-series"
+    },
+    {
+      "seasonYear": 2028,
+      "team": "Stanford",
+      "date": "2028-10-14",
+      "timePT": null,
+      "opponent": "Notre Dame",
+      "homeAway": "Away",
+      "venue": "Notre Dame Stadium",
+      "status": "date-confirmed-time-tbd",
+      "sourceUrl": "https://gostanford.com/news/2026/05/20/two-dates-added-to-notre-dame-rivalry"
+    },
+    {
+      "seasonYear": 2029,
+      "team": "Cal",
+      "date": "2029-09-15",
+      "timePT": null,
+      "opponent": "UCLA",
+      "homeAway": "Away",
+      "venue": "Rose Bowl",
+      "status": "date-confirmed-time-tbd",
+      "sourceUrl": "https://calbears.com/news/2024/7/10/football-cal-ucla-schedule-4-games-from-2026-29"
+    },
+    {
+      "seasonYear": 2029,
+      "team": "Stanford",
+      "date": null,
+      "timePT": null,
+      "opponent": "Boston College (legacy series date announced as Sep 15; later ACC opponent grid conflicts)",
+      "homeAway": "Home",
+      "venue": "Stanford Stadium",
+      "status": "legacy-date-conflicts-with-later-opponent-grid",
+      "sourceUrl": "https://gostanford.com/news/2016/06/13/boston-college-series"
+    }
+  ],
+  "legacyOpponentGrids": [
+    {
+      "seasonYear": 2028,
+      "team": "Cal",
+      "home": "Georgia Tech; NC State; Pittsburgh; Stanford",
+      "away": "Florida State; Louisville; SMU; Wake Forest",
+      "note": "Legacy 2023 eight-game ACC opponent grid; treat as provisional, not a dated nine-game schedule.",
+      "sourceUrl": "https://calbears.com/news/2023/10/30/acc-announces-conference-football-matchups-for-2024-30.aspx"
+    },
+    {
+      "seasonYear": 2029,
+      "team": "Cal",
+      "home": "Duke; Miami; SMU; Syracuse",
+      "away": "Boston College; Clemson; North Carolina; Stanford",
+      "note": "Legacy 2023 eight-game ACC opponent grid; treat as provisional, not a dated nine-game schedule.",
+      "sourceUrl": "https://calbears.com/news/2023/10/30/acc-announces-conference-football-matchups-for-2024-30.aspx"
+    },
+    {
+      "seasonYear": 2028,
+      "team": "Stanford",
+      "home": "Clemson; SMU; Virginia; Virginia Tech",
+      "away": "California; Georgia Tech; Miami; North Carolina",
+      "note": "Legacy 2023 eight-game ACC opponent grid; later ACC model moved to nine games. Do not use to infer dates or complete coverage.",
+      "sourceUrl": "https://gostanford.com/news/2023/10/30/acc-announces-football-schedule-model"
+    },
+    {
+      "seasonYear": 2029,
+      "team": "Stanford",
+      "home": "Boston College; California; Louisville; Wake Forest",
+      "away": "Duke; Florida State; Pittsburgh; SMU",
+      "note": "Legacy 2023 eight-game ACC opponent grid; later ACC model moved to nine games. Do not use to infer dates or complete coverage.",
+      "sourceUrl": "https://gostanford.com/news/2023/10/30/acc-announces-football-schedule-model"
+    }
+  ],
+  "westwoodOne": [
+    {
+      "date": "2026-11-25",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Green Bay Packers at Los Angeles Rams",
+      "program": "Thanksgiving Wednesday",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548511/"
+    },
+    {
+      "date": "2026-11-26",
+      "timePT": "09:30",
+      "timeET": "12:30",
+      "matchup": "Chicago Bears at Detroit Lions",
+      "program": "NFL Thanksgiving Day Tripleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548512/"
+    },
+    {
+      "date": "2026-11-26",
+      "timePT": "13:15",
+      "timeET": "16:15",
+      "matchup": "Philadelphia Eagles at Dallas Cowboys",
+      "program": "NFL Thanksgiving Day Tripleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548513/"
+    },
+    {
+      "date": "2026-11-26",
+      "timePT": "17:00",
+      "timeET": "20:00",
+      "matchup": "Kansas City Chiefs at Buffalo Bills",
+      "program": "NFL Thanksgiving Day Tripleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548514/"
+    },
+    {
+      "date": "2026-11-27",
+      "timePT": "11:30",
+      "timeET": "14:30",
+      "matchup": "Denver Broncos at Pittsburgh Steelers",
+      "program": "NFL Black Friday Game",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548515/"
+    },
+    {
+      "date": "2026-11-29",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Las Vegas Raiders at Cleveland Browns",
+      "program": "Sunday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548502/"
+    },
+    {
+      "date": "2026-11-30",
+      "timePT": "16:00",
+      "timeET": "19:00",
+      "matchup": "Carolina Panthers at Tampa Bay Buccaneers",
+      "program": "Monday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548544/"
+    },
+    {
+      "date": "2026-12-03",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Kansas City Chiefs at Los Angeles Rams",
+      "program": "Thursday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548566/"
+    },
+    {
+      "date": "2026-12-06",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Houston Texans at Pittsburgh Steelers",
+      "program": "Sunday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548503/"
+    },
+    {
+      "date": "2026-12-07",
+      "timePT": "16:00",
+      "timeET": "19:00",
+      "matchup": "Dallas Cowboys at Seattle Seahawks",
+      "program": "Monday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548545/"
+    },
+    {
+      "date": "2026-12-10",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Minnesota Vikings at New England Patriots",
+      "program": "Thursday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548567/"
+    },
+    {
+      "date": "2026-12-13",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Buffalo Bills at Green Bay Packers",
+      "program": "Sunday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548505/"
+    },
+    {
+      "date": "2026-12-14",
+      "timePT": "16:00",
+      "timeET": "19:00",
+      "matchup": "Pittsburgh Steelers at Jacksonville Jaguars",
+      "program": "Monday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548546/"
+    },
+    {
+      "date": "2026-12-17",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "San Francisco 49ers at Los Angeles Chargers",
+      "program": "Thursday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548568/"
+    },
+    {
+      "date": "2026-12-19",
+      "timePT": "13:30",
+      "timeET": "16:30",
+      "matchup": "Seattle Seahawks at Philadelphia Eagles",
+      "program": "Week 15 Saturday NFL Doubleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548517/"
+    },
+    {
+      "date": "2026-12-19",
+      "timePT": "17:00",
+      "timeET": "20:00",
+      "matchup": "Chicago Bears at Buffalo Bills",
+      "program": "Week 15 Saturday NFL Doubleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548518/"
+    },
+    {
+      "date": "2026-12-20",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Detroit Lions at Minnesota Vikings",
+      "program": "Sunday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548506/"
+    },
+    {
+      "date": "2026-12-21",
+      "timePT": "16:00",
+      "timeET": "19:00",
+      "matchup": "New England Patriots at Kansas City Chiefs",
+      "program": "Monday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548548/"
+    },
+    {
+      "date": "2026-12-24",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Houston Texans at Philadelphia Eagles",
+      "program": "Thursday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548569/"
+    },
+    {
+      "date": "2026-12-25",
+      "timePT": "09:30",
+      "timeET": "12:30",
+      "matchup": "Green Bay Packers at Chicago Bears",
+      "program": "Christmas Day NFL Tripleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548528/"
+    },
+    {
+      "date": "2026-12-25",
+      "timePT": "13:15",
+      "timeET": "16:15",
+      "matchup": "Buffalo Bills at Denver Broncos",
+      "program": "Christmas Day NFL Tripleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548531/"
+    },
+    {
+      "date": "2026-12-25",
+      "timePT": "17:00",
+      "timeET": "20:00",
+      "matchup": "Los Angeles Rams at Seattle Seahawks",
+      "program": "Christmas Day NFL Tripleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548534/"
+    },
+    {
+      "date": "2026-12-26",
+      "timePT": "13:00",
+      "timeET": "16:00",
+      "matchup": "Week 16 Saturday Doubleheader — teams TBA",
+      "program": "Week 16 Saturday NFL Doubleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548519/"
+    },
+    {
+      "date": "2026-12-26",
+      "timePT": "17:00",
+      "timeET": "20:00",
+      "matchup": "Week 16 Saturday Doubleheader — teams TBA",
+      "program": "Week 16 Saturday NFL Doubleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548520/"
+    },
+    {
+      "date": "2026-12-27",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Jacksonville Jaguars at Dallas Cowboys",
+      "program": "Sunday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548507/"
+    },
+    {
+      "date": "2026-12-28",
+      "timePT": "16:00",
+      "timeET": "19:00",
+      "matchup": "New York Giants at Detroit Lions",
+      "program": "Monday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548550/"
+    },
+    {
+      "date": "2026-12-31",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Baltimore Ravens at Cincinnati Bengals",
+      "program": "Thursday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548570/"
+    },
+    {
+      "date": "2027-01-02",
+      "timePT": "13:00",
+      "timeET": "16:00",
+      "matchup": "Week 17 Saturday Doubleheader — teams TBA",
+      "program": "Week 17 Saturday NFL Doubleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548521/"
+    },
+    {
+      "date": "2027-01-02",
+      "timePT": "17:00",
+      "timeET": "20:00",
+      "matchup": "Week 17 Saturday Doubleheader — teams TBA",
+      "program": "Week 17 Saturday NFL Doubleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548522/"
+    },
+    {
+      "date": "2027-01-03",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Philadelphia Eagles at San Francisco 49ers",
+      "program": "Sunday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548509/"
+    },
+    {
+      "date": "2027-01-04",
+      "timePT": "16:00",
+      "timeET": "19:00",
+      "matchup": "Houston Texans at Green Bay Packers",
+      "program": "Monday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548552/"
+    },
+    {
+      "date": "2027-01-09",
+      "timePT": "09:30",
+      "timeET": "12:30",
+      "matchup": "Week 18 Saturday Tripleheader — teams TBA",
+      "program": "Week 18 Saturday NFL Tripleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548523/"
+    },
+    {
+      "date": "2027-01-09",
+      "timePT": "13:15",
+      "timeET": "16:15",
+      "matchup": "Week 18 Saturday Tripleheader — teams TBA",
+      "program": "Week 18 Saturday NFL Tripleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548524/"
+    },
+    {
+      "date": "2027-01-09",
+      "timePT": "17:00",
+      "timeET": "20:00",
+      "matchup": "Week 18 Saturday Tripleheader — teams TBA",
+      "program": "Week 18 Saturday NFL Tripleheader",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548526/"
+    },
+    {
+      "date": "2027-01-10",
+      "timePT": "16:30",
+      "timeET": "19:30",
+      "matchup": "Week 18 Sunday Night Football — teams TBA",
+      "program": "Sunday Night Football",
+      "sourceUrl": "https://www.westwoodonesports.com/events/548510/"
+    }
+  ],
+  "radioStations": [
+    {
+      "station": "KNBR 680 AM / 104.5 FM",
+      "programming": "49ers 2026 game broadcasts; Giants games in the 2026 team listing; regional programming also carries Stanford football in 2026. 49ers page says a live three-hour pregame show and postgame coverage, but postgame end is not specified.",
+      "availability": "Bay Area terrestrial; exact 94122 reception varies by receiver and conditions.",
+      "sourceUrls": [
+        "https://www.49ers.com/fans/tv-radio",
+        "https://www.49ers.com/schedule/2026/",
+        "https://www.mlb.com/giants/schedule/tv",
+        "https://gostanford.com/news/2026/07/30/2026-football-radio-broadcast-team-announced"
+      ]
+    },
+    {
+      "station": "KSAN 107.7 FM",
+      "programming": "49ers 2026 game broadcasts; shown on the official 49ers schedule.",
+      "availability": "Bay Area FM affiliate; future seasons require re-checking.",
+      "sourceUrls": [
+        "https://www.49ers.com/fans/tv-radio",
+        "https://www.49ers.com/schedule/2026/"
+      ]
+    },
+    {
+      "station": "KTCT 1050 AM",
+      "programming": "Stanford football radio listing for the 2026 season.",
+      "availability": "Bay Area AM; do not assume the same affiliation in later seasons.",
+      "sourceUrls": [
+        "https://gostanford.com/news/2026/07/30/2026-football-radio-broadcast-team-announced",
+        "https://www.thesportsleader.com/shows/"
+      ]
+    },
+    {
+      "station": "KSFO / 810 AM (call-sign conflict in older 2026 materials)",
+      "programming": "Cal 2026 game pages list KSFO 810 AM and Varsity Network audio. The 2026 information guide uses KGO 810 AM branding; current call sign/branding should be rechecked before publication as a terrestrial frequency claim.",
+      "availability": "Bay Area frequency; branding unresolved.",
+      "sourceUrls": [
+        "https://calbears.com/sports/football/schedule/2026",
+        "https://calbears.com/documents/download/2026/8/7/2026_Cal_Football_Info_Guide.pdf"
+      ]
+    },
+    {
+      "station": "KSTE 650 AM",
+      "programming": "Athletics 2026 English radio listing.",
+      "availability": "Flagship listing is Sacramento; reception/program carriage in San Francisco 94122 is not verified.",
+      "sourceUrls": [
+        "https://www.mlb.com/news/how-to-watch-every-mlb-team-in-2026",
+        "https://www.mlb.com/athletics/schedule/affiliates"
+      ]
+    },
+    {
+      "station": "KVMX 92.1 FM / 105.5 FM",
+      "programming": "Athletics 2026 Spanish-language listing for 74 home games.",
+      "availability": "Sacramento market; San Francisco reception is not verified.",
+      "sourceUrls": [
+        "https://www.mlb.com/news/how-to-watch-every-mlb-team-in-2026"
+      ]
+    },
+    {
+      "station": "A's Cast / iHeartRadio",
+      "programming": "Athletics live audio and team programming; online stream, not AM/FM.",
+      "availability": "Official in-market streaming option; not a terrestrial radio signal.",
+      "sourceUrls": [
+        "https://www.mlb.com/athletics/fans/podcasts/in-market",
+        "https://www.mlb.com/athletics/fans/podcasts/faq"
+      ]
+    },
+    {
+      "station": "Westwood One Bay Area affiliates (directory: KNBR-AM, KNBR-F2, KNBR-FM, KTCT-AM)",
+      "programming": "Official NFL station finder lists these Bay Area affiliates in the 2025 directory.",
+      "availability": "Directory year is 2025. Affiliate availability, blackout conflicts, and 2026–29 carriage are not guaranteed.",
+      "sourceUrls": [
+        "https://www.westwoodonesports.com/station-finder/",
+        "https://www.westwoodonesports.com/station-finder-source-nfl/"
+      ]
+    }
+  ],
+  "reviewItems": [
+    {
+      "id": "mlb-2027-static-coverage",
+      "severity": "high",
+      "title": "The 2027 MLB schedule is not fully bundled in this dashboard",
+      "detail": "The official MLB Stats API returned 2,430 2027 regular-season games, but this static dataset includes only selected special events—not all Giants/Athletics games. Missing MLB rows must never be read as free days.",
+      "sourceUrls": [
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameType=R"
+      ]
+    },
+    {
+      "id": "mlb-horizon",
+      "severity": "high",
+      "title": "MLB 2028–29 schedule data was not available in the checked Stats API",
+      "detail": "The 2028 and 2029 regular-season queries returned zero games when checked. This is not proof of a free season or vacation window; future schedules may be unpublished or not yet populated.",
+      "sourceUrls": [
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2028&gameType=R",
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2029&gameType=R"
+      ]
+    },
+    {
+      "id": "nfl-future",
+      "severity": "high",
+      "title": "49ers 2027–29 NFL game schedules are unavailable",
+      "detail": "The NFL schedule page has no 2027–29 regular-season game rows yet. Opponent grids and league date calendars do not supply team dates or kickoffs.",
+      "sourceUrls": [
+        "https://www.nfl.com/schedules/2027/by-team",
+        "https://www.nfl.com/schedules/2028/by-team",
+        "https://www.nfl.com/schedules/2029/by-team"
+      ]
+    },
+    {
+      "id": "college-2027-dates",
+      "severity": "high",
+      "title": "2027 Stanford and Cal conference dates/kickoffs are not assigned",
+      "detail": "The current official 2027 opponent grids are confirmed, but conference game dates and times are explicitly to be announced later. Known nonconference dates are shown separately.",
+      "sourceUrls": [
+        "https://gostanford.com/news/2026/09/16/acc-announces-2027-conference-opponents",
+        "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+      ]
+    },
+    {
+      "id": "college-2028-29",
+      "severity": "high",
+      "title": "2028–29 college schedules are incomplete; older ACC grids are provisional",
+      "detail": "Only individually verified nonconference dates are shown. Older 2023 ACC eight-game grids and legacy series rows are flagged as provisional and are not treated as current, complete, dated schedules.",
+      "sourceUrls": [
+        "https://calbears.com/news/2024/7/10/football-cal-ucla-schedule-4-games-from-2026-29",
+        "https://calbears.com/news/2023/10/30/acc-announces-conference-football-matchups-for-2024-30.aspx",
+        "https://gostanford.com/news/2023/10/30/acc-announces-football-schedule-model",
+        "https://gostanford.com/news/2016/06/13/boston-college-series"
+      ]
+    },
+    {
+      "id": "49ers-week18",
+      "severity": "high",
+      "title": "2026 49ers Week 18 date/time and any postseason games are TBD",
+      "detail": "The Arizona matchup is listed without a date or kickoff. Stanford has bowl eligibility, but a bowl opponent/date/time is not assigned in the reviewed schedule. Do not invent a postseason event.",
+      "sourceUrls": [
+        "https://www.nfl.com/schedules/2026/by-week/week-18",
+        "https://www.49ers.com/schedule/2026/",
+        "https://gostanford.com/news/2026/11/21/stanford-secures-bowl-berth-with-big-game-win"
+      ]
+    },
+    {
+      "id": "a-radio",
+      "severity": "medium",
+      "title": "Athletics radio availability in 94122 is unconfirmed",
+      "detail": "The 2026 official list names KSTE 650 AM in Sacramento and KVMX FM frequencies in Sacramento. The official A's Cast stream is available online; do not claim an AM/FM signal in San Francisco without a current Bay Area affiliate confirmation.",
+      "sourceUrls": [
+        "https://www.mlb.com/news/how-to-watch-every-mlb-team-in-2026",
+        "https://www.mlb.com/athletics/fans/podcasts/in-market"
+      ]
+    },
+    {
+      "id": "cal-radio-brand",
+      "severity": "medium",
+      "title": "Cal's 810 AM call sign differs across official 2026 materials",
+      "detail": "Current Cal football schedule entries call the station KSFO 810 AM; the 2026 information guide uses KGO 810 AM. The frequency and online Varsity Network listing are shown, but call-sign branding remains flagged.",
+      "sourceUrls": [
+        "https://calbears.com/sports/football/schedule/2026",
+        "https://calbears.com/documents/download/2026/8/7/2026_Cal_Football_Info_Guide.pdf"
+      ]
+    },
+    {
+      "id": "wwo-affiliates",
+      "severity": "medium",
+      "title": "Westwood One Bay Area affiliates are from a 2025 directory",
+      "detail": "KNBR/KTCT are listed in the official NFL station finder, but it is marked 2025 and does not guarantee carriage of every 2026–29 game or resolve local conflicts.",
+      "sourceUrls": [
+        "https://www.westwoodonesports.com/station-finder-source-nfl/",
+        "https://www.westwoodonesports.com/nfl-schedule/"
+      ]
+    },
+    {
+      "id": "broadcast-end-times",
+      "severity": "medium",
+      "title": "End times and exact local on-air clearance are not published",
+      "detail": "MLB 2:38 is a 2025 mean; football 3h is a planning estimate. WWO listings provide event slot starts but no end time; local stations may add pregame/postgame programming. End estimates are not official, and gaps are not guarantees.",
+      "sourceUrls": [
+        "https://www.mlb.com/press-release/press-release-mlb-attendance-reaches-71-4-million-three-straight-years-of-growth-for-first-time-since-2007",
+        "https://www.nfl.com/schedules/2026/by-team/san-francisco-49ers",
+        "https://www.westwoodonesports.com/nfl-schedule/",
+        "https://www.49ers.com/fans/tv-radio"
+      ]
+    },
+    {
+      "id": "49ers-past-kickoffs",
+      "severity": "low",
+      "title": "Past 2026 49ers kickoff times are blank where the official schedule source did not show them",
+      "detail": "All 2026 preseason and regular-season matchups/dates are listed. The reviewed official pages did not expose kickoff times for completed games in the extracted schedule text, so those cells remain blank rather than estimated.",
+      "sourceUrls": [
+        "https://www.49ers.com/schedule/2026/",
+        "https://www.nfl.com/schedules/2026/by-team/san-francisco-49ers"
+      ]
+    }
+  ],
+  "mlbEvents": [
+    {
+      "seasonYear": 2027,
+      "date": "2027-02-19",
+      "sport": "MLB",
+      "title": "MLB Spring Training · 17 games on the slate",
+      "location": "Multiple spring-training venues",
+      "timePT": null,
+      "status": "date-confirmed-time-details-not-bundled",
+      "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&date=2027-02-19&gameType=S",
+      "note": "The official MLB Stats API listed 17 spring-training games for this date. Individual matchups and start times are not included in this dashboard."
+    },
+    {
+      "seasonYear": 2027,
+      "date": "2027-07-13",
+      "sport": "MLB",
+      "title": "MLB All-Star Game",
+      "location": "Wrigley Field · Chicago, Illinois",
+      "timePT": null,
+      "status": "date-confirmed-time-tbd",
+      "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&date=2027-07-13",
+      "note": "MLB lists Chicago as the 2027 host; the MLB Stats API date query places the game on July 13. Start time is not set.",
+      "supportingSourceUrls": [
+        "https://www.mlb.com/all-star/future-locations"
+      ]
+    },
+    {
+      "seasonYear": 2027,
+      "date": "2027-08-12",
+      "sport": "MLB",
+      "title": "Field of Dreams · Royals at Red Sox",
+      "location": "Field of Dreams · Dyersville, Iowa",
+      "timePT": "16:30",
+      "status": "scheduled",
+      "sourceUrl": "https://www.mlb.com/press-release/release-mlb-to-return-to-field-of-dreams-in-2027",
+      "note": "MLB Stats API lists a 4:30 PM Pacific start; MLB announced NBC Sports coverage.",
+      "supportingSourceUrls": [
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&date=2027-08-12"
+      ]
+    },
+    {
+      "seasonYear": 2028,
+      "date": null,
+      "sport": "MLB",
+      "title": "2028 MLB All-Star Game",
+      "location": "Oracle Park · San Francisco, California",
+      "timePT": null,
+      "status": "host-confirmed-date-tbd",
+      "sourceUrl": "https://www.mlb.com/news/release-mlb-awards-the-2028-all-star-game-presented-by-mastercard-to-the-san-francisco-giants",
+      "note": "San Francisco is confirmed as host; game date and start time are not yet published."
+    }
+  ],
+  "mlbCoverage": {
+    "season": 2027,
+    "officialRegularSeasonGames": 2430,
+    "includedRows": "selected event/date summaries only",
+    "detail": "The official Stats API returned 2,430 regular-season games for 2027. This static dashboard does not bundle all 2,430 game rows or a complete Giants/Athletics schedule; it shows selected special events and a spring-training slate summary only. Do not treat missing MLB rows as free time.",
+    "sourceUrl": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameType=R"
+  },
+  "leagueDates": [
+    {
+      "date": "2027-01-09",
+      "timePT": null,
+      "title": "NFL Week 18 · league window",
+      "subtitle": "Regular-season finale · game times and team slots TBD",
+      "program": "Week 18",
+      "status": "league-window",
+      "sourceUrl": "https://www.nfl.com/news/2026-27-national-football-league-important-dates",
+      "note": "NFL-published Week 18 date. This is a league-wide schedule window, not a confirmed 49ers game date or kickoff."
+    },
+    {
+      "date": "2027-01-10",
+      "timePT": null,
+      "title": "NFL Week 18 · league window",
+      "subtitle": "Regular-season finale · game times and team slots TBD",
+      "program": "Week 18",
+      "status": "league-window",
+      "sourceUrl": "https://www.nfl.com/news/2026-27-national-football-league-important-dates",
+      "note": "NFL-published Week 18 date. This is a league-wide schedule window, not a confirmed 49ers game date or kickoff."
+    },
+    {
+      "date": "2027-01-16",
+      "timePT": null,
+      "title": "NFL Wild Card · league window",
+      "subtitle": "Postseason round date · matchups and kickoff times TBD",
+      "program": "Wild Card",
+      "status": "league-window",
+      "sourceUrl": "https://www.nfl.com/news/2026-27-national-football-league-important-dates",
+      "note": "League postseason date only; it does not imply the 49ers will qualify or play."
+    },
+    {
+      "date": "2027-01-17",
+      "timePT": null,
+      "title": "NFL Wild Card · league window",
+      "subtitle": "Postseason round date · matchups and kickoff times TBD",
+      "program": "Wild Card",
+      "status": "league-window",
+      "sourceUrl": "https://www.nfl.com/news/2026-27-national-football-league-important-dates",
+      "note": "League postseason date only; it does not imply the 49ers will qualify or play."
+    },
+    {
+      "date": "2027-01-18",
+      "timePT": null,
+      "title": "NFL Wild Card · league window",
+      "subtitle": "Postseason round date · matchups and kickoff times TBD",
+      "program": "Wild Card",
+      "status": "league-window",
+      "sourceUrl": "https://www.nfl.com/news/2026-27-national-football-league-important-dates",
+      "note": "League postseason date only; it does not imply the 49ers will qualify or play."
+    },
+    {
+      "date": "2027-01-23",
+      "timePT": null,
+      "title": "NFL Divisional Round · league window",
+      "subtitle": "Postseason round date · matchups and kickoff times TBD",
+      "program": "Divisional Round",
+      "status": "league-window",
+      "sourceUrl": "https://www.nfl.com/news/2026-27-national-football-league-important-dates",
+      "note": "League postseason date only; it does not imply the 49ers will qualify or play."
+    },
+    {
+      "date": "2027-01-24",
+      "timePT": null,
+      "title": "NFL Divisional Round · league window",
+      "subtitle": "Postseason round date · matchups and kickoff times TBD",
+      "program": "Divisional Round",
+      "status": "league-window",
+      "sourceUrl": "https://www.nfl.com/news/2026-27-national-football-league-important-dates",
+      "note": "League postseason date only; it does not imply the 49ers will qualify or play."
+    },
+    {
+      "date": "2027-01-31",
+      "timePT": null,
+      "title": "NFL Conference Championships · league window",
+      "subtitle": "Matchups and kickoff times TBD",
+      "program": "Conference Championships",
+      "status": "league-window",
+      "sourceUrl": "https://www.nfl.com/news/2026-27-national-football-league-important-dates",
+      "note": "NFL-published conference championship date; the 49ers are not assumed to qualify."
+    },
+    {
+      "date": "2027-02-14",
+      "timePT": null,
+      "title": "Super Bowl LXI · league date",
+      "subtitle": "SoFi Stadium · Inglewood, California · kickoff time TBD",
+      "program": "Super Bowl LXI",
+      "status": "league-window",
+      "sourceUrl": "https://www.nfl.com/news/2026-27-national-football-league-important-dates",
+      "note": "NFL-published Super Bowl date and host venue; the 49ers are not assumed to qualify."
+    }
+  ]
+}
