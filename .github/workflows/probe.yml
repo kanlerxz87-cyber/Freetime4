@@ -12,11 +12,16 @@ jobs:
       - uses: actions/checkout@v4
       - name: probe network
         run: |
-          set -x
-          curl -s -o /dev/null -w "mlb:%{http_code}\n" --max-time 20 "https://statsapi.mlb.com/api/v1/teams?sportId=1"
-          curl -s -o /dev/null -w "nfl:%{http_code}\n" --max-time 20 "https://www.nfl.com/schedules/2026/REG/"
-          curl -s -o /dev/null -w "espn:%{http_code}\n" --max-time 20 "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026"
-          curl -s -o /dev/null -w "wwo:%{http_code}\n" --max-time 20 "https://westwoodonesports.com/nfl-schedule/"
-          curl -s -o /dev/null -w "stanford:%{http_code}\n" --max-time 20 "https://gostanford.com/sports/football/schedule"
-          curl -s -o /dev/null -w "cal:%{http_code}\n" --max-time 20 "https://calbears.com/sports/football/schedule"
-          echo "probe-ok"
+          mkdir -p data/_probe
+          {
+          for u in "https://statsapi.mlb.com/api/v1/teams?sportId=1|mlb" "https://www.nfl.com/schedules/2026/REG/|nfl" "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026|espn" "https://westwoodonesports.com/nfl-schedule/|wwo" "https://gostanford.com/sports/football/schedule|stanford" "https://calbears.com/sports/football/schedule|cal"; do
+            url="${u%%|*}"; name="${u##*|}"
+            code=$(curl -sL -o "data/_probe/$name.html" -w "%{http_code}" --max-time 25 "$url")
+            echo "$name $code $(wc -c < data/_probe/$name.html)" >> data/_probe/report.txt
+          done
+          } || true
+      - name: commit
+        run: |
+          git config user.name "probe-bot"; git config user.email "probe@example.com"
+          git add data/_probe; git commit -q -m "probe results" || true
+          git push -q || true
