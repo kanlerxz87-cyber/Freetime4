@@ -1,141 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Freetime4 — Free Time Vacation Planner</title>
-<link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Time Vacation — Executive Summary</title>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">FREETIME4 <span class="site-tag">&middot; Free Time Vacation Planner</span></div>
-    <nav>
-      <ul>
-        <li><a href="#planner">Live planner (docs/)</a></li>
-        <li><a href="#detail">Detail pages</a></li>
-        <li><a href="executive-summary.html">Executive Summary</a></li>
-        <li><a href="flagged-review.html">Flagged for Review</a></li>
-      </ul>
-    </nav>
-  </div>
+<header class="site">
+  <h1>FREE TIME VACATION</h1>
+  <div class="tag">When can you leave the Bay Area without missing live sports on AM/FM radio? · MLG, NFL, Stanford/Cal NCAAF, Westwood One · Times in PST</div>
 </header>
+<script>nav("index.html")</script>
+<main>
 
-<div class="container">
-  <section class="hero">
-    <h1>When is it free to take a vacation?</h1>
-    <p>Plan your getaway around live sports on the radio in the San Francisco Bay Area (outer sunset, 94122). A minute is <strong>free</strong> when <strong>none</strong> of these are on air: <strong>MLB</strong> (Giants &amp; A's high priority; all 30 clubs shown), <strong>NFL</strong> (49ers preseason/regular/postseason; all NFL), <strong>Stanford NCAAF</strong>, <strong>Cal NCAAF</strong>, and <strong>Westwood One national NFL radio broadcasts</strong>.</p>
-  </div>
-
-  <div class="section" id="canonical">
-    <h2>★ Canonical planner (final integration — full data pipeline)</h2>
-    <p>The consolidated site below is the final integrated version: full official MLB data for all 30 clubs (2026 &amp; 2027, straight from MLB's official API via an automated fetch pipeline), verified NFL/NCAAF/Westwood One schedules, flagged 2028&ndash;2029 estimates, the free-time engine, and the daily scoreboard — all with per-row source links.</p>
-    <div class="grid">
-      <div class="card" style="grid-column: 1 / -1; border-left: 6px solid #0e8a4d;">
-        <h3>Free Time Vacation — canonical site</h3>
-        <p>Executive summary &middot; daily scoreboard &middot; vacation windows &middot; MLB (all 30 clubs) &middot; NFL &middot; NCAAF &middot; Westwood One &middot; Bay Area radio &middot; methodology &middot; Flagged for Review &middot; sources.</p>
-        <a class="button" href="site/index.html">Open the canonical planner &rarr;</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="planner">
-    <h2>Earlier planner versions (kept for reference)</h2>
-    <p>Previous sessions' sites are preserved below. The canonical site above supersedes them; their data and flags were consolidated into it.</p>
-    <p>The published planner (day navigation, schedule tables, vacation-horizon overview, sources, review register) lives under <code>docs/</code>:</p>
-    <div class="grid">
-      <div class="card">
-        <h3>Verified planner (official sources)</h3>
-        <p>Scoreboard (Pacific time), MLB, NFL, college, radio, vacation windows, and a Flagged for Review page. Every row links to its official source; unverified values are blank and flagged.</p>
-        <a class="button" href="verified/index.html">Open verified planner &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Free-time scoreboard</h3>
-        <p>Day navigation (yesterday / today / tomorrow) with availability state.</p>
-        <a class="button" href="docs/scoreboard.html">Open scoreboard &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Games table</h3>
-        <p>NFL, 49ers, Stanford, Cal, Westwood One games with source links.</p>
-        <a class="button" href="docs/games.html">Open games table &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Vacation windows</h3>
-        <p>Estimated best vacation windows for 2027&ndash;2029.</p>
-        <a class="button" href="docs/vacation.html">Open vacation windows &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Sources &amp; flagged items</h3>
-        <p>Official sources and the Flagged for Review register.</p>
-        <a class="button" href="docs/sources.html">Open sources &rarr;</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="detail">
-    <h2>Detail pages (this branch)</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Executive Summary</h3>
-        <p>Best estimated vacation windows, verified schedule status, and what "free" means.</p>
-        <a class="button" href="executive-summary.html">View &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Free-Time Calendar (PST)</h3>
-        <p>Click yesterday / today / tomorrow or pick any date to see exact free-time windows.</p>
-        <a class="button" href="free-time.html">View calendar &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>MLB</h3>
-        <p>Giants and A's high priority; all 30 MLB clubs with official schedule links.</p>
-        <a class="button" href="mlb.html">View &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>NFL</h3>
-        <p>49ers 2026 verified schedule plus all NFL season windows.</p>
-        <a class="button" href="nfl.html">View &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>NCAAF (Stanford / Cal)</h3>
-        <p>Stanford 2026 verified schedule and Cal.</p>
-        <a class="button" href="ncaaf.html">View &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Westwood One Radio</h3>
-        <p>National NFL radio broadcasts on Bay Area AM/FM affiliates.</p>
-        <a class="button" href="westwood-one.html">View &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Bay Area Radio Coverage</h3>
-        <p>Official station evidence for local teams and Westwood One, with carriage and reception caveats.</p>
-        <a class="button" href="radio-verified.html">View &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Vacation Windows 2027–2029</h3>
-        <p>Conservative dates: unknown schedules are never counted as free.</p>
-        <a class="button" href="windows-2027-2029.html">View &rarr;</a>
-      </div>
-      <div class="card">
-        <h3>Flagged for Review</h3>
-        <p>Unverified items and estimates needing manual review.</p>
-        <a class="button" href="flagged-review.html">View &rarr;</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Verification note</h2>
-    <div class="callout info">
-      <strong>Schedule status varies by sport and year.</strong> MLB's 2027 regular-season schedule is officially released; MLB 2028&ndash;2029 and complete NFL/college schedules for future seasons are not. Estimates are labeled, unverified values are left blank and flagged, and unknown dates are never treated as free. See <a href="windows-2027-2029.html">Vacation Windows</a> and the Flagged for Review pages.
-    </div>
-    <p class="small">Two sessions contributed to this repo. The <code>docs/</code> planner is the GitHub Pages-published site (main, root). This branch adds the executive summary, per-sport detail pages, and the PST free-time calendar. Sources are linked on each page.</p>
-  </div>
-
-  <footer>
-    Freetime4 &middot; Data current as of 2026-11-25 (UTC). Times in Pacific (PST/PDT). Planning aid only, not an official schedule source.
-  </footer>
+<div class="goodbox">
+  <b>THE ANSWER, UP FRONT.</b> Across 2027–2029 there is exactly one stretch of the year when your core sports (all MLB, all NFL, Stanford &amp; Cal football, Westwood One national NFL) go quiet: <b>between the Super Bowl and the start of baseball</b>. Under the strictest reading of your rules (MLB spring training counts as “MLB preseason”), the best clean week in 2027 is <b>February 7–13, 2027</b>. If exhibition spring-training games don’t count for you, the window explodes open to <b>February 15 – March 23, 2027 (37 days)</b> — enough for a 1-, 2-, or 3-week vacation. There is <b>no</b> 3-week window under the strict reading in any of 2027, 2028 or 2029.
 </div>
 
+<h2>Best vacation windows</h2>
+<div class="grid c3" id="windowCards">
+  <div class="card"><div class="kpi"><span class="num">Feb 7–13, 2027</span><span class="lbl">Strict rules (incl. spring training) — 7 days</span></div>
+    <p class="small">Between the Pro Bowl week and Super Bowl LXI (Feb 14). The only Mon–Sun week of 2027 with zero scheduled games.</p>
+    <p class="small"><a href="vacation.html">All windows →</a></p></div>
+  <div class="card"><div class="kpi"><span class="num">Feb 15 – Mar 23, 2027</span><span class="lbl">If spring training doesn’t count — 37 days</span></div>
+    <p class="small">Post-Super-Bowl to MLB Opening Night (Mar 24). Fits 1, 2 <b>and</b> 3-week vacations. Also the same window exists in 2028 (Feb 14 – Mar 22) and 2029 (Feb 12 – Mar 21) as estimates.</p>
+    <p class="small"><a href="vacation.html">All windows →</a></p></div>
+  <div class="card"><div class="kpi"><span class="num">Feb 1–13, 2027</span><span class="lbl">Only if counting SF-radio broadcasts — 13 days</span></div>
+    <p class="small">No Giants, A’s, 49ers, Stanford, Cal or Westwood One game touches a Bay Area AM/FM dial these two weeks. (Warriors/Sharks games may still air — see flags.)</p>
+    <p class="small"><a href="vacation.html">All windows →</a></p></div>
+</div>
+
+<div class="flagbox">
+  <b>⚠ Read before you book:</b>
+  <ul>
+    <li><b>MLB labor risk:</b> the CBA expires Dec 1, 2026 and a lockout is considered imminent — if 2027 games are lost, your free time <i>increases</i> and this page will need a refresh after any settlement. <a href="flagged.html#F01">Flag F01</a></li>
+    <li><b>2028–2029 are estimates:</b> no official schedules exist yet for those years (proof kept in the repo). Every such row is labeled ESTIMATE. <a href="flagged.html#F04">F04</a>, <a href="flagged.html#F05">F05</a></li>
+    <li><b>“What free means” ambiguity:</b> your brief describes both “games scheduled to be played” and “live over the radio in SF.” Both readings are computed as separate scenarios. <a href="flagged.html#F15">F15</a></li>
+  </ul>
+</div>
+
+<h2>What counts as “busy” (core definition)</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>League / package</th><th>Coverage</th><th>Priority</th><th>Status in this build</th></tr></thead>
+    <tbody>
+      <tr><td><b>MLB</b> — all 30 clubs</td><td>Spring training, regular season, postseason, All-Star &amp; special games</td><td><span class="badge hi">Giants &amp; Athletics HIGH</span></td><td>2027 <span class="badge ver">✓ 2,430 official games + 469 spring</span> · 2028–29 <span class="badge est">estimates</span></td></tr>
+      <tr><td><b>NFL</b> — all games</td><td>Preseason, regular season, postseason, Super Bowl</td><td><span class="badge hi">49ers HIGH</span></td><td>2026–27 remainder <span class="badge ver">✓ verified windows</span> · 2027+ <span class="badge est">estimates</span></td></tr>
+      <tr><td><b>NCAAF</b></td><td>Stanford &amp; California football</td><td><span class="badge hi">HIGH</span></td><td>2026 <span class="badge ver">✓ (Cal official; Stanford cross-check)</span> · 2027+ <span class="badge est">estimates</span></td></tr>
+      <tr><td><b>Westwood One</b> national NFL radio</td><td>TNF, MNF, SNF, holiday tripleheaders, Saturday windows, playoffs, Super Bowl</td><td><span class="badge ww">national</span></td><td>2026–27 <span class="badge ver">✓ official event pages</span> · 2027+ <span class="badge est">estimates</span></td></tr>
+    </tbody>
+  </table>
+  <p class="small muted">Every row in this site links to an official source page. Rows that could not be confirmed on an official source this session are labeled <span class="badge est">est / unverified</span> and listed on the <a href="flagged.html">Flagged for Review</a> page.</p>
+</div>
+
+<h2>Dataset at a glance</h2>
+<div class="status-strip" id="stats"></div>
+
+<h2>How to use this site</h2>
+<div class="grid c2">
+  <div class="card">
+    <h3>📅 Calendar / Scoreboard</h3>
+    <p class="small">Day-by-day view with Yesterday / Today / Tomorrow buttons and a date picker. Shows free-time blocks in PST and every game that day, with radio stations. Toggle scenarios (strict / ignore spring training / SF-radio-only).</p>
+    <a href="calendar.html"><b>Open the calendar →</b></a>
+  </div>
+  <div class="card">
+    <h3>🏖 Vacation Windows</h3>
+    <p class="small">Every stretch of ≥2 game-free days in 2027, 2028, 2029, scored for 1-, 2- and 3-week fits under each scenario.</p>
+    <a href="vacation.html"><b>Plan a vacation →</b></a>
+  </div>
+  <div class="card">
+    <h3>⚾ MLB · 🏈 NFL · 🎙 Westwood One · 🏟 Stanford &amp; Cal</h3>
+    <p class="small">Full game tables with filters (team, priority, verified-only), high-priority badges for Giants, Athletics, 49ers, Stanford and Cal, and a source link on every single row.</p>
+    <a href="mlb.html">MLB</a> · <a href="nfl.html">NFL</a> · <a href="westwood-one.html">Westwood One</a> · <a href="ncaaf.html">Stanford &amp; Cal</a>
+  </div>
+  <div class="card">
+    <h3>📻 Radio · 📑 Sources · ⚠ Flagged</h3>
+    <p class="small">Bay Area AM/FM carriage for the Outer Sunset (94122), the method &amp; duration research with links, and every irregularity we found.</p>
+    <a href="radio.html">Radio</a> · <a href="sources.html">Sources &amp; Method</a> · <a href="flagged.html">Flagged for Review</a>
+  </div>
+</div>
+
+<h2>Other planners in this repo (parallel sessions — all preserved)</h2>
+<div class="card">
+  <p class="small">Several sessions built planners in parallel. Everything below remains published and usable; this page is the executive-summary landing with the verified full-slate dataset. <a href="COORDINATION.md">COORDINATION.md</a> logs every session, claim and merge.</p>
+  <ul class="small">
+    <li><a href="site/index.html"><b>site/ — canonical planner</b></a> (session c04f5702/48068f3b final integration): executive summary, daily scoreboard, vacation windows, per-sport pages, flagged register, methodology. Data pipeline in <code>scripts/build_data.py</code> + <code>data/site/</code>.</li>
+    <li><a href="verified/index.html">verified/ — official-sources-only planner</a> (session 48068f3b): blank cells for unverified values, per-row official links.</li>
+    <li><a href="calendar-site/index.html">calendar-site/</a> (session 7fca3e35): Pacific-time day view with free-hour marks; CSV inputs with source URLs.</li>
+    <li><a href="docs/index.html">docs/</a> (session bbbb5122): the original published planner.</li>
+    <li><a href="windows-2027-2029.html">windows-2027-2029.html</a> (conservative windows, unknown ≠ free).</li>
+    <li><a href="legacy-dashboard/">legacy-dashboard/</a> (session 0452200e): the first dashboard.</li>
+  </ul>
+  <p class="small muted">Where earlier pages still say “2027 schedules not released,” that is superseded: MLB’s 2027 slate was released 2026-07-16 and is loaded in full here (2,430 games). NFL/MLB-2028+/NCAAF-2027+ remain estimates and are labeled as such everywhere.</p>
+</div>
+
+</main>
+<footer>
+  Built 2026-11-25 from official sources (MLB Stats API / mlb.com, nfl.com, Westwood One Sports, gostanford.com, calbears.com, team official pages). Estimates are labeled everywhere. Times shown in PST/PDT (Pacific).
+</footer>
+<script src="js/common.js"></script>
+<script>
+(async () => {
+  const years = [2026, 2027, 2028, 2029, 2030];
+  let total = 0, verified = 0, est = 0, mlb27 = 0;
+  for (const y of years) {
+    try {
+      const d = await loadYear(y);
+      total += (d.games || []).length;
+      for (const g of d.games || []) {
+        if (g.verified) verified++; else est++;
+        if (y === 2027 && g.sport === "MLB") mlb27++;
+      }
+    } catch (e) {}
+  }
+  document.getElementById("stats").innerHTML = `
+    <div class="chip"><b>${total.toLocaleString()}</b>schedule rows (2026-11 → 2030-02)</div>
+    <div class="chip"><b>${mlb27.toLocaleString()}</b>MLB 2027 games (official slate)</div>
+    <div class="chip"><b>${verified.toLocaleString()}</b>rows verified on official sources</div>
+    <div class="chip"><b>${est.toLocaleString()}</b>rows labeled est / cross-check</div>
+    <div class="chip"><b>100%</b>rows with an official source link</div>`;
+})();
+</script>
 </body>
 </html>

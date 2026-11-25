@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for Review — Free Time Vacation</title>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="site">
+  <h1>Flagged for Review</h1>
+  <div class="tag">Every irregularity, estimate and unverified item in this build — with source links</div>
+</header>
+<script>nav("flagged.html")</script>
+<main>
+
+<div class="flagbox">These items do <b>not</b> block the site — they are published so you can review them and request changes. Anything on this page was excluded from “verified” status or is a known interpretation choice.</div>
+
+<div id="flags"></div>
+
+<div class="card">
+  <h2>Inherited flags from earlier sessions (kept for continuity)</h2>
+  <ul class="small">
+    <li>Full 2026 MLB per-game schedule was not republished by earlier builds (now superseded: 2027 full slate is in this build; 2026 season is over and out of scope).</li>
+    <li>Dec 17, 2026 49ers at Chargers and Jan 3, 2027 Eagles at 49ers show Westwood One broadcast-start vs team kickoff discrepancies — see <a href="#F07">F07</a>.</li>
+    <li>Earlier boards asserted “2027–2029 schedules not released”; this build corrects that for MLB 2027 (released 2026-07-16) while keeping the estimate labels for everything else. See <a href="COORDINATION.md">COORDINATION.md</a>.</li>
+    <li>Bay Area carriage of any game not involving the listed flagships cannot be guaranteed; the core definition counts all league games anyway (per the brief), and the SF-radio scenario only counts confirmed flagships.</li>
+  </ul>
+</div>
+
+</main>
+<footer>Flag register generated from data/flags.json (build script scripts/build_data.py).</footer>
+<script src="js/common.js"></script>
+<script>
+(async () => {
+  const f = await (await fetch("data/flags.json")).json();
+  document.getElementById("flags").innerHTML = f.flags.map(x => `
+    <div class="card" id="${esc(x.id)}">
+      <h3 style="margin-top:2px"><span class="badge est">${esc(x.id)}</span> ${esc(x.title)}</h3>
+      <p class="small">${esc(x.detail)}</p>
+      <p class="small src">Source: <a href="${esc(x.source)}" target="_blank" rel="noopener">${esc(x.source)}</a></p>
+    </div>`).join("");
+  if (location.hash) {
+    const el = document.querySelector(location.hash);
+    if (el) el.scrollIntoView();
+  }
+})();
+</script>
+</body>
+</html>

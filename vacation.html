@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vacation Windows 2027–2029 — Free Time Vacation</title>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="site">
+  <h1>Vacation windows 2027 · 2028 · 2029</h1>
+  <div class="tag">Every stretch with zero scheduled games, scored for 1-, 2- and 3-week vacations</div>
+</header>
+<script>nav("vacation.html")</script>
+<main>
+
+<div class="goodbox"><b>Bottom line:</b> book between the Super Bowl and baseball. In 2027 that is <b>Feb 7–13</b> under strict rules (spring training counted), or <b>Feb 15 – Mar 23 (37 days)</b> if spring-training exhibitions don’t count. 2028/2029 mirror the same window (estimated schedules). Nothing longer exists later in any year — the NFL/college baseball and football calendars fill late Feb through early January.</div>
+
+<div class="flagbox">Rows for 2028–2029 and the “ignore spring training” / “SF-radio-only” variants are <b>model-based estimates</b> (official 2028–2029 schedules do not exist yet). Windows marked <span class="badge est">est-driven</span> should be re-checked once leagues publish. See <a href="flagged.html">Flagged for Review</a>.</div>
+
+<div class="controls">
+  <label><b>Scenario:</b></label>
+  <select id="scopeSel">
+    <option value="core">CORE — brief’s definition (all MLB incl. spring training, all NFL, Stanford/Cal, Westwood One NFL)</option>
+    <option value="no-st">No spring training — MLB regular season + postseason only</option>
+    <option value="sf-radio">SF Bay Area AM/FM only — Giants, A’s, 49ers, Stanford, Cal, Westwood One</option>
+  </select>
+</div>
+<div id="scopeLabel" class="muted small"></div>
+
+<div id="windows"></div>
+
+<h2>What this means for trip length</h2>
+<div class="grid c3">
+  <div class="card"><h3>1 week (7 days)</h3><p class="small" id="w7"></p></div>
+  <div class="card"><h3>2 weeks (14 days)</h3><p class="small" id="w14"></p></div>
+  <div class="card"><h3>3 weeks (21 days)</h3><p class="small" id="w21"></p></div>
+</div>
+
+<h2>Why February–March?</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>Season</th><th>Runs (approx.)</th><th>Effect on your radio</th></tr></thead>
+    <tbody>
+      <tr><td>NFL + Super Bowl</td><td>early Sep → mid Feb (LXI on Feb 14, 2027)</td><td>Busy every weekend + Monday/Thursday nights</td></tr>
+      <tr><td>MLB spring training</td><td>Feb 19 → Mar 23, 2027 (official slate)</td><td>Giants/A’s games on KNBR / 960 AM most days</td></tr>
+      <tr><td>MLB regular + postseason</td><td>Mar 24 → ~Nov 3, 2027</td><td>162-game grind; virtually every day has games</td></tr>
+      <tr><td>Stanford / Cal NCAAF</td><td>late Aug → late Nov (+ bowl if selected)</td><td>Saturdays blocked</td></tr>
+      <tr><td>Westwood One national NFL</td><td>Sep → Feb (TNF/MNF/SNF + holidays + playoffs)</td><td>Blocks most Thu/Sun/Mon nights</td></tr>
+    </tbody>
+  </table>
+  <p class="small muted">Minor in-season gaps exist (MLB All-Star break gives a single quiet day around Jul 12–14, 2027; occasional mid-week days when nothing airs on SF radio) — see the <a href="calendar.html">calendar</a>, which computes exact free blocks every day.</p>
+</div>
+
+</main>
+<footer>Free = no event in the selected scenario’s dataset on that calendar day (PST). Multi-day “possible” events (Stanford bowl) are excluded from blocking and shown separately.</footer>
+<script src="js/common.js"></script>
+<script>
+(async () => {
+  const s = await (await fetch("data/summary.json")).json();
+  const sel = document.getElementById("scopeSel");
+  async function render() {
+    const scope = sel.value;
+    const sc = s.scenarios[scope];
+    document.getElementById("scopeLabel").textContent = sc.label;
+    let h = "";
+    for (const y of ["2027", "2028", "2029"]) {
+      const info = sc.years[y];
+      h += `<h2>${y} — busy on ${info.busyDays} days, longest game-free run ${info.longest} days</h2><table>
+        <thead><tr><th>Window (game-free)</th><th>Days</th><th>1 wk</th><th>2 wk</th><th>3 wk</th><th>Confidence</th><th></th></tr></thead><tbody>`;
+      for (const r of info.runs) {
+        const est = (y !== "2027") || scope !== "core";
+        h += `<tr>
+          <td><b>${r.start}</b> → <b>${r.end}</b></td>
+          <td>${r.days}</td>
+          <td>${r.fits["7"] ? '<span class="badge free">fits</span>' : "—"}</td>
+          <td>${r.fits["14"] ? '<span class="badge free">fits</span>' : "—"}</td>
+          <td>${r.fits["21"] ? '<span class="badge free">fits</span>' : "—"}</td>
+          <td>${est ? '<span class="badge est">est-driven</span>' : '<span class="badge ver">verified 2026–27 slate</span>'}</td>
+          <td class="src"><a href="calendar.html#${r.start}">open in calendar</a></td>
+        </tr>`;
+      }
+      h += "</tbody></table>";
+    }
+    document.getElementById("windows").innerHTML = h;
+
+    const fit = (n) => {
+      const out = [];
+      for (const y of ["2027", "2028", "2029"]) {
+        const r = sc.years[y].runs.filter(r => r.days >= n)[0];
+        out.push(`${y}: ${r ? `<b>${r.start} → ${r.end}</b> (${r.days} days)` : "none"}`);
+      }
+      return out.join("<br>");
+    };
+    document.getElementById("w7").innerHTML = fit(7);
+    document.getElementById("w14").innerHTML = fit(14);
+    document.getElementById("w21").innerHTML = fit(21);
+  }
+  sel.onchange = render;
+  render();
+})();
+</script>
+</body>
+</html>

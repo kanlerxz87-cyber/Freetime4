@@ -14,8 +14,8 @@
   },
   {
    "id": "F03",
-   "title": "MLB 2027 game start times flagged startTimeTBD in the official API",
-   "detail": "Rows with timeEstimated=true carry placeholder/estimated times until MLB confirms. Dates and matchups are official.",
+   "title": "MLB 2027 games with unannounced start times",
+   "detail": "678 rows carry startTimeTBD (or garbage placeholder times like 00:33 PT) in the official feed. Dates and matchups are official; those games are modelled at the typical 13:05 PT slot and labeled 'time est' everywhere. Free blocks on those days are provisional until MLB announces times.",
    "source": "https://www.mlb.com/schedule"
   },
   {

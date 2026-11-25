@@ -125,6 +125,14 @@ def build_mlb_2027():
                        "allstar": DURATIONS["mlb_allstar"], "exhibition": DURATIONS["mlb_exhibition"],
                        "postseason": DURATIONS["mlb_postseason"]}[cat]
                 radio = mlb_radio(home, away)
+                venue_name = g.get("venue", {}).get("name") or ""
+                intl = any(s in venue_name for s in ("Tokyo", "London", "Estadio", "Monterrey", "Seoul", "Hiram Bithorn"))
+                # Official feed keeps placeholder times for many unannounced starts
+                # (e.g. 07:33Z = 00:33 PT). Those are modelled at the typical 1:05 PM
+                # PT matinee slot until MLB confirms — flagged per row (F03).
+                if tbd or (ptime is not None and ptime < "05:00" and not intl):
+                    tbd = True
+                    ptime = "13:05"
                 add({
                     "id": f"mlb-{pk}",
                     "sport": "MLB",
@@ -144,7 +152,7 @@ def build_mlb_2027():
                     "certain": True,
                     "verified": True,
                     "source": MLB_SRC.format(pk=pk),
-                    "note": "Official MLB schedule (Stats API). Start time estimated." if tbd else "",
+                    "note": "Date/matchup official. Start time not yet announced — shown at the typical 13:05 PT slot until confirmed." if tbd else "",
                 })
 
 # --- MLB 2027 postseason + special events (dates TBA -> estimated, flagged)
@@ -485,8 +493,8 @@ def build_flags():
         {"id": "F02", "title": "MLB 2027 postseason dates not announced",
          "detail": "MLB's 2027 release says postseason dates are TBA. Wild Card/DS/LCS/WS rows are ESTIMATES modelled on the 2026 pattern (official API).",
          "source": "https://www.mlb.com/news/mlb-2027-schedule-released"},
-        {"id": "F03", "title": "MLB 2027 game start times flagged startTimeTBD in the official API",
-         "detail": "Rows with timeEstimated=true carry placeholder/estimated times until MLB confirms. Dates and matchups are official.",
+        {"id": "F03", "title": "MLB 2027 games with unannounced start times",
+         "detail": "678 rows carry startTimeTBD (or garbage placeholder times like 00:33 PT) in the official feed. Dates and matchups are official; those games are modelled at the typical 13:05 PT slot and labeled 'time est' everywhere. Free blocks on those days are provisional until MLB announces times.",
          "source": "https://www.mlb.com/schedule"},
         {"id": "F04", "title": "MLB 2028–2029 schedules not released",
          "detail": "Official Stats API returns no games (evidence kept in data/raw/mlb_2028_*.json, mlb_2029_*.json). The site shows ESTIMATED daily slate rows over estimated season spans; no invented matchups.",
