@@ -49,6 +49,6 @@ Secondary (labelled, never the only basis of a verified value): nflanalytic.com 
 
 ## Pull request and deploy
 
-- PR: _pending (opened after this commit)_
+- PR: https://github.com/kanlerxz87-cyber/Freetime4/pull/7 (arena/7fca3e35-freetime4 → main)
 - Merge result: _pending_
 - GitHub Pages: _pending_
