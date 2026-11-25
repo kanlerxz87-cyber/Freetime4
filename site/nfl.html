@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NFL &amp; 49ers — 2026 full season</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div id="hdr"></div>
+<main class="wrap">
+  <h1>NFL — every game, 49ers first</h1>
+  <p class="lede">2026 is the only NFL season anyone has released. Games come from
+  <b>nfl.com</b>'s weekly schedule pages and the <b>49ers.com</b> official schedule, with an
+  <b>ESPN</b> cross-check filling only the gaps those two leave (flagged
+  <span class="pill cross">cross-checked</span>).</p>
+
+  <div class="grid g4" id="kpis"></div>
+
+  <div class="note red">
+    <b>Irregularity, verified today.</b> <code>nfl.com/schedules/2027/…</code> returns HTTP 200 with a
+    page title saying “2027”, but the body is the <b>2026</b> slate — byte-identical to the 2026 page.
+    <code>49ers.com/schedule/2027/</code> is titled “49ers <b>Historical</b> 2027 Schedule” and lists no games.
+    No 2027, 2028 or 2029 NFL schedule exists yet. See <a href="flagged.html">Flagged for review</a>.
+  </div>
+
+  <h2>San Francisco 49ers — complete 2026 slate</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="sf"><thead><tr>
+    <th>Date (PT)</th><th>Kickoff PT</th><th>Phase</th><th>Matchup</th><th>TV</th>
+    <th>Official radio</th><th>Status</th><th>Source</th></tr></thead><tbody></tbody></table></div></div>
+
+  <div class="toolbar" style="margin-top:24px">
+    <select id="phase"><option value="">All NFL games</option>
+      <option>Preseason</option><option>Regular Season</option></select>
+    <select id="src"><option value="">All sources</option>
+      <option value="nfl">nfl.com only</option><option value="sf">49ers.com only</option>
+      <option value="cross">ESPN cross-check</option></select>
+    <input type="search" id="q" placeholder="Filter team / venue…">
+    <span class="mini" id="cnt"></span>
+  </div>
+  <div class="card"><div class="tablewrap"><table id="t"><thead><tr>
+    <th>Date (PT)</th><th>Kickoff PT</th><th>Phase</th><th>Matchup</th><th>TV</th>
+    <th>Priority</th><th>Status</th><th>Source</th></tr></thead><tbody></tbody></table></div></div>
+</main>
+<div id="ftr"></div>
+<script src="assets/app.js"></script>
+<script>
+(async () => {
+  const d = await FREE.load();
+  document.getElementById('hdr').innerHTML = FREE.header('nfl.html');
+  FREE.startClock(document.getElementById('clock'));
+  document.getElementById('ftr').innerHTML = FREE.footer();
+  const nfl = d.games.filter(g => g.league === 'NFL').sort((a,b)=>a.start_iso.localeCompare(b.start_iso));
+  const sf = nfl.filter(g => (g.away==='San Francisco 49ers'||g.home==='San Francisco 49ers'));
+  const k = (v,l,s='') => `<div class="card"><div class="tag">${l}</div><div class="kpi">${v}</div><div class="sub">${s}</div></div>`;
+  document.getElementById('kpis').innerHTML =
+    k(nfl.length, '2026 NFL games', `${nfl.filter(g=>g.group==='Preseason').length} preseason · ${nfl.filter(g=>g.group==='Regular Season').length} regular`) +
+    k(sf.length, '49ers games', 'preseason + regular season') +
+    k(nfl.filter(g=>g.verified==='verified').length, 'Verified', 'nfl.com / 49ers.com') +
+    k(nfl.filter(g=>g.verified==='cross-checked').length, 'Cross-checked', 'ESPN gap fill') +
+    '';
+  document.querySelector('#sf tbody').innerHTML = sf.map(g => `
+    <tr><td class="nowrap mono">${FREE.fmtDateShort(g.date)}</td>
+    <td class="nowrap mono">${FREE.clock(g.start_iso)}</td>
+    <td class="mini">${FREE.esc(g.group)}</td>
+    <td><b>${FREE.esc(g.label)}</b></td>
+    <td class="mini">${FREE.esc(g.network||'—')}</td>
+    <td class="mini">${g.radio ? '📻 ' + FREE.esc(g.radio) : '<span class="mini">—</span>'}</td>
+    <td>${FREE.verifiedPill(g)}</td><td>${FREE.srcLink(g)}</td></tr>`).join('');
+
+  function draw() {
+    const phase = document.getElementById('phase').value;
+    const src = document.getElementById('src').value;
+    const q = document.getElementById('q').value.toLowerCase();
+    let rows = nfl.slice();
+    if (phase) rows = rows.filter(g => g.group === phase);
+    if (src === 'nfl') rows = rows.filter(g => g.source.includes('nfl.com'));
+    if (src === 'sf') rows = rows.filter(g => g.source.includes('49ers.com'));
+    if (src === 'cross') rows = rows.filter(g => g.verified === 'cross-checked');
+    if (q) rows = rows.filter(g => (g.label + ' ' + (g.venue||'')).toLowerCase().includes(q));
+    document.getElementById('cnt').textContent = rows.length + ' games';
+    document.querySelector('#t tbody').innerHTML = rows.map(g => `
+      <tr><td class="nowrap mono">${FREE.fmtDateShort(g.date)}</td>
+      <td class="nowrap mono">${FREE.clock(g.start_iso)}</td>
+      <td class="mini">${FREE.esc(g.group)}</td>
+      <td>${FREE.esc(g.label)}</td><td class="mini">${FREE.esc(g.network||'—')}</td>
+      <td>${FREE.priorityPill(g)}</td><td>${FREE.verifiedPill(g)}</td>
+      <td>${FREE.srcLink(g)}</td></tr>`).join('');
+  }
+  ['phase','src'].forEach(id => document.getElementById(id).addEventListener('change', draw));
+  document.getElementById('q').addEventListener('input', draw);
+  draw();
+})();
+</script>
+</body></html>

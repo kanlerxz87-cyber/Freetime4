@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MLB — all 30 clubs, 2026 &amp; 2027</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div id="hdr"></div>
+<main class="wrap">
+  <h1>MLB — every game, every club</h1>
+  <p class="lede">Straight from the <b>MLB official Stats API</b> (<code>statsapi.mlb.com</code>), which is the
+  same data that feeds MLB.com and the MLB app. Spring training, regular season and postseason are all
+  included. <b>Giants</b> and <b>Athletics</b> are flagged high priority.</p>
+
+  <div class="grid g4" id="kpis"></div>
+
+  <div class="note blue">
+    <b>Seasons released vs. estimated.</b> MLB has published 2026 and 2027.
+    The API returns <b>zero games</b> for 2028 and 2029 — those years appear on the
+    <a href="flagged.html">Flagged for review</a> page as unreleased, never filled in.
+  </div>
+
+  <div class="toolbar">
+    <select id="season"><option value="2026">2026</option><option value="2027" selected>2027</option></select>
+    <select id="team"><option value="">All 30 clubs</option></select>
+    <select id="type">
+      <option value="">All game types</option>
+      <option>Regular Season</option><option>Spring Training</option><option>Postseason</option>
+      <option>All-Star</option>
+    </select>
+    <input type="search" id="q" placeholder="Filter opponent / venue…">
+    <span class="mini" id="cnt"></span>
+  </div>
+
+  <div class="card"><div class="tablewrap"><table id="t"><thead><tr>
+    <th>Date (PT)</th><th>Start PT</th><th>Type</th><th>Away</th><th>Home</th>
+    <th>Venue</th><th>Priority</th><th>Status</th><th>Source</th></tr></thead><tbody></tbody></table></div></div>
+
+  <h2>Clubs covered</h2>
+  <div class="card"><div class="grid g4" id="teams" style="font-size:13px"></div></div>
+</main>
+<div id="ftr"></div>
+<script src="assets/app.js"></script>
+<script>
+(async () => {
+  const d = await FREE.load();
+  document.getElementById('hdr').innerHTML = FREE.header('mlb.html');
+  FREE.startClock(document.getElementById('clock'));
+  document.getElementById('ftr').innerHTML = FREE.footer();
+  const mlb = d.games.filter(g => g.league === 'MLB');
+  const clubs = [...new Set(mlb.flatMap(g => [g.away, g.home]))].filter(Boolean).sort();
+  document.getElementById('team').innerHTML = '<option value="">All 30 clubs</option>' +
+    clubs.map(c => `<option>${c}</option>`).join('');
+  document.getElementById('teams').innerHTML = clubs.map(c =>
+    `<div>${c === 'San Francisco Giants' || c === 'Athletics'
+      ? `<b class="hl">${c}</b> <span class="pill hi">high</span>` : c}</div>`).join('');
+
+  const k = (v, l, s='') => `<div class="card"><div class="tag">${l}</div><div class="kpi">${v}</div><div class="sub">${s}</div></div>`;
+  document.getElementById('kpis').innerHTML =
+    k(mlb.filter(g=>g.season===2026).length,'2026 games','verified · all 30 clubs') +
+    k(mlb.filter(g=>g.season===2027).length,'2027 games','verified · all 30 clubs') +
+    k(mlb.filter(g=>g.high_side).length,'Giants + A’s games','high priority') +
+    k((d.games.filter(g=>g.league==='MLB'&&g.season===2027&&g.verified==='estimated').length),'Estimated start times',
+      'TBD in the MLB API → 7:10 PM PT');
+
+  function draw() {
+    const season = document.getElementById('season').value;
+    const team = document.getElementById('team').value;
+    const type = document.getElementById('type').value;
+    const q = document.getElementById('q').value.toLowerCase();
+    let rows = mlb.filter(g => String(g.season) === season);
+    if (team) rows = rows.filter(g => g.home === team || g.away === team);
+    if (type) rows = rows.filter(g => g.subtype === type);
+    if (q) rows = rows.filter(g => (g.label + ' ' + (g.venue||'')).toLowerCase().includes(q));
+    rows.sort((a,b) => a.start_iso.localeCompare(b.start_iso));
+    document.getElementById('cnt').textContent = rows.length.toLocaleString() + ' games';
+    document.querySelector('#t tbody').innerHTML = rows.slice(0, 4000).map(g => `
+      <tr><td class="nowrap mono">${FREE.fmtDateShort(g.date)}</td>
+      <td class="nowrap mono">${FREE.clock(g.start_iso)}</td>
+      <td class="mini">${FREE.esc(g.subtype)}</td>
+      <td>${g.away==='San Francisco Giants'||g.away==='Athletics'?`<b class="hl">${FREE.esc(g.away)}</b>`:FREE.esc(g.away)}</td>
+      <td>${g.home==='San Francisco Giants'||g.home==='Athletics'?`<b class="hl">${FREE.esc(g.home)}</b>`:FREE.esc(g.home)}</td>
+      <td class="mini">${FREE.esc(g.venue||'')}</td>
+      <td>${FREE.priorityPill(g)}</td>
+      <td>${FREE.verifiedPill(g)}</td>
+      <td>${FREE.srcLink(g)}</td></tr>`).join('');
+  }
+  ['season','team','type'].forEach(id => document.getElementById(id).addEventListener('change', draw));
+  document.getElementById('q').addEventListener('input', draw);
+  draw();
+})();
+</script>
+</body></html>

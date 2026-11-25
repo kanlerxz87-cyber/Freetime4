@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FREE TIME VACATION — when is there no live sports on the radio?</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div id="hdr"></div>
+<main class="wrap">
+  <h1>FREE TIME VACATION <span class="mini" id="gen"></span></h1>
+  <p class="lede">When can you take a trip and not miss a single game you actually care about?
+  A minute counts as <b>busy</b> when a live broadcast you can hear on an AM/FM radio in
+  Outer Sunset, San Francisco (94122) is on air. Every other minute is <b>free</b>.
+  Times are Pacific.</p>
+
+  <div id="verdict"></div>
+
+  <div class="grid g4" id="kpis"></div>
+
+  <div class="note blue" id="mode">
+    <b>Two answers, both shown.</b>
+    <span><b>Strict</b> = no MLB game anywhere (all 30 clubs), no NFL game, no Stanford/Cal game and no
+    Westwood One national broadcast.</span>
+    <span><b>Audible</b> = only what your radio can actually pick up in 94122 (Giants on KNBR,
+    Athletics on KNEW 960, 49ers on KSAN/KNBR, Stanford on KNBR, Cal on KSFO 810).
+    The audible answer is the one to plan around; the strict answer is the worst case.</span>
+  </div>
+
+  <h2>The answer for 2027</h2>
+  <div class="grid g3" id="y2027"></div>
+
+  <h2>Every month at a glance</h2>
+  <div class="card">
+    <div class="tablewrap" style="max-height:none"><table id="months"><thead><tr>
+      <th>Month</th><th>Days</th><th>Days with zero games</th><th>Audible free minutes</th>
+      <th>Free share</th><th>Games</th><th>High-priority games</th><th></th>
+    </tr></thead><tbody></tbody></table></div>
+    <div class="legend"><span><i style="background:var(--green)"></i>free minutes</span>
+      <span><i style="background:var(--red)"></i>busy minutes</span></div>
+  </div>
+
+  <h2>What counts as “busy”</h2>
+  <div class="grid g2">
+    <div class="card">
+      <h3>High priority — never miss</h3>
+      <ul class="mini" style="line-height:1.9">
+        <li>MLB — <b>San Francisco Giants</b> (flagship <b>KNBR 680</b>)</li>
+        <li>MLB — <b>Athletics</b> (Bay Area affiliate <b>KNEW 960</b>)</li>
+        <li>NFL — <b>San Francisco 49ers</b>, preseason + regular season + postseason
+            (official radio: <b>KSAN 107.7 FM / KNBR 104.5 FM / 680 AM</b>)</li>
+        <li>NCAAF — <b>Stanford</b> (KNBR)</li>
+        <li>NCAAF — <b>California Golden Bears</b> (official card: <b>KSFO 810 AM</b>, Big Game on KNBR)</li>
+        <li>Every <b>Westwood One</b> national NFL broadcast (TNF, MNF, SNF, Thanksgiving, Christmas,
+            Saturday doubleheaders, playoffs)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Shown but normal priority</h3>
+      <p class="mini">All 30 MLB clubs, every NFL game, and every other sport on the Westwood One grid
+      (NCAAF, USMNT/USWNT, NCAA baseball, lacrosse) are listed and can be counted in the
+      <b>strict</b> answer, because a national broadcast can still be on your dial.</p>
+      <p class="mini">Games whose start time isn't published are held at the most common slot and marked
+      <span class="pill est">Estimated</span>. Nothing is guessed silently.</p>
+    </div>
+  </div>
+
+  <h2>How long each game is assumed to run</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="durs"><thead><tr>
+    <th>League</th><th>Minutes</th><th>Basis</th><th>Sources</th></tr></thead><tbody></tbody></table></div>
+    <p class="mini" style="margin-top:10px">These are <b>estimates</b>, not start-to-finish figures published by
+    the leagues. Change them in <code>config/config.json</code> — no code edits needed.</p>
+  </div>
+</main>
+<div id="ftr"></div>
+<script src="assets/app.js"></script>
+<script>
+(async () => {
+  const d = await FREE.load();
+  document.getElementById('hdr').innerHTML = FREE.header('index.html');
+  FREE.startClock(document.getElementById('clock'));
+  document.getElementById('ftr').innerHTML = FREE.footer();
+  document.getElementById('gen').textContent = '· built ' + d.generated_utc.replace('T',' ').replace('Z',' UTC');
+  const c = d.counts;
+
+  // verdict cards
+  const s27 = d.seasons[2027];
+  const best = (s27.all_free_audible || [])[0];
+  const bestStrict = (s27.all_free_strict || [])[0];
+  document.getElementById('verdict').innerHTML = best ? `
+    <div class="card" style="border-color:rgba(49,208,125,.5)">
+      <div class="tag">Best vacation window found · 2027</div>
+      <div class="kpi good">${FREE.fmtDate(best.start)} → ${FREE.fmtDate(best.end)}</div>
+      <p class="lede" style="margin:10px 0 0">
+        <b>${best.days} consecutive days</b> with no live broadcast you can hear on the radio in 94122 —
+        no MLB, no NFL, no Stanford/Cal, no Westwood One. This is the single best block in the
+        verified calendar.<br>
+        <span class="mini">Worst case (strict: every MLB/NFL game anywhere):
+        ${bestStrict ? `<b>${FREE.fmtDate(bestStrict.start)} → ${FREE.fmtDate(bestStrict.end)}</b> (${bestStrict.days} days)` : 'none'}.</span>
+      </p>
+      <div class="statline">
+        <div><b>${(s27.no_radio_runs||[]).length}</b>radio-free blocks</div>
+        <div><b>${(s27.all_free_audible||[]).length}</b>all-free blocks</div>
+      </div>
+    </div>` : `<div class="card"><div class="tag">2027</div><p>No all-free window in the loaded range.</p></div>`;
+
+  document.getElementById('kpis').innerHTML = `
+    <div class="card"><div class="tag">Games tracked</div><div class="kpi">${(c.MLB||0)+(c.NFL||0)+(c.NCAAF||0)+(c.WWO||0)}</div><div class="sub">MLB ${c.MLB||0} · NFL ${c.NFL||0} · NCAAF ${c.NCAAF||0} · Westwood One ${c.WWO||0}</div></div>
+    <div class="card"><div class="tag">Days covered</div><div class="kpi">${Object.keys(d.days).length}</div><div class="sub">${d.day_range[0]} → ${d.day_range[1]}</div></div>
+    <div class="card"><div class="tag">Days with zero games</div><div class="kpi">${Object.values(d.days).filter(x=>x.all_free).length}</div><div class="sub">in the loaded range</div></div>
+    <div class="card"><div class="tag">Unreleased seasons</div><div class="kpi">${d.unreleased.length}</div><div class="sub">clearly marked, never invented</div></div>`;
+
+  // 2027 blocks
+  const runs = (d.seasons[2027].no_radio_runs || []).slice(0, 6);
+  document.getElementById('y2027').innerHTML = runs.map((r, i) => `
+    <div class="card" ${i===0?'style="border-color:rgba(49,208,125,.5)"':''}>
+      <div class="tag">#${i+1} · ${r.days} days</div>
+      <div class="kpi small">${FREE.fmtDateShort(r.start)} → ${FREE.fmtDateShort(r.end)}</div>
+      <div class="sub">${FREE.fmtDate(r.start)} – ${FREE.fmtDate(r.end)}</div>
+    </div>`).join('') || '<div class="card">No radio-free runs in 2027.</div>';
+
+  // months table
+  document.querySelector('#months tbody').innerHTML = Object.values(d.months).map(m => {
+    const pct = m.free_pct;
+    return `<tr>
+      <td class="nowrap"><b>${m.month}</b></td>
+      <td class="mono">${m.days}</td>
+      <td class="mono ${m.all_free_days>3?'good':''}">${m.all_free_days}</td>
+      <td class="mono">${Math.round(m.free_minutes/60)} h</td>
+      <td><div style="display:flex;align-items:center;gap:8px"><div class="bar" style="width:90px">
+        <i style="width:${pct}%;background:var(--green)"></i></div><span class="mono">${pct}%</span></div></td>
+      <td class="mono">${m.games}</td>
+      <td class="mono ${m.high_games?'hl':''}">${m.high_games}</td>
+      <td><a href="calendar.html?date=${m.month}-01">open →</a></td></tr>`;
+  }).join('');
+
+  // durations
+  const dm = d.config.duration_minutes;
+  document.querySelector('#durs tbody').innerHTML = Object.entries(dm).map(([k,v]) => `
+    <tr><td><b>${k}</b></td><td class="mono">${v.value}</td><td class="mini">${FREE.esc(v.method)}</td>
+    <td class="mini">${(v.sources||[]).map(s=>`<a href="${FREE.esc(s.url)}" target="_blank" rel="noopener">${FREE.esc(s.label)}</a>`).join('<br>')}</td></tr>`).join('');
+})();
+</script>
+</body></html>

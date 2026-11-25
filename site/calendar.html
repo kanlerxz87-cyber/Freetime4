@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calendar & scoreboard — FREE TIME VACATION</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div id="hdr"></div>
+<main class="wrap">
+  <h1>Calendar &amp; scoreboard</h1>
+  <p class="lede">Pick any day. The board shows every broadcast on air that day, the exact
+  free gaps between them, and whether the day is completely clear.</p>
+
+  <div class="card">
+    <div class="daynav">
+      <button class="icon" id="prev" title="Previous day">‹</button>
+      <input type="date" id="date">
+      <button class="icon" id="next" title="Next day">›</button>
+      <button id="today">Today</button>
+      <button id="nd">Next free day →</button>
+      <span class="mini" id="navinfo"></span>
+    </div>
+    <div class="tabs" id="mode">
+      <button data-mode="strict" class="on">Strict — every game counts</button>
+      <button data-mode="audible">Audible — what your radio can hear</button>
+    </div>
+    <div id="dayhead"></div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">Broadcast timeline <span class="mini" id="tlcap"></span></h3>
+    <div class="timeline" id="tl"></div>
+    <div class="tl-labels"><span>12 AM</span><span>4 AM</span><span>8 AM</span><span>12 PM</span>
+      <span>4 PM</span><span>8 PM</span><span>11:59 PM</span></div>
+    <div class="legend">
+      <span><i style="background:rgba(49,208,125,.6)"></i>free</span>
+      <span><i style="background:rgba(255,93,108,.9)"></i>busy — a game is on</span>
+    </div>
+  </div>
+
+  <h2>Free gaps on this day</h2>
+  <div class="grid g3" id="gaps"></div>
+
+  <h2>Everything on air on this day</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="daygames"><thead><tr>
+    <th>Start (PT)</th><th>End est.</th><th>League</th><th>Game</th><th>Type</th>
+    <th>Priority</th><th>Status</th><th>Source</th></tr></thead><tbody></tbody></table></div></div>
+
+  <h2>Jump to a month</h2>
+  <div class="card"><div class="grid g4" id="monthlinks"></div></div>
+</main>
+<div id="ftr"></div>
+<script src="assets/app.js"></script>
+<script>
+let D, mode = 'strict', curDate = null;
+
+function dayKey(dt) { return dt.toISOString().slice(0,10); }
+
+function render() {
+  const rec = D.days[curDate];
+  const qs = new URLSearchParams(location.search); qs.set('date', curDate);
+  history.replaceState(null, '', '?' + qs.toString());
+  document.getElementById('date').value = curDate;
+  const games = D.games.filter(g => g.date === curDate);
+  const freeKey = mode === 'strict' ? 'free_strict' : 'free_audible';
+  const busyKey = mode === 'strict' ? 'busy_strict' : 'busy_audible';
+  if (!rec) {
+    document.getElementById('dayhead').innerHTML = '<p class="mini">Outside the loaded range.</p>';
+    return;
+  }
+  const free = rec[freeKey], busy = rec[busyKey];
+  const freeMin = free.reduce((a,[s,e]) => a + (toMin(e)-toMin(s)), 0);
+  document.getElementById('dayhead').innerHTML = `
+    <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:baseline;margin-top:14px">
+      <div><div class="tag">${rec.dow}</div><div class="kpi">${FREE.fmtDate(curDate)}</div></div>
+      <div><div class="tag">Verdict</div>
+        ${games.length === 0
+          ? '<span class="pill free" style="font-size:15px;padding:5px 12px">FULLY FREE — no game on air</span>'
+          : `<span class="pill busy" style="font-size:15px;padding:5px 12px">${games.length} broadcast${games.length>1?'s':''} on air</span>`}</div>
+      <div><div class="tag">Free time (${mode})</div><div class="kpi small mono">${Math.floor(freeMin/60)} h ${freeMin%60} m</div></div>
+      <div><div class="tag">Busy time</div><div class="kpi small mono">${Math.floor((1439-freeMin)/60)} h ${(1439-freeMin)%60} m</div></div>
+    </div>`;
+
+  // timeline
+  const tl = document.getElementById('tl'); tl.innerHTML = '';
+  free.forEach(([s,e]) => addSeg(tl, s, e, 'free'));
+  busy.forEach(([s,e]) => addSeg(tl, s, e, 'busy'));
+  for (let h = 0; h < 24; h++) {
+    const d = document.createElement('div'); d.className = 'hr';
+    d.style.left = (h / 24 * 100) + '%'; tl.appendChild(d);
+  }
+  document.getElementById('tlcap').textContent = '— ' + mode + ' view';
+
+  // gaps
+  document.getElementById('gaps').innerHTML = free.length
+    ? free.map(([s,e], i) => {
+        const mins = toMin(e) - toMin(s);
+        const lbl = mins >= 180 ? 'long block' : '';
+        return `<div class="card"><div class="tag">Gap ${i+1} ${lbl}</div>
+          <div class="kpi small mono">${FREE.clockHM(s)} – ${FREE.clockHM(e)}</div>
+          <div class="sub">${Math.floor(mins/60)} h ${mins%60} m free</div></div>`;
+      }).join('')
+    : '<div class="card"><div class="tag">No free time</div><p class="mini">A broadcast covers the whole day.</p></div>';
+
+  // games table
+  document.querySelector('#daygames tbody').innerHTML = games.length
+    ? games.sort((a,b) => a.start_iso.localeCompare(b.start_iso)).map(g => `
+      <tr>
+        <td class="mono nowrap">${FREE.clock(g.start_iso)}</td>
+        <td class="mono nowrap">${FREE.clock(g.end_iso)}</td>
+        <td><span class="pill" style="color:${FREE.sportColor(g)};border-color:${FREE.sportColor(g)}">${FREE.esc(g.league)}</span></td>
+        <td><b>${FREE.esc(g.label)}</b>${g.radio ? `<div class="mini">📻 ${FREE.esc(g.radio)}</div>` : ''}</td>
+        <td class="mini">${FREE.esc(FREE.dtype(g))}</td>
+        <td>${FREE.priorityPill(g)}</td>
+        <td>${FREE.verifiedPill(g)}</td>
+        <td>${FREE.srcLink(g)}</td>
+      </tr>`).join('')
+    : '<tr><td colspan="8" class="mini">No tracked broadcast on this date.</td></tr>';
+}
+
+function toMin(hm) { const [h,m] = hm.split(':').map(Number); return h*60+m; }
+function addSeg(el, s, e, cls) {
+  const a = toMin(s), b = toMin(e);
+  const d = document.createElement('div');
+  d.className = 'seg ' + cls;
+  d.style.left = (a / 1440 * 100) + '%';
+  d.style.width = Math.max(0.25, ((b - a) / 1440 * 100)) + '%';
+  el.appendChild(d);
+}
+
+function step(days) {
+  const d = new Date(curDate + 'T12:00:00Z');
+  d.setUTCDate(d.getUTCDate() + days);
+  const k = d.toISOString().slice(0,10);
+  if (D.days[k]) { curDate = k; render(); }
+}
+
+function nextFree() {
+  const keys = Object.keys(D.days).sort();
+  const i = keys.indexOf(curDate);
+  for (let j = i + 1; j < keys.length; j++) {
+    const rec = D.days[keys[j]];
+    if ((mode === 'strict' ? rec.busy_strict : rec.busy_audible).length === 0) {
+      curDate = keys[j]; render(); return;
+    }
+  }
+  alert('No later free day in the loaded range.');
+}
+
+(async () => {
+  D = await FREE.load();
+  document.getElementById('hdr').innerHTML = FREE.header('calendar.html');
+  FREE.startClock(document.getElementById('clock'));
+  document.getElementById('ftr').innerHTML = FREE.footer();
+  const qs = new URLSearchParams(location.search);
+  const today = new Date().toLocaleDateString('en-CA', {timeZone:'America/Los_Angeles'});
+  curDate = qs.get('date') || (D.days[today] ? today : D.day_range[0]);
+  document.getElementById('date').min = D.day_range[0];
+  document.getElementById('date').max = D.day_range[1];
+  document.getElementById('date').addEventListener('change', e => { curDate = e.target.value; render(); });
+  document.getElementById('prev').onclick = () => step(-1);
+  document.getElementById('next').onclick = () => step(1);
+  document.getElementById('today').onclick = () => {
+    if (D.days[today]) { curDate = today; render(); }
+    else alert('Today is outside the loaded range.');
+  };
+  document.getElementById('nd').onclick = nextFree;
+  document.querySelectorAll('#mode button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('#mode button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on'); mode = b.dataset.mode; render();
+  });
+  document.getElementById('monthlinks').innerHTML = Object.keys(D.months).sort().map(m =>
+    `<a class="card" style="padding:10px;text-align:center" href="?date=${m}-01"><b>${m}</b><br>
+     <span class="mini">${D.months[m].all_free_days} clear days</span></a>`).join('');
+  render();
+})();
+</script>
+</body></html>

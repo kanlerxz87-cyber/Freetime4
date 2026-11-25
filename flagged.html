@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flagged for review</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div id="hdr"></div>
+<main class="wrap">
+  <h1>Flagged for review</h1>
+  <p class="lede">Everything below is either <b>unverified</b>, <b>unreleased</b>, or an
+  <b>irregularity</b> found while checking the official sources. Nothing here blocks the calendar —
+  the affected values are simply left blank or labelled, never invented.</p>
+
+  <div class="grid g4" id="kpis"></div>
+
+  <h2>A. Irregularities found in official sources</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="irr"><thead><tr>
+    <th>#</th><th>What was found</th><th>Evidence</th><th>How it is handled on the site</th></tr>
+  </thead><tbody></tbody></table></div></div>
+
+  <h2>B. Seasons that have not been released</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="un"><thead><tr>
+    <th>League</th><th>Season</th><th>What the official source returns</th><th>Source</th>
+  </thead><tbody></tbody></table></div></div>
+
+  <h2>C. Values deliberately left blank</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table><thead><tr>
+    <th>Field</th><th>Affected rows</th><th>Why blank</th></tr></thead><tbody>
+    <tr><td>Stanford per-game radio outlet</td>
+      <td class="mono">12</td>
+      <td>gostanford.com prints no radio field on the 2026 schedule page. KNBR carriage is widely known but
+      was not re-confirmed from an official 2026 source in this run, so the column stays empty.</td></tr>
+    <tr><td>Westwood One → Bay Area affiliate</td>
+      <td class="mono">312</td>
+      <td>The WWO station page is JavaScript-driven and returned no usable 94122 affiliate list.
+      National games are therefore not assumed to be on your radio.</td></tr>
+    <tr><td>MLB TV/network name</td>
+      <td class="mono">5,850</td>
+      <td>The MLB Stats API schedule does not include a broadcast field for these games.</td></tr>
+    <tr><td>NFL venue for ESPN cross-check rows</td>
+      <td class="mono">77</td>
+      <td>The cross-check feed used here carries no venue.</td></tr>
+  </tbody></table></div></div>
+
+  <h2>D. Estimates (clearly labelled everywhere)</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table><thead><tr>
+    <th>Estimate</th><th>Value</th><th>Basis</th></tr></thead><tbody id="est"></tbody></table></div></div>
+
+  <h2>E. Games with an estimated kickoff time</h2>
+  <div class="card"><div class="tablewrap"><table id="estg"><thead><tr>
+    <th>Date</th><th>Game</th><th>League</th><th>Why estimated</th><th>Source</th>
+  </tr></thead><tbody></tbody></table></div></div>
+</main>
+<div id="ftr"></div>
+<script src="assets/app.js"></script>
+<script>
+(async () => {
+  const d = await FREE.load();
+  document.getElementById('hdr').innerHTML = FREE.header('flagged.html');
+  FREE.startClock(document.getElementById('clock'));
+  document.getElementById('ftr').innerHTML = FREE.footer();
+  const est = d.games.filter(g => g.verified === 'estimated');
+  const k = (v,l) => `<div class="card"><div class="tag">${l}</div><div class="kpi">${v}</div></div>`;
+  document.getElementById('kpis').innerHTML =
+    k(7, 'Irregularities') + k(d.unreleased.length, 'Unreleased seasons') +
+    k(est.length, 'Estimated start times') + k(d.games.filter(g=>g.verified==='cross-checked').length, 'Cross-checked rows');
+
+  const irr = [
+    ['nfl.com serves 2026 data on 2027 / 2028 / 2029 URLs',
+     'Requesting <code>nfl.com/schedules/2027/REG/</code> returns HTTP 200 and the title “NFL Week 1 Schedule 2027”,
+      but every game card is the 2026 slate. The three 2027/2028/2029 pages are byte-identical to the 2026 page.',
+     '<a href="https://www.nfl.com/schedules/2027/REG/" target="_blank" rel="noopener">check it yourself</a>',
+     '2027–2029 NFL shown as unreleased; no games invented.'],
+    ['49ers.com calls 2027 “Historical”',
+     '<code>49ers.com/schedule/2027/</code> is titled “49ers Historical 2027 Schedule” and contains an empty body with no games.',
+     '<a href="https://www.49ers.com/schedule/2027/" target="_blank" rel="noopener">check it yourself</a>',
+     'No 2027 49ers games are listed.'],
+    ['api.nfl.com is closed',
+     'The public-looking API used by nfl.com returns <b>401 Unauthorized</b> for schedule requests, so it cannot be used as a source.',
+     '<a href="https://api.nfl.com/api/v1/schedules?season=2026" target="_blank" rel="noopener">api.nfl.com</a>',
+     'nfl.com HTML pages are parsed instead.'],
+    ['nfl.com weekly pages stop at week 17',
+     'Weeks 1–17 render 14–16 game cards. Weeks 18, 19, 20, 21 render <b>zero</b> cards even though those weeks are scheduled.',
+     '<a href="https://www.nfl.com/schedules/2026/by-week/week-18/" target="_blank" rel="noopener">week 18</a>',
+     'Filled from 49ers.com (week 18) and the ESPN cross-check, each row labelled.'],
+    ['ESPN and nfl.com disagree by one day on some 2026 49ers games',
+     'Example: nfl.com lists Dolphins at 49ers on 2026-09-19 17:00 PT; 49ers.com lists it 2026-09-20 13:00 PT.',
+     '<a href="https://www.nfl.com/schedules/2026/by-week/week-2/" target="_blank" rel="noopener">nfl.com week 2</a> vs <a href="https://www.49ers.com/schedule/" target="_blank" rel="noopener">49ers.com</a>',
+     'Both rows are kept and individually sourced; the strict mode stays conservative (a game on either day counts).'],
+    ['MLB omits start times for ~100 games in 2027',
+     'MLB Stats API returns <code>startTimeTBD: true</code> for a subset of 2027 games.',
+     '<a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameTypes=R" target="_blank" rel="noopener">MLB API</a>',
+     'Held at 19:10 PT and labelled <span class="pill est">Estimated</span>.'],
+    ['Stanford and Cal only publish the current season',
+     '<code>?season=2027</code> on either school site returns the 2026 payload.',
+     '<a href="https://gostanford.com/sports/football/schedule?season=2027" target="_blank" rel="noopener">Stanford</a> · <a href="https://calbears.com/sports/football/schedule/2027" target="_blank" rel="noopener">Cal</a>',
+     '2027–2029 NCAAF marked unreleased.'],
+  ];
+  document.querySelector('#irr tbody').innerHTML = irr.map((r,i) => `
+    <tr><td class="mono">${i+1}</td><td><b>${r[0]}</b><br><span class="mini">${r[1]}</span></td>
+    <td class="mini">${r[2]}</td><td class="mini">${r[3]}</td></tr>`).join('');
+
+  document.querySelector('#un tbody').innerHTML = d.unreleased.map(u => `
+    <tr><td><span class="pill" style="color:${FREE.sportColor({league:u.league})}">${u.league}</span></td>
+    <td class="mono">${u.year}</td><td class="mini">${FREE.esc(u.note)}</td>
+    <td class="mini"><a href="${u.source}" target="_blank" rel="noopener">official source</a></td></tr>`).join('');
+
+  const dur = d.config.duration_minutes;
+  document.getElementById('est').innerHTML = Object.entries(dur).map(([k2,v]) => `
+    <tr><td><b>${k2} game length</b></td><td class="mono">${v.value} min</td><td class="mini">${FREE.esc(v.method)}</td></tr>`).join('')
+    + `<tr><td><b>2028 / 2029 seasons</b></td><td class="mono">modelled</td>
+       <td class="mini">${FREE.esc(d.config.estimates.unreleased_season_model.MLB)}</td></tr>`;
+
+  document.querySelector('#estg tbody').innerHTML = est.length ? est.slice(0,300).map(g => `
+    <tr><td class="nowrap mono">${FREE.fmtDateShort(g.date)}</td><td>${FREE.esc(g.label)}</td>
+    <td class="mini">${g.league}</td><td class="mini">${FREE.esc(g.note||'—')}</td>
+    <td>${FREE.srcLink(g)}</td></tr>`).join('') : '<tr><td colspan="5" class="mini">None.</td></tr>';
+})();
+</script>
+</body></html>

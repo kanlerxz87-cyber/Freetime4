@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vacation windows 2027–2029 — FREE TIME VACATION</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div id="hdr"></div>
+<main class="wrap">
+  <h1>Vacation windows 2027 – 2029</h1>
+  <p class="lede">Blocks of consecutive days with no live broadcast on your radio.
+  Ranked longest first. <b>Audible</b> = only stations you can receive in 94122.
+  <b>Strict</b> = no MLB game anywhere in North America, no NFL game, no Stanford/Cal, no Westwood One.</p>
+
+  <div class="note">
+    <b>How much of this is actually released?</b>
+    <div id="cov" class="mini" style="margin-top:6px"></div>
+  </div>
+
+  <div id="blocks"></div>
+
+  <h2>Month-by-month heat map</h2>
+  <div class="card">
+    <p class="mini">Each cell is one month. The number is the share of waking hours that are free
+    in the <b>audible</b> view. Green = mostly free, red = mostly booked.</p>
+    <div id="heat" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr))"></div>
+  </div>
+
+  <h2>The three questions you actually asked</h2>
+  <div class="grid g2">
+    <div class="card"><h3>“A week with nothing on”</h3><div id="ans7"></div></div>
+    <div class="card"><h3>“Two weeks with nothing on”</h3><div id="ans14"></div></div>
+    <div class="card"><h3>“Three weeks with nothing on”</h3><div id="ans21"></div></div>
+    <div class="card"><h3>If you only care about YOUR teams</h3><div id="anshi"></div></div>
+  </div>
+</main>
+<div id="ftr"></div>
+<script src="assets/app.js"></script>
+<script>
+const WANT = [7, 14, 21];
+(async () => {
+  const d = await FREE.load();
+  document.getElementById('hdr').innerHTML = FREE.header('vacation.html');
+  FREE.startClock(document.getElementById('clock'));
+  document.getElementById('ftr').innerHTML = FREE.footer();
+  const years = Object.keys(d.seasons).sort();
+
+  document.getElementById('cov').innerHTML = `
+    <b>2027</b> — MLB: full season released by MLB (verified, ${(d.games.filter(g=>g.league==='MLB'&&g.season===2027).length)} games incl. spring training).
+    NFL: not released; only the Westwood One national slate through Week 18 is public.
+    Stanford / Cal: not released.<br>
+    <b>2028 / 2029</b> — MLB and NFL have published nothing. Those two years are
+    <span class="pill est">Estimates</span> only, modelled from the released 2027 structure, and every figure
+    derived from them is labelled as such.`;
+
+  document.getElementById('blocks').innerHTML = years.map(y => {
+    const s = d.seasons[y];
+    const ver = y === '2027' ? '<span class="pill ok">verified where released</span>'
+                             : '<span class="pill est">estimate only</span>';
+    const rows = (s.no_radio_runs || []).slice(0, 12).map((r, i) => `
+      <tr><td class="mono">#${i+1}</td>
+        <td class="nowrap"><b>${FREE.fmtDate(r.start)}</b></td>
+        <td class="nowrap">${FREE.fmtDate(r.end)}</td>
+        <td class="mono ${r.days>=7?'good':''}">${r.days} days</td>
+        <td>${r.days>=21?'<span class="pill free">3+ weeks</span>':r.days>=14?'<span class="pill free">2+ weeks</span>':r.days>=7?'<span class="pill free">1+ week</span>':'<span class="pill norm">short</span>'}</td>
+        <td><a href="calendar.html?date=${r.start}">open day →</a></td></tr>`).join('')
+      || '<tr><td colspan="6" class="mini">No verified data in this year yet.</td></tr>';
+    return `<h2>${y} ${ver}</h2>
+      <div class="card"><div class="tablewrap" style="max-height:none"><table><thead><tr>
+        <th>#</th><th>From</th><th>To</th><th>Length</th><th>Class</th><th></th></tr></thead>
+        <tbody>${rows}</tbody></table></div>
+        ${y!=='2027'?'<p class="mini" style="margin:10px 0 0">Estimate: modelled from released season structure, not an official schedule.</p>':''}
+      </div>`;
+  }).join('');
+
+  // heat map
+  document.getElementById('heat').innerHTML = Object.keys(d.months).sort().map(mk => {
+    const m = d.months[mk], p = m.free_pct;
+    const col = p > 75 ? 'rgba(49,208,125,.25)' : p > 50 ? 'rgba(255,176,32,.22)' : 'rgba(255,93,108,.22)';
+    const bd = p > 75 ? 'rgba(49,208,125,.6)' : p > 50 ? 'rgba(255,176,32,.55)' : 'rgba(255,93,108,.55)';
+    return `<a class="card" style="background:${col};border-color:${bd};padding:10px"
+      href="calendar.html?date=${mk}-01"><b>${mk}</b><div class="kpi small mono">${p}%</div>
+      <div class="mini">${m.all_free_days}/${m.days} clear days</div></a>`;
+  }).join('');
+
+  const find = (n) => {
+    const out = [];
+    years.forEach(y => (d.seasons[y].no_radio_runs || []).forEach(r => {
+      if (r.days >= n) out.push({...r, y});
+    }));
+    out.sort((a,b) => b.days - a.days || a.start.localeCompare(b.start));
+    return out.slice(0, 4);
+  };
+  const list = (arr, n) => arr.length
+    ? arr.map(r => `<div style="margin-bottom:8px"><b>${FREE.fmtDateShort(r.start)} → ${FREE.fmtDateShort(r.end)} ${r.start.slice(0,4)}</b>
+        <span class="pill ok">${r.days} days</span>
+        ${r.start.slice(0,4)!=='2027'?'<span class="pill est">estimate</span>':''}</div>`).join('')
+    : `<span class="bad">Nothing ${n} days long exists in the released + estimated calendar.</span>`;
+  document.getElementById('ans7').innerHTML = list(find(7), 7);
+  document.getElementById('ans14').innerHTML = list(find(14), 14);
+  document.getElementById('ans21').innerHTML = list(find(21), 21);
+
+  // 49ers + Giants + A's + Stanford + Cal only
+  const hiDays = {};
+  d.games.filter(g => g.priority === 'high' && g.league !== 'WWO').forEach(g => {
+    const s = new Date(g.start_iso), e = new Date(g.end_iso);
+    for (let t = new Date(s); t <= e; t.setUTCDate(t.getUTCDate() + 1)) {
+      hiDays[t.toLocaleDateString('en-CA', {timeZone:'America/Los_Angeles'})] = 1;
+    }
+  });
+  const runs = [];
+  let run = null;
+  const keys = Object.keys(d.days).sort();
+  for (let i = 0; i < keys.length; i++) {
+    const k = keys[i];
+    const free = !hiDays[k] && k >= '2027-01-01';
+    if (free) { if (!run) run = {start:k, end:k, days:1}; else {run.end = k; run.days++;} }
+    else { if (run) runs.push(run); run = null; }
+    if (k > '2029-12-31') break;
+  }
+  if (run) runs.push(run);
+  runs.sort((a,b)=>b.days-a.days);
+  document.getElementById('anshi').innerHTML = runs.slice(0,5).map(r =>
+    `<div style="margin-bottom:8px"><b>${FREE.fmtDateShort(r.start)} → ${FREE.fmtDateShort(r.end)} ${r.start.slice(0,4)}</b>
+      <span class="pill ok">${r.days} days</span></div>`).join('')
+    || '<span class="mini">Not enough data.</span>';
+})();
+</script>
+</body></html>

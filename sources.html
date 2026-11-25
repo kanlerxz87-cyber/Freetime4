@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sources &amp; verification</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div id="hdr"></div>
+<main class="wrap">
+  <h1>Sources &amp; verification</h1>
+  <p class="lede">Every row in every table links to the page it came from. Below is the full list of
+  sources, what each one was used for, and the raw-response evidence kept in the repo so you can re-check
+  it yourself.</p>
+
+  <h2>Official sources</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="srcs"><thead><tr>
+    <th>Source</th><th>URL</th><th>Used for</th><th>Status</th><th>Rows</th></tr></thead><tbody></tbody></table></div></div>
+
+  <h2>Cross-check sources (not official)</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="xs"><thead><tr>
+    <th>Source</th><th>URL</th><th>Why</th><th>Rows</th></tr></thead><tbody></tbody></table></div></div>
+
+  <h2>Raw evidence kept in the repo</h2>
+  <div class="card">
+    <p class="mini">This sandbox can only reach GitHub, so every official page is fetched inside a
+    GitHub Actions job (<code>.github/workflows/collect.yml</code>) and the raw response is committed:</p>
+    <ul class="mini" style="line-height:1.9">
+      <li><code>data/raw/mlb_2026_all.json</code>, <code>data/raw/mlb_2027_all.json</code> — MLB Stats API responses</li>
+      <li><code>data/raw/nfl2026/nfl_*_week*.html</code> — nfl.com weekly pages (15 files)</li>
+      <li><code>data/raw/nfl2026/49ers_official_2026.html</code> — 49ers.com schedule page</li>
+      <li><code>data/raw/ncaaf/stanford_2026.html</code>, <code>cal_2026.html</code></li>
+      <li><code>data/raw/wwo_events/*.json</code> — 439 Westwood One event pages with schema.org timestamps</li>
+      <li><code>data/collect-report.md</code>, <code>data/p*-report.md</code> — HTTP status + byte count for every fetch</li>
+    </ul>
+  </div>
+
+  <h2>How each row was checked</h2>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table>
+    <thead><tr><th>League</th><th>Primary source</th><th>Check performed</th><th>Result</th></tr></thead>
+    <tbody>
+    <tr><td><b>MLB</b></td><td>statsapi.mlb.com</td><td>2026: 2,951 games returned, all 30 clubs present,
+      all six game types present (R, S, D, L, W, F)</td><td class="good">verified</td></tr>
+    <tr><td><b>MLB</b></td><td>statsapi.mlb.com</td><td>2027: 2,899 games returned; season meta shows
+      opening day 2027-03-24, All-Star 2027-07-13, regular season ends 2027-09-26</td><td class="good">verified</td></tr>
+    <tr><td><b>MLB</b></td><td>statsapi.mlb.com</td><td>2028 / 2029: API returns
+      <code>totalGames: 0</code></td><td class="bad">not released</td></tr>
+    <tr><td><b>NFL</b></td><td>nfl.com by-week pages</td><td>Weeks 1–17 return 14–16 games each;
+      week 18 and playoff weeks render zero cards</td><td class="good">partial</td></tr>
+    <tr><td><b>NFL</b></td><td>49ers.com</td><td>Cross-checked all 17 regular-season weeks + 3 preseason;
+      49ers.com adds weeks 14–17 and corrects week 18</td><td class="good">verified</td></tr>
+    <tr><td><b>NFL</b></td><td>ESPN site API</td><td>Adds week 18 + preseason + 2026 playoffs where the
+      official pages stop</td><td>cross-checked</td></tr>
+    <tr><td><b>NCAAF</b></td><td>gostanford.com</td><td>12 games, rendered schedule-event blocks</td>
+      <td class="good">verified</td></tr>
+    <tr><td><b>NCAAF</b></td><td>calbears.com</td><td>12 games including Nov 28 finale; radio printed per card</td>
+      <td class="good">verified</td></tr>
+    <tr><td><b>WWO</b></td><td>westwoodonesports.com</td><td>439 event pages; schema.org
+      <code>startDate</code>/<code>endDate</code> in ET, converted to PT</td><td class="good">verified</td></tr>
+    </tbody></table></div></div>
+</main>
+<div id="ftr"></div>
+<script src="assets/app.js"></script>
+<script>
+(async () => {
+  const d = await FREE.load();
+  document.getElementById('hdr').innerHTML = FREE.header('sources.html');
+  FREE.startClock(document.getElementById('clock'));
+  document.getElementById('ftr').innerHTML = FREE.footer();
+  const count = (pred) => d.games.filter(pred).length;
+  const srcs = [
+    ['MLB Stats API (official)', 'https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameTypes=R,F,D,L,W,P,S',
+      'Every MLB game, 2026 &amp; 2027, all 30 clubs', 'verified', count(g=>g.league==='MLB')],
+    ['nfl.com schedules', 'https://www.nfl.com/schedules/2026/by-week/week-1/',
+      '2026 NFL regular-season weeks 1–17', 'verified', count(g=>g.league==='NFL'&&g.source.includes('nfl.com'))],
+    ['49ers.com schedule', 'https://www.49ers.com/schedule/',
+      '49ers 2026 dates, kickoff times, radio outlets', 'verified', count(g=>g.source.includes('49ers.com'))],
+    ['gostanford.com', 'https://gostanford.com/sports/football/schedule?season=2026&view=table',
+      'Stanford 2026 schedule', 'verified', count(g=>g.source.includes('gostanford'))],
+    ['calbears.com', 'https://calbears.com/sports/football/schedule',
+      'Cal 2026 schedule + per-game radio', 'verified', count(g=>g.source.includes('calbears'))],
+    ['Westwood One Sports', 'https://www.westwoodonesports.com/nfl-schedule/',
+      'National radio slate incl. TNF/MNF/SNF, holidays, playoffs', 'verified', count(g=>g.league==='WWO')],
+  ];
+  document.querySelector('#srcs tbody').innerHTML = srcs.map(([n,u,use,st,ct]) => `
+    <tr><td><b>${n}</b></td><td class="mini"><a href="${u}" target="_blank" rel="noopener">${u.replace(/^https?:\/\//,'').slice(0,58)}…</a></td>
+    <td class="mini">${use}</td><td><span class="pill ok">${st}</span></td><td class="mono">${ct}</td></tr>`).join('');
+
+  document.querySelector('#xs tbody').innerHTML = `
+    <tr><td>ESPN site API</td><td class="mini"><a href="https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026" target="_blank" rel="noopener">site.api.espn.com</a></td>
+      <td class="mini">Fills 2026 NFL week 18, preseason and playoffs that the official pages omit</td>
+      <td class="mono">${count(g=>g.verified==='cross-checked')}</td></tr>
+    <tr><td>Team/league duration studies</td><td class="mini">see <a href="index.html">Summary</a></td>
+      <td class="mini">Game-length estimates (MLB 165 min, NFL 192 min, NCAAF 206 min)</td><td class="mono">3</td></tr>`;
+})();
+</script>
+</body></html>

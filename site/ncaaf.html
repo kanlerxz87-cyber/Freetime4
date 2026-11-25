@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NCAAF — Stanford &amp; California</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div id="hdr"></div>
+<main class="wrap">
+  <h1>College football — Stanford &amp; Cal</h1>
+  <p class="lede">Both are high priority. Dates and kickoff times come from the official athletics sites
+  (<code>gostanford.com</code> and <code>calbears.com</code>), including the radio outlet printed on each
+  Cal game card.</p>
+
+  <div class="note red">
+    <b>Only 2026 is published.</b> Requesting 2027 or 2028 from either school returns the current season,
+    so 2027–2029 college football appears as <span class="pill est">estimate / unreleased</span> on the
+    <a href="flagged.html">Flagged for review</a> page.
+  </div>
+
+  <div class="grid g3" id="kpis"></div>
+
+  <div class="toolbar">
+    <select id="school"><option value="">Both schools</option><option>Stanford</option><option>California</option></select>
+    <input type="search" id="q" placeholder="Filter opponent / venue…">
+    <span class="mini" id="cnt"></span>
+  </div>
+  <div class="card"><div class="tablewrap" style="max-height:none"><table id="t"><thead><tr>
+    <th>Date (PT)</th><th>Kickoff PT</th><th>School</th><th>Matchup</th><th>Venue</th>
+    <th>Official radio</th><th>Status</th><th>Source</th></tr></thead><tbody></tbody></table></div></div>
+
+  <h2>Stanford's radio</h2>
+  <div class="card"><p class="mini">Stanford's official schedule page does not print a per-game radio
+  outlet. KNBR is the long-standing Stanford football carrier in the Bay Area but that carriage was
+  <b>not</b> re-confirmed from an official 2026 page in this run, so the radio column is left blank and
+  flagged. See <a href="flagged.html">Flagged for review</a>.</p></div>
+</main>
+<div id="ftr"></div>
+<script src="assets/app.js"></script>
+<script>
+(async () => {
+  const d = await FREE.load();
+  document.getElementById('hdr').innerHTML = FREE.header('ncaaf.html');
+  FREE.startClock(document.getElementById('clock'));
+  document.getElementById('ftr').innerHTML = FREE.footer();
+  const cf = d.games.filter(g => g.league === 'NCAAF').sort((a,b)=>a.start_iso.localeCompare(b.start_iso));
+  const st = cf.filter(g => g.high_side === 'Stanford').length;
+  const ca = cf.filter(g => g.high_side === 'California').length;
+  const k = (v,l,s='') => `<div class="card"><div class="tag">${l}</div><div class="kpi">${v}</div><div class="sub">${s}</div></div>`;
+  document.getElementById('kpis').innerHTML =
+    k(st, 'Stanford games', '2026 · verified') + k(ca, 'Cal games', '2026 · verified') +
+    k(cf.filter(g=>g.date>='2026-11-01').length, 'November games', 'Big Game is 21 Nov 2026');
+
+  function draw() {
+    const school = document.getElementById('school').value;
+    const q = document.getElementById('q').value.toLowerCase();
+    let rows = cf.slice();
+    if (school) rows = rows.filter(g => g.high_side === school);
+    if (q) rows = rows.filter(g => (g.label + ' ' + (g.venue||'')).toLowerCase().includes(q));
+    document.getElementById('cnt').textContent = rows.length + ' games';
+    document.querySelector('#t tbody').innerHTML = rows.map(g => `
+      <tr><td class="nowrap mono">${FREE.fmtDateShort(g.date)}</td>
+      <td class="nowrap mono">${FREE.clock(g.start_iso)}</td>
+      <td>${FREE.esc(g.high_side)}</td>
+      <td><b>${FREE.esc(g.label)}</b></td>
+      <td class="mini">${FREE.esc(g.venue||'')}</td>
+      <td class="mini">${g.radio ? '📻 ' + FREE.esc(g.radio) : '<span class="mini">—</span>'}</td>
+      <td>${FREE.verifiedPill(g)}</td><td>${FREE.srcLink(g)}</td></tr>`).join('');
+  }
+  document.getElementById('school').addEventListener('change', draw);
+  document.getElementById('q').addEventListener('input', draw);
+  draw();
+})();
+</script>
+</body></html>
