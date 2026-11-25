@@ -1,0 +1,18 @@
+{
+  "checked": "2026-11-25",
+  "key": "VERIFIED = printed on an official team, league, or school page. SECONDARY = third-party only. UNVERIFIED = not confirmed. CONFLICT = sources disagree and the value is left for review.",
+  "networks": [
+    {"program":"San Francisco Giants (MLB) - English flagship","station":"KNBR 680 AM / 104.5 FM","status":"VERIFIED","source":"S-GIANTS-RADIO","note":"Page snapshot date not printed; re-check for the 2027 season."},
+    {"program":"San Francisco Giants (MLB) - Spanish flagship","station":"KSFN 1510 AM","status":"VERIFIED","source":"S-GIANTS-RADIO","note":"Re-check for the 2027 season."},
+    {"program":"San Francisco 49ers (NFL) - regular season","station":"KSAN 107.7 FM / KNBR 104.5 FM / 680 AM","status":"VERIFIED","source":"S-49ERS","note":"Printed on the 49ers.com schedule for 2026 regular-season games. Preseason radio not stated in the text retrieved."},
+    {"program":"Stanford Cardinal football","station":"CONFLICT: 'KNBR/KTCT 1050 AM' (official) vs 'KNBR-AM/FM (680/104.5) and KTCT (1050)' (secondary)","status":"CONFLICT","source":"S-STANFORD-RADIO-NEWS","secondary_source":"S-SECONDARY-INSIDERADIO","note":"Flagged for review. The official text's '1050' may be the KTCT frequency; not resolved."},
+    {"program":"California Golden Bears football","station":"KSFO 810 AM","status":"VERIFIED (official page search snippet; full page not yet fetched)","source":"S-CAL","note":"Snippet of calbears.com/sports/football/schedule shows 'Radio: KSFO 810 AM'. A 2010 directory page that names KGO 810 is out of date and not used."},
+    {"program":"Westwood One national NFL broadcasts (Thursday, Monday, Sunday night, Thanksgiving, etc.)","station":"Local San Francisco carriers not identified","status":"UNVERIFIED","source":"S-WWO-NFL","note":"Westwood One's listing does not name local stations. Confirm the carrier for SF before relying on it."},
+    {"program":"Oakland/Sacramento Athletics (MLB)","station":"UNVERIFIED","status":"UNVERIFIED","source":null,"note":"No official Athletics radio page was retrieved this session. Flagged as unverified; no station is listed."}
+  ],
+  "coverage_check": {
+    "location": "Outer Sunset, San Francisco 94122",
+    "status": "NOT PERFORMED",
+    "how_to_verify": "Check each station's licensed transmitter location in the FCC public database (https://www.fcc.gov/media/radio) and the station's own coverage map. AM daytime range is usually shorter than FM; record reception before relying on an AM station."
+  }
+}

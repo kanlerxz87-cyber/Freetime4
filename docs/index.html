@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard - Free Time Vacation Planner</title><link rel="stylesheet" href="style.css"></head>
+<body data-page="index">
+<header class="top"><a class="brand" href="index.html">Free Time Vacation Planner</a>
+<nav><a href="index.html" class="active">Dashboard</a><a href="scoreboard.html" >Daily scoreboard</a><a href="vacation.html" >Vacation windows</a><a href="games.html" >All games</a><a href="flagged.html" >Flagged for Review</a><a href="sources.html" >Sources</a></nav></header>
+<main id="app">
+<h1>Free Time Vacation Planner</h1>
+<p class="lead">Best vacation windows where no MLB (Giants, Athletics, all clubs), NFL (49ers, national NFL radio), Stanford or Cal football games are scheduled, plus a daily scoreboard.</p>
+<div class="alert"><b>Executive summary.</b> The only stretch in each year with no MLB, NFL, Stanford or Cal football is roughly <b>mid-February to late March</b>, between the Super Bowl and MLB Opening Day. For 2027 that is <b>Feb 15 - Mar 23</b> (37 days, enough for a 1, 2 or 3-week trip). The 2028 and 2029 windows are <b>estimates</b> because those schedules are not yet released. MLB daily schedules for all 30 clubs are <b>not yet loaded</b>, so the scoreboard cannot confirm any single day as fully free.</div>
+<h2>Key numbers</h2>
+<div class="grid" id="kpis"></div>
+<h2>Next timed games in the dataset</h2>
+<table><thead><tr><th>Date</th><th>Start (PT)</th><th>Category</th><th>Matchup</th><th>Source</th></tr></thead><tbody id="upnext"></tbody></table>
+<h2>Why the windows are narrow</h2>
+<ul class="clean">
+<li><b>MLB</b> plays most days from late March through late September, and its postseason runs into late October. Spring training is also MLB preseason, which the planner excludes from the 2027 window but notes as a shorter alternative.</li>
+<li><b>NFL</b> runs from September to the Super Bowl (Feb 14, 2027, per NFL.com). Westwood One national radio covers Thursday, Monday, Sunday and holiday games.</li>
+<li><b>Stanford and Cal</b> play in the fall, with the Big Game on Nov 21, 2026 and Cal vs. Pittsburgh on Nov 28, 2026 (Stanford vs. SMU also Nov 28).</li>
+</ul>
+<div class="warn">Sources include a few secondary sites. Each is labeled in the Sources page. Flagged irregularities (e.g., two Westwood One start times that conflict with 49ers.com) are listed on the Flagged for Review page.</div>
+</main>
+<footer>Data: data.json (every row links to its source). Times Pacific. Items marked unverified or estimated are not released schedules. Not an official source.</footer>
+<script src="app.js"></script></body></html>

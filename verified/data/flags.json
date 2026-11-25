@@ -1,0 +1,31 @@
+{
+  "checked": "2026-11-25",
+  "note": "Flags do not block the merge. Each item links to the source(s) that conflict or are missing.",
+  "flags": [
+    {"id":"F-01","category":"NFL / Westwood One","item":"Thanksgiving-week kickoff times differ between Westwood One (ET) and NFL.com: GB at LAR (7:30 vs 8:00 PM), CHI at DET (12:30 vs 1:00 PM), PHI at DAL (4:15 vs 4:30 PM), KC at BUF (8:00 vs 8:20 PM), DEN at PIT (2:30 vs 3:00 PM). NFL.com's time zone is not printed on the page retrieved.","status":"CONFLICT","sources":["S-WWO-NFL","S-NFL-2026-REG14"]},
+    {"id":"F-02","category":"NFL / 49ers","item":"49ers Week 15 at LAC (Dec 17): 49ers.com lists 5:15 PM PT; Westwood One lists 7:30 PM ET (4:30 PM PT).","status":"CONFLICT","sources":["S-49ERS","S-WWO-NFL"]},
+    {"id":"F-03","category":"NFL / 49ers","item":"49ers Week 17 vs PHI (Jan 3, 2027): 49ers.com lists 5:20 PM PT; Westwood One lists 7:30 PM ET (4:30 PM PT).","status":"CONFLICT","sources":["S-49ERS","S-WWO-NFL"]},
+    {"id":"F-04","category":"NFL / Westwood One","item":"Raiders at Browns (event 548502) is listed as a Sunday Night game with no verified date. It conflicts with the Dec 6 SNF slot (HOU at PIT, event 548503). The date is left blank.","status":"UNVERIFIED","sources":["S-WWO-NFL"]},
+    {"id":"F-05","category":"NFL / Westwood One","item":"Week 16 to 18 games are TBA. Week 17 Saturday games (Jan 2) have no kickoff times on the listing.","status":"UNVERIFIED","sources":["S-WWO-NFL"]},
+    {"id":"F-06","category":"NFL / 49ers","item":"49ers Week 18 at Arizona (date and time) is TBD on 49ers.com.","status":"UNVERIFIED","sources":["S-49ERS"]},
+    {"id":"F-07","category":"NFL","item":"NFL average game length (3:03) and halftime (13 min) come from secondary sources, not an NFL official publication. The scoreboard uses 183 minutes.","status":"SECONDARY","sources":["S-NFL-DURATION-UITR","S-NFL-DURATION-NFLA","S-NFL-DURATION-VERTIZE"]},
+    {"id":"F-08","category":"NCAAF","item":"College football average game length: no official figure was retrieved. Stanford and Cal blocks show 'duration not verified'; free time is not computed for those days.","status":"UNVERIFIED","sources":[]},
+    {"id":"F-09","category":"NCAAF / Radio","item":"Stanford radio station conflict: gostanford.com says 'KNBR/KTCT 1050 AM'; Inside Radio (secondary) says KNBR-AM/FM 680/104.5 and KTCT 1050.","status":"CONFLICT","sources":["S-STANFORD-RADIO-NEWS","S-SECONDARY-INSIDERADIO"]},
+    {"id":"F-10","category":"NCAAF","item":"Stanford vs Cal (Nov 21, 2026, Big Game): Stanford's page says 'at Cal'; Cal's page says 'vs Stanford' (Cal home). Home/away is shown as the Stanford page states, with a flag.","status":"CONFLICT","sources":["S-STANFORD","S-CAL"]},
+    {"id":"F-11","category":"NCAAF","item":"Stanford's and Cal's 2026 bowl games are not yet listed in the sources retrieved.","status":"UNVERIFIED","sources":["S-STANFORD","S-CAL"]},
+    {"id":"F-12","category":"Radio","item":"Athletics radio stations were not verified. No Athletics station is listed.","status":"UNVERIFIED","sources":["S-MLB-TEAMS"]},
+    {"id":"F-13","category":"Radio","item":"Local San Francisco carriers for the Westwood One national NFL broadcasts were not identified.","status":"UNVERIFIED","sources":["S-WWO-NFL"]},
+    {"id":"F-14","category":"Radio","item":"Signal coverage at 94122 (Outer Sunset) was not checked for any station. The FCC database link is provided for verification.","status":"NOT PERFORMED","sources":[]},
+    {"id":"F-15","category":"Radio / Giants","item":"KNBR 680 AM / 104.5 FM and KSFN 1510 AM are from the mlb.com broadcast partners page (snapshot date not printed). Re-check for 2027.","status":"REVIEW","sources":["S-GIANTS-RADIO"]},
+    {"id":"F-16","category":"Super Bowl","item":"Super Bowl LXI (Feb 14, 2027, SoFi Stadium): kickoff time not published. Secondary sites show ~6:30 PM ET; not used.","status":"UNVERIFIED (time)","sources":["S-SOFI-SB-LXI"]},
+    {"id":"F-17","category":"Super Bowl","item":"Super Bowl LXII (2028): dates conflict across secondary sources (Feb 13 vs 'pending'). Left blank.","status":"CONFLICT","sources":["S-NFL-DURATION-UITR"]},
+    {"id":"F-18","category":"MLB calendar","item":"The 2027 API gives firstDate2ndHalf = 2027-07-16, but the league-wide daily file shows games on 2027-07-15. Both values are kept as recorded.","status":"IRREGULARITY","sources":["S-MLB-SEASON-2027","S-MLB-R-2027"]},
+    {"id":"F-19","category":"MLB calendar","item":"MLB 2028 and 2029 calendars are not published (empty API results). Any 2028 or 2029 dates are estimates.","status":"NOT PUBLISHED","sources":["S-MLB-SEASON-2028","S-MLB-SEASON-2029"]},
+    {"id":"F-20","category":"MLB teams","item":"The API lists the Athletics location as 'Sacramento' with abbreviation 'ATH' and venue Sutter Health Park. Recorded as returned by the API.","status":"REVIEW","sources":["S-MLB-TEAMS"]},
+    {"id":"F-21","category":"MLB scope","item":"Per-game MLB times and opponents (all 30 clubs) were not retrieved. Only league-wide and Giants/Athletics per-date counts are in the workspace. The scoreboard shows MLB counts with no time blocks.","status":"INCOMPLETE","sources":["S-MLB-R-2027","S-MLB-GIANTS-2027","S-MLB-ATH-2027"]},
+    {"id":"F-22","category":"Vacation scope","item":"The request says both '2027, 2028, and 2029' and 'up until 2028'. Covered: 2026 through 2029.","status":"CONFLICT (request)","sources":[]},
+    {"id":"F-23","category":"Playoffs","item":"NFL and college postseason dates were not retrieved for the 2026-27 season, so windows after Jan 10, 2027 are unverified.","status":"UNVERIFIED","sources":["S-WWO-NFL"]},
+    {"id":"F-24","category":"Halftime","item":"The request suggests a 15 to 30 minute halftime. The secondary-sourced NFL halftime is 13 minutes (rule); the scoreboard uses the average game length instead.","status":"REVIEW","sources":["S-NFL-DURATION-VERTIZE"]},
+    {"id":"F-25","category":"Westwood One","item":"Westwood One's listing has no validated 'Thursday/Monday' label for every game; slot labels are copied from the listing and not verified against a calendar.","status":"REVIEW","sources":["S-WWO-NFL"]}
+  ]
+}

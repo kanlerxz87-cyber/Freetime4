@@ -1,0 +1,40 @@
+{
+  "checked": "2026-11-25",
+  "stanford": {
+    "source": "S-STANFORD",
+    "team": "Stanford Cardinal",
+    "radio_note": "Radio station is CONFLICTED (flagged): gostanford.com (S-STANFORD-RADIO-NEWS) says 'KNBR/KTCT 1050 AM'; Inside Radio (secondary, S-SECONDARY-INSIDERADIO) says KNBR-AM/FM (680/104.5) and KTCT (1050).",
+    "games": [
+      {"date":"2026-08-29","day":"Sat","opponent":"Hawai'i","home_away":"Home","time_pt":"","result":"W 37-27"},
+      {"date":"2026-09-04","day":"Fri","opponent":"Miami","home_away":"Home","time_pt":"","result":"L 6-45"},
+      {"date":"2026-09-19","day":"Sat","opponent":"Duke","home_away":"Away","time_pt":"","result":"L 7-35"},
+      {"date":"2026-09-26","day":"Sat","opponent":"Georgia Tech","home_away":"Home","time_pt":"","result":"W 34-27"},
+      {"date":"2026-10-03","day":"Sat","opponent":"Wake Forest","home_away":"Away","time_pt":"","result":"L 3-57"},
+      {"date":"2026-10-10","day":"Sat","opponent":"Notre Dame","home_away":"Away","time_pt":"","result":"L 7-58"},
+      {"date":"2026-10-17","day":"Sat","opponent":"Elon","home_away":"Home","time_pt":"","result":"W 34-7"},
+      {"date":"2026-10-23","day":"Fri","opponent":"NC State","home_away":"Home","time_pt":"","result":"W 31-28"},
+      {"date":"2026-10-31","day":"Sat","opponent":"Louisville","home_away":"Away","time_pt":"","result":"L 24-52"},
+      {"date":"2026-11-14","day":"Sat","opponent":"Virginia Tech","home_away":"Away","time_pt":"","result":"W 40-22"},
+      {"date":"2026-11-21","day":"Sat","opponent":"California (Big Game)","home_away":"Away","time_pt":"","result":"W 44-28","flag":"Home/away CONFLICT: Stanford page says 'at Cal'; Cal page says 'vs Stanford' (home for Cal)"},
+      {"date":"2026-11-28","day":"Sat","opponent":"SMU","home_away":"Home","time_pt":"12:30 PM","result":""}
+    ]
+  },
+  "cal": {
+    "source": "S-CAL",
+    "team": "California Golden Bears",
+    "radio_note": "KSFO 810 AM per the official calbears.com schedule page (search-result snippet of the page; full page not yet fetched).",
+    "games": [
+      {"date":"2026-09-19","day":"Sat","opponent":"Wagner","home_away":"Home","time_pt":"","result":"W 49-7"},
+      {"date":"2026-09-25","day":"Fri","opponent":"Clemson","home_away":"Home","time_pt":"","result":"L 10-24"},
+      {"date":"2026-10-03","day":"Sat","opponent":"UNLV","home_away":"Away","time_pt":"","result":"L 31-39","flag":"Listed on calbears.com as 'at UNLV' (away)"},
+      {"date":"2026-10-10","day":"Sat","opponent":"Virginia Tech","home_away":"Home","time_pt":"","result":"W 25-20"},
+      {"date":"2026-10-17","day":"Sat","opponent":"Wake Forest","home_away":"Home","time_pt":"","result":"L 7-41"},
+      {"date":"2026-10-24","day":"Sat","opponent":"SMU","home_away":"Away","time_pt":"","result":"L 20-59"},
+      {"date":"2026-10-31","day":"Sat","opponent":"NC State","home_away":"Away","time_pt":"","result":"L 10-31"},
+      {"date":"2026-11-14","day":"Sat","opponent":"Virginia","home_away":"Away","time_pt":"","result":"L 7-36"},
+      {"date":"2026-11-21","day":"Sat","opponent":"Stanford (Big Game)","home_away":"Home","time_pt":"","result":"L 28-44","flag":"Home/away CONFLICT with Stanford page (see above)"},
+      {"date":"2026-11-28","day":"Sat","opponent":"Pittsburgh","home_away":"Home","time_pt":"4:30 PM","result":""}
+    ],
+    "unlisted_note": "calbears.com list starts Sep 19. Any earlier Cal games are not included because they were not retrieved from the official page."
+  }
+}
