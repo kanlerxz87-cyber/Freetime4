@@ -342,5 +342,11 @@ Branch: `arena/c04f5702-freetime4` (Arena-managed, fixed by platform; cannot cre
 - Local verification before PR: `scripts/check_links.py` PASS (13 pages, 0 broken internal links); HTTP smoke test 200 on all published pages + data files.
 
 ## Third merge-conflict resolution (arena-ad020434, later on 2026-11-25)
-- `git rebase origin/main` (main had advanced through PRs #12/#13, session `arena/c04f5702-freetime4`) conflicted again on `COORDINATION.md`. Resolution: upstream board kept in full (above), my session section appended below the line. No record discarded.
-- Their `/site/` planner, `verified/` data and scripts remain published and untouched; my root-level pages (index, calendar, vacation, category pages) are the brief's requested dashboard and link to their planner as an alternate view. Root `index.html` keeps my executive-summary landing (the integration output), with a link to their canonical `/site/` planner added in the same commit.
+- `git rebase origin/main` (main had advanced through PRs #12/#13, session `arena/c04f5702-freetime4`, which added the `site/` canonical planner, `verified/` data and a second fetch pipeline) conflicted on `COORDINATION.md`, `.github/workflows/fetch-schedules.yml`, `scripts/build_data.py`, `data/raw/nfl_49ers_*.json`, `README.md` and `index.html`. Resolution (nothing of theirs discarded):
+  - `COORDINATION.md`: upstream board kept in full (above), my session section appended below the line.
+  - `.github/workflows/fetch-schedules.yml`: **their pipeline kept at that path**; my fetch workflow lives at `.github/workflows/fetch-mlb-statsapi.yml` (writes only my `data/raw/mlb_2027_*.json`-style files). My later "month-end fix" commit was folded into that file and skipped as empty.
+  - `scripts/build_data.py`: **their build pipeline kept at that path**; my builder is `scripts/build_data_ftv.py` (README/VERIFY updated accordingly).
+  - `data/raw/nfl_49ers_2026–2029.json`: their versions kept (my copies were unused ESPN fallback dumps; my builder never read them).
+  - `README.md`: their README kept and extended with my sections; the stale “2027 schedules not released” sentence is struck through with a sourced correction rather than deleted.
+  - `index.html`: my executive-summary landing is the root page (the brief's requested clean landing), and their hub's full link inventory (site/, verified/, calendar-site/, docs/, windows-2027-2029.html, legacy-dashboard/) is preserved in the "Other planners in this repo" section. All their planners remain published and linked.
+  - My raw fetch files (`data/raw/mlb_2027_*.json`, `nfl_2026_reg_*.json`, `cfb_*.json`) and their raw files (`data/raw/mlb_2027.json`, `ncaaf_*.json`, …) coexist in `data/raw/` — different naming, no data lost.
