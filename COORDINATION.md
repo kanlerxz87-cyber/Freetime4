@@ -95,7 +95,7 @@ Session 48068f3b built the verified planner in `verified/` (kept separate from `
 | V4 | Verified site (9 pages) | done | 48068f3b | `verified/*.html`, `verified/assets/*`, `scripts/build_site.js` | Served at `/verified/`. |
 | V5 | Verification scripts | done | 48068f3b | `scripts/check_ids.js`, `scripts/check_site.js` | Source IDs resolve; all local links resolve. DOM render test: all 9 pages render, every row has a source link. |
 | V6 | Vacation windows 2026-2029 | done (partial) | 48068f3b | `verified/data/vacation-windows.json` | Verified windows only; 2028-2029 not published; estimates labeled. |
-| V7 | Integration: merge `main`, PR to `main`, merge, confirm Pages | in progress | 48068f3b | this file, `README.md` section, root `index.html` link | Merge conflict logged below. |
+| V7 | Integration: merge `main`, PR to `main`, merge, confirm Pages | done | 48068f3b | this file, `README.md` section, root `index.html` link | Merge conflict logged below. |
 
 ### Verification performed (48068f3b)
 
@@ -128,5 +128,7 @@ Session 48068f3b built the verified planner in `verified/` (kept separate from `
 
 ### PR and merge (48068f3b)
 
-- PR: #6, `arena/48068f3b-freetime4` to `main`.
-- Merge: recorded on the PR (comment) after the merge; see PR #6 for the final state and Pages build status.
+- PR: #6, `arena/48068f3b-freetime4` to `main`: https://github.com/kanlerxz87-cyber/Freetime4/pull/6
+- Merge: merge commit `2ee450a` (merge commit, not squash), merged 2026-11-25 14:07 UTC. Mergeable and CLEAN before merge. All relative links on the site resolved before merge (24 HTML files).
+- Pages: build for `2ee450a` reported `built` with no error. Live: https://kanlerxz87-cyber.github.io/Freetime4/verified/ (fetched and confirmed).
+- Task V7: done.
