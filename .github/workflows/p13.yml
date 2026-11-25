@@ -1,0 +1,12 @@
+name: probe13-wwo
+on: {workflow_dispatch: {}, push: {paths: ["scripts/probe13.py", ".github/workflows/p13.yml"]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/probe13.py
+      - run: |
+          git config user.name c; git config user.email c@x
+          git add -A data; git commit -q -m "wwo event details" || true; git push -q || true
