@@ -1,6 +1,113 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=docs/index.html">
-<link rel="canonical" href="docs/index.html">
-<title>Free Time Vacation Planner</title></head>
-<body><p>Opening the <a href="docs/index.html">Free Time Vacation Planner</a>. The earlier dashboard is kept at <a href="legacy-dashboard/index.html">legacy-dashboard/</a>.</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freetime4 — Free Time Vacation Planner</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">FREETIME4 <span class="site-tag">&middot; Free Time Vacation Planner</span></div>
+    <nav>
+      <ul>
+        <li><a href="#planner">Live planner (docs/)</a></li>
+        <li><a href="#detail">Detail pages</a></li>
+        <li><a href="executive-summary.html">Executive Summary</a></li>
+        <li><a href="flagged-review.html">Flagged for Review</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <section class="hero">
+    <h1>When is it free to take a vacation?</h1>
+    <p>Plan your getaway around live sports on the radio in the San Francisco Bay Area (outer sunset, 94122). A minute is <strong>free</strong> when <strong>none</strong> of these are on air: <strong>MLB</strong> (Giants &amp; A's high priority; all 30 clubs shown), <strong>NFL</strong> (49ers preseason/regular/postseason; all NFL), <strong>Stanford NCAAF</strong>, <strong>Cal NCAAF</strong>, and <strong>Westwood One national NFL radio broadcasts</strong>.</p>
+  </div>
+
+  <div class="section" id="planner">
+    <h2>Live planner — day-by-day scoreboard</h2>
+    <p>The published planner (day navigation, schedule tables, vacation-horizon overview, sources, review register) lives under <code>docs/</code>:</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Free-time scoreboard</h3>
+        <p>Day navigation (yesterday / today / tomorrow) with availability state.</p>
+        <a class="button" href="docs/scoreboard.html">Open scoreboard &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Games table</h3>
+        <p>NFL, 49ers, Stanford, Cal, Westwood One games with source links.</p>
+        <a class="button" href="docs/games.html">Open games table &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Vacation windows</h3>
+        <p>Estimated best vacation windows for 2027&ndash;2029.</p>
+        <a class="button" href="docs/vacation.html">Open vacation windows &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Sources &amp; flagged items</h3>
+        <p>Official sources and the Flagged for Review register.</p>
+        <a class="button" href="docs/sources.html">Open sources &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="detail">
+    <h2>Detail pages (this branch)</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Executive Summary</h3>
+        <p>Best estimated vacation windows, verified schedule status, and what "free" means.</p>
+        <a class="button" href="executive-summary.html">View &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Free-Time Calendar (PST)</h3>
+        <p>Click yesterday / today / tomorrow or pick any date to see exact free-time windows.</p>
+        <a class="button" href="free-time.html">View calendar &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>MLB</h3>
+        <p>Giants and A's high priority; all 30 MLB clubs with official schedule links.</p>
+        <a class="button" href="mlb.html">View &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>NFL</h3>
+        <p>49ers 2026 verified schedule plus all NFL season windows.</p>
+        <a class="button" href="nfl.html">View &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>NCAAF (Stanford / Cal)</h3>
+        <p>Stanford 2026 verified schedule and Cal.</p>
+        <a class="button" href="ncaaf.html">View &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Westwood One Radio</h3>
+        <p>National NFL radio broadcasts on Bay Area AM/FM affiliates.</p>
+        <a class="button" href="westwood-one.html">View &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Flagged for Review</h3>
+        <p>Unverified items and estimates needing manual review.</p>
+        <a class="button" href="flagged-review.html">View &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Verification note</h2>
+    <div class="callout info">
+      <strong>2027&ndash;2029 schedules are not officially released</strong> (as of 2026-11-25). Values for those years are estimates based on typical patterns, <strong>not</strong> verified schedules. Unverified values are left blank and flagged; nothing was inferred or filled in. See the Flagged for Review pages on both the detail section and under <code>docs/</code>.
+    </div>
+    <p class="small">Two sessions contributed to this repo. The <code>docs/</code> planner is the GitHub Pages-published site (main, root). This branch adds the executive summary, per-sport detail pages, and the PST free-time calendar. Sources are linked on each page.</p>
+  </div>
+
+  <footer>
+    Freetime4 &middot; Data current as of 2026-11-25 (UTC). Times in Pacific (PST/PDT). Planning aid only, not an official schedule source.
+  </footer>
+</div>
+
+</body>
+</html>
