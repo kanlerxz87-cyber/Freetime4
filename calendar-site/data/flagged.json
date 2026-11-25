@@ -1,0 +1,194 @@
+[
+  {
+    "id": "F01",
+    "area": "MLB",
+    "item": "All-Star Game 2027-07-13 (gamePk 853074)",
+    "issue": "Daily total from the season feed omitted this game (gameType A). The date query shows it. Daily count and total corrected to include it; the season total becomes 2,900. Start time TBD in feed.",
+    "status": "Corrected",
+    "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2027-07-13"
+  },
+  {
+    "id": "F02",
+    "area": "MLB",
+    "item": "2027 postseason (Sep 27 to Oct 31) and 2028 / 2029 schedules",
+    "issue": "Not published. Feed shows 0 games for 2028. Free-day status is blank for these dates; no estimates were generated.",
+    "status": "Not published",
+    "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2028"
+  },
+  {
+    "id": "F03",
+    "area": "MLB",
+    "item": "Start times for Giants and Athletics games",
+    "issue": "Times come from gameDate. The startTimeTBD flag was not captured during transcription, so some times may be placeholders.",
+    "status": "Unverified",
+    "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&teamId=137"
+  },
+  {
+    "id": "F04",
+    "area": "MLB",
+    "item": "Start times and games for the other 28 clubs",
+    "issue": "Only Giants and Athletics games are loaded with times. Hours on other MLB game days show Free time not available.",
+    "status": "Incomplete",
+    "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027"
+  },
+  {
+    "id": "F05",
+    "area": "NFL",
+    "item": "Westwood One vs 49ers.com: Dec 17, 2026 (49ers at Chargers)",
+    "issue": "Westwood One lists 7:30 PM ET (4:30 PM PT). 49ers.com lists 5:15 PM PT. Both kept in source files; calendar uses Westwood time with a CONFLICT note.",
+    "status": "Conflict",
+    "source": "https://www.49ers.com/schedule/"
+  },
+  {
+    "id": "F06",
+    "area": "NFL",
+    "item": "Westwood One vs 49ers.com: Jan 3, 2027 (Eagles at 49ers)",
+    "issue": "Westwood One lists 7:30 PM ET (4:30 PM PT). 49ers.com lists 5:20 PM PT.",
+    "status": "Conflict",
+    "source": "https://www.49ers.com/schedule/"
+  },
+  {
+    "id": "F07",
+    "area": "NFL",
+    "item": "49ers Week 18 at Arizona Cardinals",
+    "issue": "Date and kickoff not published on the 49ers schedule page. Row left blank.",
+    "status": "Unverified",
+    "source": "https://www.49ers.com/schedule/"
+  },
+  {
+    "id": "F08",
+    "area": "NFL",
+    "item": "NFL games other than national radio and 49ers",
+    "issue": "Only Westwood One national games and 49ers games were loaded. Other NFL games for the same dates are not in the data, so NFL free-time claims are partial.",
+    "status": "Incomplete",
+    "source": "https://www.westwoodonesports.com/nfl-schedule/"
+  },
+  {
+    "id": "F09",
+    "area": "NFL",
+    "item": "2027 NFL regular season, preseason, and playoffs",
+    "issue": "Not published in fetched sources. Westwood One list ends Jan 10, 2027.",
+    "status": "Not published",
+    "source": "https://www.westwoodonesports.com/nfl-schedule/"
+  },
+  {
+    "id": "F10",
+    "area": "NFL",
+    "item": "Super Bowl LXI date and venue (not verified)",
+    "issue": "Not confirmed from an official NFL or Westwood One page in this build; the date appears only in secondary search results (not fetched). Not added to the calendar.",
+    "status": "Unverified",
+    "source": "https://lasuperbowlhc.com/"
+  },
+  {
+    "id": "F11",
+    "area": "NCAAF",
+    "item": "Stanford bowl game",
+    "issue": "The recap link on the fetched gostanford.com schedule page has a slug reading 'secures bowl berth'. The article was not fetched. Bowl opponent, date and time are not published in any fetched source, so Stanford Dec to Jan windows are not verified.",
+    "status": "Not published",
+    "source": "https://gostanford.com/news/2026/11/21/stanford-secures-bowl-berth-with-big-game-win"
+  },
+  {
+    "id": "F13",
+    "area": "NCAAF",
+    "item": "Cal radio frequency and call letters",
+    "issue": "The fetched calbears.com schedule page links live audio to The Varsity Network and gives no frequency. The 810 AM frequency and the call letters (KGO or KSFO) appear only in search results. Not used.",
+    "status": "Unverified",
+    "source": "https://calbears.com/sports/football/schedule/2026"
+  },
+  {
+    "id": "F14",
+    "area": "NCAAF",
+    "item": "Stanford radio flagship",
+    "issue": "A 2013 Stanford page (search result, not fetched) says KNBR 1050 AM. Inside Radio (search result, not fetched) says KNBR 680 AM / 104.5 FM and KTCT 1050 AM. Not resolved; thesportsleader.com (audio link on the fetched gostanford.com page) was not fetched.",
+    "status": "Conflict",
+    "source": "https://www.insideradio.com/free/stanford-football-taps-two-alumni-for-2026-radio-broadcasts/article_1576291f-2466-42af-98a1-1c9676d60d46.html"
+  },
+  {
+    "id": "F15",
+    "area": "NCAAF",
+    "item": "Stanford and Cal 2027 schedules",
+    "issue": "Not published. No 2027 college data in the repository.",
+    "status": "Not published",
+    "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+    "id": "F16",
+    "area": "Radio",
+    "item": "Giants radio (KNBR 680 AM / 104.5 FM)",
+    "issue": "Only secondary sources. The official mlb.com radio page could not be fetched.",
+    "status": "Unverified",
+    "source": "https://visualfoodie.com/complete-sf-giants-2026-broadcast-schedule/"
+  },
+  {
+    "id": "F17",
+    "area": "Radio",
+    "item": "A's Bay Area radio (KNEW 960 AM)",
+    "issue": "Sacramento Bee (2025) says KNEW 960 carries Bay Area games; a 2022 listing names Bloomberg 960. Secondary only.",
+    "status": "Unverified",
+    "source": "https://www.sacbee.com/sports/article300334119.html"
+  },
+  {
+    "id": "F18",
+    "area": "Radio",
+    "item": "Station schedules for per-game verification",
+    "issue": "Westwood One's station finder is market-level and does not publish per-game carriage. KNBR's schedule page was not reached. Per-game radio carriage cannot be verified from the sources in this repository.",
+    "status": "Unverified",
+    "source": "https://www.westwoodonesports.com/station-finder/"
+  },
+  {
+    "id": "F19",
+    "area": "Radio",
+    "item": "Other sports on Bay Area radio",
+    "issue": "Not researched in this pass.",
+    "status": "Unverified",
+    "source": "https://www.westwoodonesports.com/station-finder/"
+  },
+  {
+    "id": "F20",
+    "area": "Durations",
+    "item": "MLB average game length",
+    "issue": "Official figure is 2:38 (158 min). The brief assumed about 150 minutes; 158 is used.",
+    "status": "Verified",
+    "source": "https://www.mlb.com/news/mlb-increased-attendance-3rd-straight-season"
+  },
+  {
+    "id": "F21",
+    "area": "Durations",
+    "item": "NFL and NCAAF average game length",
+    "issue": "NFL median is from a secondary analysis (3:02); the brief's 180 min plus 15 to 30 min halftime is not separately verified. NCAAF 3:26 is secondary.",
+    "status": "Unverified",
+    "source": "https://nflanalytic.com/explainer-how-long-is-an-nfl-game.html"
+  },
+  {
+    "id": "F22",
+    "area": "Time zone",
+    "item": "PST requested",
+    "issue": "Calendar uses America/Los_Angeles: PST in winter, PDT in summer. Times are labelled PT.",
+    "status": "Note",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "id": "F23",
+    "area": "Prior work",
+    "item": "RADIOSF site, Vacation windows, ScheduleFreeTime",
+    "issue": "RADIOSF fetch failed. The other sites were not fetched. None are used as sources.",
+    "status": "Not used",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "id": "F24",
+    "area": "Repo review",
+    "item": "Repository state",
+    "issue": "Repo contained only README.md. No prior schedule data or code. Data here is built from fetched sources only.",
+    "status": "Note",
+    "source": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+  },
+  {
+    "id": "F25",
+    "area": "NFL",
+    "item": "49ers preseason and Week 1 to 11 kickoff times",
+    "issue": "Kickoff times are not in the fetched text for these past games. Blank in the table.",
+    "status": "Unverified",
+    "source": "https://www.49ers.com/schedule/"
+  }
+]

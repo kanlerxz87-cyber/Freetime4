@@ -1,0 +1,1262 @@
+{
+ "generated": "2026-11-25",
+ "scenarios": {
+  "core": {
+   "label": "Core (brief's definition: all MLB incl. spring training, all NFL, Stanford/Cal NCAAF, Westwood One national NFL)",
+   "years": {
+    "2027": {
+     "busyDays": 296,
+     "runs": [
+      {
+       "start": "2027-02-07",
+       "end": "2027-02-13",
+       "days": 7,
+       "fits": {
+        "7": true,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-25",
+       "end": "2027-01-30",
+       "days": 6,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-11",
+       "end": "2027-01-15",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-02-01",
+       "end": "2027-02-05",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-05",
+       "end": "2027-01-08",
+       "days": 4,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-19",
+       "end": "2027-01-22",
+       "days": 4,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-02-15",
+       "end": "2027-02-18",
+       "days": 4,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-11-05",
+       "end": "2027-11-06",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-11-09",
+       "end": "2027-11-10",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-11-12",
+       "end": "2027-11-13",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-11-16",
+       "end": "2027-11-17",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-11-19",
+       "end": "2027-11-20",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      }
+     ],
+     "longest": 7
+    },
+    "2028": {
+     "busyDays": 304,
+     "runs": [
+      {
+       "start": "2028-02-01",
+       "end": "2028-02-12",
+       "days": 12,
+       "fits": {
+        "7": true,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-11",
+       "end": "2028-01-15",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-18",
+       "end": "2028-01-22",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-25",
+       "end": "2028-01-29",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-02-14",
+       "end": "2028-02-16",
+       "days": 3,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-04",
+       "end": "2028-01-05",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-11-07",
+       "end": "2028-11-08",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-11-14",
+       "end": "2028-11-15",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-11-21",
+       "end": "2028-11-22",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-11-28",
+       "end": "2028-11-29",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-12-01",
+       "end": "2028-12-02",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-12-05",
+       "end": "2028-12-06",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      }
+     ],
+     "longest": 12
+    },
+    "2029": {
+     "busyDays": 299,
+     "runs": [
+      {
+       "start": "2029-01-30",
+       "end": "2029-02-10",
+       "days": 12,
+       "fits": {
+        "7": true,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-09",
+       "end": "2029-01-13",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-16",
+       "end": "2029-01-20",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-23",
+       "end": "2029-01-27",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-02-12",
+       "end": "2029-02-14",
+       "days": 3,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-02",
+       "end": "2029-01-03",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-02",
+       "end": "2029-11-03",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-06",
+       "end": "2029-11-07",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-09",
+       "end": "2029-11-10",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-13",
+       "end": "2029-11-14",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-16",
+       "end": "2029-11-17",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-20",
+       "end": "2029-11-21",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      }
+     ],
+     "longest": 12
+    }
+   }
+  },
+  "no-st": {
+   "label": "Core minus MLB spring training/exhibitions (MLB regular season + postseason only)",
+   "years": {
+    "2027": {
+     "busyDays": 263,
+     "runs": [
+      {
+       "start": "2027-02-15",
+       "end": "2027-03-23",
+       "days": 37,
+       "fits": {
+        "7": true,
+        "14": true,
+        "21": true
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-02-07",
+       "end": "2027-02-13",
+       "days": 7,
+       "fits": {
+        "7": true,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-25",
+       "end": "2027-01-30",
+       "days": 6,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-11",
+       "end": "2027-01-15",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-02-01",
+       "end": "2027-02-05",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-05",
+       "end": "2027-01-08",
+       "days": 4,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-19",
+       "end": "2027-01-22",
+       "days": 4,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-11-05",
+       "end": "2027-11-06",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-11-09",
+       "end": "2027-11-10",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-11-12",
+       "end": "2027-11-13",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-11-16",
+       "end": "2027-11-17",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-11-19",
+       "end": "2027-11-20",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      }
+     ],
+     "longest": 37
+    },
+    "2028": {
+     "busyDays": 269,
+     "runs": [
+      {
+       "start": "2028-02-14",
+       "end": "2028-03-22",
+       "days": 38,
+       "fits": {
+        "7": true,
+        "14": true,
+        "21": true
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-02-01",
+       "end": "2028-02-12",
+       "days": 12,
+       "fits": {
+        "7": true,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-11",
+       "end": "2028-01-15",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-18",
+       "end": "2028-01-22",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-25",
+       "end": "2028-01-29",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-04",
+       "end": "2028-01-05",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-11-07",
+       "end": "2028-11-08",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-11-14",
+       "end": "2028-11-15",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-11-21",
+       "end": "2028-11-22",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-11-28",
+       "end": "2028-11-29",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-12-01",
+       "end": "2028-12-02",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-12-05",
+       "end": "2028-12-06",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      }
+     ],
+     "longest": 38
+    },
+    "2029": {
+     "busyDays": 264,
+     "runs": [
+      {
+       "start": "2029-02-12",
+       "end": "2029-03-21",
+       "days": 38,
+       "fits": {
+        "7": true,
+        "14": true,
+        "21": true
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-30",
+       "end": "2029-02-10",
+       "days": 12,
+       "fits": {
+        "7": true,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-09",
+       "end": "2029-01-13",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-16",
+       "end": "2029-01-20",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-23",
+       "end": "2029-01-27",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-02",
+       "end": "2029-01-03",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-02",
+       "end": "2029-11-03",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-06",
+       "end": "2029-11-07",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-09",
+       "end": "2029-11-10",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-13",
+       "end": "2029-11-14",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-16",
+       "end": "2029-11-17",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-11-20",
+       "end": "2029-11-21",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      }
+     ],
+     "longest": 38
+    }
+   }
+  },
+  "sf-radio": {
+   "label": "SF Bay Area AM/FM radio only (Giants, A's, 49ers, Stanford, Cal, Westwood One national)",
+   "years": {
+    "2027": {
+     "busyDays": 264,
+     "runs": [
+      {
+       "start": "2027-02-01",
+       "end": "2027-02-13",
+       "days": 13,
+       "fits": {
+        "7": true,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-25",
+       "end": "2027-01-30",
+       "days": 6,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-11",
+       "end": "2027-01-15",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-05",
+       "end": "2027-01-08",
+       "days": 4,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-01-19",
+       "end": "2027-01-22",
+       "days": 4,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-02-15",
+       "end": "2027-02-18",
+       "days": 4,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-07-12",
+       "end": "2027-07-15",
+       "days": 4,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-09-28",
+       "end": "2027-09-29",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-10-01",
+       "end": "2027-10-02",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-10-05",
+       "end": "2027-10-06",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-10-08",
+       "end": "2027-10-09",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2027-10-12",
+       "end": "2027-10-13",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      }
+     ],
+     "longest": 13
+    },
+    "2028": {
+     "busyDays": 288,
+     "runs": [
+      {
+       "start": "2028-02-01",
+       "end": "2028-02-12",
+       "days": 12,
+       "fits": {
+        "7": true,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-11",
+       "end": "2028-01-15",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-18",
+       "end": "2028-01-22",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-25",
+       "end": "2028-01-29",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-02-14",
+       "end": "2028-02-16",
+       "days": 3,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-01-04",
+       "end": "2028-01-05",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-09-26",
+       "end": "2028-09-27",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-10-03",
+       "end": "2028-10-04",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-10-10",
+       "end": "2028-10-11",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-10-17",
+       "end": "2028-10-18",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-10-24",
+       "end": "2028-10-25",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2028-10-31",
+       "end": "2028-11-01",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      }
+     ],
+     "longest": 12
+    },
+    "2029": {
+     "busyDays": 278,
+     "runs": [
+      {
+       "start": "2029-01-30",
+       "end": "2029-02-10",
+       "days": 12,
+       "fits": {
+        "7": true,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-09",
+       "end": "2029-01-13",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-16",
+       "end": "2029-01-20",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-23",
+       "end": "2029-01-27",
+       "days": 5,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-02-12",
+       "end": "2029-02-14",
+       "days": 3,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-01-02",
+       "end": "2029-01-03",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-09-25",
+       "end": "2029-09-26",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-09-28",
+       "end": "2029-09-29",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-10-02",
+       "end": "2029-10-03",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-10-05",
+       "end": "2029-10-06",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-10-09",
+       "end": "2029-10-10",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      },
+      {
+       "start": "2029-10-12",
+       "end": "2029-10-13",
+       "days": 2,
+       "fits": {
+        "7": false,
+        "14": false,
+        "21": false
+       },
+       "certainDays": true
+      }
+     ],
+     "longest": 12
+    }
+   }
+  }
+ }
+}

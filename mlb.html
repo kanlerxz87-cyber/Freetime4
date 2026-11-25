@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MLB — Free Time Vacation</title>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="site">
+  <h1>MLB — all 30 clubs</h1>
+  <div class="tag">Giants &amp; Athletics flagged HIGH PRIORITY · 2027 official slate (2,430 games + spring training) · 2028–29 estimated · source link on every row</div>
+</header>
+<script>nav("mlb.html")</script>
+<main>
+
+<div class="card">
+  <div class="status-strip">
+    <div class="chip"><b>2,430</b>official 2027 regular-season games (MLB Stats API, verified)</div>
+    <div class="chip"><b>469</b>2027 spring-training games (Feb 19 start)</div>
+    <div class="chip"><b>Mar 24 – Sep 26</b>2027 regular season (Opening Night Mar 24)</div>
+    <div class="chip"><b>Jul 12–13</b>Home Run Derby + All-Star Game (Wrigley)</div>
+    <div class="chip"><b>2028–2029</b><span class="badge est">not released — daily slate estimates</span></div>
+  </div>
+  <div class="flagbox">⚠ MLB's CBA expires Dec 1, 2026 — a lockout could delay or alter the 2027 season (<a href="flagged.html#F01">F01</a>). Games with <span class="badge est">time est</span> have placeholder times in the official feed (<a href="flagged.html#F03">F03</a>). 2028–29 rows are labeled ESTIMATE — no matchups are invented (<a href="flagged.html#F04">F04</a>).</div>
+</div>
+
+<div class="card">
+  <h2>All 30 clubs — 2027 games in this dataset</h2>
+  <div id="clubs" class="grid c3"></div>
+  <p class="small muted">Counts computed from the official 2027 slate loaded from MLB's Stats API (spring training + regular season + All-Star + exhibitions).</p>
+</div>
+
+<div class="card">
+  <h2>Game table</h2>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search team (e.g. Giants, Dodgers…)" style="min-width:240px">
+    <select id="cat">
+      <option value="all">All categories</option>
+      <option value="regular">Regular season</option>
+      <option value="spring">Spring training</option>
+      <option value="postseason">Postseason</option>
+      <option value="allstar">All-Star</option>
+      <option value="exhibition">Exhibitions</option>
+      <option value="special">Special events</option>
+    </select>
+    <label><input type="checkbox" id="prio"> High priority only (Giants / A's)</label>
+    <label><input type="checkbox" id="veronly"> Verified rows only</label>
+    <span id="count" class="muted small"></span>
+  </div>
+  <div id="rows"></div>
+  <div class="pager" id="pager"></div>
+  <p class="small muted">Time zone: PST/PDT. Estimated rows are labeled; every row links to its official mlb.com page. 2028–2029 entries are daily slate windows (one row per day) because MLB has not released those schedules.</p>
+</div>
+
+</main>
+<footer>Source: MLB official schedule (mlb.com / statsapi.mlb.com). Durations used for free-time math: 2:38 regular, 2:30 spring, 3:04 postseason (<a href="sources.html">details</a>).</footer>
+<script src="js/common.js"></script>
+<script>
+window.TABLE_CONFIG = { years: [2027, 2028, 2029], sports: ["MLB"] };
+(async () => {
+  const d = await loadYear(2027);
+  const counts = {};
+  for (const g of d.games || []) {
+    for (const t of [g.away, g.home]) {
+      if (!t) continue;
+      counts[t] = (counts[t] || 0) + 1;
+    }
+  }
+  const names = Object.keys(counts).sort();
+  const hi = new Set(["San Francisco Giants", "Athletics"]);
+  document.getElementById("clubs").innerHTML = names.map(n =>
+    `<div class="chip">${hi.has(n) ? '<span class="badge hi">HIGH</span> ' : ""}<b>${esc(n)}</b> — ${counts[n]} games</div>`
+  ).join("");
+})();
+</script>
+<script src="js/tables.js"></script>
+</body>
+</html>

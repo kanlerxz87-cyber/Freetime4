@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MLB — all 30 clubs — Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="mlb">
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Free Time Vacation</a>
+<nav><a href="index.html">Summary</a><a href="scoreboard.html">Scoreboard</a><a href="vacation-windows.html">Vacation windows</a><a href="mlb.html" class="active">MLB</a><a href="nfl.html">NFL</a><a href="ncaaf.html">NCAAF</a><a href="westwood-one.html">Westwood One</a><a href="radio.html">Radio</a><a href="flagged.html">Flagged for Review</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a></nav></div></header>
+<main class="wrap">
+<h1>MLB — every game, all 30 clubs</h1>
+<p class="lead">Giants and Athletics are flagged <b>high priority</b> (they air on Bay Area radio). All other clubs count as busy per your free-time definition even though their games aren't receivable on Bay Area AM/FM. 2026 and 2027 are official; 2028/2029 are flagged estimates.</p>
+<div class="filters">
+<select id="year"></select>
+<select id="status"><option value="">All statuses</option><option>VERIFIED</option><option>ESTIMATED-TIME</option><option>ESTIMATE</option></select>
+<select id="team"><option value="">All teams</option><option value="SF">San Francisco Giants</option><option value="ATH">Athletics</option></select>
+<select id="type"><option value="">All types</option><option>Regular season</option><option>Spring training</option><option>Exhibition</option><option>All-Star Game</option><option>Wild Card Series</option><option>Division Series</option><option>League Championship Series</option><option>World Series</option></select>
+</div>
+<div id="note" class="count-note"></div>
+<div id="table"></div>
+<p class="small">Spring training games (Feb–Mar) are the reason the big winter window splits; toggle them with the Type filter or use the scoreboard's lenient mode. Times estimated for unannounced games use each club's verified 2026 median first pitch and are flagged <span class="chip ESTIMATED-TIME">ESTIMATED-TIME</span>.</p>
+</main>
+<footer>Source for verified rows: MLB Stats API (official) via the per-game gameday link · 2028/2029 rows are estimates (official schedule not released).</footer>
+<script src="assets/app.js"></script><script>renderGamesPage({years:[2026,2027,2028,2029], filter:r=>r.sport==="MLB"});</script>
+</body></html>

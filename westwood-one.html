@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Westwood One — Free Time Vacation</title>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="site">
+  <h1>Westwood One Sports — national NFL radio</h1>
+  <div class="tag">Every national broadcast window that reaches San Francisco on AM/FM (KNBR 680/104.5 · KTCT 1050)</div>
+</header>
+<script>nav("westwood-one.html")</script>
+<main>
+
+<div class="card">
+  <p>Westwood One is the NFL's national radio partner: <b>Thursday Night, Monday Night and Sunday Night Football, Thanksgiving and Christmas tripleheaders, Black Friday, Saturday double/tripleheaders, the full postseason and the Super Bowl</b>. In San Francisco these are heard on <b>KNBR 680 AM / 104.5 FM and KTCT 1050 AM</b> — both verified SF affiliates (<a href="https://www.westwoodonesports.com/station-finder-source-nfl/" target="_blank" rel="noopener">official station finder</a>).</p>
+  <div class="flagbox">The official Westwood One schedule (read 2026-11-25, <a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">westwoodonesports.com/nfl-schedule</a>) currently lists events through Week 18 (Jan 10, 2027). Postseason games are added to their calendar during the playoffs — modelled here as national windows with estimated times (<a href="flagged.html#F08">F08</a>). Their listed start times are <b>broadcast starts</b> and can precede kickoff by ~30 minutes (<a href="flagged.html#F07">F07</a>).</div>
+</div>
+
+<div class="card">
+  <h2>Verified national windows — 2026 season</h2>
+  <table>
+    <thead><tr><th>Date</th><th>Broadcast start (PST)</th><th>Game</th><th>Window</th><th>Source</th></tr></thead>
+    <tbody id="wwrows"><tr><td colspan="5" class="muted">Loading…</td></tr></tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>Estimated national windows — 2027 onward</h2>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search…" style="min-width:220px">
+    <select id="cat">
+      <option value="all">All</option>
+      <option value="national">National windows (verified list)</option>
+      <option value="regular">Estimated weekly windows</option>
+      <option value="postseason">Estimated postseason</option>
+    </select>
+    <label><input type="checkbox" id="veronly"> Verified rows only</label>
+    <span id="count" class="muted small"></span>
+  </div>
+  <div id="rows"></div>
+  <div class="pager" id="pager"></div>
+</div>
+
+<div class="card">
+  <h2>Other Westwood One sports (extended scope — not in the core free definition)</h2>
+  <p class="small">Westwood One also broadcasts NCAA football, NCAA basketball (including the March Madness tournament), golf, the MCWS/WS and more (<a href="https://www.westwoodonesports.com/" target="_blank" rel="noopener">official site</a>). Per your “what free means” list these are <b>not</b> counted as busy in the core map — but they do overlap the Feb–Mar vacation window (March Madness ≈ mid-March to early April). Flagged as <a href="flagged.html#F13">F13</a>; if you want them counted, they can be folded into the dataset.</p>
+</div>
+
+</main>
+<footer>Times converted ET→PT. Every verified row links to its westwoodonesports.com event page.</footer>
+<script src="js/common.js"></script>
+<script>
+window.TABLE_CONFIG = { years: [2026, 2027, 2028, 2029, 2030], sports: ["NFL"], category: e => e.westwoodOne === true };
+(async () => {
+  const d = await loadYear(2026);
+  const rows = (d.games || []).filter(e => e.westwoodOne && e.category === "national")
+    .sort((a, b) => (a.date + a.time < b.date + b.time) ? -1 : 1);
+  document.getElementById("wwrows").innerHTML = rows.map(e => `<tr>
+    <td>${esc(e.date)}</td><td>${esc(e.time || "TBD")}</td>
+    <td>${esc(e.label.replace(" (Westwood One national)", ""))}${e.priority ? ' <span class="badge hi">49ers</span>' : ""}</td>
+    <td class="small muted">${esc((e.note || "").includes("TBA") ? "teams TBA" : "official listing")}</td>
+    <td class="src"><a href="${esc(e.source)}" target="_blank" rel="noopener">event page</a></td></tr>`).join("");
+})();
+</script>
+<script src="js/tables.js"></script>
+</body>
+</html>

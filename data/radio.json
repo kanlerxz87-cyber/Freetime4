@@ -1,0 +1,61 @@
+{
+ "stations": [
+  {
+   "call": "KNBR",
+   "dial": "680 AM / 104.5 FM",
+   "role": "Giants flagship (nearly all games incl. spring training + postseason); 49ers co-flagship; Westwood One SF affiliate",
+   "verified": true,
+   "source": "https://en.wikipedia.org/wiki/KNBR_(AM)"
+  },
+  {
+   "call": "KTCT (KNBR 1050)",
+   "dial": "1050 AM",
+   "role": "Westwood One SF affiliate; Stanford football flagship",
+   "verified": true,
+   "source": "https://en.wikipedia.org/wiki/KTCT"
+  },
+  {
+   "call": "KSAN",
+   "dial": "107.7 FM",
+   "role": "49ers Radio Network",
+   "verified": true,
+   "source": "https://www.49ers.com/schedule/2026/"
+  },
+  {
+   "call": "KSFO",
+   "dial": "810 AM",
+   "role": "49ers Radio Network (co-flagship)",
+   "verified": true,
+   "source": "https://www.49ers.com/schedule/2026/"
+  },
+  {
+   "call": "KNEW (iHeart Sports 960)",
+   "dial": "960 AM",
+   "role": "Athletics games \u2014 Bay Area (West Sacramento era 2025\u20132027)",
+   "verified": true,
+   "source": "https://www.sacbee.com/sports/article300334119.html"
+  },
+  {
+   "call": "KSTE (Talk 650)",
+   "dial": "650 AM (Sacramento)",
+   "role": "Athletics flagship (West Sacramento era)",
+   "verified": true,
+   "source": "https://www.sacbee.com/sports/article300334119.html"
+  },
+  {
+   "call": "KGMZ (95.7 The Game)",
+   "dial": "95.7 FM",
+   "role": "Warriors flagship (EXTENDED SCOPE \u2014 not in core free definition)",
+   "verified": true,
+   "source": "https://www.nba.com/warriors/radio-network"
+  },
+  {
+   "call": "Cal live audio",
+   "dial": "The Varsity Network (streaming)",
+   "role": "California football live audio; AM/FM flagship unconfirmed (flagged)",
+   "verified": false,
+   "source": "https://calbears.com/sports/football/schedule/2026"
+  }
+ ],
+ "note": "Reception target: Outer Sunset, San Francisco 94122 \u2014 KNBR 680 is a clear-channel 50 kW Class A signal; KTCT 1050 and KNEW 960 are Bay Area AM signals. All listed stations are standard AM/FM receivable."
+}

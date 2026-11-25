@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daily scoreboard - Free Time Vacation Planner</title><link rel="stylesheet" href="style.css"></head>
+<body data-page="scoreboard">
+<header class="top"><a class="brand" href="index.html">Free Time Vacation Planner</a>
+<nav><a href="index.html" >Dashboard</a><a href="scoreboard.html" class="active">Daily scoreboard</a><a href="vacation.html" >Vacation windows</a><a href="games.html" >All games</a><a href="flagged.html" >Flagged for Review</a><a href="sources.html" >Sources</a></nav></header>
+<main id="app">
+<h1>Daily scoreboard</h1>
+<p class="lead">Pick a day to see games, the time they block, and the free gaps between them. Use Prev / Next / Today.</p>
+<div class="dayNav"><button id="prev">&larr; Yesterday</button><button id="today">Today</button><button id="next">Tomorrow &rarr;</button><input type="date" id="pick"></div>
+<div id="app" style="margin-top:12px">Loading...</div>
+</main>
+<footer>Data: data.json (every row links to its source). Times Pacific. Items marked unverified or estimated are not released schedules. Not an official source.</footer>
+<script src="app.js"></script></body></html>

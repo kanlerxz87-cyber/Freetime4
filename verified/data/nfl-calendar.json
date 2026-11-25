@@ -1,0 +1,9 @@
+{
+  "checked": "2026-11-25",
+  "items": [
+    {"id":"NFL-2026-WK18-DATES","item":"2026 regular season, Week 18 Saturday and Sunday game dates (teams TBA)","value":"Sat 2027-01-09 and Sun 2027-01-10","status":"VERIFIED (Westwood One listing; teams TBA)","source":"S-WWO-NFL"},
+    {"id":"NFL-SB-LXI","item":"Super Bowl LXI (2027)","value":"Sunday 2027-02-14, SoFi Stadium, Inglewood, CA; kickoff time TBA","status":"VERIFIED (SoFi Stadium / Host Committee release, Feb 9, 2026)","source":"S-SOFI-SB-LXI","note":"Kickoff time not published as of the source."},
+    {"id":"NFL-SB-LXII","item":"Super Bowl LXII (2028) date","value":"","status":"CONFLICT / UNVERIFIED","source":null,"note":"Secondary sources disagree (one lists Feb 13, 2028; another says the date is pending). Left blank and flagged."},
+    {"id":"NFL-2027-REG-SCHEDULE","item":"2027 NFL regular-season schedule","value":"","status":"UNVERIFIED (not published in any source retrieved)","source":null,"note":"The vacation analysis for 2027 uses estimated NFL dates and labels them as estimates."}
+  ]
+}

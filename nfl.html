@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NFL — Free Time Vacation</title>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="site">
+  <h1>NFL — every game</h1>
+  <div class="tag">49ers flagged HIGH PRIORITY · preseason, regular season, postseason, Super Bowl LXI (Feb 14, 2027) · 2027+ estimated</div>
+</header>
+<script>nav("nfl.html")</script>
+<main>
+
+<div class="card">
+  <div class="status-strip">
+    <div class="chip"><b>2026 season</b>Weeks 12–18 remaining (Nov 25, 2026 → Jan 10, 2027)</div>
+    <div class="chip"><b>Playoffs</b>Wild Card Jan 16–18 · Div Jan 23–24 · Conf Jan 31</div>
+    <div class="chip"><b>Super Bowl LXI</b>Feb 14, 2027 · SoFi Stadium <span class="badge ver">verified</span></div>
+    <div class="chip"><b>2027–2029</b><span class="badge est">official schedules not released — window estimates</span></div>
+    <div class="chip"><b>49ers radio</b>KNBR 680/104.5, KSAN 107.7, KSFO 810</div>
+  </div>
+  <div class="flagbox">Weeks 13–18 rows are cross-checked via ESPN's public scoreboard and linked to their official nfl.com week page — spot-verified Week 12 on nfl.com (<a href="flagged.html#F06">F06</a>). Flex scheduling can move late-season times; Week 18 times are officially TBD until after Week 17. Westwood One broadcast-start times may precede kickoff (<a href="flagged.html#F07">F07</a>).</div>
+</div>
+
+<div class="card">
+  <h2>49ers — remaining 2026 schedule (high priority)</h2>
+  <table>
+    <thead><tr><th>Date</th><th>Game</th><th>Time (PST)</th><th>Radio</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>2026-11-29</td><td>Seattle Seahawks at San Francisco 49ers</td><td>1:25 PM</td><td>KSAN 107.7 / KNBR 104.5 / 680</td><td class="src"><a href="https://www.49ers.com/schedule/2026/" target="_blank" rel="noopener">49ers.com</a></td></tr>
+      <tr><td>2026-12-06</td><td>San Francisco 49ers at New York Giants</td><td>10:00 AM</td><td>KSAN 107.7 / KNBR 104.5 / 680</td><td class="src"><a href="https://www.49ers.com/schedule/2026/" target="_blank" rel="noopener">49ers.com</a></td></tr>
+      <tr><td>2026-12-13</td><td>Los Angeles Rams at San Francisco 49ers</td><td>1:25 PM</td><td>KSAN 107.7 / KNBR 104.5 / 680</td><td class="src"><a href="https://www.49ers.com/schedule/2026/" target="_blank" rel="noopener">49ers.com</a></td></tr>
+      <tr><td>2026-12-17</td><td>San Francisco 49ers at Los Angeles Chargers <span class="badge ww">TNF · Westwood One</span></td><td>5:15 PM <span class="badge est">WW lists 4:30</span></td><td>KSAN 107.7 / KNBR 104.5 / 680 + Westwood One</td><td class="src"><a href="https://www.49ers.com/schedule/2026/" target="_blank" rel="noopener">49ers.com</a></td></tr>
+      <tr><td>2026-12-27</td><td>San Francisco 49ers at Kansas City Chiefs</td><td>1:25 PM</td><td>KSAN 107.7 / KNBR 104.5 / 680</td><td class="src"><a href="https://www.49ers.com/schedule/2026/" target="_blank" rel="noopener">49ers.com</a></td></tr>
+      <tr><td>2027-01-03</td><td>Philadelphia Eagles at San Francisco 49ers <span class="badge ww">SNF · Westwood One</span></td><td>5:20 PM <span class="badge est">WW lists 4:30</span></td><td>KSAN 107.7 / KNBR 104.5 / 680 + Westwood One</td><td class="src"><a href="https://www.49ers.com/schedule/2026/" target="_blank" rel="noopener">49ers.com</a></td></tr>
+      <tr><td>2027-01-09/10</td><td>San Francisco 49ers at Arizona Cardinals (Week 18 — time TBD)</td><td><span class="badge est">TBD</span></td><td>KSAN 107.7 / KNBR 104.5 / 680</td><td class="src"><a href="https://www.49ers.com/schedule/2026/" target="_blank" rel="noopener">49ers.com</a></td></tr>
+    </tbody>
+  </table>
+  <p class="small muted">Times from 49ers.com (official). All 49ers games carry the HIGH PRIORITY badge throughout this site.</p>
+</div>
+
+<div class="card">
+  <h2>All NFL entries in the dataset</h2>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search team (e.g. 49ers, Chiefs…)" style="min-width:240px">
+    <select id="cat">
+      <option value="all">All categories</option>
+      <option value="regular">Regular season</option>
+      <option value="preseason">Preseason (est.)</option>
+      <option value="postseason">Postseason / Super Bowl</option>
+      <option value="national">Westwood One national windows</option>
+      <option value="special">Pro Bowl / special</option>
+    </select>
+    <label><input type="checkbox" id="prio"> High priority only (49ers)</label>
+    <label><input type="checkbox" id="veronly"> Verified rows only</label>
+    <span id="count" class="muted small"></span>
+  </div>
+  <div id="rows"></div>
+  <div class="pager" id="pager"></div>
+  <p class="small muted">Westwood One national windows appear here with a <span class="badge ww">WW1</span> badge and also on the <a href="westwood-one.html">Westwood One page</a> (radio-broadcast start times).</p>
+</div>
+
+</main>
+<footer>Official sources: nfl.com schedule pages, 49ers.com, lasuperbowlhc.com, westwoodonesports.com. 2027–2029 rows are labeled estimates (<a href="flagged.html#F05">F05</a>).</footer>
+<script src="js/common.js"></script>
+<script>window.TABLE_CONFIG = { years: [2026, 2027, 2028, 2029, 2030], sports: ["NFL"] };</script>
+<script src="js/tables.js"></script>
+</body>
+</html>

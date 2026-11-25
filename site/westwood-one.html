@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Westwood One national NFL radio — Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="ww1">
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Free Time Vacation</a>
+<nav><a href="index.html">Summary</a><a href="scoreboard.html">Scoreboard</a><a href="vacation-windows.html">Vacation windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL</a><a href="ncaaf.html">NCAAF</a><a href="westwood-one.html" class="active">Westwood One</a><a href="radio.html">Radio</a><a href="flagged.html">Flagged for Review</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a></nav></div></header>
+<main class="wrap">
+<h1>Westwood One Sports — national NFL radio (Bay Area: KNBR 680/104.5)</h1>
+<p class="lead">Westwood One is the national radio home of the NFL: Thursday, Sunday and Monday night football, holiday tripleheaders, Saturday special doubleheaders, playoffs and the Super Bowl. In San Francisco these broadcasts air on <b>KNBR 680 AM / 104.5 FM</b> (1050 KTCT carries overflow).</p>
+<div class="alert"><b>Resolved discrepancy (previously flagged by two sessions):</b> Westwood One's listed times are the <b>radio broadcast window start (pregame)</b>, not kickoff. Verified against the official schedule feed: Dec 17, 2026 — WW1 on air 4:30 PM PT, kickoff 5:15 PM PT (8:15 PM ET); Jan 3, 2027 — WW1 on air 4:30 PM PT, kickoff 5:20 PM PT (8:20 PM ET). Both "conflicts" were pregame starts, not contradictions.</div>
+<h2>Published 2026-27 national broadcasts (fetched live 2026-11-25)</h2>
+<div id="ww1table"></div>
+<p class="small">Times shown are the WW1 broadcast start converted to Pacific. Source for every row: the event page on westwoodonesports.com (linked). 49ers games in bold.</p>
+<h2>Future seasons</h2>
+<p>2027–2029 WW1 windows are estimated from the verified 2026 pattern (TNF 4:30 PM PT broadcast start, SNF 4:30 PM PT, MNF 4:00 PM PT, weekly, plus holiday specials) and are flagged ESTIMATE on the NFL page and scoreboard.</p>
+</main>
+<footer>Source: <a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">westwoodonesports.com/nfl-schedule</a> (fetched 2026-11-25). Bay Area affiliate verified via KNBR station records.</footer>
+<script src="assets/app.js"></script><script>
+(async () => {
+  const d = await fetchJSON("../data/raw/ww1_nfl_schedule.json");
+  const rows = d.broadcasts.map(b => `<tr><td>${b.date}</td><td>${b.timeET} ET</td><td><b>${esc(b.label)}</b></td>
+    <td>${b.ninety_niners ? "<b>" + esc(b.matchup) + "</b>" : esc(b.matchup)}</td><td>${esc(b.venue)}</td>
+    <td><a href="${esc(b.url)}" target="_blank" rel="noopener">source</a></td></tr>`).join("");
+  document.querySelector("#ww1table").innerHTML = `<div class="tablewrap"><table>
+  <thead><tr><th>Date</th><th>Listed time (ET)</th><th>Broadcast</th><th>Matchup</th><th>Venue</th><th>Source</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+})();
+</script>
+</body></html>

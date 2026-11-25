@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanford &amp; Cal — Free Time Vacation</title>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="site">
+  <h1>Stanford &amp; California NCAAF</h1>
+  <div class="tag">High priority · every game blocks your free time · radio: KNBR 1050 / KTCT (Stanford), Cal flagship unconfirmed</div>
+</header>
+<script>nav("ncaaf.html")</script>
+<main>
+
+<div class="card">
+  <div class="status-strip">
+    <div class="chip"><b>2026</b>Stanford 12-game slate (ESPN cross-check) · Cal 12-game slate <span class="badge ver">calbears.com verified</span></div>
+    <div class="chip"><b>Remaining 2026</b>Nov 28: SMU at Stanford · Pittsburgh at Cal</div>
+    <div class="chip"><b>Bowls</b>Possible Stanford bowl Dec 2026–Jan 2027 <span class="badge est">not counted busy</span></div>
+    <div class="chip"><b>2027–2029</b><span class="badge est">not released — Saturdays marked “game likely”</span></div>
+  </div>
+  <div class="flagbox">Stanford's official schedule page is behind bot protection in this sandbox — its 2026 rows are cross-checked against ESPN's public scoreboard and the Big Game date (Nov 21, 2026) previously verified on gostanford.com (<a href="flagged.html#F09">F09</a>). Cal's official page WAS read this session. Cal finishes 3–9 at worst and cannot reach a bowl; if Stanford hits eligibility one bowl game may appear Dec 18 – Jan 13 (<a href="flagged.html#F10">F10</a>) — shown as ⚠ possible, never counted as busy.</div>
+</div>
+
+<div class="card">
+  <h2>Radio</h2>
+  <ul class="small">
+    <li><b>Stanford football:</b> KNBR/KTCT 1050 AM — official (<a href="https://gostanford.com/news/2026/07/30/2026-football-radio-broadcast-team-announced" target="_blank" rel="noopener">gostanford.com</a>). Receivable in the Outer Sunset.</li>
+    <li><b>Cal football:</b> live audio via The Varsity Network (linked from <a href="https://calbears.com/sports/football/schedule/2026" target="_blank" rel="noopener">calbears.com</a>); a dedicated AM/FM flagship could not be confirmed from an official page this session — flagged (<a href="flagged.html#F11">F11</a>).</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Every Stanford &amp; Cal entry</h2>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search opponent…" style="min-width:220px">
+    <select id="cat">
+      <option value="all">All</option>
+      <option value="regular">Regular season</option>
+      <option value="possible">Possible bowl</option>
+    </select>
+    <label><input type="checkbox" id="veronly"> Verified rows only</label>
+    <span id="count" class="muted small"></span>
+  </div>
+  <div id="rows"></div>
+  <div class="pager" id="pager"></div>
+</div>
+
+</main>
+<footer>Durations: NCAAF ≈ 3:24 including a 20-minute halftime (<a href="sources.html">research</a>).</footer>
+<script src="js/common.js"></script>
+<script>window.TABLE_CONFIG = { years: [2026, 2027, 2028, 2029], sports: ["NCAAF"] };</script>
+<script src="js/tables.js"></script>
+</body>
+</html>

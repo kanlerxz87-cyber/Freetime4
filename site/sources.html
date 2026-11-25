@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sources — Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="sources">
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Free Time Vacation</a>
+<nav><a href="index.html">Summary</a><a href="scoreboard.html">Scoreboard</a><a href="vacation-windows.html">Vacation windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL</a><a href="ncaaf.html">NCAAF</a><a href="westwood-one.html">Westwood One</a><a href="radio.html">Radio</a><a href="flagged.html">Flagged for Review</a><a href="methodology.html">Methodology</a><a href="sources.html" class="active">Sources</a></nav></div></header>
+<main class="wrap">
+<h1>Sources used</h1>
+<p class="lead">Official sources are used for everything presented as fact. Where the official body publishes no machine-readable feed (NFL league schedule, NCAAF), values were read from a trusted official-mirroring feed and the official page is linked per row for manual review — flagged in the methodology.</p>
+<h2>Primary (official)</h2>
+<ul class="clean">
+<li><b>MLB Stats API</b> — <a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027" target="_blank" rel="noopener">statsapi.mlb.com/api/v1/schedule</a> — official MLB schedule data (2026 &amp; 2027 full seasons; 2028/2029 confirmed empty). Per-row link: mlb.com/gameday/{gamePk}.</li>
+<li><b>MLB 2027 schedule announcement</b> — <a href="https://www.mlb.com/schedule/2027-03-25" target="_blank" rel="noopener">mlb.com/schedule</a> · release coverage: <a href="https://www.cbssports.com/mlb/news/mlb-2027-schedule-opening-day-key-dates/" target="_blank" rel="noopener">CBS Sports (Jul 16, 2026)</a>.</li>
+<li><b>NFL schedules</b> — <a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">nfl.com/schedules</a> (official page linked per row; values read from ESPN public feed).</li>
+<li><b>49ers 2026</b> — <a href="https://www.49ers.com/schedule/" target="_blank" rel="noopener">49ers.com/schedule</a> (row-level re-verification performed by session 7fca3e35).</li>
+<li><b>Westwood One</b> — <a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">westwoodonesports.com/nfl-schedule</a> (fetched live 2026-11-25).</li>
+<li><b>Stanford football</b> — <a href="https://gostanford.com/sports/football/schedule" target="_blank" rel="noopener">gostanford.com/sports/football/schedule</a>.</li>
+<li><b>Cal football</b> — <a href="https://calbears.com/sports/football/schedule" target="_blank" rel="noopener">calbears.com/sports/football/schedule</a>.</li>
+<li><b>Super Bowl LXI</b> — <a href="https://www.sofistadium.com/news/detail/los-angeles-region-to-host-super-bowl-lxi-in-2027-welcoming-the-nfls-biggest-stage-for-the-second-time-this-decade-to-sofi-stadium" target="_blank" rel="noopener">SoFi Stadium host-committee release (Feb 9, 2026)</a>: Feb 14, 2027, radio: Westwood One.</li>
+</ul>
+<h2>Trusted aggregators (used for cross-checks; labeled, not passed off as official)</h2>
+<ul class="clean">
+<li>ESPN public schedule API (site.api.espn.com) — mirrors official NFL/NCAAF schedules; used because MLB's API is the only fully open official feed. Cross-checked against official pages row-for-row for Stanford/Cal.</li>
+<li><a href="https://fbschedules.com/ncaa/stanford/" target="_blank" rel="noopener">fbschedules.com Stanford future opponents</a> and <a href="https://superwestsports.com/future-nonconference-cfb-schedules-for-programs-in-west/" target="_blank" rel="noopener">superwestsports future non-conference compilation</a> — announced 2027-2029 matchups; dates per tracker, flagged PARTIAL-VERIFIED.</li>
+</ul>
+<h2>Radio &amp; durations</h2>
+<ul class="clean">
+<li>KNBR 680/104.5/1050 — <a href="https://en.wikipedia.org/wiki/KNBR_(AM)" target="_blank" rel="noopener">station records (Westwood One affiliate; Giants since 1979; 49ers/Stanford carriage)</a>.</li>
+<li>KSFO 810 / dead 560 AM — <a href="https://en.wikipedia.org/wiki/KSFO" target="_blank" rel="noopener">KSFO (810)</a> · <a href="https://en.wikipedia.org/wiki/KZAC" target="_blank" rel="noopener">560 AM license cancellation (Aug 2026)</a>.</li>
+<li>A's radio network — <a href="https://en.wikipedia.org/wiki/Oakland_Athletics_Radio_Network" target="_blank" rel="noopener">A's Radio Network (KSTE 650 flagship; KNEW 960 Bay Area; KIQI 1010 Spanish)</a> · <a href="https://www.cbsnews.com/sacramento/news/sacramento-athletics-radio-station-talk-650-kste/" target="_blank" rel="noopener">CBS Sacramento announcement</a>.</li>
+<li>49ers 2026 network — <a href="https://www.fubo.tv/news/nfl/san-francisco-49ers/what-channel-is-the-49ers-game-on/" target="_blank" rel="noopener">KNBR flagship + 107.7 + 810 KSFO listing</a>.</li>
+<li>Stanford audio — <a href="https://www.thesportsleader.com/stanfordfootball/" target="_blank" rel="noopener">thesportsleader.com/stanfordfootball (linked from gostanford.com schedule)</a>.</li>
+<li>Durations — <a href="https://vertizesports.com/blog/mlb-game-length-pitch-clock" target="_blank" rel="noopener">MLB 2:42:08 (2026)</a> · <a href="https://sports.betmgm.com/en/blog/mlb/average-game-time-in-mlb-bm23/" target="_blank" rel="noopener">MLB 2:44 (2026)</a> · <a href="https://nflanalytic.com/explainer-how-long-is-an-nfl-game.html" target="_blank" rel="noopener">NFL 3:02 median / 14:15 halftime</a> · <a href="https://www.upintherafters.com/nfl/how-long-is-a-football-game" target="_blank" rel="noopener">NFL 3:03 mean (272 games)</a> · <a href="https://www.academicjobs.com/en-us/higher-education-news/how-long-is-a-college-football-game-average-326-explained-or-academicjobs-12610" target="_blank" rel="noopener">NCAAF 3:26 FBS</a>.</li>
+<li>MLB CBA/lockout risk — <a href="https://sports.yahoo.com/mlb/article/mlb-labor-faq-with-a-lockout-on-the-horizon-heres-what-baseball-fans-need-to-know-175303012.html" target="_blank" rel="noopener">AP via Yahoo Sports (Nov 2026)</a>.</li>
+</ul>
+</main>
+<footer>Every data row on the category pages also carries its own per-row source link or an ESTIMATE flag.</footer>
+</body></html>
