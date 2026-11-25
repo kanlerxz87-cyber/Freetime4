@@ -84,14 +84,29 @@
   },
   {
    "date": "2026-11-27",
-   "busy": [],
+   "busy": [
+    {
+     "date": "2026-11-27",
+     "start": "11:30",
+     "end": "14:45",
+     "label": "Denver Broncos at Pittsburgh Steelers - Westwood One on-air (WW1-listed date; schedule mirror dates it 2026-11-28)",
+     "league": "nfl",
+     "radio": "KNBR 680 AM / 104.5 FM (Westwood One NFL radio; KTCT 1050 AM on conflicts)",
+     "source": "https://www.westwoodonesports.com/nfl-schedule/",
+     "estimated": false
+    }
+   ],
    "free": [
     {
      "start": "06:00",
+     "end": "11:30"
+    },
+    {
+     "start": "14:45",
      "end": "23:30"
     }
    ],
-   "free_day": true
+   "free_day": false
   },
   {
    "date": "2026-11-28",

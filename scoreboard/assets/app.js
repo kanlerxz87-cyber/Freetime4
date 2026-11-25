@@ -125,7 +125,10 @@ function badgeEst(r) {
   return est ? '<span class="badge est">EST/TBD</span>' : '<span class="badge official">VERIFIED</span>';
 }
 function srcLink(s) {
-  return `<span class="src"><a href="${s}" target="_blank" rel="noopener">${(s || "").replace(/^https?:\/\//, "").slice(0, 52)}&hellip;</a></span>`;
+  const m = (s || "").match(/https?:\/\/[^\s)]+/);
+  const href = m ? m[0] : "#";
+  const label = (s || "").replace(/^https?:\/\//, "").replace(/\s*\(.*$/, "").slice(0, 52);
+  return `<span class="src"><a href="${href}" target="_blank" rel="noopener">${label}&hellip;</a></span>`;
 }
 function timeCell(r) {
   return r.time_pt ? r.time_pt + " PT" : (r.time_est_pt ? "~" + r.time_est_pt + " PT (est)" : "TBD");
