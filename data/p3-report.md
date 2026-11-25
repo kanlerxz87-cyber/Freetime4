@@ -1,0 +1,26 @@
+| name | status | bytes | url |
+|---|---|---|---|
+| nflapi_sched | 401 | 0 | https://api.nfl.com/api/v1/schedules?season=2026&seasonType=REG |
+| nflapi_sched2 | 401 | 0 | https://api.nfl.com/schedules/2026/REG |
+| nflcomm | 404 | 0 | https://nflcommunications.com/Pages/Schedule.aspx |
+| nflcomm_pdf | 404 | 0 | https://nflcommunications.com/Documents/2026%20Schedule.pdf |
+| nfl49ers | 200 | 413470 | https://www.49ers.com/schedule/ |
+| nfl49ers2027 | 200 | 280784 | https://www.49ers.com/schedule/2027/ |
+| espn_sf27 | 200 | 628 | https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/sf/schedule?season=2027 |
+| stan_sched2026 | 404 | 0 | https://gostanford.com/sports/football/schedule/2026 |
+| stan_q27 | 200 | 673149 | https://gostanford.com/sports/football/schedule?season=2027 |
+| stan_api1 | 404 | 0 | https://gostanford.com/api/v2/sports/football/2026/schedule |
+| stan_ical | 404 | 0 | https://gostanford.com/ical/football.ics |
+| stan_ics | 404 | 0 | https://gostanford.com/sports/football/schedule.ics |
+| cal_season2627 | 404 | 0 | https://calbears.com/sports/football/schedule/season/2026-27 |
+| cal_2027 | 200 | 992390 | https://calbears.com/sports/football/schedule/2027 |
+| cal_api1 | 404 | 0 | https://calbears.com/api/v2/sports/football/2026/schedule |
+| stan_oas1 | 404 | 0 | https://gostanford.com/api/oas/v1/schedule?sport=football&season=2026 |
+| stan_oas2 | 404 | 0 | https://gostanford.com/api/oas/schedules/football |
+| wwo_more | 200 | 344503 | https://www.westwoodonesports.com/more/eventGrid?id=all&range=past&offset=0&limit=400&timezone=America/Los_Angeles |
+| knbr_giants | 200 | 86434 | https://www.knbr.com/giants/ |
+| knbr_49ers | 200 | 78147 | https://www.knbr.com/49ers/ |
+| knbr_athletics | 200 | 79455 | https://www.knbr.com/athletics/ |
+| knbr_shows | 200 | 82131 | https://www.knbr.com/shows/ |
+| mlb_gd2_2027 | 200 | 262 | https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&startDate=2027-10-01&endDate=2027-11-05 |
+| mlb_post27 | 200 | 272 | https://statsapi.mlb.com/api/v1/schedule/postseason?sportId=1&season=2027 |
