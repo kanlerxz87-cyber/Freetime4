@@ -1,0 +1,20 @@
+{
+ "generated": "2026-11-25 06:17 PST",
+ "timezone": "America/Los_Angeles (PST/PDT as applicable \u2014 true Pacific time shown)",
+ "counts": {
+  "2026": 3349,
+  "2027": 2959
+ },
+ "sources": {
+  "MLB": "MLB Stats API https://statsapi.mlb.com/api/v1/schedule (official MLB); per-row link https://www.mlb.com/gameday/{gamePk}",
+  "NFL": "NFL.com schedules (official, linked per row); values from ESPN public API (trusted mirror of official schedule)",
+  "NCAAF": "Official athletics pages gostanford.com & calbears.com (linked per row); cross-checked with ESPN public API",
+  "WW1": "https://www.westwoodonesports.com/nfl-schedule/ fetched live 2026-11-25"
+ },
+ "notes": [
+  "MLB 2027 schedule officially released (Opening Night Mar 24, Opening Day Mar 25, final day Sep 26, 2027; All-Star Game Jul 13 at Wrigley).",
+  "MLB 2028/2029 not released as of 2026-11-25 (official API returns zero games) \u2014 estimated, flagged.",
+  "NFL 2027-2029 not released \u2014 estimated, flagged. NCAAF 2027-2029 not released \u2014 estimated, flagged.",
+  "MLB Stats API placeholder times (UTC 04:00-12:59 = impossible ET game time) treated as TBD and re-estimated with ESTIMATED-TIME flag."
+ ]
+}
