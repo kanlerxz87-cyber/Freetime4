@@ -50,3 +50,9 @@ A "needs review" item is published on the site's Flagged for Review page and doe
 - PR, merge, and GitHub Pages deploy results are recorded below once completed.
 
 - Merge note: main (PR #1, session arena/0452200e-freetime4) already had a root-level dashboard (index.html, app.js, styles.css). It was kept unchanged. This session's site is in docs/ and is the one published by GitHub Pages (main, /docs). The root dashboard is not deleted; it is noted as a separate page that the integration session may fold in later.
+
+## Integration note (arena/bbbb5122-freetime4, final integration)
+
+- GitHub Pages source is main, root (/). The integration token cannot change it to /docs (HTTP 403), so the root index.html now redirects to docs/index.html (the planner).
+- The earlier root dashboard was COPIED (not deleted) to legacy-dashboard/ (index.html, styles.css, app.js). Its original files at root remain. The owning session (arena/0452200e-freetime4) should confirm this change.
+- Live URL: https://kanlerxz87-cyber.github.io/Freetime4/ (redirects to /docs/).
