@@ -8,7 +8,7 @@
       "title": "MLB Stats API - active teams",
       "publisher": "MLB Advanced Media",
       "url": "https://statsapi.mlb.com/api/v1/teams?sportId=1&fields=teams,id,name,abbreviation,teamName,locationName,venue,name,league,name,division,name,active",
-      "raw": "docs/data/raw/mlb-teams.json",
+      "raw": "verified/data/raw/mlb-teams.json",
       "used_for": "30 active MLB clubs, IDs, abbreviations, venues"
     },
     {
@@ -17,7 +17,7 @@
       "title": "MLB Stats API - season calendar 2027",
       "publisher": "MLB Advanced Media",
       "url": "https://statsapi.mlb.com/api/v1/seasons?sportId=1&season=2027",
-      "raw": "docs/data/raw/mlb-seasons-2027.json",
+      "raw": "verified/data/raw/mlb-seasons-2027.json",
       "used_for": "2027 spring, regular season, All-Star, postseason dates"
     },
     {
@@ -42,7 +42,7 @@
       "title": "MLB Stats API - 2027 regular-season games per date",
       "publisher": "MLB Advanced Media",
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameType=R&fields=dates,date,totalGames",
-      "raw": "docs/data/raw/mlb-2027-regular-season-daily.json",
+      "raw": "verified/data/raw/mlb-2027-regular-season-daily.json",
       "used_for": "2,430 regular-season games"
     },
     {
@@ -51,7 +51,7 @@
       "title": "MLB Stats API - 2027 spring training games per date",
       "publisher": "MLB Advanced Media",
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameType=S&fields=dates,date,totalGames",
-      "raw": "docs/data/raw/mlb-2027-spring-training-daily.json",
+      "raw": "verified/data/raw/mlb-2027-spring-training-daily.json",
       "used_for": "469 spring games"
     },
     {
@@ -60,7 +60,7 @@
       "title": "MLB Stats API - Giants (teamId 137) 2027 spring + regular",
       "publisher": "MLB Advanced Media",
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&teamId=137&gameType=S,R&fields=dates,date,totalGames",
-      "raw": "docs/data/raw/mlb-2027-giants-daily.json",
+      "raw": "verified/data/raw/mlb-2027-giants-daily.json",
       "used_for": "194 Giants games (totals reconciled)"
     },
     {
@@ -69,7 +69,7 @@
       "title": "MLB Stats API - Athletics (teamId 133) 2027 spring + regular",
       "publisher": "MLB Advanced Media",
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&teamId=133&gameType=S,R&fields=dates,date,totalGames",
-      "raw": "docs/data/raw/mlb-2027-athletics-daily.json",
+      "raw": "verified/data/raw/mlb-2027-athletics-daily.json",
       "used_for": "193 Athletics games (totals reconciled)"
     },
     {
@@ -190,7 +190,7 @@
       "title": "MLB Stats API - season calendar 2026",
       "publisher": "MLB Advanced Media",
       "url": "https://statsapi.mlb.com/api/v1/seasons?sportId=1&season=2026",
-      "raw": "docs/data/raw/mlb-seasons-2026.json",
+      "raw": "verified/data/raw/mlb-seasons-2026.json",
       "used_for": "2026 calendar: regular season ended 2026-09-27, postseason ended 2026-10-28"
     },
     {

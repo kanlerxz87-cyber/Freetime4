@@ -1,4 +1,4 @@
-// Renders each page from the JSON in docs/data. Every row cites a source ID; source IDs resolve to official URLs in sources.json.
+// Renders each page from the JSON in verified/data. Every row cites a source ID; source IDs resolve to official URLs in sources.json.
 (function () {
   "use strict";
   var base = "";

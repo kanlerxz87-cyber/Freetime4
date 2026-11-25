@@ -1,10 +1,10 @@
-// Builds docs/data/scoreboard.json from the verified source JSON files.
+// Builds verified/data/scoreboard.json from the verified source JSON files.
 // Times: Westwood One lists ET; converted to PT by subtracting 3 hours (both zones observe DST together).
 // Durations: NFL = 183 min (secondary average, see averages-and-rules.json). College = null (unverified).
 const fs = require("fs");
 const path = require("path");
 const root = path.join(__dirname, "..");
-const read = f => JSON.parse(fs.readFileSync(path.join(root, "docs/data", f), "utf8"));
+const read = f => JSON.parse(fs.readFileSync(path.join(root, "verified/data", f), "utf8"));
 const toMin = t => { // "7:30 PM" -> 1170
   const m = (t || "").match(/^(\d{1,2}):(\d{2}) (AM|PM)$/);
   if (!m) return null;
@@ -42,5 +42,5 @@ events.sort((a, b) => (a.date + (a.start_pt || "99:99")).localeCompare(b.date + 
 const out = { generated_from: ["nfl-national-radio.json", "nfl-49ers-2026.json", "college-football-2026.json", "averages-and-rules.json"],
   timezone_note: "All start times shown in Pacific. Eastern times (Westwood One) minus 3 hours; Pacific times as printed by the team or school.",
   events };
-fs.writeFileSync(path.join(root, "docs/data/scoreboard.json"), JSON.stringify(out, null, 2) + "\n");
+fs.writeFileSync(path.join(root, "verified/data/scoreboard.json"), JSON.stringify(out, null, 2) + "\n");
 console.log("events:", events.length, "timed:", events.filter(e => e.start_pt).length);

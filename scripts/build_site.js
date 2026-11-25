@@ -1,6 +1,6 @@
-// Generates the static HTML shells in docs/. All content is rendered client-side from docs/data by docs/assets/app.js.
+// Generates the static HTML shells in verified/. All content is rendered client-side from verified/data by verified/assets/app.js.
 const fs = require("fs"), path = require("path");
-const out = path.join(__dirname, "../docs");
+const out = path.join(__dirname, "../verified");
 const nav = [["scoreboard.html", "Scoreboard"], ["mlb.html", "MLB"], ["nfl.html", "NFL"], ["ncaaf.html", "College"], ["radio.html", "Radio"], ["vacation.html", "Vacation"], ["flagged.html", "Flagged for Review"], ["sources.html", "Sources"]];
 const pages = [
   ["index.html", "index", "Freetime Planner - Outer Sunset, SF 94122"],

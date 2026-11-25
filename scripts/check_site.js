@@ -1,6 +1,6 @@
 // Checks: every page and asset referenced exists; every relative href/src resolves; every JSON used by the app parses.
 const fs = require("fs"), path = require("path");
-const docs = path.join(__dirname, "../docs");
+const docs = path.join(__dirname, "../verified");
 let errors = [];
 const htmls = fs.readdirSync(docs).filter(f => f.endsWith(".html"));
 for (const f of htmls) {

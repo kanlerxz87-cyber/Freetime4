@@ -1,6 +1,6 @@
-// Verifies every source ID referenced in docs/data resolves to sources.json, and every JSON file parses.
+// Verifies every source ID referenced in verified/data resolves to sources.json, and every JSON file parses.
 const fs = require("fs"), path = require("path");
-const dir = path.join(__dirname, "../docs/data");
+const dir = path.join(__dirname, "../verified/data");
 const sources = JSON.parse(fs.readFileSync(path.join(dir, "sources.json"), "utf8")).sources.map(s => s.id);
 const ids = new Set(sources);
 const bad = [];
