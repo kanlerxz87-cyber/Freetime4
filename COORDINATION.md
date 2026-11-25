@@ -12,6 +12,8 @@ Session: `arena/0452200e-freetime4` (active)
 - Sources checked: MLB's official news page reporting publication of the 2027 regular-season schedule: https://www.mlb.com/news/mlb-2027-schedule-released (search excerpt on 2026-11-25). It states the regular-season date range and identifies a schedule link. This verifies publication/existence, not every individual game row or broadcast time.
 - All 2027–2029 NFL/NCAAF schedules, MLB postseason details, radio carriage, station-by-station airings, and exact game durations remain unverified until linked to authoritative schedule/broadcast sources. No invented schedule rows or time estimates are published.
 - Implementation review: HTML contains direct HTTPS source links for every competition-category row; date controls only alter the selected date and explicitly preserve an unknown availability state. The dashboard is plain static HTML/CSS/JS and requires no build tool.
+- Static checks run: internal HTML anchors resolve (10 unique IDs, 31 links), `node --check app.js` and `git diff --check` pass.
+- PR #1: https://github.com/kanlerxz87-cyber/Freetime4/pull/1 — merged with merge commit on 2026-11-25. No CI checks were reported. GitHub Pages deployment was not verifiable from the repository configuration in this session; enable Pages in repository Settings if no deployment appears.
 
 ## Irregularities / limitations
 
