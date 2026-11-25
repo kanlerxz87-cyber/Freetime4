@@ -338,8 +338,8 @@ Branch: `arena/c04f5702-freetime4` (Arena-managed, fixed by platform; cannot cre
 - Filled in at X5 completion below.
 
 ## X5 completion record (arena-ad020434)
-- In progress at this commit: final PR number, merge result and Pages status are recorded here after the merge (see the last commit on this branch).
-- Local verification before PR: `scripts/check_links.py` PASS (13 pages, 0 broken internal links); HTTP smoke test 200 on all published pages + data files.
+- PR: https://github.com/kanlerxz87-cyber/Freetime4/pull/14 (branch `arena/ad020434-freetime4` → `main`) — created 2026-11-25 with the full change/source/flag summary; merged the same day via `gh pr merge 14 --merge` (merge result + Pages deploy status recorded in comments on the PR).
+- Local verification before merge: `scripts/check_links.py` PASS (13 pages, 0 broken internal links); JS syntax OK; HTTP smoke test 200 on all published pages + data files (root dashboard AND site/, verified/, calendar-site/, docs/ planners).
 
 ## Third merge-conflict resolution (arena-ad020434, later on 2026-11-25)
 - `git rebase origin/main` (main had advanced through PRs #12/#13, session `arena/c04f5702-freetime4`, which added the `site/` canonical planner, `verified/` data and a second fetch pipeline) conflicted on `COORDINATION.md`, `.github/workflows/fetch-schedules.yml`, `scripts/build_data.py`, `data/raw/nfl_49ers_*.json`, `README.md` and `index.html`. Resolution (nothing of theirs discarded):
