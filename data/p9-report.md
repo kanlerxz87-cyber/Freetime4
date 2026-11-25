@@ -1,0 +1,21 @@
+| name | status | bytes | note | url |
+|---|---|---|---|---|
+| nfl_pre_a | 200 | 2415028 | cards=16 | https://www.nfl.com/schedules/2026/preseason/ |
+| nfl_pre_b | 200 | 2415028 | cards=16 | https://www.nfl.com/schedules/preseason/ |
+| nfl_pre_c | 200 | 2415028 | cards=16 | https://www.nfl.com/schedules/2026/PRE1/ |
+| nfl_pre_d | 200 | 2415028 | cards=16 | https://www.nfl.com/schedules/2026/pre/1/ |
+| nfl_post_b | 200 | 2415028 | cards=16 | https://www.nfl.com/schedules/2026/postseason/ |
+| nfl_post_c | 200 | 2415028 | cards=16 | https://www.nfl.com/schedules/postseason/ |
+| nfl_post_d | 200 | 2415028 | cards=16 | https://www.nfl.com/schedules/2026/playoffs/ |
+| nfl_probowl | 301 | 0 | - | https://www.nfl.com/pro-bowl/ |
+| sf_2026_print | 200 | 405325 | cards=0 | https://www.49ers.com/schedule/printable/ |
+| sf_radio | 404 | 0 | - | https://www.49ers.com/team/radio-network |
+| stan_fb_page | 200 | 573721 | cards=0 | https://gostanford.com/sports/football |
+| cal_fb_page | 200 | 740140 | cards=0 | https://calbears.com/sports/football |
+| stan_radio2 | 404 | 0 | - | https://gostanford.com/sports/football/links |
+| knbr_about | 404 | 0 | - | https://www.knbr.com/about/ |
+| knbr_contact | 404 | 0 | - | https://www.knbr.com/contact/ |
+| giants_aff | 404 | 0 | - | https://www.mlb.com/giants/fans/radio |
+| athl_aff | 404 | 0 | - | https://www.mlb.com/athletics/fans/radio |
+| wwo_aff_1 | 200 | 62118 | cards=0 | https://www.westwoodonesports.com/stations/?state=CA |
+| mlb_giants_26 | 200 | 616059 | cards=0 | https://www.mlb.com/giants/schedule/2026-04 |
