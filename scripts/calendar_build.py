@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build data/*.json and docs/*.html from the verified CSV inputs in data/src/.
+"""Build calendar-site/data/*.json and calendar-site/*.html from the verified CSV inputs in calendar-site/src/.
 
 Standard library only. Every data row keeps the official source URL it was
 recorded with. Values that are not confirmed stay blank and are listed on the
@@ -9,12 +9,12 @@ import csv
 import datetime as dt
 import html
 import json
-import shutil
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC, DATA, DOCS = ROOT / "data" / "src", ROOT / "data", ROOT / "docs"
+SITE = ROOT / "calendar-site"
+SRC, DATA, DOCS = SITE / "src", SITE / "data", SITE
 PT = ZoneInfo("America/Los_Angeles")
 ET = ZoneInfo("America/New_York")
 UTC = dt.timezone.utc
@@ -377,8 +377,8 @@ SOURCES = [
 
 # ---------------------------------------------------------------- write data
 DATA.mkdir(exist_ok=True)
-(DOCS / "data").mkdir(parents=True, exist_ok=True)
 (DOCS / "assets").mkdir(parents=True, exist_ok=True)
+(DOCS / "data").mkdir(parents=True, exist_ok=True)
 
 
 def write_json(name, obj):
@@ -655,10 +655,7 @@ sources_body = f"""
 write_page("sources.html", "Sources", "sources.html", sources_body)
 
 # Static assets (CSS and JS are maintained as files)
-for name in ["site.css", "calendar.js"]:
-    src = ROOT / "scripts" / "assets" / name
-    shutil.copyfile(src, DOCS / "assets" / name)
-(DOCS / ".nojekyll").write_text("", encoding="utf-8")
+# assets live in calendar-site/assets and are used in place
 
 print("built:", len(calendar_days), "calendar days;", len(events), "events;", len(windows), "MLB-free windows;",
       "MLB feed total", sum(daily.values()))

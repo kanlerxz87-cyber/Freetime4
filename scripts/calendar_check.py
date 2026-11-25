@@ -7,7 +7,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCS = ROOT / "docs"
+DOCS = ROOT / "calendar-site"
 problems = []
 external = set()
 
@@ -51,7 +51,7 @@ for page in sorted(DOCS.glob("*.html")):
         if p.bad_rows:
             problems.append(f"{page.name}: {p.bad_rows} table rows lack a source link")
 
-for f in sorted((ROOT / "data").glob("*.json")):
+for f in sorted((DOCS / "data").glob("*.json")):
     try:
         json.loads(f.read_text(encoding="utf-8"))
     except Exception as e:
