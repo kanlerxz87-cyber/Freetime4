@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Curate raw fetched data (data/raw) into site JSON (docs/data).
+Curate raw fetched data (data/raw) into site JSON (data/site).
 
 Rules
 -----
@@ -8,7 +8,7 @@ Rules
 - MLB Stats API placeholder times for TBD games (UTC hour 04-12 = 00:00-08:59 ET,
   impossible game times) are detected and left for the estimate builder.
 - Every verified row carries a sourceUrl to an official page.
-- rows: docs/data/games_<year>.json + docs/data/meta.json + docs/data/ww1.json
+- rows: data/site/games_<year>.json + data/site/meta.json + data/site/ww1.json
 """
 import json
 import os
@@ -18,7 +18,7 @@ from zoneinfo import ZoneInfo
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, ".."))
 RAW = os.path.join(ROOT, "data", "raw")
-OUT = os.path.join(ROOT, "docs", "data")
+OUT = os.path.join(ROOT, "data", "site")
 PT = ZoneInfo("America/Los_Angeles")
 
 MLB_URL = "https://www.mlb.com/gameday/{gamePk}"
@@ -69,8 +69,18 @@ def mlb_team_map():
 
 def mlb_rows(year, teams):
     d = load(f"mlb_{year}.json")
-    rows = []
+    # The official API can return a game twice when it is postponed and rescheduled
+    # (postponed instance + final instance sharing a gamePk). Keep the final
+    # occurrence: prefer completed ('F'/'O') rows, then the latest slot.
+    best = {}
     for g in d["games"]:
+        pk = g["gamePk"]
+        prev = best.get(pk)
+        rank = (0 if g.get("codeState") in ("F", "O") else 1, g["startUTC"] or "")
+        if prev is None or rank < prev[0]:
+            best[pk] = (rank, g)
+    rows = []
+    for g in (v[1] for v in best.values()):
         if g["type"] not in ("R", "A", "F", "D", "L", "W", "S", "E"):
             continue
         dt, hhmm, placeholder = utc_to_pt(g["startUTC"])
@@ -142,10 +152,11 @@ def nfl_rows(year):
         nine = load("nfl_49ers_2026.json")
         for e in nine["events"]:
             rows.append(nfl_row(e, "NFL-49ers", "high", RADIO["NFL-49ers"], NFL_URL, ESPN_NFL_NOTE))
+        have = {r["id"] for r in rows}  # e.g. "nfl-401873170"
         league = load("nfl_league_2026.json")
         for e in league["events"]:
-            if e["id"] in {r["id"] for r in rows}:
-                continue
+            if f"nfl-{e['id']}" in have:
+                continue  # same game already present from the 49ers schedule file
             teams_tbd = (e.get("name") or "").find("TBD") >= 0 or "TBD @ TBD" in (e.get("name") or "")
             cat = "NFL-national"
             status = "VERIFIED" if not teams_tbd else "VERIFIED-SLOT"
@@ -228,7 +239,7 @@ def main():
     for y, rows in distributed.items():
         rows.sort(key=lambda r: (r["datePT"], r["startPT"] or "99:99"))
         with open(os.path.join(OUT, f"games_{y}.json"), "w") as f:
-            json.dump({"year": y, "source": "docs/data provenance: see meta.json", "count": len(rows), "games": rows}, f, separators=(",", ":"))
+            json.dump({"year": y, "source": "data/site provenance: see meta.json", "count": len(rows), "games": rows}, f, separators=(",", ":"))
         counts[y] = len(rows)
     meta = {
         "generated": datetime.now(PT).strftime("%Y-%m-%d %H:%M %Z"),

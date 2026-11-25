@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daily Scoreboard — Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="scoreboard">
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Free Time Vacation</a>
+<nav><a href="index.html">Summary</a><a href="scoreboard.html" class="active">Scoreboard</a><a href="vacation-windows.html">Vacation windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL</a><a href="ncaaf.html">NCAAF</a><a href="westwood-one.html">Westwood One</a><a href="radio.html">Radio</a><a href="flagged.html">Flagged for Review</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a></nav></div></header>
+<main class="wrap">
+<h1>Daily scoreboard</h1>
+<p class="lead">A game-day view like a stadium scoreboard: click yesterday/tomorrow, pick any date, and see exactly when the Bay Area radio is busy and when you're free. Times are Pacific (PST/PDT).</p>
+<div class="daynav">
+  <button id="prev">◀ Yesterday</button>
+  <button id="today">Today</button>
+  <button id="next">Tomorrow ▶</button>
+  <input type="date" id="date">
+  <select id="variant">
+    <option value="default">Strict: spring training counts (MLB preseason)</option>
+    <option value="nospring">Lenient: exclude spring training</option>
+  </select>
+</div>
+<div id="view"><div class="card">Loading…</div></main>
+<footer>Free = no MLB (all 30 clubs), no NFL 49ers, no Stanford/Cal NCAAF, no Westwood One national broadcast on air · durations estimated from researched averages · <a href="methodology.html">methodology</a></footer>
+<script src="assets/app.js"></script><script>renderScoreboard();</script>
+</body></html>

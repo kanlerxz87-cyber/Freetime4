@@ -44,7 +44,7 @@ from zoneinfo import ZoneInfo
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, ".."))
 RAW = os.path.join(ROOT, "data", "raw")
-OUT = os.path.join(ROOT, "docs", "data")
+OUT = os.path.join(ROOT, "data", "site")
 PT = ZoneInfo("America/Los_Angeles")
 ET = ZoneInfo("America/New_York")
 

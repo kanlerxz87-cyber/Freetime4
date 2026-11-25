@@ -10,11 +10,11 @@ on air on receivable Bay Area radio:
   - Westwood One Sports national NFL radio broadcasts (TNF/SNF/MNF/playoffs/Super Bowl)
 
 On-air (busy) windows per game are estimated from researched average durations
-(docs/data source: durations.json). All times Pacific (PST/PDT).
+(data/site source: durations.json). All times Pacific (PST/PDT).
 
 Outputs:
-  docs/data/days_<year>.json  - per-day busy minutes, free minutes, merged busy spans
-  docs/data/windows.json      - vacation windows (>= 2 consecutive fully-free days)
+  data/site/days_<year>.json  - per-day busy minutes, free minutes, merged busy spans
+  data/site/windows.json      - vacation windows (>= 2 consecutive fully-free days)
                                 for both blocking variants
 """
 import json
@@ -24,7 +24,7 @@ from zoneinfo import ZoneInfo
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, ".."))
-DATA = os.path.join(ROOT, "docs", "data")
+DATA = os.path.join(ROOT, "data", "site")
 PT = ZoneInfo("America/Los_Angeles")
 
 # Estimated on-air windows (minutes). start_offset < 0 = pregame lead.

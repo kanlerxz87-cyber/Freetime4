@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Time Vacation — Executive Summary</title><link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="index">
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Free Time Vacation</a>
+<nav><a href="index.html" class="active">Summary</a><a href="scoreboard.html">Scoreboard</a><a href="vacation-windows.html">Vacation windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL</a><a href="ncaaf.html">NCAAF</a><a href="westwood-one.html">Westwood One</a><a href="radio.html">Radio</a><a href="flagged.html">Flagged for Review</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a></nav></div></header>
+<main class="wrap">
+<h1>When is the San Francisco radio actually quiet?</h1>
+<p class="lead">A minute is <b>free</b> when none of these are on air on receivable Bay Area AM/FM radio: MLB (all 30 clubs; Giants &amp; A's flagged high priority), NFL San Francisco 49ers (preseason/regular/postseason), Stanford &amp; Cal football, and Westwood One national NFL broadcasts (TNF/SNF/MNF/playoffs/Super Bowl on KNBR 680/104.5).</p>
+
+<div class="alert"><b>Executive summary — the clear answer.</b>
+Each year has exactly one <b>long quiet stretch</b> and a set of smaller ones:
+<ul class="clean">
+<li><b>The big window: mid-January/February to late March.</b> With MLB spring training counted (it is MLB preseason), the fully-free stretch is <b>Jan 31 – Feb 13, 2027 (14 straight days)</b>, <b>Jan 30 – Feb 12, 2028</b> and <b>Jan 28 – Feb 10, 2029</b> (estimates) — between the NFL playoffs/Super Bowl and the first spring games. If you ignore spring-training games (rarely carried on Bay Area AM/FM), the window grows to <b>Feb 15 – Mar 23, 2027 (37 days)</b>, <b>Feb 14 – Mar 21, 2028</b> and <b>Feb 12 – Mar 20, 2029</b> (estimates) — enough for 1, 2 or 3 weeks off.</li>
+<li><b>The All-Star break (mid-July):</b> 3–4 days with zero MLB, e.g. around <b>July 13, 2027</b> (official All-Star date, Wrigley Field).</li>
+<li><b>After the World Series ends (late Oct/early Nov):</b> the first weeks of November are NFL-byes-free only some days — see the vacation-windows page; November 2026 opens with a 7-day fully-free week (Nov 1–7).</li>
+<li><b>Never free:</b> April–September weekdays have daily MLB somewhere (all 30 clubs count), and September–January layers NFL/NCAAF on top.</li>
+</ul>
+</div>
+
+<h2>Best vacation windows at a glance</h2>
+<table>
+<thead><tr><th>Year</th><th>Strict rule<br><span class="small">spring training counts</span></th><th>Deep window<br><span class="small">spring excluded</span></th><th>Fully-free days in year</th><th>Data basis</th></tr></thead>
+<tbody>
+<tr><td>2027</td><td><b>Jan 31 – Feb 13</b> (14 days) <span class="chip VERIFIED">VERIFIED</span></td><td><b>Feb 15 – Mar 23</b> (37 days) <span class="chip VERIFIED">VERIFIED</span></td><td class="num">75</td><td>Official MLB 2027 schedule + verified NFL/NCAAF/WW1 + pattern estimates (flagged)</td></tr>
+<tr><td>2028</td><td><b>Jan 30 – Feb 12</b> (14 days) <span class="chip ESTIMATE">ESTIMATE</span></td><td><b>Feb 14 – Mar 21</b> (37 days) <span class="chip ESTIMATE">ESTIMATE</span></td><td class="num">76</td><td>Estimated (2028 schedules not released — confirmed empty via official API)</td></tr>
+<tr><td>2029</td><td><b>Jan 28 – Feb 10</b> (14 days) <span class="chip ESTIMATE">ESTIMATE</span></td><td><b>Feb 12 – Mar 20</b> (37 days) <span class="chip ESTIMATE">ESTIMATE</span></td><td class="num">76</td><td>Estimated (2029 schedules not released)</td></tr>
+</tbody></table>
+<p class="small">Full window lists (all ≥2-day runs, ranked): see <a href="vacation-windows.html">Vacation windows</a>.</p>
+
+<h2>Key numbers</h2>
+<div class="grid">
+<div class="kpi"><div class="n" id="k27">…</div><div class="l">fully-free days 2027 (strict rule)</div></div>
+<div class="kpi"><div class="n" id="k28">…</div><div class="l">fully-free days 2028 (strict, estimated)</div></div>
+<div class="kpi"><div class="n" id="k29">…</div><div class="l">fully-free days 2029 (strict, estimated)</div></div>
+<div class="kpi"><div class="n" id="kmeta">…</div><div class="l">schedule rows loaded across 2026–2029</div></div>
+</div>
+
+<h2>What's loaded (verified vs estimated)</h2>
+<table>
+<thead><tr><th>Season</th><th>Status</th><th>Rows</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>MLB 2026 (all 30 clubs, full season incl. spring &amp; postseason)</td><td><span class="chip VERIFIED">VERIFIED</span></td><td>2,990</td><td><a href="https://www.mlb.com/gameday/852583" target="_blank" rel="noopener">MLB Stats API (official)</a></td></tr>
+<tr><td>MLB 2027 (all 30 clubs; 2,430 regular games with times; 678 times re-estimated, flagged)</td><td><span class="chip VERIFIED">VERIFIED</span> <span class="chip ESTIMATED-TIME">times partly est.</span></td><td>2,905</td><td><a href="https://www.mlb.com/schedule/2027-03-25" target="_blank" rel="noopener">MLB official 2027 schedule</a></td></tr>
+<tr><td>NFL 2026 league + 49ers (preseason/regular/postseason incl. Super Bowl LXI Feb 14, 2027)</td><td><span class="chip VERIFIED">VERIFIED</span></td><td>334</td><td><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">NFL.com schedules</a></td></tr>
+<tr><td>Westwood One national radio Nov 2026 – Jan 2027</td><td><span class="chip VERIFIED">VERIFIED</span></td><td>35</td><td><a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">westwoodonesports.com</a></td></tr>
+<tr><td>Stanford &amp; Cal 2026 football</td><td><span class="chip VERIFIED">VERIFIED</span></td><td>24</td><td><a href="https://gostanford.com/sports/football/schedule" target="_blank" rel="noopener">gostanford.com</a> · <a href="https://calbears.com/sports/football/schedule" target="_blank" rel="noopener">calbears.com</a></td></tr>
+<tr><td>MLB 2028 &amp; 2029; NFL 2027–2029; NCAAF 2027–2029</td><td><span class="chip ESTIMATE">ESTIMATE</span></td><td>~6,300</td><td>none — official schedules not released; estimates clearly flagged</td></tr>
+</tbody></table>
+
+<div class="warn"><b>Watch this:</b> the MLB Collective Bargaining Agreement expires <b>December 1, 2026</b> and a lockout is expected — the released 2027 MLB schedule could change. Source: <a href="https://sports.yahoo.com/mlb/article/mlb-labor-faq-with-a-lockout-on-the-horizon-heres-what-baseball-fans-need-to-know-175303012.html" target="_blank" rel="noopener">AP via Yahoo Sports</a>. All irregularities are listed on <a href="flagged.html">Flagged for Review</a>.</div>
+
+<h2>Radio reality check (outer Sunset, 94122)</h2>
+<ul class="clean">
+<li><b>Giants</b> → KNBR 680 AM / 104.5 FM · <b>49ers</b> → KNBR 680/104.5, 107.7 The Bone, 810 KSFO (2026 network; former 560 AM died Aug 2026) · <b>A's</b> → 960 AM KNEW (Bay Area) · <b>Stanford</b> → KNBR cluster · <b>Cal</b> → 810 KSFO · <b>Westwood One national NFL</b> → KNBR 680/104.5 (1050 KTCT overflow). Details and sources: <a href="radio.html">Radio page</a>.</li>
+<li>Other clubs' MLB games are counted as busy (per your definition) even though they are <i>not</i> receivable on Bay Area AM/FM — they're shown in the MLB table but their radio column says so.</li>
+</ul>
+
+<p class="tagline">Every table row carries a source link; estimates are flagged and their sources are blank, per your verification rules. <span id="kmeta2"></span></p>
+</main>
+<footer>Freetime4 · data in <code>data/site/</code> · generated 2026-11-25 · All times Pacific (PST/PDT) · Not an official source — see Sources page.</footer>
+<script src="assets/app.js"></script><script>renderIndex();</script>
+</body></html>

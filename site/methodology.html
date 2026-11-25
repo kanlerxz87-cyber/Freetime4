@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology — Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body data-page="methodology">
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Free Time Vacation</a>
+<nav><a href="index.html">Summary</a><a href="scoreboard.html">Scoreboard</a><a href="vacation-windows.html">Vacation windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL</a><a href="ncaaf.html">NCAAF</a><a href="westwood-one.html">Westwood One</a><a href="radio.html">Radio</a><a href="flagged.html">Flagged for Review</a><a href="methodology.html" class="active">Methodology</a><a href="sources.html">Sources</a></nav></div></header>
+<main class="wrap">
+<h1>Methodology — how free time is computed</h1>
+
+<h2>Free-time definition (yours, applied literally)</h2>
+<p>A minute is free when <b>none</b> of these are on air: MLB (all 30 clubs, including spring training as MLB preseason; Giants and A's flagged high priority), NFL San Francisco 49ers (preseason/regular/postseason), Stanford NCAAF, Cal NCAAF, and Westwood One national NFL radio broadcasts. A day is "fully free" when zero blocking minutes overlap it.</p>
+
+<h2>On-air (busy) windows per game</h2>
+<p>Radio coverage runs longer than the game itself. Estimated windows, from researched averages (sources below):</p>
+<table>
+<thead><tr><th>Sport</th><th>On-air window</th><th>Breakdown</th></tr></thead>
+<tbody>
+<tr><td>MLB</td><td class="num">−20 min → +175 min</td><td>2026 average game 2:42–2:44 (pitch-clock era) + KNBR pregame/postgame margin. Postseason: −30 → +210 (3:00 average).</td></tr>
+<tr><td>NFL (49ers)</td><td class="num">−30 min → +225 min</td><td>Average game 3:02 median / 3:03 mean (2025, all 272 games measured) + 30-min radio pregame. Halftime is 14:15 median (13 min by rule) — inside your stated 15–30 band.</td></tr>
+<tr><td>NCAAF (Stanford/Cal)</td><td class="num">−15 min → +240 min</td><td>FBS 2025 average 3:26 + radio pregame.</td></tr>
+<tr><td>Westwood One</td><td class="num">start → +240 min</td><td>WW1's listed time is the broadcast/pregame start (verified against official kickoffs — see below); 4-hour window covers pregame + typical game.</td></tr>
+</tbody></table>
+<p class="small">Sources: <a href="https://vertizesports.com/blog/mlb-game-length-pitch-clock" target="_blank" rel="noopener">MLB 2026 average 2:42:08</a> (second source <a href="https://sports.betmgm.com/en/blog/mlb/average-game-time-in-mlb-bm23/" target="_blank" rel="noopener">2:44</a>); <a href="https://nflanalytic.com/explainer-how-long-is-an-nfl-game.html" target="_blank" rel="noopener">NFL median 3:02, halftime 14:15</a>; <a href="https://www.upintherafters.com/nfl/how-long-is-a-football-game" target="_blank" rel="noopener">NFL mean 3:03 (all 272 games, 2025)</a>; <a href="https://www.academicjobs.com/en-us/higher-education-news/how-long-is-a-college-football-game-average-326-explained-or-academicjobs-12610" target="_blank" rel="noopener">NCAAF FBS 2025 average 3:26</a>. These are averages, not guarantees — that is why the engine calls them estimates.</p>
+
+<h2>Time zone</h2>
+<p>You asked for PST. The site shows <b>true Pacific time with PST/PDT switching</b> (America/Los_Angeles). A fixed PST (UTC−8) view would misstate summer game times by an hour (a 1:05 PM PDT Giants first pitch would appear as 12:05 PM), which would corrupt your planning. Winter dates are exactly PST as requested.</p>
+
+<h2>Where the data comes from</h2>
+<ul class="clean">
+<li><b>MLB 2026 &amp; 2027:</b> the official MLB Stats API (<code>statsapi.mlb.com/api/v1/schedule</code>), fetched by a scheduled GitHub Actions job (<code>.github/workflows/fetch-schedules.yml</code>). Every verified row links to the official gameday page. 2027 counts: 2,430 regular (all with dates) + 469 spring + 5 exhibitions + the July 13 All-Star Game. Opening Night Mar 24, Opening Day Mar 25, final day Sep 26, 2027 — matches MLB's announcement.</li>
+<li><b>MLB 2027 TBD times:</b> 678 games carry the API's placeholder clock (00:00–08:59 ET — impossible). Their dates stay official; the times are re-estimated from each club's verified 2026 median first pitch for that weekday class, flagged <span class="chip ESTIMATED-TIME">ESTIMATED-TIME</span>.</li>
+<li><b>NFL 2026:</b> official NFL schedule pages (linked per row); values read from the ESPN public feed (a trusted mirror of the official schedule, because the NFL's own API requires credentials). Stanford/Cal 2026 read from ESPN's feed and cross-checked row-for-row against gostanford.com and calbears.com — the two agree.</li>
+<li><b>Westwood One:</b> westwoodonesports.com/nfl-schedule fetched live on 2026-11-25 (35 broadcasts through Jan 10, 2027, incl. two 49ers games).</li>
+<li><b>2027 MLB postseason:</b> not announced yet (official API returns none) — estimated from the verified 2026 spacing (Wild Card +2…+4 days after the last regular day, DS +6…+13, LCS +14…+22, World Series +26…+31), flagged.</li>
+<li><b>2028 &amp; 2029 MLB:</b> confirmed not released (API returns zero). Estimated by shifting the <i>official 2027 schedule</i> +364 days (2028) and +728 days (2029) — 52-week cycles preserve weekday patterns, weekend series, the All-Star break and holiday series. Home/away may change in the real release; every row is flagged ESTIMATE.</li>
+<li><b>NFL 2027–2029:</b> confirmed not released. Estimated from two verified anchors: Week 1 is the Thursday after Labor Day, and the Super Bowl lands 157 days after Week-1 Thursday (held every season 2023–2027 and matches the verified Super Bowl LXI date, Feb 14, 2027, SoFi Stadium, Westwood One radio).</li>
+<li><b>NCAAF 2027–2029:</b> confirmed not released. Anchored on announced non-conference matchups (Vanderbilt/Notre Dame for Stanford; UCLA/Wisconsin/Minnesota/Wyoming/SJSU/Fresno State for Cal) + a standard 12-game Saturday slate + the Big Game pattern (Saturday before Thanksgiving, alternating venue; 2026 verified at Cal).</li>
+</ul>
+
+<h2>Verification rules honored</h2>
+<ul class="clean">
+<li>Every table row that is presented as fact carries a source link to an official (or, where noted, official-mirroring) page.</li>
+<li>If a value could not be confirmed from an official source, the source link is left blank and the row is flagged ESTIMATE/PARTIAL-VERIFIED — never silently filled.</li>
+<li>TBD times are estimated (as you instructed) but flagged, never shown as official.</li>
+</ul>
+
+<h2>Pipeline (reproducible)</h2>
+<p><code>scripts/fetch_official_schedules.py</code> (GitHub Actions, weekly + on demand) → <code>data/raw/</code> → <code>scripts/build_data.py</code> (curate, Pacific conversion, placeholder detection) → <code>scripts/build_estimates.py</code> (flagged estimates) → <code>scripts/build_windows.py</code> (free-time engine) → <code>data/site/*.json</code> → this site. Any session can re-run the chain end to end.</p>
+</main>
+<footer>Freetime4 · see also <a href="flagged.html">Flagged for Review</a> and <a href="sources.html">Sources</a>.</footer>
+</body></html>

@@ -1,9 +1,9 @@
 {
- "generated": "2026-11-25 06:17 PST",
+ "generated": "2026-11-25 06:28 PST",
  "timezone": "America/Los_Angeles (PST/PDT as applicable \u2014 true Pacific time shown)",
  "counts": {
-  "2026": 3349,
-  "2027": 2959
+  "2026": 3301,
+  "2027": 2957
  },
  "sources": {
   "MLB": "MLB Stats API https://statsapi.mlb.com/api/v1/schedule (official MLB); per-row link https://www.mlb.com/gameday/{gamePk}",
