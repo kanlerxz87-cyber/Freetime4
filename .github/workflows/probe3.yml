@@ -1,0 +1,12 @@
+name: probe3
+on: {workflow_dispatch: {}, push: {paths: ["scripts/probe3.py", ".github/workflows/probe3.yml"]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/probe3.py
+      - run: |
+          git config user.name c; git config user.email c@x
+          git add -A data; git commit -q -m "probe3" || true; git push -q || true
