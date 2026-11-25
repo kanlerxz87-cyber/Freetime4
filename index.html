@@ -13,13 +13,9 @@
     <div class="brand">FREETIME4 <span class="site-tag">&middot; Free Time Vacation Planner</span></div>
     <nav>
       <ul>
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="#planner">Live planner (docs/)</a></li>
+        <li><a href="#detail">Detail pages</a></li>
         <li><a href="executive-summary.html">Executive Summary</a></li>
-        <li><a href="free-time.html">Free-Time Calendar</a></li>
-        <li><a href="mlb.html">MLB</a></li>
-        <li><a href="nfl.html">NFL</a></li>
-        <li><a href="ncaaf.html">NCAAF (Stanford / Cal)</a></li>
-        <li><a href="westwood-one.html">Westwood One Radio</a></li>
         <li><a href="flagged-review.html">Flagged for Review</a></li>
       </ul>
     </nav>
@@ -29,143 +25,87 @@
 <div class="container">
   <section class="hero">
     <h1>When is it free to take a vacation?</h1>
-    <p>Plan your getaway around live sports on the radio in the San Francisco Bay Area (outer sunset, 94122). A minute is "free" when <strong>none</strong> of these are on air: MLB (Giants &amp; A's high priority; all 30 clubs shown), NFL (49ers preseason/regular/postseason; all NFL), Stanford NCAAF, Cal NCAAF, and Westwood One national NFL radio broadcasts.</p>
+    <p>Plan your getaway around live sports on the radio in the San Francisco Bay Area (outer sunset, 94122). A minute is <strong>free</strong> when <strong>none</strong> of these are on air: <strong>MLB</strong> (Giants &amp; A's high priority; all 30 clubs shown), <strong>NFL</strong> (49ers preseason/regular/postseason; all NFL), <strong>Stanford NCAAF</strong>, <strong>Cal NCAAF</strong>, and <strong>Westwood One national NFL radio broadcasts</strong>.</p>
+  </div>
+
+  <div class="section" id="planner">
+    <h2>Live planner — day-by-day scoreboard</h2>
+    <p>The published planner (day navigation, schedule tables, vacation-horizon overview, sources, review register) lives under <code>docs/</code>:</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Free-time scoreboard</h3>
+        <p>Day navigation (yesterday / today / tomorrow) with availability state.</p>
+        <a class="button" href="docs/scoreboard.html">Open scoreboard &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Games table</h3>
+        <p>NFL, 49ers, Stanford, Cal, Westwood One games with source links.</p>
+        <a class="button" href="docs/games.html">Open games table &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Vacation windows</h3>
+        <p>Estimated best vacation windows for 2027&ndash;2029.</p>
+        <a class="button" href="docs/vacation.html">Open vacation windows &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Sources &amp; flagged items</h3>
+        <p>Official sources and the Flagged for Review register.</p>
+        <a class="button" href="docs/sources.html">Open sources &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="detail">
+    <h2>Detail pages (this branch)</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Executive Summary</h3>
+        <p>Best estimated vacation windows, verified schedule status, and what "free" means.</p>
+        <a class="button" href="executive-summary.html">View &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Free-Time Calendar (PST)</h3>
+        <p>Click yesterday / today / tomorrow or pick any date to see exact free-time windows.</p>
+        <a class="button" href="free-time.html">View calendar &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>MLB</h3>
+        <p>Giants and A's high priority; all 30 MLB clubs with official schedule links.</p>
+        <a class="button" href="mlb.html">View &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>NFL</h3>
+        <p>49ers 2026 verified schedule plus all NFL season windows.</p>
+        <a class="button" href="nfl.html">View &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>NCAAF (Stanford / Cal)</h3>
+        <p>Stanford 2026 verified schedule and Cal.</p>
+        <a class="button" href="ncaaf.html">View &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Westwood One Radio</h3>
+        <p>National NFL radio broadcasts on Bay Area AM/FM affiliates.</p>
+        <a class="button" href="westwood-one.html">View &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Flagged for Review</h3>
+        <p>Unverified items and estimates needing manual review.</p>
+        <a class="button" href="flagged-review.html">View &rarr;</a>
+      </div>
+    </div>
   </div>
 
   <div class="section">
-    <h2>Executive Summary</h2>
+    <h2>Verification note</h2>
     <div class="callout info">
-      <strong>Bottom line:</strong> There are no fully verified MLB, NFL, or NCAAF schedules for 2027, 2028, or 2029 yet — those have not been officially released. Everything below for 2027&ndash;2029 is an <strong>estimate</strong> based on typical calendar patterns and is <strong>not</strong> a verified released schedule. Verified 2026 data comes from official MLB.com, NFL.com/49ers.com, gostanford.com, calfootball.com, and Westwood One sources (linked on each page).
+      <strong>2027&ndash;2029 schedules are not officially released</strong> (as of 2026-11-25). Values for those years are estimates based on typical patterns, <strong>not</strong> verified schedules. Unverified values are left blank and flagged; nothing was inferred or filled in. See the Flagged for Review pages on both the detail section and under <code>docs/</code>.
     </div>
-
-    <h3>Best estimated vacation windows (2027 &ndash; 2029)</h3>
-    <p>These are <strong>estimates only</strong>. Look for stretches with no MLB, no NFL (49ers + all clubs), no Stanford/Cal football, and no Westwood One national NFL radio broadcast.</p>
-    <table>
-      <thead><tr><th>Year</th><th>Estimated free window</th><th>Why it's typically free</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong>2027</strong></td>
-          <td>Mid-February &ndash; late March (after Super Bowl LXI, before MLB Opening Day)</td>
-          <td>NFL season over; MLB regular season not yet started; NCAAF season over.</td>
-          <td><span class="badge badge-estimate">ESTIMATE</span></td>
-        </tr>
-        <tr>
-          <td><strong>2027</strong></td>
-          <td>Early February &ndash; early March (post-Super Bowl, pre-spring-training radio)</td>
-          <td>NFL postseason complete; MLB regular season not yet started.</td>
-          <td><span class="badge badge-estimate">ESTIMATE</span></td>
-        </tr>
-        <tr>
-          <td><strong>2027</strong></td>
-          <td>Late September &ndash; early November (after MLB regular season, before NFL/NCAAF peak)</td>
-          <td>MLB regular season ends ~late Sept; NFL/NCAAF ramping up in October.</td>
-          <td><span class="badge badge-estimate">ESTIMATE</span></td>
-        </tr>
-        <tr>
-          <td><strong>2028</strong></td>
-          <td>Mid-February &ndash; late March</td>
-          <td>Same pattern as 2027 &mdash; between Super Bowl and MLB Opening Day.</td>
-          <td><span class="badge badge-estimate">ESTIMATE</span></td>
-        </tr>
-        <tr>
-          <td><strong>2028</strong></td>
-          <td>Late September &ndash; early November</td>
-          <td>Same pattern as 2027.</td>
-          <td><span class="badge badge-estimate">ESTIMATE</span></td>
-        </tr>
-        <tr>
-          <td><strong>2029</strong></td>
-          <td>Mid-February &ndash; late March</td>
-          <td>Same pattern as 2027/2028.</td>
-          <td><span class="badge badge-estimate">ESTIMATE</span></td>
-        </tr>
-        <tr>
-          <td><strong>2029</strong></td>
-          <td>Late September &ndash; early November</td>
-          <td>Same pattern as 2027/2028.</td>
-          <td><span class="badge badge-estimate">ESTIMATE</span></td>
-        </tr>
-        <tr>
-          <td><strong>2026 (remainder)</strong></td>
-          <td>Late November &ndash; December</td>
-          <td>MLB offseason. NFL regular season + playoffs and NCAAF bowls run through January &mdash; <strong>not</strong> fully free.</td>
-          <td><span class="badge badge-verified">PARTIALLY VERIFIED</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="section">
-    <h3>What "free" means</h3>
-    <ul>
-      <li><strong>Free:</strong> no live MLB, NFL, Stanford NCAAF, Cal NCAAF, or Westwood One national NFL radio broadcast on air.</li>
-      <li><strong>Not free (busy):</strong> any of the above games being broadcast live over the radio in the SF Bay Area.</li>
-      <li><strong>High priority:</strong> San Francisco Giants, Oakland Athletics, San Francisco 49ers, Stanford Cardinal, Cal Golden Bears &mdash; plus every MLB club and every NFL game shown.</li>
-      <li><strong>Timezone:</strong> PST / PDT (Pacific). All game times shown in Pacific.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3>Estimated game durations used for free-time windows</h3>
-    <table>
-      <thead><tr><th>Sport</th><th>Est. game length</th><th>Halftime</th><th>Note</th></tr></thead>
-      <tbody>
-        <tr><td>MLB</td><td>~165 min (150&ndash;180)</td><td>&mdash;</td><td>Estimated average; not from an official source.</td></tr>
-        <tr><td>NFL</td><td>~180 min</td><td>12&ndash;15 min</td><td>Estimated average broadcast length.</td></tr>
-        <tr><td>NCAAF</td><td>~180 min</td><td>~20 min</td><td>Estimated average broadcast length.</td></tr>
-        <tr><td>Westwood One NFL radio</td><td>~180 min</td><td>follows NFL</td><td>National radio broadcast timing.</td></tr>
-      </tbody>
-    </table>
-    <p class="small">Durations are estimates to compute free-time windows. They are not official schedule values. Flagged for review on the Flagged for Review page.</p>
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Free-Time Calendar</h3>
-      <p>Click through any day, yesterday or tomorrow, to see exact free-time windows in PST.</p>
-      <a class="button" href="free-time.html">Open calendar &rarr;</a>
-    </div>
-    <div class="card">
-      <h3>MLB</h3>
-      <p>Giants and A's flagged high priority; all 30 MLB clubs shown with official schedule links.</p>
-      <a class="button" href="mlb.html">View MLB &rarr;</a>
-    </div>
-    <div class="card">
-      <h3>NFL</h3>
-      <p>49ers preseason/regular/postseason (high priority) plus all NFL games.</p>
-      <a class="button" href="nfl.html">View NFL &rarr;</a>
-    </div>
-    <div class="card">
-      <h3>NCAAF</h3>
-      <p>Stanford and Cal football (high priority).</p>
-      <a class="button" href="ncaaf.html">View NCAAF &rarr;</a>
-    </div>
-    <div class="card">
-      <h3>Westwood One Radio</h3>
-      <p>National NFL radio broadcasts (TNF, SNF, MNF, postseason) on Bay Area AM/FM affiliates.</p>
-      <a class="button" href="westwood-one.html">View Westwood One &rarr;</a>
-    </div>
-    <div class="card">
-      <h3>Flagged for Review</h3>
-      <p>Unverified items and estimates that need your manual review.</p>
-      <a class="button" href="flagged-review.html">View flagged items &rarr;</a>
-    </div>
-  </div>
-
-  <div class="section">
-    <h3>Official sources used</h3>
-    <ul class="small">
-      <li>MLB 2026 schedule release — <a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">mlb.com/news/mlb-2026-schedule-released</a></li>
-      <li>49ers 2026 schedule (official) — <a href="https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" target="_blank" rel="noopener">49ers.1rmg.com</a></li>
-      <li>Stanford 2026 football schedule (official) — <a href="https://gostanford.com/sports/football/schedule" target="_blank" rel="noopener">gostanford.com</a></li>
-      <li>Cal vs Stanford 2026 (official) — <a href="https://calfootball.com/schedule/stanford" target="_blank" rel="noopener">calfootball.com</a></li>
-      <li>Westwood One 2026 NFL coverage — <a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">westwoodonesports.com/nfl-schedule/</a></li>
-      <li>Westwood One 40th season announcement — <a href="https://www.insideradio.com/free/westwood-one-marks-40-years-of-nfl-coverage/" target="_blank" rel="noopener">insideradio.com</a></li>
-    </ul>
+    <p class="small">Two sessions contributed to this repo. The <code>docs/</code> planner is the GitHub Pages-published site (main, root). This branch adds the executive summary, per-sport detail pages, and the PST free-time calendar. Sources are linked on each page.</p>
   </div>
 
   <footer>
-    Freetime4 &middot; Data current as of 2026-11-25 (UTC). Times in Pacific (PST/PDT). Unverified values are left blank and flagged. See <a href="flagged-review.html">Flagged for Review</a>. This site is a planning aid, not an official schedule source.
+    Freetime4 &middot; Data current as of 2026-11-25 (UTC). Times in Pacific (PST/PDT). Planning aid only, not an official schedule source.
   </footer>
 </div>
 
