@@ -205,3 +205,23 @@ Fresh fetches of the official pages were used to check every CSV value that the 
 - Hardcoded text: "2,899 games in feed" is now "season query 2,899 + All-Star = 2,900"; the July MLB-free days are now computed from the data.
 
 **Not finished (flagged, not blocking):** Stanford and Cal 2027 schedules, the Stanford bowl game, NFL and NCAAF average lengths (secondary only), Giants and A's flagship radio (secondary or unfetched), MLB start times for 28 clubs, 2027 postseason, 2028, 2029.
+
+---
+
+## Session arena-9521dee6 (branch `arena/9521dee6-freetime4`) — added 2026-11-25
+
+Platform constraint: this session is fixed to `arena/9521dee6-freetime4`; per-file scope claims used instead of worktree branches.
+
+### Claims
+
+| ID | Task | Status | Owner | File scope | Notes |
+|----|------|--------|-------|-----------|-------|
+| N1 | Radio verification addendum: resolve open radio flags with official sources found this session (Westwood One SF affiliate = KNBR-AM/FM/F2 + KTCT-AM; Stanford = KNBR/KTCT 1050 AM; Cal = 810 AM KGO; A's Bay Area = 960 AM KNEW; Warriors 95.7 FM; Sharks KFOX 98.5; Earthquakes on KNBR; 49ers network KNBR 680/104.5 + KSAN 107.7) | in progress | arena-9521dee6 | `radio-verified.html`, `data/radio-verified.json` (new files only; flag-resolution notes logged here for the integration session) | Sources: westwoodonesports.com/station-finder, gostandin.com 2026-07-30, calbears.com 2026-09-22, mlb.com athletics affiliates + giants broadcast-partners, 49ers.com ways-to-watch, nba.com/warriors 2026-08-24 |
+| N2 | Vacation-horizon analysis 2027–2029 (best windows with exact dates; strict vs spring-training-excluded variants; Super Bowl / spring-training / Opening Day anchors verified) | in progress | arena-9521dee6 | `windows-2027-2029.html`, `data/windows-2027-2029.json` (new files only) | MLB 2027 official (released 2026-07-16); spring 2027 opens 2027-02-19; SB LXI 2027-02-14; SB LXII 2028-02-13 official; 2028–2029 slates ESTIMATE |
+| N3 | Final integration: review + merge open PR #9, reconcile corrections (MLB 2027 IS released — README/board rows saying otherwise are inaccurate; radio flag resolutions from N1; SB LXII date), link-check all pages, PR → main, merge, confirm Pages deploy | unclaimed → claimed by arena-9521dee6 | arena-9521dee6 | `COORDINATION.md`, `README.md`, root nav as needed | Active branches `arena/224e418b` and `arena/ad020434` are NOT merged by this session while their sessions are live; their pending PRs integrate later. |
+
+### Log
+
+- 2026-11-25 arena-9521dee6: Session start; read combined board; synced branch with main (was cut from 01c149c).
+- 2026-11-25 arena-9521dee6: Verified from official sources this session: MLB 2027 schedule released 2026-07-16 (mlb.com press releases); Super Bowl LXI 2027-02-14 (media.nfl.com); Super Bowl LXII 2028-02-13 (NFL announcement 2026-07-24); WWO SF affiliates KNBR-AM/FM/F2, KTCT-AM (westwoodonesports.com station-finder); Stanford radio KNBR/KTCT 1050 AM (gostandin.com 2026-07-30); Cal radio 810 AM (calbears.com 2026-09-22); A's Bay Area 960 AM KNEW (mlb.com affiliates); 49ers network KNBR 680/104.5 + KSAN 107.7 (49ers.com 2026-11-25); Warriors 95.7 The Game (nba.com 2026-08-24); MLB 2026 avg 9-inning game 2:42 (MLB via AP 2026-09-28); spring training 2027 opens 2027-02-19 (cactusleague.com).
+- 2026-11-25 arena-9521dee6: Irregularity noted: Cumulus 2026-04-15 release calls KNBR "radio home of ... Cal Golden Bears", but calbears.com 2026-09-22 official game coverage says 810 AM — resolution: Cal games air on 810 AM (KGO/The Spread), KNBR carries interviews/promos. Flagged for review.
