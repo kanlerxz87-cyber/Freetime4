@@ -36,27 +36,27 @@
     "band": "AM",
     "role": "Bay Area affiliate",
     "source": "https://www.sacbee.com/sports/article300334119.html",
-    "status": "Unverified (secondary only)",
+    "status": "Unverified (search snippet only; not fetched)",
     "notes": "Sacramento Bee (2025) says Bay Area games air on KNEW 960; an older 2022 listing names Bloomberg 960; the A's flagship is KSTE 650 AM in Sacramento"
   },
   {
     "entity": "Stanford football",
     "network_or_station": "Stanford Cardinal Sports Network",
-    "call_letters": "KNBR 680 AM / KNBR-FM 104.5 FM and KTCT 1050 AM",
+    "call_letters": "Not confirmed (see notes)",
     "band": "AM and FM",
-    "role": "Flagship (2026 per Inside Radio)",
-    "source": "https://www.insideradio.com/free/stanford-football-taps-two-alumni-for-2026-radio-broadcasts/article_1576291f-2466-42af-98a1-1c9676d60d46.html",
-    "status": "Conflicting (secondary)",
-    "notes": "thesportsleader.com (Stanford network page) says KNBR 1050 is home; 2013 gostanford.com page also says KNBR 1050 AM. Not resolved"
+    "role": "Network (call letters unverified)",
+    "source": "https://gostanford.com/sports/football/schedule",
+    "status": "Unverified (call letters)",
+    "notes": "gostanford.com schedule page links audio to thesportsleader.com (fetched). Station call letters are not confirmed by a fetched page. Search results conflict (KNBR 680 / 104.5 with KTCT 1050 per Inside Radio; KNBR 1050 per an older source)."
   },
   {
     "entity": "California (Cal) football",
     "network_or_station": "Cal Bears Sports Network (The Varsity Network)",
-    "call_letters": "810 AM (call letters conflict)",
-    "band": "AM",
-    "role": "Flagship",
-    "source": "https://calbears.com/documents/download/2026/9/15/26FB_Cal-GameNotes_WAGNER.pdf",
-    "status": "Verified frequency (official game notes); call letters conflict",
-    "notes": "Official game notes say 810 AM; BVM Sports (2026) says KSFO 810 AM; 2007 Cal page says KGO 810 AM"
+    "call_letters": "Not confirmed",
+    "band": "Not confirmed",
+    "role": "Live audio (network unverified as flagship)",
+    "source": "https://calbears.com/sports/football/schedule/2026",
+    "status": "Partly verified (live audio source only)",
+    "notes": "calbears.com schedule page links live audio to The Varsity Network (fetched). Frequency and call letters (810 AM; KGO or KSFO) appear only in search results and are not used."
   }
 ]

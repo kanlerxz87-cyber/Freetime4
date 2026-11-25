@@ -118,7 +118,7 @@
           "tbd": false,
           "priority": "High",
           "url": "https://gostanford.com/sports/football/schedule",
-          "note": "Radio flagship conflicting (see radio.csv)"
+          "note": ""
         },
         {
           "date": "2026-11-28",
@@ -130,7 +130,7 @@
           "tbd": false,
           "priority": "High",
           "url": "https://calbears.com/sports/football/schedule/2026",
-          "note": "Radio: 810 AM / The Varsity Network (call letters conflict; see flagged)"
+          "note": "Live audio: The Varsity Network (calbears.com)"
         }
       ]
     },

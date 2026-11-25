@@ -182,3 +182,26 @@ This session built the **calendar site** in `calendar-site/` and its data build 
 - PR: _recorded after opening_
 - Merge result: _recorded after merge_
 - GitHub Pages: _recorded after deploy check_
+
+### Re-verification before merge (7fca3e35)
+
+Fresh fetches of the official pages were used to check every CSV value that the site shows as verified.
+
+- **49ers 2026** (49ers.com/schedule, chunks 0–2): all past results (preseason and Weeks 1–11), the Week 8 bye, and the Week 12–18 dates, times and networks match `calendar-site/src/nfl_ncaaf.csv`. Radio "KSAN 107.7 FM / KNBR 104.5 FM / 680 AM" is on each game listing.
+- **Westwood One NFL** (westwoodonesports.com/nfl-schedule, chunks 0–1): all 35 events match `westwood_one_nfl_radio.csv` for date, ET time, matchup, venue and event ID.
+  - Conflicts kept as flags: Dec 17 (49ers.com 5:15 PM PST vs Westwood 7:30 PM ET) and Jan 3 (49ers.com 5:20 PM PST vs Westwood 7:30 PM ET).
+- **Stanford 2026** (gostanford.com/sports/football/schedule, chunks 0–1): all 11 results from Aug 29 to Nov 21 match, and box-score IDs 27043–27053 appear on the page. Nov 28 vs SMU: 12:30 PM PST, home. Radio: the page links audio to thesportsleader.com; call letters not confirmed.
+  - The recap slug "stanford-secures-bowl-berth-with-big-game-win" is kept as a flag only; the article was not fetched.
+- **Cal 2026** (calbears.com/sports/football/schedule/2026, chunks 0–1): all 10 results from Sep 19 to Nov 21 match, and box-score IDs 38593–38601 appear on the page. Nov 28 vs Pittsburgh: 4:30 PM, home, live audio on The Varsity Network. The list starts Sep 19.
+  - Changed: the Sep 25 Clemson kickoff time and ESPN TV listing are not on the page, so they are blank. The "810 AM" frequency and call letters are not on the page, so they are unverified.
+- **MLB average game time** 2:38 (2025): confirmed on the mlb.com article.
+
+**Removed or corrected (no fetched support):**
+- WriteForCalifornia "Cal at Syracuse Sep 12" (conflict claim removed).
+- BVM Sports "KSFO 810" and TrendGoals Super Bowl date (removed; search results only).
+- Cal media portal and game-notes PDF labelled "Verified" (never fetched; removed from the verified list).
+- Stanford radio "KNBR 1050 is home" attributed to thesportsleader.com (not fetched; reworded as an unresolved conflict).
+- Super Bowl LXI date: not verified from an official source; left as a flag.
+- Hardcoded text: "2,899 games in feed" is now "season query 2,899 + All-Star = 2,900"; the July MLB-free days are now computed from the data.
+
+**Not finished (flagged, not blocking):** Stanford and Cal 2027 schedules, the Stanford bowl game, NFL and NCAAF average lengths (secondary only), Giants and A's flagship radio (secondary or unfetched), MLB start times for 28 clubs, 2027 postseason, 2028, 2029.

@@ -14,7 +14,7 @@
   {
     "source": "MLB Stats API: 2027 schedule feed",
     "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027",
-    "used_for": "League daily counts, 2,899 games in feed",
+    "used_for": "Season query 2,899 games; plus All-Star Game (date query) = 2,900",
     "status": "Verified"
   },
   {
@@ -84,22 +84,10 @@
     "status": "Verified"
   },
   {
-    "source": "Cal football media portal 2026",
-    "url": "https://calbears.com/sports/2026/8/6/2026-california-football-media-portal",
-    "used_for": "Sep 25 kickoff, 810 AM",
-    "status": "Verified"
-  },
-  {
-    "source": "Cal football game notes (Wagner, Sep 2026)",
-    "url": "https://calbears.com/documents/download/2026/9/15/26FB_Cal-GameNotes_WAGNER.pdf",
-    "used_for": "810 AM, Varsity Network",
-    "status": "Verified"
-  },
-  {
-    "source": "thesportsleader.com Stanford page",
+    "source": "thesportsleader.com Stanford page (link on gostanford.com)",
     "url": "https://www.thesportsleader.com/stanfordfootball/",
-    "used_for": "Stanford radio (conflicts)",
-    "status": "Conflicting"
+    "used_for": "Audio link only; page not fetched",
+    "status": "Link only"
   },
   {
     "source": "Inside Radio: Stanford 2026 radio",
@@ -132,34 +120,16 @@
     "status": "Secondary"
   },
   {
-    "source": "Stanford news: bowl berth (Nov 21, 2026)",
+    "source": "Stanford recap link slug (Nov 21, 2026)",
     "url": "https://gostanford.com/news/2026/11/21/stanford-secures-bowl-berth-with-big-game-win",
-    "used_for": "Bowl berth reported (URL title only)",
+    "used_for": "Link slug on gostanford.com schedule page reads bowl berth; article not fetched",
     "status": "Secondary"
   },
   {
-    "source": "Super Bowl LXI host committee",
+    "source": "Super Bowl LXI page (search result only)",
     "url": "https://lasuperbowlhc.com/",
-    "used_for": "Feb 14, 2027 at SoFi (unverified)",
-    "status": "Secondary"
-  },
-  {
-    "source": "WriteForCalifornia: Cal at Syracuse",
-    "url": "https://writeforcalifornia.com/p/how-to-watch-cal-v-syracuse-college-football-live-tv-channel-acc-network-2026",
-    "used_for": "Conflicts with Cal schedule",
+    "used_for": "Not fetched; not used",
     "status": "Not used"
-  },
-  {
-    "source": "BVM Sports: Cal vs Pitt",
-    "url": "https://bvmsports.com/2026/11/24/cal-football-vs-pitt-11-28-26/",
-    "used_for": "KSFO 810 claim (conflicts)",
-    "status": "Secondary"
-  },
-  {
-    "source": "TrendGoals: Super Bowl LXI",
-    "url": "https://www.trendgoals.com/super-bowl-lxi-2027-date/",
-    "used_for": "Date (secondary)",
-    "status": "Secondary"
   },
   {
     "source": "RADIOSF prior-work site",

@@ -74,8 +74,8 @@
   {
     "id": "F10",
     "area": "NFL",
-    "item": "Super Bowl LXI (Feb 14, 2027, SoFi Stadium)",
-    "issue": "Date and venue confirmed only by secondary sources and the host committee page. Westwood One radio carriage is also secondary. Not added to the calendar.",
+    "item": "Super Bowl LXI date and venue (not verified)",
+    "issue": "Not confirmed from an official NFL or Westwood One page in this build; the date appears only in secondary search results (not fetched). Not added to the calendar.",
     "status": "Unverified",
     "source": "https://lasuperbowlhc.com/"
   },
@@ -83,31 +83,23 @@
     "id": "F11",
     "area": "NCAAF",
     "item": "Stanford bowl game",
-    "issue": "Stanford's news page reports a bowl berth (URL title). Opponent, date and time are not published in the sources reached. Dec to Jan windows are not verified for Stanford.",
+    "issue": "The recap link on the fetched gostanford.com schedule page has a slug reading 'secures bowl berth'. The article was not fetched. Bowl opponent, date and time are not published in any fetched source, so Stanford Dec to Jan windows are not verified.",
     "status": "Not published",
     "source": "https://gostanford.com/news/2026/11/21/stanford-secures-bowl-berth-with-big-game-win"
   },
   {
-    "id": "F12",
-    "area": "NCAAF",
-    "item": "Cal 2026 season start (Syracuse, Sep 12)",
-    "issue": "WriteForCalifornia says Cal played at Syracuse on Sep 12. Cal's official schedule lists Wagner on Sep 19 as the first game. Not used.",
-    "status": "Conflict",
-    "source": "https://writeforcalifornia.com/p/how-to-watch-cal-v-syracuse-college-football-live-tv-channel-acc-network-2026"
-  },
-  {
     "id": "F13",
     "area": "NCAAF",
-    "item": "Cal radio call letters (810 AM)",
-    "issue": "Official game notes say 810 AM. BVM Sports (2026) says KSFO 810 AM. A 2007 Cal page says KGO 810 AM. Frequency is verified; call letters are not.",
-    "status": "Conflict",
-    "source": "https://calbears.com/documents/download/2026/9/15/26FB_Cal-GameNotes_WAGNER.pdf"
+    "item": "Cal radio frequency and call letters",
+    "issue": "The fetched calbears.com schedule page links live audio to The Varsity Network and gives no frequency. The 810 AM frequency and the call letters (KGO or KSFO) appear only in search results. Not used.",
+    "status": "Unverified",
+    "source": "https://calbears.com/sports/football/schedule/2026"
   },
   {
     "id": "F14",
     "area": "NCAAF",
     "item": "Stanford radio flagship",
-    "issue": "thesportsleader.com and a 2013 Stanford page say KNBR 1050 AM. Inside Radio (2026) says KNBR 680 AM / 104.5 FM and KTCT 1050 AM. Not resolved.",
+    "issue": "A 2013 Stanford page (search result, not fetched) says KNBR 1050 AM. Inside Radio (search result, not fetched) says KNBR 680 AM / 104.5 FM and KTCT 1050 AM. Not resolved; thesportsleader.com (audio link on the fetched gostanford.com page) was not fetched.",
     "status": "Conflict",
     "source": "https://www.insideradio.com/free/stanford-football-taps-two-alumni-for-2026-radio-broadcasts/article_1576291f-2466-42af-98a1-1c9676d60d46.html"
   },

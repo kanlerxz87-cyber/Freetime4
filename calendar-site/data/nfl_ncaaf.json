@@ -456,10 +456,10 @@
     "home_away": "Home",
     "result": "",
     "status": "Upcoming",
-    "broadcast": "Radio flagship conflicting (see radio.csv)",
+    "broadcast": "",
     "venue": "",
     "source": "https://gostanford.com/sports/football/schedule",
-    "notes": "Stanford site lists 12:30 PM PST; conflicting radio flagship reports"
+    "notes": "Kickoff 12:30 PM PST on gostanford.com; radio not confirmed"
   },
   {
     "league": "NCAAF",
@@ -470,24 +470,24 @@
     "home_away": "Home",
     "result": "W 49-7",
     "status": "Final",
-    "broadcast": "Radio: 810 AM / The Varsity Network",
+    "broadcast": "Live audio: The Varsity Network (calbears.com)",
     "venue": "Berkeley Calif.",
     "source": "https://calbears.com/boxscore.aspx?id=38593",
-    "notes": ""
+    "notes": "Time from calbears.com ticket listing (12:30 PM)"
   },
   {
     "league": "NCAAF",
     "team": "California",
     "date_pt": "2026-09-25",
-    "time_pt": "19:30",
+    "time_pt": "",
     "opponent": "Clemson",
     "home_away": "Home",
     "result": "L 10-24",
     "status": "Final",
-    "broadcast": "TV: ESPN",
+    "broadcast": "",
     "venue": "Berkeley Calif.",
-    "source": "https://calbears.com/sports/2026/8/6/2026-california-football-media-portal",
-    "notes": "Kickoff from Cal media portal"
+    "source": "https://calbears.com/boxscore.aspx?id=38594",
+    "notes": "Kickoff and TV not on fetched page (left blank)"
   },
   {
     "league": "NCAAF",
@@ -596,9 +596,9 @@
     "home_away": "Home",
     "result": "",
     "status": "Upcoming",
-    "broadcast": "Radio: 810 AM / The Varsity Network (call letters conflict; see flagged)",
+    "broadcast": "Live audio: The Varsity Network (calbears.com)",
     "venue": "Berkeley Calif.",
     "source": "https://calbears.com/sports/football/schedule/2026",
-    "notes": ""
+    "notes": "Kickoff 4:30 PM on calbears.com"
   }
 ]

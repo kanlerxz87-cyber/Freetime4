@@ -45,8 +45,6 @@ SRC_49 = "https://www.49ers.com/schedule/"
 SRC_MLB_ATT = "https://www.mlb.com/news/mlb-increased-attendance-3rd-straight-season"
 SRC_GS_SCHED = "https://gostanford.com/sports/football/schedule"
 SRC_CAL_SCHED = "https://calbears.com/sports/football/schedule/2026"
-SRC_CAL_MEDIA = "https://calbears.com/sports/2026/8/6/2026-california-football-media-portal"
-SRC_CAL_NOTES = "https://calbears.com/documents/download/2026/9/15/26FB_Cal-GameNotes_WAGNER.pdf"
 SRC_SPORTSLEADER = "https://www.thesportsleader.com/stanfordfootball/"
 SRC_INSIDERADIO = ("https://www.insideradio.com/free/stanford-football-taps-two-alumni-for-2026-radio-broadcasts/"
                    "article_1576291f-2466-42af-98a1-1c9676d60d46.html")
@@ -56,9 +54,6 @@ SRC_NFL_DUR = "https://nflanalytic.com/explainer-how-long-is-an-nfl-game.html"
 SRC_NCAA_DUR = ("https://www.academicjobs.com/en-us/higher-education-news/"
                 "how-long-is-a-college-football-game-average-326-explained-academicjobs-12610")
 SRC_STANFORD_BOWL = "https://gostanford.com/news/2026/11/21/stanford-secures-bowl-berth-with-big-game-win"
-SRC_WRITEFORCAL = "https://writeforcalifornia.com/p/how-to-watch-cal-v-syracuse-college-football-live-tv-channel-acc-network-2026"
-SRC_BVM = "https://bvmsports.com/2026/11/24/cal-football-vs-pitt-11-28-26/"
-SRC_TRENDGOALS = "https://www.trendgoals.com/super-bowl-lxi-2027-date/"
 SRC_LASB = "https://lasuperbowlhc.com/"
 
 
@@ -291,20 +286,17 @@ FLAGS = [
     ("F09", "NFL", "2027 NFL regular season, preseason, and playoffs",
      "Not published in fetched sources. Westwood One list ends Jan 10, 2027.",
      "Not published", SRC_WW),
-    ("F10", "NFL", "Super Bowl LXI (Feb 14, 2027, SoFi Stadium)",
-     "Date and venue confirmed only by secondary sources and the host committee page. Westwood One radio carriage is also secondary. Not added to the calendar.",
+    ("F10", "NFL", "Super Bowl LXI date and venue (not verified)",
+     "Not confirmed from an official NFL or Westwood One page in this build; the date appears only in secondary search results (not fetched). Not added to the calendar.",
      "Unverified", SRC_LASB),
     ("F11", "NCAAF", "Stanford bowl game",
-     "Stanford's news page reports a bowl berth (URL title). Opponent, date and time are not published in the sources reached. Dec to Jan windows are not verified for Stanford.",
+     "The recap link on the fetched gostanford.com schedule page has a slug reading 'secures bowl berth'. The article was not fetched. Bowl opponent, date and time are not published in any fetched source, so Stanford Dec to Jan windows are not verified.",
      "Not published", SRC_STANFORD_BOWL),
-    ("F12", "NCAAF", "Cal 2026 season start (Syracuse, Sep 12)",
-     "WriteForCalifornia says Cal played at Syracuse on Sep 12. Cal's official schedule lists Wagner on Sep 19 as the first game. Not used.",
-     "Conflict", SRC_WRITEFORCAL),
-    ("F13", "NCAAF", "Cal radio call letters (810 AM)",
-     "Official game notes say 810 AM. BVM Sports (2026) says KSFO 810 AM. A 2007 Cal page says KGO 810 AM. Frequency is verified; call letters are not.",
-     "Conflict", SRC_CAL_NOTES),
+    ("F13", "NCAAF", "Cal radio frequency and call letters",
+     "The fetched calbears.com schedule page links live audio to The Varsity Network and gives no frequency. The 810 AM frequency and the call letters (KGO or KSFO) appear only in search results. Not used.",
+     "Unverified", SRC_CAL_SCHED),
     ("F14", "NCAAF", "Stanford radio flagship",
-     "thesportsleader.com and a 2013 Stanford page say KNBR 1050 AM. Inside Radio (2026) says KNBR 680 AM / 104.5 FM and KTCT 1050 AM. Not resolved.",
+     "A 2013 Stanford page (search result, not fetched) says KNBR 1050 AM. Inside Radio (search result, not fetched) says KNBR 680 AM / 104.5 FM and KTCT 1050 AM. Not resolved; thesportsleader.com (audio link on the fetched gostanford.com page) was not fetched.",
      "Conflict", SRC_INSIDERADIO),
     ("F15", "NCAAF", "Stanford and Cal 2027 schedules",
      "Not published. No 2027 college data in the repository.",
@@ -345,7 +337,7 @@ FLAGS = [
 SOURCES = [
     ("MLB Stats API: teams (30 clubs)", SRC_TEAMS, "Club IDs and names", "Verified"),
     ("MLB Stats API: 2027 season dates", SRC_SEASON, "Regular season, All-Star, postseason dates", "Verified"),
-    ("MLB Stats API: 2027 schedule feed", SRC_FEED, "League daily counts, 2,899 games in feed", "Verified"),
+    ("MLB Stats API: 2027 schedule feed", SRC_FEED, "Season query 2,899 games; plus All-Star Game (date query) = 2,900", "Verified"),
     ("MLB Stats API: Giants 2027", SRC_GIANTS, "194 entries", "Verified"),
     ("MLB Stats API: Athletics 2027", SRC_ATH, "193 entries", "Verified"),
     ("MLB Stats API: All-Star date query", SRC_ALLSTAR, "2027-07-13 All-Star Game", "Verified"),
@@ -357,19 +349,14 @@ SOURCES = [
     ("49ers.com schedule", SRC_49, "49ers 2026 games and radio stations", "Verified"),
     ("Stanford football schedule", SRC_GS_SCHED, "Stanford 2026 games and results", "Verified"),
     ("Cal football schedule 2026", SRC_CAL_SCHED, "Cal 2026 games and results", "Verified"),
-    ("Cal football media portal 2026", SRC_CAL_MEDIA, "Sep 25 kickoff, 810 AM", "Verified"),
-    ("Cal football game notes (Wagner, Sep 2026)", SRC_CAL_NOTES, "810 AM, Varsity Network", "Verified"),
-    ("thesportsleader.com Stanford page", SRC_SPORTSLEADER, "Stanford radio (conflicts)", "Conflicting"),
+    ("thesportsleader.com Stanford page (link on gostanford.com)", SRC_SPORTSLEADER, "Audio link only; page not fetched", "Link only"),
     ("Inside Radio: Stanford 2026 radio", SRC_INSIDERADIO, "Stanford radio (secondary)", "Secondary"),
     ("Sacramento Bee: A's radio", SRC_SACBEE, "A's Bay Area station (secondary)", "Secondary"),
     ("visualfoodie: Giants broadcast 2026", SRC_VISUALFOODIE, "Giants KNBR (secondary)", "Secondary"),
     ("nflanalytic: NFL game length", SRC_NFL_DUR, "NFL median 3:02 (secondary)", "Secondary"),
     ("academicjobs: college football length", SRC_NCAA_DUR, "NCAAF 3:26 (secondary)", "Secondary"),
-    ("Stanford news: bowl berth (Nov 21, 2026)", SRC_STANFORD_BOWL, "Bowl berth reported (URL title only)", "Secondary"),
-    ("Super Bowl LXI host committee", SRC_LASB, "Feb 14, 2027 at SoFi (unverified)", "Secondary"),
-    ("WriteForCalifornia: Cal at Syracuse", SRC_WRITEFORCAL, "Conflicts with Cal schedule", "Not used"),
-    ("BVM Sports: Cal vs Pitt", SRC_BVM, "KSFO 810 claim (conflicts)", "Secondary"),
-    ("TrendGoals: Super Bowl LXI", SRC_TRENDGOALS, "Date (secondary)", "Secondary"),
+    ("Stanford recap link slug (Nov 21, 2026)", SRC_STANFORD_BOWL, "Link slug on gostanford.com schedule page reads bowl berth; article not fetched", "Secondary"),
+    ("Super Bowl LXI page (search result only)", SRC_LASB, "Not fetched; not used", "Not used"),
     ("RADIOSF prior-work site", "https://buffedlizard55-lab.github.io/RADIOSF/#2026-09-27", "Not used", "Fetch failed"),
     ("mlb.com Giants radio page", "https://www.mlb.com/giants/fans/radio", "Not used", "Fetch failed"),
     ("mlb.com A's radio page", "https://www.mlb.com/athletics/fans/radio", "Not used", "Fetch failed"),
@@ -483,7 +470,7 @@ index_body = f"""
 <h2>Executive summary</h2>
 <div class="cards">
 <div class="card ok"><div class="big">{len(longest)} days</div><b>Longest MLB-free stretch verified</b><p>No MLB game on any day from <b>{longest[0].strftime('%b %-d, %Y')}</b> to <b>{longest[-1].strftime('%b %-d, %Y')}</b> (all 30 clubs; Stats API). NFL national radio games fall inside this span until Jan 10, 2027, so it is not NFL-free.</p></div>
-<div class="card warn"><div class="big">{len(jul_days)} single days</div><b>In-season MLB-free days in 2027</b><p>Only <b>Jul 12</b> and <b>Jul 14</b>, 2027. Jul 13 has the All-Star Game.</p></div>
+<div class="card warn"><div class="big">{len(jul_days)} single days</div><b>In-season MLB-free days in July 2027</b><p>Only <b>{' and '.join(dt.date.fromisoformat(d).strftime('%b %-d') for d in jul_days)}</b>, 2027. Jul 13 has the All-Star Game.</p></div>
 <div class="card flag"><div class="big">Not published</div><b>2027 postseason, 2028, 2029</b><p>No official schedule. Free-day status is left blank rather than estimated.</p></div>
 </div>
 <p class="note">MLB 2027 feed: {n_2027_games:,} games (season total {sum(daily.values()):,} including the All-Star Game). Days with zero games: {n_zero_mlb} (Nov 25, 2026 to Sep 26, 2027, all verified).</p>

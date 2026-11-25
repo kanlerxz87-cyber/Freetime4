@@ -31,9 +31,9 @@ NCAAF,Stanford,2026-10-23,,North Carolina State,Home,W 31-28,Final,,,https://gos
 NCAAF,Stanford,2026-10-31,,Louisville,Away,L 24-52,Final,,,https://gostanford.com/boxscore/27051,
 NCAAF,Stanford,2026-11-14,,Virginia Tech,Away,W 40-22,Final,,,https://gostanford.com/boxscore/27052,
 NCAAF,Stanford,2026-11-21,,California,Away,W 44-28,Final,,,https://gostanford.com/boxscore/27053,
-NCAAF,Stanford,2026-11-28,12:30,SMU,Home,,Upcoming,Radio flagship conflicting (see radio.csv),,https://gostanford.com/sports/football/schedule,Stanford site lists 12:30 PM PST; conflicting radio flagship reports
-NCAAF,California,2026-09-19,12:30,Wagner,Home,W 49-7,Final,Radio: 810 AM / The Varsity Network,Berkeley Calif.,https://calbears.com/boxscore.aspx?id=38593,
-NCAAF,California,2026-09-25,19:30,Clemson,Home,L 10-24,Final,TV: ESPN,Berkeley Calif.,https://calbears.com/sports/2026/8/6/2026-california-football-media-portal,Kickoff from Cal media portal
+NCAAF,Stanford,2026-11-28,12:30,SMU,Home,,Upcoming,,,https://gostanford.com/sports/football/schedule,Kickoff 12:30 PM PST on gostanford.com; radio not confirmed
+NCAAF,California,2026-09-19,12:30,Wagner,Home,W 49-7,Final,Live audio: The Varsity Network (calbears.com),Berkeley Calif.,https://calbears.com/boxscore.aspx?id=38593,Time from calbears.com ticket listing (12:30 PM)
+NCAAF,California,2026-09-25,,Clemson,Home,L 10-24,Final,,Berkeley Calif.,https://calbears.com/boxscore.aspx?id=38594,Kickoff and TV not on fetched page (left blank)
 NCAAF,California,2026-10-03,,UNLV,Away,L 31-39,Final,,Las Vegas Nev.,https://calbears.com/boxscore.aspx?id=38595,
 NCAAF,California,2026-10-10,,Virginia Tech,Home,W 25-20,Final,,Berkeley Calif.,https://calbears.com/boxscore.aspx?id=38596,
 NCAAF,California,2026-10-17,,Wake Forest,Home,L 7-41,Final,,Berkeley Calif.,https://calbears.com/boxscore.aspx?id=38597,
@@ -41,4 +41,4 @@ NCAAF,California,2026-10-24,,SMU,Away,L 20-59,Final,,Dallas Texas,https://calbea
 NCAAF,California,2026-10-31,,NC State,Away,L 10-31,Final,,Raleigh NC,https://calbears.com/boxscore.aspx?id=38599,
 NCAAF,California,2026-11-14,,Virginia,Away,L 7-36,Final,,Charlottesville Va.,https://calbears.com/boxscore.aspx?id=38600,
 NCAAF,California,2026-11-21,,Stanford,Home,L 28-44,Final,,Berkeley Calif.,https://calbears.com/boxscore.aspx?id=38601,
-NCAAF,California,2026-11-28,16:30,Pittsburgh,Home,,Upcoming,Radio: 810 AM / The Varsity Network (call letters conflict; see flagged),Berkeley Calif.,https://calbears.com/sports/football/schedule/2026,
+NCAAF,California,2026-11-28,16:30,Pittsburgh,Home,,Upcoming,Live audio: The Varsity Network (calbears.com),Berkeley Calif.,https://calbears.com/sports/football/schedule/2026,Kickoff 4:30 PM on calbears.com
