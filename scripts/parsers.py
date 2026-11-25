@@ -263,45 +263,48 @@ SF_MONTHS = {m: i+1 for i, m in enumerate(
     ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'])}
 
 def sf49ers_schedule(text, source_url, year=2026):
-    """Parse 49ers.com schedule cards: WEEK n · Thu 08/13 · 5:15 PM PST · VS/AT · Team · Net · Radio · Venue"""
+    """Parse 49ers.com schedule cards.
+
+    Card shape: WEEK n | &middot; Sun 11/29 | &middot; 1:25 PM PST | VS/AT | Nick |
+    Full name | NETWORK | RADIO | Venue.  Past games have FINAL + score instead
+    of a time.  All times on the page are Pacific.
+    """
+    import html as _h
+    raw_lines = [x.strip() for x in re.sub(r'<[^>]+>', '\n', text).split('\n')]
+    lines = [_h.unescape(x) for x in raw_lines if x.strip()]
     out = []
-    lines = [H.unescape(x).strip() for x in re.sub(r'<[^>]+>', '\n', text).split('\n')]
-    lines = [x for x in lines if x]
     section = None
-    i = 0
-    while i < len(lines):
-        x = lines[i]
-        if x.upper() == 'PRESEASON': section = 'Preseason'
-        elif x.upper() == 'REGULAR SEASON': section = 'Regular Season'
-        elif x.upper() in ('POSTSEASON', 'PLAYOFFS'): section = 'Postseason'
-        m = re.match(r'^WEEK (\d+)$', x)
-        if m and section:
-            wk = int(m.group(1))
-            j = i + 1
-            date = time_ = atvs = opp = venue = net = radio = None
-            while j < len(lines) and j < i + 16:
-                y = lines[j]
-                md = re.match(r'^·?\s*(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+(\d{2})/(\d{2})$', y)
-                if md and not date:
-                    date = (SF_MONTHS.get({v: k for k, v in SF_MONTHS.items()}.get(int(md.group(2))), 1), int(md.group(2)), int(md.group(3)))
-                    date = (int(md.group(2)), int(md.group(3)))
-                elif re.match(r'^·?\s*\d{1,2}:\d{2}\s*(AM|PM)\s*(PST|PDT)?$', y) and not time_:
-                    time_ = re.sub(r'^·\s*', '', y)
-                elif y.upper() in ('VS', 'AT') and not atvs:
-                    atvs = y.upper(); opp = lines[j+1] if j+1 < len(lines) else None
-                elif 'FM' in y or re.match(r'^\d{3,4} AM$', y) or 'AM /' in y:
-                    if not radio: radio = y
-                elif re.match(r'^(FOX|CBS|NBC|ESPN|ABC|Prime Video|NFL Network|NETFLIX)$', y, re.I) and not net:
-                    net = y
-                elif opp and y.endswith(('Stadium', 'Field', 'Park', 'Centre', 'Center', 'Ground', 'Dome')) and not venue:
-                    venue = y
-                if y.upper() in ('WEEK %d' % (wk + 1),):
-                    break
-                j += 1
-            if date:
-                out.append({'league': 'NFL', 'team': 'San Francisco 49ers', 'subtype': section,
-                            'week': wk, 'month': date[0], 'day': date[1], 'year': year,
-                            'clock': time_, 'at_vs': atvs, 'opponent': opp, 'venue': venue,
-                            'network': net, 'radio': radio, 'source': source_url})
-        i += 1
+    for i, x in enumerate(lines):
+        u = x.upper()
+        if u == 'PRESEASON': section = 'Preseason'; continue
+        if u == 'REGULAR SEASON': section = 'Regular Season'; continue
+        if u in ('POSTSEASON', 'PLAYOFFS'): section = 'Postseason'; continue
+        m = re.match(r'^WEEK (\d+|WC|DIV|CONF|SB)$', x)
+        if not (m and section): continue
+        wk_raw = m.group(1)
+        window = lines[i+1:i+12]
+        month = day = time_ = atvs = nick = venue = net = radio = None
+        for k, y in enumerate(window):
+            md = re.search(r'(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+(\d{1,2})/(\d{1,2})', y)
+            if md and not month:
+                month, day = int(md.group(2)), int(md.group(3)); continue
+            t = re.match(r'^\D*?(\d{1,2}:\d{2}\s*(?:AM|PM))\s*(?:PST|PDT)?$', y)
+            if t and not time_:
+                time_ = t.group(1); continue
+            if y.upper() in ('VS', 'AT') and not atvs:
+                atvs = y.upper()
+                nick = window[k+1] if k+1 < len(window) else None
+                continue
+            if re.match(r'^(FOX|CBS|NBC|ESPN|ABC|Prime Video|NFL Network|NETFLIX|TBD)$', y, re.I) and not net:
+                net = y; continue
+            if ('FM' in y or re.search(r'\b\d{3,4} AM\b', y)) and not radio:
+                radio = y; continue
+            if re.search(r'(Stadium|Field|Park|Centre|Center|Ground|Dome|Coliseum)$', y) and nick and not venue:
+                venue = y; continue
+        if month and day:
+            out.append({'league': 'NFL', 'team': 'San Francisco 49ers', 'subtype': section,
+                        'week': int(wk_raw) if wk_raw.isdigit() else wk_raw,
+                        'date': f"{year}-{month:02d}-{day:02d}", 'clock': time_,
+                        'at_vs': atvs, 'opponent': nick, 'venue': venue,
+                        'network': net, 'radio': radio, 'source': source_url})
     return out
