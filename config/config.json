@@ -1,0 +1,68 @@
+{
+  "_about": "Project configuration. Editing this file requires no code changes.",
+  "location": {
+    "name": "Outer Sunset, San Francisco",
+    "zip": "94122",
+    "timezone": "America/Los_Angeles",
+    "timezone_label": "Pacific Time (PST/PDT)"
+  },
+  "probe_years": [2026, 2027, 2028, 2029],
+  "vacation_seasons": [2027, 2028, 2029],
+  "priority": {
+    "high": ["San Francisco Giants", "Athletics", "San Francisco 49ers", "Stanford", "California"],
+    "rules": "HIGH PRIORITY = the clubs/organisations named by the user: MLB Giants, MLB Athletics, NFL 49ers (all phases), Stanford NCAAF, California (Cal) NCAAF. Westwood One national NFL radio broadcasts are also HIGH because they are carried by local affiliates. Everything else is shown but flagged normal priority."
+  },
+  "duration_minutes": {
+    "MLB": {
+      "value": 165,
+      "method": "Estimate. 2026 MLB nine-inning games averaged 2:42 (162 min) per a full-season study; 2025 was 2:38. Rounded up to 165 min to absorb extra innings and mound visits. NOT an official start-to-finish figure published by MLB.",
+      "sources": [
+        {"label": "upintherafters.com — every MLB game, 6 seasons (2:42 in 2026)", "url": "https://www.upintherafters.com/mlb/how-long-is-a-baseball-game"},
+        {"label": "lines.com — 2025 average 2:38 (MLB pace-of-play)", "url": "https://www.lines.com/guides/how-long-is-baseball-game/1523"}
+      ]
+    },
+    "NFL": {
+      "value": 192,
+      "method": "Estimate. 3h12m (192 min) is the widely cited average kickoff-to-final-whistle broadcast length, including the 12-minute halftime. Used for preseason, regular season and postseason.",
+      "sources": [
+        {"label": "MatchPedia — NFL average 3h12m", "url": "https://matchpedia.org/how-long-are-football-games/"},
+        {"label": "sportsgeardaily — NFL 3h12m vs NCAA 3h24m", "url": "https://sportsgeardaily.com/football/how-long-is-an-average-football-game"}
+      ]
+    },
+    "NCAAF": {
+      "value": 206,
+      "method": "Estimate. 2025 FBS average 3h26m (206 min) including the ~20-minute halftime.",
+      "sources": [
+        {"label": "academicjobs — 2025 FBS average 3:26", "url": "https://www.academicjobs.com/en-us/higher-education-news/how-long-is-a-college-football-game-average-326-explained-academicjobs-12610"},
+        {"label": "SI/CFB HQ — NCAA average 3:22, 20-minute halftime", "url": "https://www.si.com/fannation/college/cfb-hq/ncaa-football/how-long-are-college-football-games-what-you-need-to-know"}
+      ]
+    }
+  },
+  "estimates": {
+    "mlb_missing_time": "19:10 PT",
+    "mlb_missing_time_note": "MLB Stats API omits a start time for roughly 100 games in 2027 (TBD). Those are estimated at 19:10 PT, the most common first-pitch slot, and flagged ESTIMATED.",
+    "unreleased_season_model": {
+      "MLB": "Season is modelled from the MLB 2027 season-structure API (spring start, opening day, All-Star break, regular-season end, postseason end) shifted one year and two years forward, with 15 games per day on the same weekday pattern and the All-Star break dark.",
+      "NFL": "Season is modelled on the published 2026 structure shifted forward: preseason Week 1 in the 2nd week of August, 18 regular-season weeks starting the Thursday after Labor Day, then Wild Card / Divisional / Conference / Super Bowl weekends.",
+      "NCAAF": "Season is modelled on the published 2026 Stanford and Cal opponents/slots shifted forward one and two years, assuming the same 12-game, 13-week pattern.",
+      "label": "ESTIMATE — NOT AN OFFICIAL RELEASED SCHEDULE"
+    }
+  },
+  "radio": {
+    "note": "Stations confirmed from official team/league pages or dated press releases. See site/radio.html.",
+    "stations": [
+      {"callsign": "KNBR", "band": "AM", "frequency": "680", "market": "San Francisco", "carries": "Giants (flagship, confirmed on mlb.com/giants/team/broadcasters); 49ers (confirmed on 49ers.com schedule); Cal (confirmed on calbears.com card for the Big Game)"},
+      {"callsign": "KNBR-FM", "band": "FM", "frequency": "104.5", "market": "San Francisco", "carries": "49ers (confirmed on 49ers.com schedule); Cal Big Game (confirmed on calbears.com card)"},
+      {"callsign": "KTCT", "band": "AM", "frequency": "1050", "market": "San Mateo / Bay Area", "carries": "ESPN Radio national play-by-play (KNBR 1050). National games carried here are not individually verified per game."},
+      {"callsign": "KSAN", "band": "FM", "frequency": "107.7", "market": "San Francisco", "carries": "49ers (confirmed on 49ers.com schedule)"},
+      {"callsign": "KSFO", "band": "AM", "frequency": "810", "market": "San Francisco", "carries": "Cal football (confirmed on calbears.com schedule cards)"},
+      {"callsign": "KSTE", "band": "AM", "frequency": "650", "market": "Sacramento", "carries": "Athletics flagship (iHeartRadio announcement, Feb 2025)"},
+      {"callsign": "KNEW", "band": "AM", "frequency": "960", "market": "San Francisco / Oakland", "carries": "Athletics Bay Area affiliate (iHeartRadio announcement, Feb 2025)"},
+      {"callsign": "KTKZ", "band": "AM", "frequency": "1380", "market": "Sacramento", "carries": "Westwood One national NFL (unverified — see Flagged page)"}
+    ]
+  },
+  "westwood_one": {
+    "note": "Westwood One is the national radio network for NFL primetime and marquee games (TNF, MNF, SNF and select Sunday windows). Every WWO event on the official grid is treated as a HIGH-priority live radio broadcast.",
+    "source": "https://www.westwoodonesports.com/nfl-schedule/"
+  }
+}
