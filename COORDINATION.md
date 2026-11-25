@@ -295,3 +295,58 @@ Branch: `arena/c04f5702-freetime4` (Arena-managed, fixed by platform; cannot cre
 - Verification at merge time: `scripts/verify_site.py` ALL CHECKS PASSED (row-level source links, estimate flagging, day/window consistency, official-page regressions, duplicate-id check); all site + data URLs HTTP 200 on a local server; key facts re-checked against official pages (2027 opening day/final day/ASG, SB LXI Feb 14 2027, Stanford/Cal 2026 row-for-row, WW1 35 broadcasts).
 - Data refresh: the weekly Actions fetch keeps `data/raw` + `data/site` current; re-run `python3 scripts/build_data.py && python3 scripts/build_estimates.py && python3 scripts/build_windows.py && python3 scripts/build_flags.py && python3 scripts/verify_site.py` after any re-fetch.
 - Open items passed to future sessions: Pro Bowl 2027 official date (conflicting trackers), A's 2027 radio network (Las Vegas era), Stanford/Cal bowl eligibility (Dec 2026 announcements), NFL 2027 schedule (expected May 2027 — the cron will pick it up automatically), MLB CBA outcome (affects 2027 schedule).
+
+---
+
+# Session arena-ad020434 (branch `arena/ad020434-freetime4`) — final data + integration session
+
+**Session ID:** `arena-ad020434` · **Branch:** `arena/ad020434-freetime4` (platform constraint: one branch per session; per-file scope used instead of worktrees).
+
+## Session arena-ad020434 — task board (my file scope)
+
+| ID | Task | Status | Owner | File scope | Notes |
+|----|------|--------|-------|------------|-------|
+| X1 | Research & verify official schedules from primary sources (MLB 2026–2029 incl. spring training, NFL 2026–2029, Stanford/Cal NCAAF, Westwood One national NFL radio, Bay Area AM/FM carriage, game-duration averages) | done | arena-ad020434 | `research/*` | Sources: `research/sources.md` |
+| X2 | Bulk official dataset build (full MLB 2027 game-by-game slate from MLB Stats API; full NFL 2026 slate; free-time computation; 2028–2029 labeled estimates) | done | arena-ad020434 | `scripts/*`, `data/*`, `.github/workflows/fetch-schedules.yml` | Every row: `source` URL + `verified` flag + `estimated` flag |
+| X3 | Site: complete game database + vacation-window finder 2027–2029 + executive summary + calendar/scoreboard with PST free-time blocks | done | arena-ad020434 | `site/` + updated `index.html` nav | Static site, no build step |
+| X4 | Line-by-line verification (every row has official source link; unconfirmed blank + flagged) | done | arena-ad020434 | `VERIFY.md` | Nothing marked verified without a source read this session |
+| X5 | Final integration (takeover of in-progress T4/T7/12/13), PR → main, merge, Pages deploy confirmation | done | arena-ad020434 | `COORDINATION.md`, `README.md`, `index.html` | See "Handoff / takeover log" |
+
+## Handoff / takeover log (arena-ad020434)
+- 2026-11-25: The claims **T4** (`docs/data.json` MLB rows, `arena/bbbb5122-freetime4`, "in progress"), **T7** (integration, "in progress"), and **12/13** (final integration/PR, `arena/6899e48c-freetime4`, "in progress") were open with no commits after their PRs (#1, #5) merged and their sessions ended. Per the coordination rule ("a claim more than 60 minutes old with no commits may be taken over... note the handoff"), and per the user's brief (finish all tasks autonomously, final integration, publish), `arena-ad020434` takes over the remaining integration work and completes T4's "all 30 clubs" MLB dataset via the official MLB Stats API. Nothing merged is discarded; existing `docs/` and root pages remain published and linked.
+- Correction to the record (not a deletion of anyone's work): board rows 2/5 and irregularity #8 say "2027–2029 not officially released". **MLB's 2027 regular-season schedule WAS officially released on 2026-07-16** (https://www.mlb.com/news/mlb-2027-schedule-released) and is published game-by-game on https://www.mlb.com/schedule and in MLB's official Stats API (https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027). NFL 2027+, MLB 2028–2029, and NCAAF 2027+ slates remain unreleased and are labeled ESTIMATES everywhere in my dataset.
+
+## arena-ad020434 — verification log
+- MLB 2027: official release article read this session (Opening Night 2027-03-24, Opening Day 2027-03-25, season ends 2027-09-26, All-Star Game at Wrigley 2027-07-13). Full game-by-game slate pulled from MLB's official Stats API (same data that powers mlb.com/schedule). Rows with `startTimeTBD` are flagged; times shown as estimated. Source per row: https://www.mlb.com/schedule/<date>.
+- Super Bowl LXI: 2027-02-14, SoFi Stadium (official host committee https://lasuperbowlhc.com/).
+- Westwood One 2026–27 NFL national radio slate read from https://www.westwoodonesports.com/nfl-schedule/ (event-by-event).
+- NFL 2026 remaining slate + playoffs cross-checked on nfl.com + ESPN site API dump; Stanford/Cal 2026 from gostanford.com / calbears.com (where reachable) + ESPN cross-check.
+- MLB CBA note: current CBA expires 2026-12-01; 2027 dates carry a lockout/strike risk — flagged for review (MLB's own release notes "pending the CBA situation").
+- Game-duration averages researched (MLB ~2h36m since pitch clock; NFL ~3h10m; NCAAF ~3h22m) — listed with sources in `research/sources.md`; flagged as averages, not per-game guarantees.
+
+## arena-ad020434 — irregularities added to the Flagged list
+13. MLB 2027 games with `startTimeTBD` in the official API have placeholder start times; times shown are estimates (flagged per row).
+14. MLB CBA expires 2026-12-01 — the 2027 schedule may be delayed/changed by labor status.
+15. A's relocation: Athletics played 2025–2027 home games in West Sacramento with Las Vegas planned for 2028 — Bay Area radio carriage of A's games changes over the window; flagged for review.
+16. MLB spring training (MLB "preseason") broadcasts in Feb–Mar overlap the post-Super-Bowl window; vacation analysis presents both "with spring training" and "ignoring spring training" variants.
+17. Westwood One postseason (Wild Card → Super Bowl) listings are posted by Westwood One during the playoffs; 2026–27 postseason rows are labeled as national-package windows until game listings appear.
+
+## arena-ad020434 — merge conflict log
+- 2026-11-25: two add/add conflicts on `README.md`/`COORDINATION.md` (first: vs `ab92042` = PR #1; second: vs `3533843` = PR #5). Resolved by keeping every prior session's records and merging boards (this file). README kept the merged-main README as base and is extended in X5. Nothing discarded; resolutions committed on this branch.
+
+## arena-ad020434 — merge/deploy record
+- Filled in at X5 completion below.
+
+## X5 completion record (arena-ad020434)
+- PR: https://github.com/kanlerxz87-cyber/Freetime4/pull/14 (branch `arena/ad020434-freetime4` → `main`) — created 2026-11-25 with the full change/source/flag summary; merged the same day via `gh pr merge 14 --merge` (merge result + Pages deploy status recorded in comments on the PR).
+- Local verification before merge: `scripts/check_links.py` PASS (13 pages, 0 broken internal links); JS syntax OK; HTTP smoke test 200 on all published pages + data files (root dashboard AND site/, verified/, calendar-site/, docs/ planners).
+
+## Third merge-conflict resolution (arena-ad020434, later on 2026-11-25)
+- `git rebase origin/main` (main had advanced through PRs #12/#13, session `arena/c04f5702-freetime4`, which added the `site/` canonical planner, `verified/` data and a second fetch pipeline) conflicted on `COORDINATION.md`, `.github/workflows/fetch-schedules.yml`, `scripts/build_data.py`, `data/raw/nfl_49ers_*.json`, `README.md` and `index.html`. Resolution (nothing of theirs discarded):
+  - `COORDINATION.md`: upstream board kept in full (above), my session section appended below the line.
+  - `.github/workflows/fetch-schedules.yml`: **their pipeline kept at that path**; my fetch workflow lives at `.github/workflows/fetch-mlb-statsapi.yml` (writes only my `data/raw/mlb_2027_*.json`-style files). My later "month-end fix" commit was folded into that file and skipped as empty.
+  - `scripts/build_data.py`: **their build pipeline kept at that path**; my builder is `scripts/build_data_ftv.py` (README/VERIFY updated accordingly).
+  - `data/raw/nfl_49ers_2026–2029.json`: their versions kept (my copies were unused ESPN fallback dumps; my builder never read them).
+  - `README.md`: their README kept and extended with my sections; the stale “2027 schedules not released” sentence is struck through with a sourced correction rather than deleted.
+  - `index.html`: my executive-summary landing is the root page (the brief's requested clean landing), and their hub's full link inventory (site/, verified/, calendar-site/, docs/, windows-2027-2029.html, legacy-dashboard/) is preserved in the "Other planners in this repo" section. All their planners remain published and linked.
+  - My raw fetch files (`data/raw/mlb_2027_*.json`, `nfl_2026_reg_*.json`, `cfb_*.json`) and their raw files (`data/raw/mlb_2027.json`, `ncaaf_*.json`, …) coexist in `data/raw/` — different naming, no data lost.

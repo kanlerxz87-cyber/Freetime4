@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendar / Scoreboard — Free Time Vacation</title>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="site">
+  <h1>Calendar &amp; Scoreboard — day by day</h1>
+  <div class="tag">Free-time blocks in PST · every scheduled game · high-priority teams flagged · sources on every row</div>
+</header>
+<script>nav("calendar.html")</script>
+<main>
+
+<div class="card">
+  <div class="daynav">
+    <button class="controls-btn" id="prev" style="font:inherit;padding:9px 14px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer">‹ Yesterday</button>
+    <button id="today" style="font:inherit;padding:9px 14px;border-radius:8px;border:1px solid var(--blue);background:var(--blue);color:#fff;font-weight:700;cursor:pointer">Today</button>
+    <button id="next" style="font:inherit;padding:9px 14px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer">Tomorrow ›</button>
+    <input type="date" id="datepick" min="2026-11-25" max="2030-02-15" style="font:inherit;padding:8px;border-radius:8px;border:1px solid var(--line)">
+    <select id="scenario" style="font:inherit;padding:8px;border-radius:8px;border:1px solid var(--line)">
+      <option value="core">Scenario: CORE (all MLB incl. spring training, all NFL, Stanford/Cal)</option>
+      <option value="no-st">Scenario: ignore MLB spring training</option>
+      <option value="sf-radio">Scenario: SF Bay Area AM/FM broadcasts only</option>
+    </select>
+  </div>
+  <h2 id="dateBig" style="margin:6px 0 2px"></h2>
+  <div class="freebar" id="freebar" title="Green = free, red = game on air / scheduled"></div>
+  <div class="timeline-legend">00:00 ——— green = FREE, red = BUSY (game scheduled &amp; on the modelled broadcast window) ——— 24:00 PST</div>
+  <div id="blocks"></div>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:4px">Games &amp; broadcasts this day</h2>
+  <div id="games"></div>
+  <p class="small muted">“possible” rows (e.g. a Stanford bowl if selected) are shown with ⚠ and are <b>not</b> counted as busy. Estimated rows carry an <span class="badge est">est</span> badge — their dates/times come from league-structure estimates, not released schedules.</p>
+</div>
+
+</main>
+<footer>Tip: you can share a direct link — the date is in the URL (#2027-02-10). Durations: MLB ≈ 2:38, NFL ≈ 3:12, NCAAF ≈ 3:24 (<a href="sources.html">research &amp; sources</a>).</footer>
+<script src="js/common.js"></script>
+<script src="js/calendar.js"></script>
+</body>
+</html>

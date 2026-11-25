@@ -27,7 +27,7 @@ A minute is **free** when none of these are on air:
 The repository is a plain static site. In GitHub, open **Settings → Pages**, select **Deploy from a branch**, choose `main` and `/ (root)`, then save. No build step is required.
 
 ## Accuracy / current limits
-This implementation does **not** contain a complete verified game feed for every team. It intentionally shows missing data rather than translating missing rows into a "free" determination. The only year-specific announcement summarized is MLB's official 2026 regular-season schedule release. **2027–2029 schedules are not officially released** (as of 2026-11-25); those values are estimates, not verified schedules.
+This implementation does **not** contain a complete verified game feed for every team. It intentionally shows missing data rather than translating missing rows into a "free" determination. The only year-specific announcement summarized is MLB's official 2026 regular-season schedule release. ~~**2027–2029 schedules are not officially released** (as of 2026-11-25); those values are estimates, not verified schedules.~~ **CORRECTION (session arena-ad020434, 2026-11-25):** MLB's **2027** schedule *was* officially released on 2026-07-16 (https://www.mlb.com/news/mlb-2027-schedule-released) and is loaded game-by-game in `data/games-2027.json` (2,430 regular-season + 469 spring-training games from MLB's official Stats API). MLB 2028–2029, NFL 2027+, and NCAAF 2027+ remain unreleased and are labeled estimates everywhere.
 
 Radio carriage and reception in San Francisco's Outer Sunset must be checked independently from league schedules. See the Flagged for Review pages for gaps and caveats.
 
@@ -57,3 +57,46 @@ See COORDINATION.md for the shared task board, verification log, and merge/deplo
 - **Data:** `data/site/*.json` built from official sources by `scripts/` (MLB Stats API via scheduled GitHub Actions; ESPN mirrors cross-checked against official pages; Westwood One fetched live). Every verified row carries an official source link; estimated rows are flagged with blank sources by design.
 - **Rebuild:** `python3 scripts/build_data.py && python3 scripts/build_estimates.py && python3 scripts/build_windows.py && python3 scripts/build_flags.py && python3 scripts/verify_site.py`
 - Earlier sites from previous sessions (`docs/`, `calendar-site/`, `verified/`, root detail pages, `legacy-dashboard/`) are preserved as archives.
+
+
+---
+
+# Root dashboard + full-slate dataset (session arena-ad020434)
+
+The root-level pages are the brief's requested executive-summary dashboard, built on a complete
+verified dataset with a source link on every row (see `VERIFY.md`):
+
+## The answer
+
+Across 2027–2029 the only reliable game-free stretch is **between the Super Bowl and baseball**:
+
+| Scenario | 2027 | 2028 (est.) | 2029 (est.) |
+|---|---|---|---|
+| Strict (MLB spring training counts as "preseason") | **Feb 7–13 (7 days)** | Feb 1–12 (12 days) | Jan 30 – Feb 10 (12 days) |
+| Spring-training exhibitions don't count | **Feb 15 – Mar 23 (37 days)** | Feb 14 – Mar 22 (38 days) | Feb 12 – Mar 21 (38 days) |
+| Only games actually on SF AM/FM radio | Feb 1–13 (13 days) | Feb 1–12 (12 days) | Jan 30 – Feb 10 (12 days) |
+
+No 2- or 3-week window exists under the strictest reading; the 37-day 2027 window opens as soon as
+spring-training exhibitions are excluded. Full window tables: `vacation.html`.
+
+## Root pages
+- `index.html` — executive-summary landing (this build) + links to every planner in the repo
+- `calendar.html` — day scoreboard (Yesterday/Today/Tomorrow + date picker), PST free-time blocks,
+  per-day games with radio stations and source links (URL-hash deep links)
+- `vacation.html` — game-free windows 2027–2029 per scenario, 1/2/3-week fits
+- `mlb.html` · `nfl.html` · `westwood-one.html` · `ncaaf.html` — full tables with filters
+- `radio.html` · `sources.html` · `flagged.html` (F01–F16) · `executive-summary.html` / `free-time.html` /
+  `flagged-review.html` redirect to their current versions
+
+## Data (this build)
+- `data/games-2026.json` … `data/games-2030.json` — every row: `verified`, `timeEstimated`, `source`
+- `data/summary.json`, `data/radio.json`, `data/durations.json`, `data/flags.json`
+- `research/sources.md` — source log with per-item verification status
+- `VERIFY.md` — line-by-line verification record and exceptions
+- Rebuild: `python3 scripts/build_data_ftv.py && python3 scripts/check_links.py`
+- Bulk fetch (this build's raw files, `data/raw/mlb_2027_*.json` etc.): workflow
+  `.github/workflows/fetch-mlb-statsapi.yml` (the repo's other fetch pipeline is
+  `.github/workflows/fetch-schedules.yml`, kept untouched)
+
+**Big flag:** MLB's CBA expires 2026-12-01 and a lockout is considered imminent — the officially
+released 2027 schedule may change. See `flagged.html#F01`.

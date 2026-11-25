@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radio — Free Time Vacation</title>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="site">
+  <h1>Bay Area AM/FM radio — what you can actually hear</h1>
+  <div class="tag">Reception target: Outer Sunset, San Francisco 94122 · standard AM/FM dial</div>
+</header>
+<script>nav("radio.html")</script>
+<main>
+
+<div class="card">
+  <h2>Stations carrying your core sports</h2>
+  <table>
+    <thead><tr><th>Station</th><th>Dial</th><th>What airs</th><th>Status</th><th>Source</th></tr></thead>
+    <tbody id="stations"><tr><td colspan="5" class="muted">Loading…</td></tr></tbody>
+  </table>
+  <p class="small muted" id="radioNote"></p>
+</div>
+
+<div class="card">
+  <h2>Who broadcasts what</h2>
+  <table>
+    <thead><tr><th>Team / package</th><th>Flagship in SF Bay Area</th><th>Verified</th></tr></thead>
+    <tbody>
+      <tr><td>San Francisco Giants (MLB)</td><td>KNBR 680 AM / 104.5 FM — nearly every game incl. spring training and postseason</td><td><span class="badge ver">✓</span></td></tr>
+      <tr><td>Athletics (MLB)</td><td>iHeart Sports 960 AM (KNEW) in the Bay Area; Talk 650 KSTE in Sacramento (West Sacramento era 2025–2027). 2028+ Las Vegas: unannounced</td><td><span class="badge ver">✓</span> <span class="badge est">2028 unknown</span></td></tr>
+      <tr><td>San Francisco 49ers (NFL)</td><td>KNBR 680 AM / 104.5 FM + KSAN 107.7 FM + KSFO 810 AM</td><td><span class="badge ver">✓</span></td></tr>
+      <tr><td>Westwood One national NFL</td><td>KNBR 680/104.5 and KTCT 1050 AM (official SF affiliates)</td><td><span class="badge ver">✓</span></td></tr>
+      <tr><td>Stanford football</td><td>KNBR 1050 AM / KTCT</td><td><span class="badge ver">✓</span></td></tr>
+      <tr><td>Cal football</td><td>The Varsity Network live audio (AM/FM flagship unconfirmed)</td><td><span class="badge est">flagged</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="flagbox">
+  <b>Other sports on Bay Area radio — NOT in the core free-time definition (your “what free means” list), but flagged for awareness</b>
+  <ul>
+    <li><b>Golden State Warriors (NBA):</b> 95.7 The Game (KGMZ-FM) — every preseason and regular-season game, Oct → Apr. These overlap any Feb–Mar window. <a href="https://www.nba.com/warriors/radio-network" target="_blank" rel="noopener">official</a></li>
+    <li><b>San Jose Sharks (NHL):</b> games are broadcast locally in-season (Oct → Apr) — flagship commonly listed as 98.5 KFOX, not confirmed from an official page this session (<a href="flagged.html#F13">F13</a>).</li>
+    <li><b>Westwood One NCAA basketball (March Madness), NCAA football, golf, MCWS:</b> national windows heard on KNBR/KTCT — mid-March to early April overlaps the vacation window (<a href="flagged.html#F13">F13</a>).</li>
+  </ul>
+  If you want any of these counted as “busy,” request it and the dataset will include them.
+</div>
+
+<div class="card">
+  <h2>Outer Sunset (94122) reception notes</h2>
+  <p class="small">KNBR 680 is a 50,000-watt Class A clear-channel signal — reliably receivable across San Francisco including the Outer Sunset. KTCT 1050 AM (10 kW night) and KNEW 960 AM are standard Bay Area AM signals. KSAN 107.7, KNBR-FM 104.5 and KGMZ 95.7 are full-market FM signals. All of the core flagships are ordinary AM/FM — no streaming subscription needed.</p>
+</div>
+
+</main>
+<footer>Carriage claims are only made where a team/station official page (or the official Westwood One station finder) confirms them. Unconfirmed items are on the <a href="flagged.html">Flagged for Review</a> page.</footer>
+<script src="js/common.js"></script>
+<script>
+(async () => {
+  const r = await (await fetch("data/radio.json")).json();
+  document.getElementById("stations").innerHTML = r.stations.map(s => `<tr>
+    <td><b>${esc(s.call)}</b></td><td>${esc(s.dial)}</td><td>${esc(s.role)}</td>
+    <td>${s.verified ? '<span class="badge ver">✓ verified</span>' : '<span class="badge est">unconfirmed</span>'}</td>
+    <td class="src"><a href="${esc(s.source)}" target="_blank" rel="noopener">source</a></td></tr>`).join("");
+  document.getElementById("radioNote").textContent = r.note || "";
+})();
+</script>
+</body>
+</html>

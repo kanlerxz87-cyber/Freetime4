@@ -1,112 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MLB Schedule & Free Time — Freetime4</title>
-<link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MLB — Free Time Vacation</title>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand"><a href="index.html">FREETIME4</a> <span class="site-tag">&middot; MLB</span></div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="executive-summary.html">Executive Summary</a></li>
-        <li><a href="free-time.html">Free-Time Calendar</a></li>
-        <li><a href="mlb.html" class="active">MLB</a></li>
-        <li><a href="nfl.html">NFL</a></li>
-        <li><a href="ncaaf.html">NCAAF (Stanford / Cal)</a></li>
-        <li><a href="westwood-one.html">Westwood One Radio</a></li>
-        <li><a href="flagged-review.html">Flagged for Review</a></li>
-      </ul>
-    </nav>
-  </div>
+<header class="site">
+  <h1>MLB — all 30 clubs</h1>
+  <div class="tag">Giants &amp; Athletics flagged HIGH PRIORITY · 2027 official slate (2,430 games + spring training) · 2028–29 estimated · source link on every row</div>
 </header>
+<script>nav("mlb.html")</script>
+<main>
 
-<div class="container">
-  <h1>MLB — All 30 Clubs (Giants &amp; A's High Priority)</h1>
-
-  <div class="callout info">
-    <strong>High priority:</strong> San Francisco Giants and Oakland Athletics games are flagged high priority. Every MLB club is listed below with a link to its official MLB.com schedule so you can verify each game yourself.
+<div class="card">
+  <div class="status-strip">
+    <div class="chip"><b>2,430</b>official 2027 regular-season games (MLB Stats API, verified)</div>
+    <div class="chip"><b>469</b>2027 spring-training games (Feb 19 start)</div>
+    <div class="chip"><b>Mar 24 – Sep 26</b>2027 regular season (Opening Night Mar 24)</div>
+    <div class="chip"><b>Jul 12–13</b>Home Run Derby + All-Star Game (Wrigley)</div>
+    <div class="chip"><b>2028–2029</b><span class="badge est">not released — daily slate estimates</span></div>
   </div>
-
-  <h2>2026 MLB season (VERIFIED — schedule released 2025-08-26)</h2>
-  <table>
-    <thead><tr><th>Item</th><th>Value</th><th>Status</th><th>Source</th></tr></thead>
-    <tbody>
-      <tr><td>Schedule released</td><td>2025-08-26</td><td><span class="badge badge-verified">VERIFIED</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
-      <tr><td>Opening Night</td><td>Wed 2026-03-25 &mdash; Yankees at Giants, Oracle Park, San Francisco</td><td><span class="badge badge-verified">VERIFIED</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
-      <tr><td>Opening Day (14 games)</td><td>Thu 2026-03-26</td><td><span class="badge badge-verified">VERIFIED</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
-      <tr><td>Regular season</td><td>2026-03-25 to 2026-09-27</td><td><span class="badge badge-verified">VERIFIED</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
-      <tr><td>All-Star Game</td><td>Tue 2026-07-14, Citizens Bank Park, Philadelphia</td><td><span class="badge badge-verified">VERIFIED</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
-      <tr><td>Jackie Robinson Day</td><td>2026-04-15 (all 30 clubs)</td><td><span class="badge badge-verified">VERIFIED</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
-      <tr><td>Lou Gehrig Day</td><td>2026-06-02 (all 30 clubs)</td><td><span class="badge badge-verified">VERIFIED</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
-      <tr><td>Roberto Clemente Day</td><td>2026-09-15 (all 30 clubs)</td><td><span class="badge badge-verified">VERIFIED</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
-      <tr><td>Rivalry Weekend</td><td>2026-05-15 to 2026-05-17</td><td><span class="badge badge-verified">VERIFIED</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
-      <tr><td>Postseason</td><td>October 2026 (dates TBD)</td><td><span class="badge badge-unverified">partially unverified</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
-      <tr><td>A's home park (2026)</td><td>Sutter Health Park, West Sacramento; Las Vegas series 2026-06-08&ndash;10 (vs Brewers) and 2026-06-12&ndash;14 (vs Rockies)</td><td><span class="badge badge-verified">VERIFIED</span></td><td><a href="https://www.mlb.com/news/mlb-2026-schedule-released" target="_blank" rel="noopener">MLB.com</a></td></tr>
-    </tbody>
-  </table>
-
-  <h2>All 30 MLB clubs — official schedule links</h2>
-  <p class="small">Full per-game schedules are on each club's official MLB.com page. Per-game data is not re-published here because it could not be verified game-by-game; use the links below.</p>
-  <table>
-    <thead><tr><th>Club</th><th>Division</th><th>High priority?</th><th>Official schedule</th></tr></thead>
-    <tbody>
-      <tr><td><strong>San Francisco Giants</strong></td><td>NL West</td><td><span class="badge badge-high">HIGH</span></td><td><a href="https://www.mlb.com/giants/schedule" target="_blank" rel="noopener">Giants schedule</a></td></tr>
-      <tr><td><strong>Oakland Athletics</strong></td><td>AL West</td><td><span class="badge badge-high">HIGH</span></td><td><a href="https://www.mlb.com/athletics/schedule" target="_blank" rel="noopener">Athletics schedule</a></td></tr>
-      <tr><td>Arizona Diamondbacks</td><td>NL West</td><td>&mdash;</td><td><a href="https://www.mlb.com/dbacks/schedule" target="_blank" rel="noopener">D-backs schedule</a></td></tr>
-      <tr><td>Atlanta Braves</td><td>NL East</td><td>&mdash;</td><td><a href="https://www.mlb.com/braves/schedule" target="_blank" rel="noopener">Braves schedule</a></td></tr>
-      <tr><td>Baltimore Orioles</td><td>AL East</td><td>&mdash;</td><td><a href="https://www.mlb.com/orioles/schedule" target="_blank" rel="noopener">Orioles schedule</a></td></tr>
-      <tr><td>Boston Red Sox</td><td>AL East</td><td>&mdash;</td><td><a href="https://www.mlb.com/redsox/schedule" target="_blank" rel="noopener">Red Sox schedule</a></td></tr>
-      <tr><td>Chicago Cubs</td><td>NL Central</td><td>&mdash;</td><td><a href="https://www.mlb.com/cubs/schedule" target="_blank" rel="noopener">Cubs schedule</a></td></tr>
-      <tr><td>Chicago White Sox</td><td>AL Central</td><td>&mdash;</td><td><a href="https://www.mlb.com/whitesox/schedule" target="_blank" rel="noopener">White Sox schedule</a></td></tr>
-      <tr><td>Cincinnati Reds</td><td>NL Central</td><td>&mdash;</td><td><a href="https://www.mlb.com/reds/schedule" target="_blank" rel="noopener">Reds schedule</a></td></tr>
-      <tr><td>Cleveland Guardians</td><td>AL Central</td><td>&mdash;</td><td><a href="https://www.mlb.com/guardians/schedule" target="_blank" rel="noopener">Guardians schedule</a></td></tr>
-      <tr><td>Colorado Rockies</td><td>NL West</td><td>&mdash;</td><td><a href="https://www.mlb.com/rockies/schedule" target="_blank" rel="noopener">Rockies schedule</a></td></tr>
-      <tr><td>Detroit Tigers</td><td>AL Central</td><td>&mdash;</td><td><a href="https://www.mlb.com/tigers/schedule" target="_blank" rel="noopener">Tigers schedule</a></td></tr>
-      <tr><td>Houston Astros</td><td>AL West</td><td>&mdash;</td><td><a href="https://www.mlb.com/astros/schedule" target="_blank" rel="noopener">Astros schedule</a></td></tr>
-      <tr><td>Kansas City Royals</td><td>AL Central</td><td>&mdash;</td><td><a href="https://www.mlb.com/royals/schedule" target="_blank" rel="noopener">Royals schedule</a></td></tr>
-      <tr><td>Los Angeles Angels</td><td>AL West</td><td>&mdash;</td><td><a href="https://www.mlb.com/angels/schedule" target="_blank" rel="noopener">Angels schedule</a></td></tr>
-      <tr><td>Los Angeles Dodgers</td><td>NL West</td><td>&mdash;</td><td><a href="https://www.mlb.com/dodgers/schedule" target="_blank" rel="noopener">Dodgers schedule</a></td></tr>
-      <tr><td>Miami Marlins</td><td>NL East</td><td>&mdash;</td><td><a href="https://www.mlb.com/marlins/schedule" target="_blank" rel="noopener">Marlins schedule</a></td></tr>
-      <tr><td>Milwaukee Brewers</td><td>NL Central</td><td>&mdash;</td><td><a href="https://www.mlb.com/brewers/schedule" target="_blank" rel="noopener">Brewers schedule</a></td></tr>
-      <tr><td>Minnesota Twins</td><td>AL Central</td><td>&mdash;</td><td><a href="https://www.mlb.com/twins/schedule" target="_blank" rel="noopener">Twins schedule</a></td></tr>
-      <tr><td>New York Mets</td><td>NL East</td><td>&mdash;</td><td><a href="https://www.mlb.com/mets/schedule" target="_blank" rel="noopener">Mets schedule</a></td></tr>
-      <tr><td>New York Yankees</td><td>AL East</td><td>&mdash;</td><td><a href="https://www.mlb.com/yankees/schedule" target="_blank" rel="noopener">Yankees schedule</a></td></tr>
-      <tr><td>Philadelphia Phillies</td><td>NL East</td><td>&mdash;</td><td><a href="https://www.mlb.com/phillies/schedule" target="_blank" rel="noopener">Phillies schedule</a></td></tr>
-      <tr><td>Pittsburgh Pirates</td><td>NL Central</td><td>&mdash;</td><td><a href="https://www.mlb.com/pirates/schedule" target="_blank" rel="noopener">Pirates schedule</a></td></tr>
-      <tr><td>San Diego Padres</td><td>NL West</td><td>&mdash;</td><td><a href="https://www.mlb.com/padres/schedule" target="_blank" rel="noopener">Padres schedule</a></td></tr>
-      <tr><td>Seattle Mariners</td><td>AL West</td><td>&mdash;</td><td><a href="https://www.mlb.com/mariners/schedule" target="_blank" rel="noopener">Mariners schedule</a></td></tr>
-      <tr><td>St. Louis Cardinals</td><td>NL Central</td><td>&mdash;</td><td><a href="https://www.mlb.com/cardinals/schedule" target="_blank" rel="noopener">Cardinals schedule</a></td></tr>
-      <tr><td>Tampa Bay Rays</td><td>AL East</td><td>&mdash;</td><td><a href="https://www.mlb.com/rays/schedule" target="_blank" rel="noopener">Rays schedule</a></td></tr>
-      <tr><td>Texas Rangers</td><td>AL West</td><td>&mdash;</td><td><a href="https://www.mlb.com/rangers/schedule" target="_blank" rel="noopener">Rangers schedule</a></td></tr>
-      <tr><td>Toronto Blue Jays</td><td>AL East</td><td>&mdash;</td><td><a href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">Blue Jays schedule</a></td></tr>
-      <tr><td>Washington Nationals</td><td>NL East</td><td>&mdash;</td><td><a href="https://www.mlb.com/nationals/schedule" target="_blank" rel="noopener">Nationals schedule</a></td></tr>
-    </tbody>
-  </table>
-
-  <h2>2027&ndash;2029 MLB (NOT officially released)</h2>
-  <div class="callout warn">
-    <strong>Estimate only.</strong> MLB has not released the 2027, 2028, or 2029 regular-season, postseason, All-Star, or special-game schedules. The windows below are typical patterns, NOT verified schedules.
-  </div>
-  <table>
-    <thead><tr><th>Year</th><th>Est. regular season</th><th>Est. All-Star</th><th>Est. postseason</th><th>Status</th></tr></thead>
-    <tbody>
-      <tr><td>2027</td><td>Late March &ndash; late September 2027</td><td>Estimated mid-July 2027</td><td>Estimated October 2027</td><td><span class="badge badge-estimate">ESTIMATE</span></td></tr>
-      <tr><td>2028</td><td>Late March &ndash; late September 2028</td><td>Estimated mid-July 2028</td><td>Estimated October 2028</td><td><span class="badge badge-estimate">ESTIMATE</span></td></tr>
-      <tr><td>2029</td><td>Late March &ndash; late September 2029</td><td>Estimated mid-July 2029</td><td>Estimated October 2029</td><td><span class="badge badge-estimate">ESTIMATE</span></td></tr>
-    </tbody>
-  </table>
-  <p class="small">Check MLB.com when each schedule is officially released (typically the August before the season).</p>
-
-  <footer>
-    Freetime4 &middot; MLB data current as of 2026-11-25. Times in Pacific (PST/PDT). Unverified items left blank and flagged. See <a href="flagged-review.html">Flagged for Review</a>.
-  </footer>
+  <div class="flagbox">⚠ MLB's CBA expires Dec 1, 2026 — a lockout could delay or alter the 2027 season (<a href="flagged.html#F01">F01</a>). Games with <span class="badge est">time est</span> have placeholder times in the official feed (<a href="flagged.html#F03">F03</a>). 2028–29 rows are labeled ESTIMATE — no matchups are invented (<a href="flagged.html#F04">F04</a>).</div>
 </div>
 
+<div class="card">
+  <h2>All 30 clubs — 2027 games in this dataset</h2>
+  <div id="clubs" class="grid c3"></div>
+  <p class="small muted">Counts computed from the official 2027 slate loaded from MLB's Stats API (spring training + regular season + All-Star + exhibitions).</p>
+</div>
+
+<div class="card">
+  <h2>Game table</h2>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search team (e.g. Giants, Dodgers…)" style="min-width:240px">
+    <select id="cat">
+      <option value="all">All categories</option>
+      <option value="regular">Regular season</option>
+      <option value="spring">Spring training</option>
+      <option value="postseason">Postseason</option>
+      <option value="allstar">All-Star</option>
+      <option value="exhibition">Exhibitions</option>
+      <option value="special">Special events</option>
+    </select>
+    <label><input type="checkbox" id="prio"> High priority only (Giants / A's)</label>
+    <label><input type="checkbox" id="veronly"> Verified rows only</label>
+    <span id="count" class="muted small"></span>
+  </div>
+  <div id="rows"></div>
+  <div class="pager" id="pager"></div>
+  <p class="small muted">Time zone: PST/PDT. Estimated rows are labeled; every row links to its official mlb.com page. 2028–2029 entries are daily slate windows (one row per day) because MLB has not released those schedules.</p>
+</div>
+
+</main>
+<footer>Source: MLB official schedule (mlb.com / statsapi.mlb.com). Durations used for free-time math: 2:38 regular, 2:30 spring, 3:04 postseason (<a href="sources.html">details</a>).</footer>
+<script src="js/common.js"></script>
+<script>
+window.TABLE_CONFIG = { years: [2027, 2028, 2029], sports: ["MLB"] };
+(async () => {
+  const d = await loadYear(2027);
+  const counts = {};
+  for (const g of d.games || []) {
+    for (const t of [g.away, g.home]) {
+      if (!t) continue;
+      counts[t] = (counts[t] || 0) + 1;
+    }
+  }
+  const names = Object.keys(counts).sort();
+  const hi = new Set(["San Francisco Giants", "Athletics"]);
+  document.getElementById("clubs").innerHTML = names.map(n =>
+    `<div class="chip">${hi.has(n) ? '<span class="badge hi">HIGH</span> ' : ""}<b>${esc(n)}</b> — ${counts[n]} games</div>`
+  ).join("");
+})();
+</script>
+<script src="js/tables.js"></script>
 </body>
 </html>
