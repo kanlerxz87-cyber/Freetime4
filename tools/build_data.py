@@ -19,7 +19,7 @@ PT = ZoneInfo("America/Los_Angeles")
 ET = ZoneInfo("America/New_York")
 UTC = timezone.utc
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "data")
+OUT = os.path.join(os.path.dirname(__file__), "..", "scoreboard", "data")
 os.makedirs(OUT, exist_ok=True)
 
 GEN_AT = "2026-11-25"
@@ -313,7 +313,7 @@ if __name__ == "__main__":
     build_mlb()
 
 # ---------------------------------------------------------------- NFL 2026
-NFL_CSV = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "nfl", "nfl_2026.csv")
+NFL_CSV = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "scoreboard", "data", "nfl", "nfl_2026.csv")
 NFL_TEAM_NAMES = {"ARI":"Arizona Cardinals","ATL":"Atlanta Falcons","BAL":"Baltimore Ravens","BUF":"Buffalo Bills",
  "CAR":"Carolina Panthers","CHI":"Chicago Bears","CIN":"Cincinnati Bengals","CLE":"Cleveland Browns",
  "DAL":"Dallas Cowboys","DEN":"Denver Broncos","DET":"Detroit Lions","GB":"Green Bay Packers",
@@ -390,8 +390,11 @@ def parse_nfl():
     return rows, errors
 
 def pair_ww1(nfl_rows):
-    """Attach WW1 broadcast info to feed games by team pairing; report unpaired."""
+    """Attach WW1 broadcast info to feed games by team pairing; report unpaired.
+    When the WW1-listed date differs from the feed date, ALSO emit a broadcast event
+    on the WW1 date (the on-air slot is independently verifiable)."""
     flags = []
+    extra = []
     for w in WW1_NFL:
         date, tet, aw, hm, label = w
         if aw is None:
@@ -404,13 +407,19 @@ def pair_ww1(nfl_rows):
         if g["date"] != date:
             flags.append(f"WW1 entry {date} {aw}@{hm} mismatches feed date {g['date']} "
                          f"({g['matchup']}); both dates treated as potentially busy")
+            bh, bm = int(tet[:2]) - 3, tet[3:5]
+            extra.append({"date": date, "time_pt": f"{bh:02d}:{bm}",
+                "matchup": f"{g['matchup']} - Westwood One on-air (WW1-listed date; schedule mirror dates it {g['date']})",
+                "sf": g["sf"], "time_status": "official", "radio": NFL_RADIO_BAY,
+                "source": WW1_SOURCE, "priority": "high" if g["sf"] else "normal",
+                "ww1_label": label, "kind": "nfl"})
         if tet is not None:
             # broadcast start ET -> PT; also keep kickoff from feed
             bh = int(tet[:2]) - 3  # ET->PT
             g["ww1_broadcast_pt"] = f"{bh:02d}:{tet[3:5]}"
             g["radio"] = NFL_RADIO_BAY
         g["ww1_label"] = label
-    return flags
+    return flags, extra
 
 NFL_PLAYOFFS = [
  ("2027-01-16", "2027-01-18", "NFL Wild Card round - 6 games, days/matchups/times TBA",
@@ -425,7 +434,8 @@ NFL_PLAYOFFS = [
 
 def build_nfl():
     rows, errors = parse_nfl()
-    errors += pair_ww1(rows)
+    flags, ww1_extra = pair_ww1(rows)
+    rows = rows + ww1_extra
     for e in errors: print("NFL DATA WARNING:", e)
     playoff_rows = []
     for start, end, label, src in NFL_PLAYOFFS:
