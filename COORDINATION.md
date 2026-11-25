@@ -40,8 +40,8 @@ Shared task board for parallel agent sessions. Repo: `kanlerxz87-cyber/Freetime4
 | 9 | Free-time calendar/scoreboard (day nav, PST, free windows) | done | session-freetime4 | free-time.html | Durations are estimates |
 | 10 | Flagged for Review page | done | session-freetime4 | flagged-review.html | — |
 | 11 | Verify every table row has a source link | done | session-freetime4 | all data files | Blanks left where unconfirmed |
-| 12 | Final integration: merge both sessions, verify links | in progress | session-freetime4 | all | This merge |
-| 13 | PR to main, merge, confirm Pages deploys, record here | in progress | session-freetime4 | — | PR #5 |
+| 12 | Final integration: merge both sessions, verify links | done | session-freetime4 (arena/6899e48c-freetime4) | all | PR #5 merged to main; both sessions' work combined |
+| 13 | PR to main, merge, confirm Pages deploys, record here | done | session-freetime4 (arena/6899e48c-freetime4) | — | PR #5: https://github.com/kanlerxz87-cyber/Freetime4/pull/5 ; merged 2026-11-25 (merge commit 3533843); GitHub Pages source main /, status BUILT, live https://kanlerxz87-cyber.github.io/Freetime4/ |
 
 ## Verification log
 
