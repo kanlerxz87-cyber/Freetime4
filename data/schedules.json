@@ -1,144 +1,891 @@
 {
-  "generated": "2026-11-25",
-  "timezone": "America/Los_Angeles (PST/PDT)",
-  "notes": {
-    "verified": "Value confirmed from an official source; source link provided.",
-    "estimate": "Official schedule for this year has NOT been released yet. Value is an ESTIMATE based on typical calendar patterns, NOT a verified released schedule.",
-    "blank": "Value could not be confirmed from an official source; left blank and flagged unverified.",
-    "free_definition": "A minute is free when NONE of these are on air: MLB (all 30 clubs, Giants/A's high priority), NFL (49ers + all clubs, preseason/regular/postseason), Stanford NCAAF, Cal NCAAF, Westwood One national NFL radio broadcasts."
+ "generated": "2026-11-25",
+ "timezone": "America/Los_Angeles (PST/PDT)",
+ "notes": {
+  "verified": "Value confirmed from an official source; source link provided.",
+  "estimate": "Official schedule for this year has NOT been released yet. Value is an ESTIMATE based on typical calendar patterns, NOT a verified released schedule.",
+  "blank": "Value could not be confirmed from an official source; left blank and flagged unverified.",
+  "free_definition": "A minute is free when NONE of these are on air: MLB (all 30 clubs, Giants/A's high priority), NFL (49ers + all clubs, preseason/regular/postseason), Stanford NCAAF, Cal NCAAF, Westwood One national NFL radio broadcasts."
+ },
+ "season_windows": {
+  "mlb": {
+   "2026": {
+    "regular_start": "2026-03-25",
+    "regular_end": "2026-09-27",
+    "all_star": "2026-07-14",
+    "postseason": "October 2026",
+    "status": "VERIFIED - released 2025-08-26",
+    "source": "https://www.mlb.com/news/mlb-2026-schedule-released"
+   },
+   "2027": {
+    "opening_night": "2027-03-24 (Netflix, matchup TBD)",
+    "opening_day": "2027-03-25 (14 games; earliest traditional Opening Day in MLB history)",
+    "regular_start": "2027-03-25",
+    "regular_end": "2027-09-26",
+    "all_star": "2027-07-13 (Wrigley Field, Chicago; FOX)",
+    "postseason": "TBA (not announced in the 2027 release)",
+    "status": "VERIFIED - released 2026-07-16; re-verified live 2026-11-26",
+    "source": "https://www.mlb.com/news/mlb-2027-schedule-released"
+   },
+   "2028": {
+    "regular_start": "ESTIMATED late March 2028",
+    "regular_end": "ESTIMATED late September 2028",
+    "postseason": "ESTIMATED October 2028",
+    "status": "ESTIMATE - 2028 schedule not officially released",
+    "source": null
+   },
+   "2029": {
+    "regular_start": "ESTIMATED late March 2029",
+    "regular_end": "ESTIMATED late September 2029",
+    "postseason": "ESTIMATED October 2029",
+    "status": "ESTIMATE - 2029 schedule not officially released",
+    "source": null
+   }
   },
-  "season_windows": {
-    "mlb": {
-      "2026": { "regular_start": "2026-03-25", "regular_end": "2026-09-27", "all_star": "2026-07-14", "postseason": "October 2026", "status": "VERIFIED - released 2025-08-26", "source": "https://www.mlb.com/news/mlb-2026-schedule-released" },
-      "2027": { "regular_start": "ESTIMATED late March 2027", "regular_end": "ESTIMATED late September 2027", "postseason": "ESTIMATED October 2027", "status": "ESTIMATE - 2027 schedule not officially released", "source": null },
-      "2028": { "regular_start": "ESTIMATED late March 2028", "regular_end": "ESTIMATED late September 2028", "postseason": "ESTIMATED October 2028", "status": "ESTIMATE - 2028 schedule not officially released", "source": null },
-      "2029": { "regular_start": "ESTIMATED late March 2029", "regular_end": "ESTIMATED late September 2029", "postseason": "ESTIMATED October 2029", "status": "ESTIMATE - 2029 schedule not officially released", "source": null }
-    },
-    "nfl": {
-      "2026": { "preseason_start": "2026-08-13", "regular_start": "2026-09-10", "regular_end": "2027-01-10", "super_bowl": "2027-02-14 Super Bowl LXI (SoFi Stadium)", "postseason": "January 2027", "status": "VERIFIED - released 2026-05-14", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-      "2027": { "preseason_start": "ESTIMATED August 2027", "regular_start": "ESTIMATED early September 2027", "regular_end": "ESTIMATED early January 2028", "super_bowl": "ESTIMATED early February 2028", "status": "ESTIMATE - 2027 schedule not officially released", "source": null },
-      "2028": { "preseason_start": "ESTIMATED August 2028", "regular_start": "ESTIMATED early September 2028", "regular_end": "ESTIMATED early January 2029", "super_bowl": "ESTIMATED early February 2029", "status": "ESTIMATE - 2028 schedule not officially released", "source": null },
-      "2029": { "preseason_start": "ESTIMATED August 2029", "regular_start": "ESTIMATED early September 2029", "regular_end": "ESTIMATED early January 2030", "super_bowl": "ESTIMATED early February 2030", "status": "ESTIMATE - 2029 schedule not officially released", "source": null }
-    },
-    "ncaaf": {
-      "2026": { "start": "2026-08-29", "end": "2026-12-05", "bowls": "ESTIMATED December 2026 - January 2027", "status": "VERIFIED (Stanford ACC schedule released 2026-01-26)", "source": "https://gostanford.com/sports/football/schedule" },
-      "2027": { "start": "ESTIMATED late August 2027", "end": "ESTIMATED late November 2027", "bowls": "ESTIMATED December 2027 - January 2028", "status": "ESTIMATE - schedules not officially released", "source": null },
-      "2028": { "start": "ESTIMATED late August 2028", "end": "ESTIMATED late November 2028", "bowls": "ESTIMATED December 2028 - January 2029", "status": "ESTIMATE - schedules not officially released", "source": null },
-      "2029": { "start": "ESTIMATED late August 2029", "end": "ESTIMATED late November 2029", "bowls": "ESTIMATED December 2029 - January 2030", "status": "ESTIMATE - schedules not officially released", "source": null }
-    }
+  "nfl": {
+   "2026": {
+    "preseason_start": "2026-08-13",
+    "regular_start": "2026-09-10",
+    "regular_end": "2027-01-10",
+    "super_bowl": "2027-02-14 Super Bowl LXI (SoFi Stadium)",
+    "postseason": "January 2027",
+    "status": "VERIFIED - released 2026-05-14",
+    "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+   },
+   "2027": {
+    "preseason_start": "ESTIMATED August 2027",
+    "regular_start": "ESTIMATED early September 2027",
+    "regular_end": "ESTIMATED early January 2028",
+    "super_bowl": "ESTIMATED early February 2028",
+    "status": "ESTIMATE - 2027 schedule not officially released",
+    "source": null
+   },
+   "2028": {
+    "preseason_start": "ESTIMATED August 2028",
+    "regular_start": "ESTIMATED early September 2028",
+    "regular_end": "ESTIMATED early January 2029",
+    "super_bowl": "ESTIMATED early February 2029",
+    "status": "ESTIMATE - 2028 schedule not officially released",
+    "source": null
+   },
+   "2029": {
+    "preseason_start": "ESTIMATED August 2029",
+    "regular_start": "ESTIMATED early September 2029",
+    "regular_end": "ESTIMATED early January 2030",
+    "super_bowl": "ESTIMATED early February 2030",
+    "status": "ESTIMATE - 2029 schedule not officially released",
+    "source": null
+   }
   },
-  "estimated_durations_minutes": {
-    "mlb": { "game": 165, "note": "Estimated average MLB game ~2 hours 45 minutes (150-180 min range)." },
-    "nfl": { "game": 180, "halftime": 12, "note": "Estimated average NFL broadcast ~3 hours including ~12-15 min halftime." },
-    "ncaaf": { "game": 180, "halftime": 20, "note": "Estimated average NCAAF broadcast ~3 hours including ~20 min halftime." },
-    "westwood_one": { "game": 180, "note": "Westwood One national NFL radio broadcasts follow NFL game timing (~3 hours)." }
+  "ncaaf": {
+   "2026": {
+    "start": "2026-08-29",
+    "end": "2026-12-05",
+    "bowls": "ESTIMATED December 2026 - January 2027",
+    "status": "VERIFIED (Stanford ACC schedule released 2026-01-26)",
+    "source": "https://gostanford.com/sports/football/schedule"
+   },
+   "2027": {
+    "start": "ESTIMATED late August 2027",
+    "end": "ESTIMATED late November 2027",
+    "bowls": "ESTIMATED December 2027 - January 2028",
+    "status": "ESTIMATE - schedules not officially released",
+    "source": null
+   },
+   "2028": {
+    "start": "ESTIMATED late August 2028",
+    "end": "ESTIMATED late November 2028",
+    "bowls": "ESTIMATED December 2028 - January 2029",
+    "status": "ESTIMATE - schedules not officially released",
+    "source": null
+   },
+   "2029": {
+    "start": "ESTIMATED late August 2029",
+    "end": "ESTIMATED late November 2029",
+    "bowls": "ESTIMATED December 2029 - January 2030",
+    "status": "ESTIMATE - schedules not officially released",
+    "source": null
+   }
+  }
+ },
+ "estimated_durations_minutes": {
+  "mlb": {
+   "game": 165,
+   "note": "Estimated average MLB game ~2 hours 45 minutes (150-180 min range)."
   },
-  "high_priority_teams": [
-    { "league": "MLB", "team": "San Francisco Giants", "priority": "high", "venue": "Oracle Park, San Francisco", "source": "https://www.mlb.com/giants" },
-    { "league": "MLB", "team": "Oakland Athletics", "priority": "high", "venue": "Sutter Health Park, West Sacramento (2026)", "source": "https://www.mlb.com/athletics" },
-    { "league": "NFL", "team": "San Francisco 49ers", "priority": "high", "venue": "Levi's Stadium, Santa Clara", "source": "https://www.49ers.com" },
-    { "league": "NCAAF", "team": "Stanford Cardinal", "priority": "high", "venue": "Stanford Stadium, Stanford", "source": "https://gostanford.com" },
-    { "league": "NCAAF", "team": "California Golden Bears", "priority": "high", "venue": "California Memorial Stadium, Berkeley", "source": "https://calbears.com" }
-  ],
-  "mlb_30_clubs": [
-    { "club": "Arizona Diamondbacks", "division": "NL West", "official_schedule": "https://www.mlb.com/dbacks/schedule" },
-    { "club": "Atlanta Braves", "division": "NL East", "official_schedule": "https://www.mlb.com/braves/schedule" },
-    { "club": "Baltimore Orioles", "division": "AL East", "official_schedule": "https://www.mlb.com/orioles/schedule" },
-    { "club": "Boston Red Sox", "division": "AL East", "official_schedule": "https://www.mlb.com/redsox/schedule" },
-    { "club": "Chicago Cubs", "division": "NL Central", "official_schedule": "https://www.mlb.com/cubs/schedule" },
-    { "club": "Chicago White Sox", "division": "AL Central", "official_schedule": "https://www.mlb.com/whitesox/schedule" },
-    { "club": "Cincinnati Reds", "division": "NL Central", "official_schedule": "https://www.mlb.com/reds/schedule" },
-    { "club": "Cleveland Guardians", "division": "AL Central", "official_schedule": "https://www.mlb.com/guardians/schedule" },
-    { "club": "Colorado Rockies", "division": "NL West", "official_schedule": "https://www.mlb.com/rockies/schedule" },
-    { "club": "Detroit Tigers", "division": "AL Central", "official_schedule": "https://www.mlb.com/tigers/schedule" },
-    { "club": "Houston Astros", "division": "AL West", "official_schedule": "https://www.mlb.com/astros/schedule" },
-    { "club": "Kansas City Royals", "division": "AL Central", "official_schedule": "https://www.mlb.com/royals/schedule" },
-    { "club": "Los Angeles Angels", "division": "AL West", "official_schedule": "https://www.mlb.com/angels/schedule" },
-    { "club": "Los Angeles Dodgers", "division": "NL West", "official_schedule": "https://www.mlb.com/dodgers/schedule" },
-    { "club": "Miami Marlins", "division": "NL East", "official_schedule": "https://www.mlb.com/marlins/schedule" },
-    { "club": "Milwaukee Brewers", "division": "NL Central", "official_schedule": "https://www.mlb.com/brewers/schedule" },
-    { "club": "Minnesota Twins", "division": "AL Central", "official_schedule": "https://www.mlb.com/twins/schedule" },
-    { "club": "New York Mets", "division": "NL East", "official_schedule": "https://www.mlb.com/mets/schedule" },
-    { "club": "New York Yankees", "division": "AL East", "official_schedule": "https://www.mlb.com/yankees/schedule" },
-    { "club": "Oakland Athletics", "division": "AL West", "official_schedule": "https://www.mlb.com/athletics/schedule" },
-    { "club": "Philadelphia Phillies", "division": "NL East", "official_schedule": "https://www.mlb.com/phillies/schedule" },
-    { "club": "Pittsburgh Pirates", "division": "NL Central", "official_schedule": "https://www.mlb.com/pirates/schedule" },
-    { "club": "San Diego Padres", "division": "NL West", "official_schedule": "https://www.mlb.com/padres/schedule" },
-    { "club": "San Francisco Giants", "division": "NL West", "official_schedule": "https://www.mlb.com/giants/schedule" },
-    { "club": "Seattle Mariners", "division": "AL West", "official_schedule": "https://www.mlb.com/mariners/schedule" },
-    { "club": "St. Louis Cardinals", "division": "NL Central", "official_schedule": "https://www.mlb.com/cardinals/schedule" },
-    { "club": "Tampa Bay Rays", "division": "AL East", "official_schedule": "https://www.mlb.com/rays/schedule" },
-    { "club": "Texas Rangers", "division": "AL West", "official_schedule": "https://www.mlb.com/rangers/schedule" },
-    { "club": "Toronto Blue Jays", "division": "AL East", "official_schedule": "https://www.mlb.com/bluejays/schedule" },
-    { "club": "Washington Nationals", "division": "NL East", "official_schedule": "https://www.mlb.com/nationals/schedule" }
-  ],
-  "nfl_49ers_2026_verified": [
-    { "type": "Preseason", "week": 1, "date": "2026-08-13", "day": "Thu", "opponent": "Tennessee Titans", "location": "Home", "venue": "Levi's Stadium", "time_pt": "TBD", "network": "KPIX 5", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Preseason", "week": 2, "date": "2026-08-20", "day": "Thu", "opponent": "Los Angeles Chargers", "location": "Away", "venue": "SoFi Stadium", "time_pt": "7:00 p.m.", "network": "KPIX 5", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Preseason", "week": 3, "date": "2026-08-27", "day": "Thu", "opponent": "Las Vegas Raiders", "location": "Away", "venue": "Allegiant Stadium", "time_pt": "TBD", "network": "KPIX 5", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 1, "date": "2026-09-10", "day": "Thu", "opponent": "Los Angeles Rams", "location": "Away (Melbourne, Australia)", "venue": "Melbourne Cricket Ground", "time_pt": "5:35 p.m. (Fri Sep 11 local)", "network": "Netflix", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 2, "date": "2026-09-20", "day": "Sun", "opponent": "Miami Dolphins", "location": "Home", "venue": "Levi's Stadium", "time_pt": "1:25 p.m.", "network": "FOX", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 3, "date": "2026-09-27", "day": "Sun", "opponent": "Arizona Cardinals", "location": "Home", "venue": "Levi's Stadium", "time_pt": "1:05 p.m.", "network": "FOX", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 4, "date": "2026-10-04", "day": "Sun", "opponent": "Denver Broncos", "location": "Home", "venue": "Levi's Stadium", "time_pt": "1:25 p.m.", "network": "CBS", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 5, "date": "2026-10-11", "day": "Sun", "opponent": "Seattle Seahawks", "location": "Away", "venue": "Lumen Field", "time_pt": "1:25 p.m.", "network": "FOX", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 6, "date": "2026-10-19", "day": "Mon", "opponent": "Washington Commanders", "location": "Home", "venue": "Levi's Stadium", "time_pt": "5:15 p.m.", "network": "ESPN / ABC", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 7, "date": "2026-10-25", "day": "Sun", "opponent": "Atlanta Falcons", "location": "Away", "venue": "Mercedes-Benz Stadium", "time_pt": "10:00 a.m. (1:00 p.m. ET)", "network": "FOX", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 8, "date": "2026-11-01", "day": "Sun", "opponent": "BYE", "location": "-", "venue": "-", "time_pt": "-", "network": "-", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 9, "date": "2026-11-08", "day": "Sun", "opponent": "Las Vegas Raiders", "location": "Home", "venue": "Levi's Stadium", "time_pt": "1:05 p.m.", "network": "CBS", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 10, "date": "2026-11-15", "day": "Sun", "opponent": "Dallas Cowboys", "location": "Away", "venue": "AT&T Stadium", "time_pt": "1:25 p.m. (3:25 p.m. ET)", "network": "FOX", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 11, "date": "2026-11-22", "day": "Sun", "opponent": "Minnesota Vikings", "location": "Away (Mexico City)", "venue": "Estadio Azteca", "time_pt": "5:20 p.m.", "network": "NBC", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 12, "date": "2026-11-29", "day": "Sun", "opponent": "Seattle Seahawks", "location": "Home", "venue": "Levi's Stadium", "time_pt": "1:25 p.m.", "network": "FOX", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 13, "date": "2026-12-06", "day": "Sun", "opponent": "New York Giants", "location": "Away", "venue": "MetLife Stadium", "time_pt": "10:00 a.m. (1:00 p.m. ET)", "network": "FOX", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 14, "date": "2026-12-13", "day": "Sun", "opponent": "Los Angeles Rams", "location": "Home", "venue": "Levi's Stadium", "time_pt": "1:25 p.m.", "network": "FOX", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 15, "date": "2026-12-17", "day": "Thu", "opponent": "Los Angeles Chargers", "location": "Away", "venue": "SoFi Stadium", "time_pt": "5:15 p.m.", "network": "Prime Video", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 16, "date": "2026-12-27", "day": "Sun", "opponent": "Kansas City Chiefs", "location": "Away", "venue": "GEHA Field at Arrowhead Stadium", "time_pt": "1:25 p.m. (3:25 p.m. ET)", "network": "CBS", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 17, "date": "2027-01-03", "day": "Sun", "opponent": "Philadelphia Eagles", "location": "Home", "venue": "Levi's Stadium", "time_pt": "5:20 p.m.", "network": "NBC", "status": "VERIFIED", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "type": "Regular", "week": 18, "date": "2027-01-10", "day": "Sun", "opponent": "Arizona Cardinals", "location": "Away", "venue": "State Farm Stadium", "time_pt": "TBD", "network": "TBD", "status": "VERIFIED (date), time TBD", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" }
-  ],
-  "nfl_postseason_2027_estimate": [
-    { "event": "NFL Wild Card playoffs", "date": "ESTIMATED January 2027", "status": "ESTIMATE", "source": null },
-    { "event": "NFL Divisional playoffs", "date": "ESTIMATED January 2027", "status": "ESTIMATE", "source": null },
-    { "event": "NFL Conference Championships", "date": "ESTIMATED January 2027", "status": "ESTIMATE", "source": null },
-    { "event": "Super Bowl LXI", "date": "2027-02-14", "venue": "SoFi Stadium, Inglewood CA", "status": "VERIFIED", "source": "https://www.49erswebzone.com/articles/200774-san-francisco-49ers-schedule-revealed/" }
-  ],
-  "stanford_2026_verified": [
-    { "date": "2026-08-29", "day": "Sat", "opponent": "Hawai'i", "location": "Home", "venue": "Stanford Stadium", "time_pt": "4:00 p.m. PDT", "network": "ACC Network", "status": "VERIFIED", "source": "https://gostanford.com/sports/football/schedule" },
-    { "date": "2026-09-04", "day": "Fri", "opponent": "Miami", "location": "Home", "venue": "Stanford Stadium", "time_pt": "6:00 p.m. PDT", "network": "ESPN", "status": "VERIFIED", "source": "https://gostanford.com/sports/football/schedule" },
-    { "date": "2026-09-19", "day": "Sat", "opponent": "Duke", "location": "Away", "venue": "Durham, N.C.", "time_pt": "1:00 p.m. PDT", "network": "The CW", "status": "VERIFIED", "source": "https://gostanford.com/sports/football/schedule" },
-    { "date": "2026-09-26", "day": "Sat", "opponent": "Georgia Tech", "location": "Home", "venue": "Stanford Stadium", "time_pt": "7:30 p.m. PDT", "network": "ESPN", "status": "VERIFIED", "source": "https://gostanford.com/sports/football/schedule" },
-    { "date": "2026-10-03", "day": "Sat", "opponent": "Wake Forest", "location": "Away", "venue": "Winston-Salem, N.C.", "time_pt": "TBA", "network": "ACC Network", "status": "VERIFIED (date), time TBA", "source": "https://gostanford.com/sports/football/schedule" },
-    { "date": "2026-10-10", "day": "Sat", "opponent": "Notre Dame", "location": "Away", "venue": "South Bend, Ind.", "time_pt": "12:30 p.m. PDT", "network": "NBC / Peacock", "status": "VERIFIED", "source": "https://gostanford.com/sports/football/schedule" },
-    { "date": "2026-10-17", "day": "Sat", "opponent": "Elon", "location": "Home", "venue": "Stanford Stadium", "time_pt": "4:30 p.m. PDT", "network": "ACC Network Extra", "status": "VERIFIED", "source": "https://gostanford.com/sports/football/schedule" },
-    { "date": "2026-10-23", "day": "Fri", "opponent": "NC State", "location": "Home", "venue": "Stanford Stadium", "time_pt": "7:30 p.m. PDT", "network": "ESPN", "status": "VERIFIED", "source": "https://gostanford.com/sports/football/schedule" },
-    { "date": "2026-10-31", "day": "Sat", "opponent": "Louisville", "location": "Away", "venue": "Louisville, Ky.", "time_pt": "TBA", "network": "ACC Network", "status": "VERIFIED (date), time TBA", "source": "https://gostanford.com/sports/football/schedule" },
-    { "date": "2026-11-14", "day": "Sat", "opponent": "Virginia Tech", "location": "Away", "venue": "Blacksburg, Va.", "time_pt": "TBA", "network": "ACC Network", "status": "VERIFIED (date), time TBA", "source": "https://gostanford.com/sports/football/schedule" },
-    { "date": "2026-11-21", "day": "Sat", "opponent": "California", "location": "Away (129th Big Game)", "venue": "California Memorial Stadium, Berkeley", "time_pt": "12:00 p.m. PST", "network": "TBD", "status": "VERIFIED (date/time), network TBD", "source": "https://calfootball.com/schedule/stanford" },
-    { "date": "2026-11-28", "day": "Sat", "opponent": "SMU", "location": "Home", "venue": "Stanford Stadium", "time_pt": "TBA", "network": "ACC Network", "status": "VERIFIED (date), time TBA", "source": "https://gostanford.com/sports/football/schedule" },
-    { "date": "2026-12-05", "day": "Sat", "opponent": "ACC Championship Game", "location": "Charlotte, N.C.", "venue": "Bank of America Stadium", "time_pt": "TBA", "network": "TBA", "status": "VERIFIED (date), time/network TBA", "source": "https://gostanford.com/news/2026/1/26/complete-2026-schedule-unveiled" }
-  ],
-  "cal_2026_partial_verified": [
-    { "date": "2026-11-21", "day": "Sat", "opponent": "Stanford (129th Big Game)", "location": "Home", "venue": "California Memorial Stadium, Berkeley", "time_pt": "12:00 p.m. PST", "network": "TBD", "status": "VERIFIED (date/time), full schedule unverified", "source": "https://calfootball.com/schedule/stanford" }
-  ],
-  "westwood_one_2026_verified": [
-    { "broadcast": "NFL Kickoff game", "date": "2026-09-09", "time_et": "7:00 p.m. ET", "status": "VERIFIED", "source": "https://www.insideradio.com/free/westwood-one-marks-40-years-of-nfl-coverage/article_cb5945c2-c687-43a1-a5db-3a678c9ef88a.html" },
-    { "broadcast": "Thursday Night Football (national radio)", "season": "2026", "time_et": "8:15 p.m. ET (5:15 p.m. PT)", "status": "VERIFIED", "source": "https://www.westwoodonesports.com/nfl-schedule/" },
-    { "broadcast": "Sunday Night Football (national radio)", "season": "2026", "time_et": "varies (typically ~5:20 p.m. PT / 8:20 p.m. ET)", "status": "VERIFIED", "source": "https://www.westwoodonesports.com/nfl-schedule/" },
-    { "broadcast": "Monday Night Football (national radio)", "season": "2026", "time_et": "8:15 p.m. ET (5:15 p.m. PT)", "status": "VERIFIED", "source": "https://www.westwoodonesports.com/nfl-schedule/" },
-    { "broadcast": "Thanksgiving / Black Friday / Christmas games", "season": "2026", "status": "VERIFIED", "source": "https://news.radio-online.com/articles/n49383/Westwood-One-Sets-40th-Season-of-NFL-Coverage" },
-    { "broadcast": "International games (8)", "season": "2026", "status": "VERIFIED", "source": "https://news.radio-online.com/articles/n49383/Westwood-One-Sets-40th-Season-of-NFL-Coverage" },
-    { "broadcast": "Entire NFL postseason incl. Super Bowl LXI", "season": "2026", "time_et": "Super Bowl LXI 2027-02-14", "status": "VERIFIED", "source": "https://www.insideradio.com/free/westwood-one-marks-40-years-of-nfl-coverage/article_cb5945c2-c687-43a1-a5db-3a678c9ef88a.html" }
-  ],
-  "sf_bay_area_radio_stations": [
-    { "station": "KNBR 680 AM / 104.5 FM", "market": "San Francisco", "note": "Flagship for Giants/A's/49ers local radio at various times; check KNBR schedule.", "verify": "unverified", "source": "https://www.knbr.com" },
-    { "station": "KPIX 5 (KCBS 740 AM)", "market": "San Francisco", "note": "49ers preseason TV/radio partner (KPIX).", "verify": "verified", "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/" },
-    { "station": "Westwood One Sports affiliates (Bay Area AM/FM)", "market": "San Francisco Bay Area", "note": "National NFL radio (TNF/SNF/MNF/postseason) carried on local Westwood One AM/FM affiliates.", "verify": "verified", "source": "https://www.westwoodonesports.com/nfl-schedule/" },
-    { "station": "SiriusXM NFL Radio Ch. 88", "market": "National (satellite, not AM/FM)", "note": "Not a standard AM/FM station; listed for reference only.", "verify": "verified", "source": "https://whereisthegame.com/nfl/thursday-night-football" }
-  ],
-  "flagged_for_review": [
-    { "item": "Full 2026 MLB per-game schedule for all 30 clubs", "reason": "Not manually verified game-by-game; official club schedule links provided instead.", "status": "unverified", "source": "https://www.mlb.com" },
-    { "item": "Oakland Athletics 2026 home-game times (Sutter Health Park / Las Vegas)", "reason": "Dates verified; individual game times not yet pulled from official A's schedule.", "status": "unverified", "source": "https://www.mlb.com/athletics/schedule" },
-    { "item": "California Golden Bears full 2026 football schedule", "reason": "Only Big Game (Nov 21) verified; full schedule not retrieved from official source.", "status": "unverified", "source": "https://calbears.com" },
-    { "item": "Westwood One exact Bay Area AM/FM affiliate station list", "reason": "Network coverage verified; specific local affiliate frequencies not confirmed.", "status": "unverified", "source": "https://www.westwoodonesports.com/nfl-schedule/" },
-    { "item": "All 2027, 2028, 2029 schedules", "reason": "Not officially released; all values are estimates flagged as ESTIMATE.", "status": "estimate", "source": null }
-  ]
+  "nfl": {
+   "game": 180,
+   "halftime": 12,
+   "note": "Estimated average NFL broadcast ~3 hours including ~12-15 min halftime."
+  },
+  "ncaaf": {
+   "game": 180,
+   "halftime": 20,
+   "note": "Estimated average NCAAF broadcast ~3 hours including ~20 min halftime."
+  },
+  "westwood_one": {
+   "game": 180,
+   "note": "Westwood One national NFL radio broadcasts follow NFL game timing (~3 hours)."
+  }
+ },
+ "high_priority_teams": [
+  {
+   "league": "MLB",
+   "team": "San Francisco Giants",
+   "priority": "high",
+   "venue": "Oracle Park, San Francisco",
+   "source": "https://www.mlb.com/giants"
+  },
+  {
+   "league": "MLB",
+   "team": "Oakland Athletics",
+   "priority": "high",
+   "venue": "Sutter Health Park, West Sacramento (2026)",
+   "source": "https://www.mlb.com/athletics"
+  },
+  {
+   "league": "NFL",
+   "team": "San Francisco 49ers",
+   "priority": "high",
+   "venue": "Levi's Stadium, Santa Clara",
+   "source": "https://www.49ers.com"
+  },
+  {
+   "league": "NCAAF",
+   "team": "Stanford Cardinal",
+   "priority": "high",
+   "venue": "Stanford Stadium, Stanford",
+   "source": "https://gostanford.com"
+  },
+  {
+   "league": "NCAAF",
+   "team": "California Golden Bears",
+   "priority": "high",
+   "venue": "California Memorial Stadium, Berkeley",
+   "source": "https://calbears.com"
+  }
+ ],
+ "mlb_30_clubs": [
+  {
+   "club": "Arizona Diamondbacks",
+   "division": "NL West",
+   "official_schedule": "https://www.mlb.com/dbacks/schedule"
+  },
+  {
+   "club": "Atlanta Braves",
+   "division": "NL East",
+   "official_schedule": "https://www.mlb.com/braves/schedule"
+  },
+  {
+   "club": "Baltimore Orioles",
+   "division": "AL East",
+   "official_schedule": "https://www.mlb.com/orioles/schedule"
+  },
+  {
+   "club": "Boston Red Sox",
+   "division": "AL East",
+   "official_schedule": "https://www.mlb.com/redsox/schedule"
+  },
+  {
+   "club": "Chicago Cubs",
+   "division": "NL Central",
+   "official_schedule": "https://www.mlb.com/cubs/schedule"
+  },
+  {
+   "club": "Chicago White Sox",
+   "division": "AL Central",
+   "official_schedule": "https://www.mlb.com/whitesox/schedule"
+  },
+  {
+   "club": "Cincinnati Reds",
+   "division": "NL Central",
+   "official_schedule": "https://www.mlb.com/reds/schedule"
+  },
+  {
+   "club": "Cleveland Guardians",
+   "division": "AL Central",
+   "official_schedule": "https://www.mlb.com/guardians/schedule"
+  },
+  {
+   "club": "Colorado Rockies",
+   "division": "NL West",
+   "official_schedule": "https://www.mlb.com/rockies/schedule"
+  },
+  {
+   "club": "Detroit Tigers",
+   "division": "AL Central",
+   "official_schedule": "https://www.mlb.com/tigers/schedule"
+  },
+  {
+   "club": "Houston Astros",
+   "division": "AL West",
+   "official_schedule": "https://www.mlb.com/astros/schedule"
+  },
+  {
+   "club": "Kansas City Royals",
+   "division": "AL Central",
+   "official_schedule": "https://www.mlb.com/royals/schedule"
+  },
+  {
+   "club": "Los Angeles Angels",
+   "division": "AL West",
+   "official_schedule": "https://www.mlb.com/angels/schedule"
+  },
+  {
+   "club": "Los Angeles Dodgers",
+   "division": "NL West",
+   "official_schedule": "https://www.mlb.com/dodgers/schedule"
+  },
+  {
+   "club": "Miami Marlins",
+   "division": "NL East",
+   "official_schedule": "https://www.mlb.com/marlins/schedule"
+  },
+  {
+   "club": "Milwaukee Brewers",
+   "division": "NL Central",
+   "official_schedule": "https://www.mlb.com/brewers/schedule"
+  },
+  {
+   "club": "Minnesota Twins",
+   "division": "AL Central",
+   "official_schedule": "https://www.mlb.com/twins/schedule"
+  },
+  {
+   "club": "New York Mets",
+   "division": "NL East",
+   "official_schedule": "https://www.mlb.com/mets/schedule"
+  },
+  {
+   "club": "New York Yankees",
+   "division": "AL East",
+   "official_schedule": "https://www.mlb.com/yankees/schedule"
+  },
+  {
+   "club": "Oakland Athletics",
+   "division": "AL West",
+   "official_schedule": "https://www.mlb.com/athletics/schedule"
+  },
+  {
+   "club": "Philadelphia Phillies",
+   "division": "NL East",
+   "official_schedule": "https://www.mlb.com/phillies/schedule"
+  },
+  {
+   "club": "Pittsburgh Pirates",
+   "division": "NL Central",
+   "official_schedule": "https://www.mlb.com/pirates/schedule"
+  },
+  {
+   "club": "San Diego Padres",
+   "division": "NL West",
+   "official_schedule": "https://www.mlb.com/padres/schedule"
+  },
+  {
+   "club": "San Francisco Giants",
+   "division": "NL West",
+   "official_schedule": "https://www.mlb.com/giants/schedule"
+  },
+  {
+   "club": "Seattle Mariners",
+   "division": "AL West",
+   "official_schedule": "https://www.mlb.com/mariners/schedule"
+  },
+  {
+   "club": "St. Louis Cardinals",
+   "division": "NL Central",
+   "official_schedule": "https://www.mlb.com/cardinals/schedule"
+  },
+  {
+   "club": "Tampa Bay Rays",
+   "division": "AL East",
+   "official_schedule": "https://www.mlb.com/rays/schedule"
+  },
+  {
+   "club": "Texas Rangers",
+   "division": "AL West",
+   "official_schedule": "https://www.mlb.com/rangers/schedule"
+  },
+  {
+   "club": "Toronto Blue Jays",
+   "division": "AL East",
+   "official_schedule": "https://www.mlb.com/bluejays/schedule"
+  },
+  {
+   "club": "Washington Nationals",
+   "division": "NL East",
+   "official_schedule": "https://www.mlb.com/nationals/schedule"
+  }
+ ],
+ "nfl_49ers_2026_verified": [
+  {
+   "type": "Preseason",
+   "week": 1,
+   "date": "2026-08-13",
+   "day": "Thu",
+   "opponent": "Tennessee Titans",
+   "location": "Home",
+   "venue": "Levi's Stadium",
+   "time_pt": "TBD",
+   "network": "KPIX 5",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Preseason",
+   "week": 2,
+   "date": "2026-08-20",
+   "day": "Thu",
+   "opponent": "Los Angeles Chargers",
+   "location": "Away",
+   "venue": "SoFi Stadium",
+   "time_pt": "7:00 p.m.",
+   "network": "KPIX 5",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Preseason",
+   "week": 3,
+   "date": "2026-08-27",
+   "day": "Thu",
+   "opponent": "Las Vegas Raiders",
+   "location": "Away",
+   "venue": "Allegiant Stadium",
+   "time_pt": "TBD",
+   "network": "KPIX 5",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 1,
+   "date": "2026-09-10",
+   "day": "Thu",
+   "opponent": "Los Angeles Rams",
+   "location": "Away (Melbourne, Australia)",
+   "venue": "Melbourne Cricket Ground",
+   "time_pt": "5:35 p.m. (Fri Sep 11 local)",
+   "network": "Netflix",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 2,
+   "date": "2026-09-20",
+   "day": "Sun",
+   "opponent": "Miami Dolphins",
+   "location": "Home",
+   "venue": "Levi's Stadium",
+   "time_pt": "1:25 p.m.",
+   "network": "FOX",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 3,
+   "date": "2026-09-27",
+   "day": "Sun",
+   "opponent": "Arizona Cardinals",
+   "location": "Home",
+   "venue": "Levi's Stadium",
+   "time_pt": "1:05 p.m.",
+   "network": "FOX",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 4,
+   "date": "2026-10-04",
+   "day": "Sun",
+   "opponent": "Denver Broncos",
+   "location": "Home",
+   "venue": "Levi's Stadium",
+   "time_pt": "1:25 p.m.",
+   "network": "CBS",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 5,
+   "date": "2026-10-11",
+   "day": "Sun",
+   "opponent": "Seattle Seahawks",
+   "location": "Away",
+   "venue": "Lumen Field",
+   "time_pt": "1:25 p.m.",
+   "network": "FOX",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 6,
+   "date": "2026-10-19",
+   "day": "Mon",
+   "opponent": "Washington Commanders",
+   "location": "Home",
+   "venue": "Levi's Stadium",
+   "time_pt": "5:15 p.m.",
+   "network": "ESPN / ABC",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 7,
+   "date": "2026-10-25",
+   "day": "Sun",
+   "opponent": "Atlanta Falcons",
+   "location": "Away",
+   "venue": "Mercedes-Benz Stadium",
+   "time_pt": "10:00 a.m. (1:00 p.m. ET)",
+   "network": "FOX",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 8,
+   "date": "2026-11-01",
+   "day": "Sun",
+   "opponent": "BYE",
+   "location": "-",
+   "venue": "-",
+   "time_pt": "-",
+   "network": "-",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 9,
+   "date": "2026-11-08",
+   "day": "Sun",
+   "opponent": "Las Vegas Raiders",
+   "location": "Home",
+   "venue": "Levi's Stadium",
+   "time_pt": "1:05 p.m.",
+   "network": "CBS",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 10,
+   "date": "2026-11-15",
+   "day": "Sun",
+   "opponent": "Dallas Cowboys",
+   "location": "Away",
+   "venue": "AT&T Stadium",
+   "time_pt": "1:25 p.m. (3:25 p.m. ET)",
+   "network": "FOX",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 11,
+   "date": "2026-11-22",
+   "day": "Sun",
+   "opponent": "Minnesota Vikings",
+   "location": "Away (Mexico City)",
+   "venue": "Estadio Azteca",
+   "time_pt": "5:20 p.m.",
+   "network": "NBC",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 12,
+   "date": "2026-11-29",
+   "day": "Sun",
+   "opponent": "Seattle Seahawks",
+   "location": "Home",
+   "venue": "Levi's Stadium",
+   "time_pt": "1:25 p.m.",
+   "network": "FOX",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 13,
+   "date": "2026-12-06",
+   "day": "Sun",
+   "opponent": "New York Giants",
+   "location": "Away",
+   "venue": "MetLife Stadium",
+   "time_pt": "10:00 a.m. (1:00 p.m. ET)",
+   "network": "FOX",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 14,
+   "date": "2026-12-13",
+   "day": "Sun",
+   "opponent": "Los Angeles Rams",
+   "location": "Home",
+   "venue": "Levi's Stadium",
+   "time_pt": "1:25 p.m.",
+   "network": "FOX",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 15,
+   "date": "2026-12-17",
+   "day": "Thu",
+   "opponent": "Los Angeles Chargers",
+   "location": "Away",
+   "venue": "SoFi Stadium",
+   "time_pt": "5:15 p.m.",
+   "network": "Prime Video",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 16,
+   "date": "2026-12-27",
+   "day": "Sun",
+   "opponent": "Kansas City Chiefs",
+   "location": "Away",
+   "venue": "GEHA Field at Arrowhead Stadium",
+   "time_pt": "1:25 p.m. (3:25 p.m. ET)",
+   "network": "CBS",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 17,
+   "date": "2027-01-03",
+   "day": "Sun",
+   "opponent": "Philadelphia Eagles",
+   "location": "Home",
+   "venue": "Levi's Stadium",
+   "time_pt": "5:20 p.m.",
+   "network": "NBC",
+   "status": "VERIFIED",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "type": "Regular",
+   "week": 18,
+   "date": "2027-01-10",
+   "day": "Sun",
+   "opponent": "Arizona Cardinals",
+   "location": "Away",
+   "venue": "State Farm Stadium",
+   "time_pt": "TBD",
+   "network": "TBD",
+   "status": "VERIFIED (date), time TBD",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  }
+ ],
+ "nfl_postseason_2027_estimate": [
+  {
+   "event": "NFL Wild Card playoffs",
+   "date": "ESTIMATED January 2027",
+   "status": "ESTIMATE",
+   "source": null
+  },
+  {
+   "event": "NFL Divisional playoffs",
+   "date": "ESTIMATED January 2027",
+   "status": "ESTIMATE",
+   "source": null
+  },
+  {
+   "event": "NFL Conference Championships",
+   "date": "ESTIMATED January 2027",
+   "status": "ESTIMATE",
+   "source": null
+  },
+  {
+   "event": "Super Bowl LXI",
+   "date": "2027-02-14",
+   "venue": "SoFi Stadium, Inglewood CA",
+   "status": "VERIFIED",
+   "source": "https://www.49erswebzone.com/articles/200774-san-francisco-49ers-schedule-revealed/"
+  }
+ ],
+ "stanford_2026_verified": [
+  {
+   "date": "2026-08-29",
+   "day": "Sat",
+   "opponent": "Hawai'i",
+   "location": "Home",
+   "venue": "Stanford Stadium",
+   "time_pt": "4:00 p.m. PDT",
+   "network": "ACC Network",
+   "status": "VERIFIED",
+   "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "date": "2026-09-04",
+   "day": "Fri",
+   "opponent": "Miami",
+   "location": "Home",
+   "venue": "Stanford Stadium",
+   "time_pt": "6:00 p.m. PDT",
+   "network": "ESPN",
+   "status": "VERIFIED",
+   "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "date": "2026-09-19",
+   "day": "Sat",
+   "opponent": "Duke",
+   "location": "Away",
+   "venue": "Durham, N.C.",
+   "time_pt": "1:00 p.m. PDT",
+   "network": "The CW",
+   "status": "VERIFIED",
+   "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "date": "2026-09-26",
+   "day": "Sat",
+   "opponent": "Georgia Tech",
+   "location": "Home",
+   "venue": "Stanford Stadium",
+   "time_pt": "7:30 p.m. PDT",
+   "network": "ESPN",
+   "status": "VERIFIED",
+   "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "date": "2026-10-03",
+   "day": "Sat",
+   "opponent": "Wake Forest",
+   "location": "Away",
+   "venue": "Winston-Salem, N.C.",
+   "time_pt": "TBA",
+   "network": "ACC Network",
+   "status": "VERIFIED (date), time TBA",
+   "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "date": "2026-10-10",
+   "day": "Sat",
+   "opponent": "Notre Dame",
+   "location": "Away",
+   "venue": "South Bend, Ind.",
+   "time_pt": "12:30 p.m. PDT",
+   "network": "NBC / Peacock",
+   "status": "VERIFIED",
+   "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "date": "2026-10-17",
+   "day": "Sat",
+   "opponent": "Elon",
+   "location": "Home",
+   "venue": "Stanford Stadium",
+   "time_pt": "4:30 p.m. PDT",
+   "network": "ACC Network Extra",
+   "status": "VERIFIED",
+   "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "date": "2026-10-23",
+   "day": "Fri",
+   "opponent": "NC State",
+   "location": "Home",
+   "venue": "Stanford Stadium",
+   "time_pt": "7:30 p.m. PDT",
+   "network": "ESPN",
+   "status": "VERIFIED",
+   "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "date": "2026-10-31",
+   "day": "Sat",
+   "opponent": "Louisville",
+   "location": "Away",
+   "venue": "Louisville, Ky.",
+   "time_pt": "TBA",
+   "network": "ACC Network",
+   "status": "VERIFIED (date), time TBA",
+   "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "date": "2026-11-14",
+   "day": "Sat",
+   "opponent": "Virginia Tech",
+   "location": "Away",
+   "venue": "Blacksburg, Va.",
+   "time_pt": "TBA",
+   "network": "ACC Network",
+   "status": "VERIFIED (date), time TBA",
+   "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "date": "2026-11-21",
+   "day": "Sat",
+   "opponent": "California",
+   "location": "Away (129th Big Game)",
+   "venue": "California Memorial Stadium, Berkeley",
+   "time_pt": "12:00 p.m. PST",
+   "network": "TBD",
+   "status": "VERIFIED (date/time), network TBD",
+   "source": "https://calfootball.com/schedule/stanford"
+  },
+  {
+   "date": "2026-11-28",
+   "day": "Sat",
+   "opponent": "SMU",
+   "location": "Home",
+   "venue": "Stanford Stadium",
+   "time_pt": "TBA",
+   "network": "ACC Network",
+   "status": "VERIFIED (date), time TBA",
+   "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "date": "2026-12-05",
+   "day": "Sat",
+   "opponent": "ACC Championship Game",
+   "location": "Charlotte, N.C.",
+   "venue": "Bank of America Stadium",
+   "time_pt": "TBA",
+   "network": "TBA",
+   "status": "VERIFIED (date), time/network TBA",
+   "source": "https://gostanford.com/news/2026/1/26/complete-2026-schedule-unveiled"
+  }
+ ],
+ "cal_2026_partial_verified": [
+  {
+   "date": "2026-11-21",
+   "day": "Sat",
+   "opponent": "Stanford (129th Big Game)",
+   "location": "Home",
+   "venue": "California Memorial Stadium, Berkeley",
+   "time_pt": "12:00 p.m. PST",
+   "network": "TBD",
+   "status": "VERIFIED (date/time), full schedule unverified",
+   "source": "https://calfootball.com/schedule/stanford"
+  }
+ ],
+ "westwood_one_2026_verified": [
+  {
+   "broadcast": "NFL Kickoff game",
+   "date": "2026-09-09",
+   "time_et": "7:00 p.m. ET",
+   "status": "VERIFIED",
+   "source": "https://www.insideradio.com/free/westwood-one-marks-40-years-of-nfl-coverage/article_cb5945c2-c687-43a1-a5db-3a678c9ef88a.html"
+  },
+  {
+   "broadcast": "Thursday Night Football (national radio)",
+   "season": "2026",
+   "time_et": "8:15 p.m. ET (5:15 p.m. PT)",
+   "status": "VERIFIED",
+   "source": "https://www.westwoodonesports.com/nfl-schedule/"
+  },
+  {
+   "broadcast": "Sunday Night Football (national radio)",
+   "season": "2026",
+   "time_et": "varies (typically ~5:20 p.m. PT / 8:20 p.m. ET)",
+   "status": "VERIFIED",
+   "source": "https://www.westwoodonesports.com/nfl-schedule/"
+  },
+  {
+   "broadcast": "Monday Night Football (national radio)",
+   "season": "2026",
+   "time_et": "8:15 p.m. ET (5:15 p.m. PT)",
+   "status": "VERIFIED",
+   "source": "https://www.westwoodonesports.com/nfl-schedule/"
+  },
+  {
+   "broadcast": "Thanksgiving / Black Friday / Christmas games",
+   "season": "2026",
+   "status": "VERIFIED",
+   "source": "https://news.radio-online.com/articles/n49383/Westwood-One-Sets-40th-Season-of-NFL-Coverage"
+  },
+  {
+   "broadcast": "International games (8)",
+   "season": "2026",
+   "status": "VERIFIED",
+   "source": "https://news.radio-online.com/articles/n49383/Westwood-One-Sets-40th-Season-of-NFL-Coverage"
+  },
+  {
+   "broadcast": "Entire NFL postseason incl. Super Bowl LXI",
+   "season": "2026",
+   "time_et": "Super Bowl LXI 2027-02-14",
+   "status": "VERIFIED",
+   "source": "https://www.insideradio.com/free/westwood-one-marks-40-years-of-nfl-coverage/article_cb5945c2-c687-43a1-a5db-3a678c9ef88a.html"
+  }
+ ],
+ "sf_bay_area_radio_stations": [
+  {
+   "station": "KNBR 680 AM / 104.5 FM",
+   "market": "San Francisco",
+   "note": "Flagship for Giants/A's/49ers local radio at various times; check KNBR schedule.",
+   "verify": "unverified",
+   "source": "https://www.knbr.com"
+  },
+  {
+   "station": "KPIX 5 (KCBS 740 AM)",
+   "market": "San Francisco",
+   "note": "49ers preseason TV/radio partner (KPIX).",
+   "verify": "verified",
+   "source": "https://49ers.1rmg.com/news-releases/49ers-announce-2026-schedule/"
+  },
+  {
+   "station": "Westwood One Sports affiliates (Bay Area AM/FM)",
+   "market": "San Francisco Bay Area",
+   "note": "National NFL radio (TNF/SNF/MNF/postseason) carried on local Westwood One AM/FM affiliates.",
+   "verify": "verified",
+   "source": "https://www.westwoodonesports.com/nfl-schedule/"
+  },
+  {
+   "station": "SiriusXM NFL Radio Ch. 88",
+   "market": "National (satellite, not AM/FM)",
+   "note": "Not a standard AM/FM station; listed for reference only.",
+   "verify": "verified",
+   "source": "https://whereisthegame.com/nfl/thursday-night-football"
+  }
+ ],
+ "flagged_for_review": [
+  {
+   "item": "Full 2026 MLB per-game schedule for all 30 clubs",
+   "reason": "Not manually verified game-by-game; official club schedule links provided instead.",
+   "status": "unverified",
+   "source": "https://www.mlb.com"
+  },
+  {
+   "item": "Oakland Athletics 2026 home-game times (Sutter Health Park / Las Vegas)",
+   "reason": "Dates verified; individual game times not yet pulled from official A's schedule.",
+   "status": "unverified",
+   "source": "https://www.mlb.com/athletics/schedule"
+  },
+  {
+   "item": "California Golden Bears full 2026 football schedule",
+   "reason": "Only Big Game (Nov 21) verified; full schedule not retrieved from official source.",
+   "status": "unverified",
+   "source": "https://calbears.com"
+  },
+  {
+   "item": "Westwood One exact Bay Area AM/FM affiliate station list",
+   "reason": "Network coverage verified; specific local affiliate frequencies not confirmed.",
+   "status": "unverified",
+   "source": "https://www.westwoodonesports.com/nfl-schedule/"
+  },
+  {
+   "item": "All 2027, 2028, 2029 schedules",
+   "reason": "Not officially released; all values are estimates flagged as ESTIMATE.",
+   "status": "estimate",
+   "source": null
+  }
+ ]
 }

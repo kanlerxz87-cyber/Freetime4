@@ -463,10 +463,19 @@ Scope claimed 2026-11-26: root pages (index.html, *.html at root), data/*.json (
 | # | Task | Status | Notes |
 |---|------|--------|-------|
 | A1 | Claim + audit repo state | in progress | This section |
-| A2 | Live-verify official sources (MLB 2027 release, Westwood One, NFL 2026, Stanford/Cal 2026) | unclaimed | fetch_page checks |
-| A3 | Fix stale data/schedules.json (MLB 2027 "not released" → verified 2026-07-16) | unclaimed | Contradicts README correction |
-| A4 | Re-verify summary.json windows vs games-*.json (recompute check) | unclaimed | Independent recompute |
-| A5 | Link check + HTTP smoke test of root site | unclaimed | scripts/check_links.py + local server |
-| A6 | PR to main, merge, confirm Pages deploy, record here | unclaimed | Final integration |
+| A2 | Live-verify official sources (MLB 2027 release, Westwood One, NFL 2026, Stanford/Cal 2026) | done | mlb.com 2027 release, westwoodonesports.com/nfl-schedule, nfl.com/schedules/2026, gostanford.com news 2026-11-09 — all fetched live 2026-11-26 |
+| A3 | Fix stale data/schedules.json (MLB 2027 "not released" → verified 2026-07-16) | done | Opening Night 2027-03-24, Opening Day 2027-03-25, All-Star 2027-07-13 Wrigley, regular end 2027-09-26 |
+| A4 | Re-verify summary.json windows vs games-*.json (recompute check) | done | Independent recompute matched all 9 scenario/year longest runs exactly |
+| A5 | Link check + HTTP smoke test of root site | done | check_links PASS (13 pages, 0 errors); 14/14 resources HTTP 200 |
+| A6 | PR to main, merge, confirm Pages deploy, record here | in progress | This commit |
 
 Note: PR #9 (arena/e6eb3028-freetime4, "Build Bay Area Gameplan schedules and radio dashboard") is OPEN and belongs to another session — not touched by this session.
+
+### Session arena/a8991249 verification log (2026-11-26)
+- MLB 2027 (mlb.com/news/mlb-2027-schedule-released, fetched live): Opening Night Wed 2027-03-24 (Netflix, TBD), Opening Day Thu 2027-03-25 (14 games), All-Star Tue 2027-07-13 at Wrigley (FOX), regular season ends Sun 2027-09-26. Matches planner.
+- Westwood One (westwoodonesports.com/nfl-schedule, fetched live): Thanksgiving tripleheader Nov 26, Black Friday Nov 27 DEN@PIT, SNF/MNF/TNF, Christmas tripleheader Dec 25, Week 16/17 Saturday doubleheaders, Week 18 Saturday tripleheader, 49ers@Chargers Dec 17 7:30 PM ET, Eagles@49ers Jan 3 7:30 PM ET. Matches planner.
+- NFL.com 2026 Week 12 (fetched live): Packers@Rams Nov 25 final, Thanksgiving tripleheader, Black Friday DEN@PIT 3:00 PM ET — 30 min later than Westwood One's 2:30 PM ET listing. New flag F17. No free-day impact.
+- Stanford/Cal (gostanford.com news 2026-11-09): 129th Big Game Sat Nov 21, 2026, 4:30 PM PT at Berkeley (ACCN), superseding earlier 12:00 PM PT. New flag F18. Game is past; no planner impact.
+- summary.json independently recomputed from games-2026..2030.json: all 9 scenario/year longest runs match exactly (core 7/12/12; no-st 37/38/38; sf-radio 13/12/12).
+- games-2026.json has no MLB rows because the 2026 MLB season ended 2026-09-27, before the planner horizon (2026-11-25). Correct for a forward-looking planner; navigating the calendar before Nov 2026 shows no MLB data (noted, not a defect for vacation planning).
+- Irregularities added: F17 (Black Friday 30-min WW1 vs NFL.com), F18 (Big Game kickoff update). Existing F07/F11 Dec 17 + Jan 3 WW1-vs-team time conflicts re-confirmed live.
