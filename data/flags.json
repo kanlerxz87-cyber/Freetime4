@@ -2,7 +2,7 @@
  "flags": [
   {
    "id": "F01",
-   "title": "MLB CBA expires 2026-12-01 \u2014 lockout risk for the 2027 season",
+   "title": "MLB CBA expires 2026-12-01 — lockout risk for the 2027 season",
    "detail": "MLB's released 2027 schedule is officially published but is contingent on a new CBA. Outlets report a lockout is considered imminent. If games are lost, the free-time map shifts (more free time) and rows must be re-verified after any settlement.",
    "source": "https://sports.yahoo.com/mlb/breaking-news/article/with-lockout-imminent-rob-manfred-cant-imagine-mlb-owners-ratifying-new-cba-without-salary-cap-floor-223700548.html"
   },
@@ -20,19 +20,19 @@
   },
   {
    "id": "F04",
-   "title": "MLB 2028\u20132029 schedules not released",
+   "title": "MLB 2028–2029 schedules not released",
    "detail": "Official Stats API returns no games (evidence kept in data/raw/mlb_2028_*.json, mlb_2029_*.json). The site shows ESTIMATED daily slate rows over estimated season spans; no invented matchups.",
    "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2028-03-01&endDate=2028-03-31"
   },
   {
    "id": "F05",
-   "title": "NFL 2027\u20132029 schedules not released",
-   "detail": "ESPN's future-season scoreboard calls return current-season fallbacks (validated and discarded). Modelled weekly window rows (TNF/SNF/MNF/Sunday windows) are ESTIMATES. Super Bowl dates after LXI are estimates (\u2248 2nd Sunday of February).",
+   "title": "NFL 2027–2029 schedules not released",
+   "detail": "ESPN's future-season scoreboard calls return current-season fallbacks (validated and discarded). Modelled weekly window rows (TNF/SNF/MNF/Sunday windows) are ESTIMATES. Super Bowl dates after LXI are estimates (≈ 2nd Sunday of February).",
    "source": "https://www.nfl.com/schedules"
   },
   {
    "id": "F06",
-   "title": "NFL 2026 Weeks 13\u201318 rows cross-checked via ESPN, not read row-by-row on nfl.com",
+   "title": "NFL 2026 Weeks 13–18 rows cross-checked via ESPN, not read row-by-row on nfl.com",
    "detail": "Week 12 was verified directly on nfl.com. Other remaining weeks come from the ESPN public scoreboard dump with the official nfl.com by-week page attached to every row for manual re-check. Times may shift with flex scheduling (esp. Week 18).",
    "source": "https://www.nfl.com/schedules/2026/by-week/week-13"
   },
@@ -44,7 +44,7 @@
   },
   {
    "id": "F08",
-   "title": "Westwood One 2026\u201327 postseason national windows",
+   "title": "Westwood One 2026–27 postseason national windows",
    "detail": "Westwood One carries the NFL postseason per its national rights, but per-game listings post during the playoffs (its page currently ends at Week 18). Postseason rows are marked national windows with estimated times.",
    "source": "https://www.westwoodonesports.com/nfl-schedule/"
   },
@@ -56,8 +56,8 @@
   },
   {
    "id": "F10",
-   "title": "Stanford possible bowl game Dec 2026 \u2013 Jan 2027",
-   "detail": "If Stanford becomes bowl-eligible, one game will land between ~2026-12-18 and ~2027-01-13. Shown as a non-blocking 'possible' row (never counted as busy; days are marked with \u26a0).",
+   "title": "Stanford possible bowl game Dec 2026 – Jan 2027",
+   "detail": "If Stanford becomes bowl-eligible, one game will land between ~2026-12-18 and ~2027-01-13. Shown as a non-blocking 'possible' row (never counted as busy; days are marked with ⚠).",
    "source": "https://gostanford.com/sports/football/schedule/2026"
   },
   {
@@ -69,13 +69,13 @@
   {
    "id": "F12",
    "title": "A's relocation affects radio and venues across the window",
-   "detail": "Athletics home games 2025\u20132027 in West Sacramento (Bay Area radio: iHeart Sports 960 AM / KNEW); Las Vegas planned from 2028 with no radio plan announced. 2028+ A's rows carry no radio claim.",
+   "detail": "Athletics home games 2025–2027 in West Sacramento (Bay Area radio: iHeart Sports 960 AM / KNEW); Las Vegas planned from 2028 with no radio plan announced. 2028+ A's rows carry no radio claim.",
    "source": "https://www.sacbee.com/sports/article300334119.html"
   },
   {
    "id": "F13",
    "title": "Other Bay Area radio sports are NOT in the core free-time definition",
-   "detail": "Warriors (NBA) air on 95.7 The Game and Sharks (NHL) games are heard locally; Westwood One also carries NCAA basketball (March Madness), golf and more. These overlap Feb\u2013Mar vacation windows. The brief's 'what free means' list does not include them, so the core map excludes them; if you want them counted, say so and they will be folded in. See radio.html.",
+   "detail": "Warriors (NBA) air on 95.7 The Game and Sharks (NHL) games are heard locally; Westwood One also carries NCAA basketball (March Madness), golf and more. These overlap Feb–Mar vacation windows. The brief's 'what free means' list does not include them, so the core map excludes them; if you want them counted, say so and they will be folded in. See radio.html.",
    "source": "https://www.nba.com/warriors/news/warriors-announce-2026-27-television-radio-broadcast-schedules-20260824"
   },
   {
@@ -87,14 +87,26 @@
   {
    "id": "F15",
    "title": "Interpretation choices in the vacation-window scenarios",
-   "detail": "The brief says both 'games scheduled to be played' and 'live over the radio in SF'. The site reports three scenarios (core; core minus MLB spring training; SF-radio-only) so both readings are visible. Feb\u2013Mar 2027 windows differ sharply between them.",
+   "detail": "The brief says both 'games scheduled to be played' and 'live over the radio in SF'. The site reports three scenarios (core; core minus MLB spring training; SF-radio-only) so both readings are visible. Feb–Mar 2027 windows differ sharply between them.",
    "source": "https://www.mlb.com/news/mlb-2027-schedule-released"
   },
   {
    "id": "F16",
    "title": "2027 NCAAF slates (Stanford/Cal) not released",
-   "detail": "ESPN returns empty schedules for 2027+. Saturdays Sep\u2013Nov are conservatively marked 'game likely (est.)'.",
+   "detail": "ESPN returns empty schedules for 2027+. Saturdays Sep–Nov are conservatively marked 'game likely (est.)'.",
    "source": "https://gostanford.com/sports/football/schedule"
+  },
+  {
+   "id": "F17",
+   "title": "Black Friday 2026 kickoff: Westwood One lists 2:30 PM ET, NFL.com lists 3:00 PM ET (DEN @ PIT, Nov 27)",
+   "detail": "Re-verified live 2026-11-26: westwoodonesports.com/nfl-schedule shows the Black Friday game at 2:30 PM ET; nfl.com/schedules/2026 shows Broncos at Steelers Fri Nov 27 at 3:00 PM. The planner uses the Westwood One broadcast time (11:30 AM PT). A 30-minute shift does not change any free-day or vacation-window result; the exact on-air start should be re-checked on game day.",
+   "source": "https://www.westwoodonesports.com/nfl-schedule/"
+  },
+  {
+   "id": "F18",
+   "title": "129th Big Game kickoff time updated: 4:30 PM PT Sat Nov 21, 2026 (Berkeley, ACC Network)",
+   "detail": "gostanford.com news 2026-11-09 announced the kickoff as 4:30 PM PT, superseding the earlier 12:00 PM PT slot from the ACC release. The game (Stanford at Cal) is in the past relative to the planner horizon, so no free-time result changes; recorded here so the correction is not lost.",
+   "source": "https://gostanford.com/news/2026/11/09/kickoff-time-revealed-for-129th-big-game"
   }
  ]
 }
