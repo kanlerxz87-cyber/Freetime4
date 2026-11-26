@@ -479,3 +479,8 @@ Note: PR #9 (arena/e6eb3028-freetime4, "Build Bay Area Gameplan schedules and ra
 - summary.json independently recomputed from games-2026..2030.json: all 9 scenario/year longest runs match exactly (core 7/12/12; no-st 37/38/38; sf-radio 13/12/12).
 - games-2026.json has no MLB rows because the 2026 MLB season ended 2026-09-27, before the planner horizon (2026-11-25). Correct for a forward-looking planner; navigating the calendar before Nov 2026 shows no MLB data (noted, not a defect for vacation planning).
 - Irregularities added: F17 (Black Friday 30-min WW1 vs NFL.com), F18 (Big Game kickoff update). Existing F07/F11 Dec 17 + Jan 3 WW1-vs-team time conflicts re-confirmed live.
+
+### Session arena/a8991249 merge/deploy record
+- PR #17 (branch `arena/a8991249-freetime4` → `main`): https://github.com/kanlerxz87-cyber/Freetime4/pull/17 — MERGED 2026-11-26T13:12:26Z, merge commit a4b732aa06e39b41c9db64a8d5075d4c79d52da7.
+- GitHub Pages build after merge: status `built` (confirmed via Pages API 2026-11-26). Live: https://kanlerxz87-cyber.github.io/Freetime4/
+- Tasks A1-A6: all done. Flagged items F01-F18 published on flagged.html; none block the merge.
