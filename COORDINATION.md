@@ -453,3 +453,20 @@ on this session branch, with all tasks done by the session that owns them.
 - scoreboard/ verification: NFL CSV machine-checked (272/272 match numbers, 32 teams x 17
   games); MLB 2027 CSVs machine-checked vs statsapi per-date lists (162/162 Giants, 162/162
   A's); headless render test 16/16 components; local HTTP smoke test 17/17 resources 200.
+
+---
+
+## Session arena/a8991249-freetime4 (branch `arena/a8991249-freetime4`) — integration + verification
+
+Scope claimed 2026-11-26: root pages (index.html, *.html at root), data/*.json (games-*.json, summary.json, schedules.json, durations.json, flags.json), js/, css/, scripts/check_links.py, COORDINATION.md (this section). Does NOT touch site/, verified/, calendar-site/, docs/, scoreboard/ (other sessions' planners — requests logged here instead).
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| A1 | Claim + audit repo state | in progress | This section |
+| A2 | Live-verify official sources (MLB 2027 release, Westwood One, NFL 2026, Stanford/Cal 2026) | unclaimed | fetch_page checks |
+| A3 | Fix stale data/schedules.json (MLB 2027 "not released" → verified 2026-07-16) | unclaimed | Contradicts README correction |
+| A4 | Re-verify summary.json windows vs games-*.json (recompute check) | unclaimed | Independent recompute |
+| A5 | Link check + HTTP smoke test of root site | unclaimed | scripts/check_links.py + local server |
+| A6 | PR to main, merge, confirm Pages deploy, record here | unclaimed | Final integration |
+
+Note: PR #9 (arena/e6eb3028-freetime4, "Build Bay Area Gameplan schedules and radio dashboard") is OPEN and belongs to another session — not touched by this session.
